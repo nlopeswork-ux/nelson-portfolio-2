@@ -69,7 +69,7 @@ const designPrinciples = [
 const phases = [
   { year: '2023', label: 'Foundation', body: 'Replace manual processes with a unified digital platform. Delivered the full External Platform (Individual, Enterprise, Vendor, Training Provider, Bank), eligibility assessment, funding applications, internal assessment and approval workflows, payment requests, reimbursements, IBAN management, and the Internal Operations Platform.' },
   { year: '2024', label: 'Platform Expansion', body: 'Grow the ecosystem and reduce operational complexity. Delivered the Job Centre persona, a Customer 360 view, multi-persona profiles, a Programme Recommendation experience, an Applications Dashboard, site-visit management, and early AI-assisted document/compliance checks. Also the quick-wins cycle documented in Validation.' },
-  { year: '2025', label: 'Omnichannel Experience', body: 'Increase engagement through mobile. Delivered NEOT — a native mobile companion app covering application tracking, notifications, reimbursement status, monitoring requests and profile management.', link: true },
+  { year: '2025', label: 'Omnichannel Experience', body: 'Increase engagement through mobile. Delivered NEOT — a native mobile companion app covering application tracking, notifications, reimbursement status, monitoring requests and profile management.' },
   { year: '2026', label: 'Intelligence & Personalisation (current)', body: 'Personalised onboarding, dynamic profile completion, an AI operational agent, AI-assisted monitoring and compliance intelligence, and executive business-intelligence dashboards.' },
 ]
 
@@ -270,7 +270,7 @@ export default function CaseStudyTamkeen() {
           <div className="cs-timeline-line" />
           <div className="cs-timeline-line-v" />
           <div className="cs-timeline">
-            {phases.map(({ year, label, body, link }) => (
+            {phases.map(({ year, label, body }) => (
               <div key={year} style={{ display: 'flex', gap: 20 }}>
                 {/* dot — shown on mobile as left-side marker, on desktop sits at top */}
                 <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -279,12 +279,7 @@ export default function CaseStudyTamkeen() {
                 <div style={{ paddingBottom: 32 }}>
                   <div style={{ fontSize: 26, fontWeight: 800, color: '#12141F', marginBottom: 4 }}>{year}</div>
                   <div style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.05em', color: '#001A5C', marginBottom: 14 }}>{label}</div>
-                  <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5A5F73', margin: link ? '0 0 10px' : 0 }}>{body}</p>
-                  {link && (
-                    <p style={{ fontSize: 13, lineHeight: 1.6, color: '#5A5F73', margin: 0, padding: 12, borderRadius: 10, background: '#F2F6FF' }}>
-                      This phase shipped as NEOT — a dedicated mobile app. See the full <Link to="/work/neot" style={{ color: '#001A5C', fontWeight: 600, textDecoration: 'underline' }}>NEOT Mobile App case study ↗</Link>.
-                    </p>
-                  )}
+                  <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5A5F73', margin: 0 }}>{body}</p>
                 </div>
               </div>
             ))}

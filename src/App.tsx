@@ -7,7 +7,6 @@ import Contact from './pages/Contact'
 import CaseStudyIntelliForge from './pages/CaseStudyIntelliForge'
 import CaseStudyOneRAK from './pages/CaseStudyOneRAK'
 import CaseStudyTamkeen from './pages/CaseStudyTamkeen'
-import CaseStudyNEOT from './pages/CaseStudyNEOT'
 import CaseStudyDesignSystem from './pages/CaseStudyDesignSystem'
 import CaseStudyNeoBank from './pages/CaseStudyNeoBank'
 
@@ -20,7 +19,6 @@ export default function App() {
         <Route path="/work/intelliforge" element={<CaseStudyIntelliForge />} />
         <Route path="/work/onerak" element={<CaseStudyOneRAK />} />
         <Route path="/work/tamkeen" element={<CaseStudyTamkeen />} />
-        <Route path="/work/neot" element={<CaseStudyNEOT />} />
         <Route path="/work/design-system" element={<CaseStudyDesignSystem />} />
         <Route path="/work/neobank" element={<CaseStudyNeoBank />} />
         <Route path="/journey" element={<Journey />} />

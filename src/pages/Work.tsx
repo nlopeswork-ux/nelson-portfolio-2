@@ -5,7 +5,6 @@ import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
 import onerakImg from '../imports/OneRAK_Portal_Revamp.png'
 import tamkeenImg from '../imports/National_Workforce_Digital_Platform.png'
 import dsImg from '../imports/Internal_DS.png'
-import neotImg from '../imports/NEOT_Mobile_App.png'
 import neobankImg from '../imports/NEOT Bank App.png'
 
 const filterOptions = ['All', 'Financial Services', 'Government', 'Internal Platform']
@@ -66,20 +65,6 @@ const studies = [
     color: 'linear-gradient(135deg, #2D2D2D 0%, #4A4A6A 100%)',
     initials: 'DS',
     image: dsImg,
-  },
-  {
-    id: 'neot',
-    to: '/work/neot',
-    client: 'National employment fund',
-    title: 'NEOT Mobile App',
-    summary: '1,000+ screens across 8 modules unifying employment, training and financial support.',
-    industry: 'Government',
-    tags: ['Government'],
-    quote: null,
-    quoteAttribution: null,
-    color: 'linear-gradient(135deg, #003B6F 0%, #0055A5 100%)',
-    initials: 'MOB',
-    image: neotImg,
   },
   {
     id: 'neobank',

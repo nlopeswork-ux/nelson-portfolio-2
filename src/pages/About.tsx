@@ -55,7 +55,7 @@ const workPhases = [
     deliverables: ['Dev handoff specs', 'QA passes', 'Rollout support'],
     detail: "I stay through the first weeks of real use, not just the handoff meeting. Adoption problems show up as small hesitations, not bug reports — catching those early is the difference between a shipped feature and a used one.",
     question: "Did this actually change how people work?",
-    proof: { label: 'See this in the NEOT results', to: '/work/neot' },
+    proof: { label: 'See this in the IntelliForge results', to: '/work/intelliforge' },
   },
 ]
 
