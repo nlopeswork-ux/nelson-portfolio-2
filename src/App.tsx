@@ -8,7 +8,6 @@ import CaseStudyIntelliForge from './pages/CaseStudyIntelliForge'
 import CaseStudyOneRAK from './pages/CaseStudyOneRAK'
 import CaseStudyTamkeen from './pages/CaseStudyTamkeen'
 import CaseStudyDesignSystem from './pages/CaseStudyDesignSystem'
-import CaseStudyNeoBank from './pages/CaseStudyNeoBank'
 
 export default function App() {
   return (
@@ -20,7 +19,6 @@ export default function App() {
         <Route path="/work/onerak" element={<CaseStudyOneRAK />} />
         <Route path="/work/tamkeen" element={<CaseStudyTamkeen />} />
         <Route path="/work/design-system" element={<CaseStudyDesignSystem />} />
-        <Route path="/work/neobank" element={<CaseStudyNeoBank />} />
         <Route path="/journey" element={<Journey />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

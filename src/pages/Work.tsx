@@ -5,7 +5,6 @@ import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
 import onerakImg from '../imports/OneRAK_Portal_Revamp.png'
 import tamkeenImg from '../imports/National_Workforce_Digital_Platform.png'
 import dsImg from '../imports/Internal_DS.png'
-import neobankImg from '../imports/NEOT Bank App.png'
 
 const filterOptions = ['All', 'Financial Services', 'Government', 'Internal Platform']
 
@@ -65,20 +64,6 @@ const studies = [
     color: 'linear-gradient(135deg, #2D2D2D 0%, #4A4A6A 100%)',
     initials: 'DS',
     image: dsImg,
-  },
-  {
-    id: 'neobank',
-    to: '/work/neobank',
-    client: 'Retail bank engagement / internal concept',
-    title: 'NeoBank — Reimagining Banking Twice',
-    summary: 'From a research-led app redesign to an AI-native banking experience.',
-    industry: 'Financial Services',
-    tags: ['Financial Services'],
-    quote: null,
-    quoteAttribution: null,
-    color: 'linear-gradient(135deg, #002FA7 0%, #5B7FE8 100%)',
-    initials: 'NB',
-    image: neobankImg,
   },
 ]
 
