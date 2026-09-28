@@ -1,5 +1,7 @@
 import { useCallback, useRef, useState } from 'react'
 import type { KeyboardEvent, TouchEvent } from 'react'
+import ChevronLeft from './ChevronLeft'
+import ChevronRight from './ChevronRight'
 
 export interface CarouselImage {
   src: string
@@ -105,7 +107,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
 
       {!single && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-          <button type="button" className="carousel-arrow" aria-label="Previous screen" onClick={() => go(-1)}>←</button>
+          <button type="button" className="carousel-arrow" aria-label="Previous screen" onClick={() => go(-1)}><ChevronLeft size={16} className="" /></button>
           <div style={{ display: 'flex', gap: 8 }}>
             {images.map((img, i) => (
               <button
@@ -118,7 +120,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
               />
             ))}
           </div>
-          <button type="button" className="carousel-arrow" aria-label="Next screen" onClick={() => go(1)}>→</button>
+          <button type="button" className="carousel-arrow" aria-label="Next screen" onClick={() => go(1)}><ChevronRight size={16} className="" /></button>
         </div>
       )}
     </div>

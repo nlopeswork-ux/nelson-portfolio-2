@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import ChevronRight from '../components/ChevronRight'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
+import ChevronLeft from '../components/ChevronLeft'
 import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.jpg'
 
 const GradCap = () => (
@@ -250,13 +251,13 @@ export default function About() {
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginTop: 20 }}>
-            <button type="button" aria-label="Previous" className="carousel-arrow" onClick={certPrev}><span aria-hidden="true">←</span></button>
+            <button type="button" aria-label="Previous" className="carousel-arrow" onClick={certPrev}><ChevronLeft size={16} className="" /></button>
             <div style={{ display: 'flex', gap: 8 }}>
               {certSlides.map((_, i) => (
                 <button key={i} type="button" onClick={() => setCertIdx(i)} style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === certIdx ? '#3D63E0' : '#D8E0F5', border: 'none', padding: 0 }} />
               ))}
             </div>
-            <button type="button" aria-label="Next" className="carousel-arrow" onClick={certNext}><span aria-hidden="true">→</span></button>
+            <button type="button" aria-label="Next" className="carousel-arrow" onClick={certNext}><ChevronRight size={16} className="" /></button>
           </div>
         </div>
 

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
+import ChevronLeft from '../components/ChevronLeft'
+import ChevronRight from '../components/ChevronRight'
 import imgStepper from '../imports/stepper-activity.png'
 import imgShareholders from '../imports/shareholders-form.png'
 import imgLicenseSuccess from '../imports/license-success.png'
@@ -183,13 +185,13 @@ export default function CaseStudyOneRAK() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginBottom: 32 }}>
-          <button onClick={() => setPersonaIdx(i => (i - 1 + personas.length) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>←</button>
+          <button onClick={() => setPersonaIdx(i => (i - 1 + personas.length) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronLeft size={16} className="" /></button>
           <div style={{ display: 'flex', gap: 8 }}>
             {personas.map((_, i) => (
               <button key={i} onClick={() => setPersonaIdx(i)} style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === personaIdx ? '#002FA7' : '#DCE8FF', border: 'none', padding: 0 }} />
             ))}
           </div>
-          <button onClick={() => setPersonaIdx(i => (i + 1) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>→</button>
+          <button onClick={() => setPersonaIdx(i => (i + 1) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronRight size={16} className="" /></button>
         </div>
 
         <div style={{ marginBottom: 32 }}>
@@ -270,13 +272,13 @@ export default function CaseStudyOneRAK() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-          <button onClick={() => setScreenIdx(i => (i - 1 + prototypeScreens.length) % prototypeScreens.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>←</button>
+          <button onClick={() => setScreenIdx(i => (i - 1 + prototypeScreens.length) % prototypeScreens.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronLeft size={16} className="" /></button>
           <div style={{ display: 'flex', gap: 8 }}>
             {prototypeScreens.map((_, i) => (
               <button key={i} onClick={() => setScreenIdx(i)} style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === screenIdx ? '#002FA7' : '#DCE8FF', border: 'none', padding: 0 }} />
             ))}
           </div>
-          <button onClick={() => setScreenIdx(i => (i + 1) % prototypeScreens.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>→</button>
+          <button onClick={() => setScreenIdx(i => (i + 1) % prototypeScreens.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronRight size={16} className="" /></button>
         </div>
       </div>
 

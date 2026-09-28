@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
 import Counter from './Counter'
+import ChevronLeft from './ChevronLeft'
 
 interface MetaItem {
   label: string
@@ -62,8 +63,8 @@ export default function CaseStudyShell({ eyebrow, title, description, meta, stat
 
       {/* BACK LINK */}
       <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 20px 80px' }}>
-        <Link to="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 14, fontWeight: 600, color: '#002FA7', textDecoration: 'none' }}>
-          ← Back to all work
+        <Link to="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', textDecoration: 'none' }}>
+          <ChevronLeft size={15} className="" />Back to all work
         </Link>
       </div>
 

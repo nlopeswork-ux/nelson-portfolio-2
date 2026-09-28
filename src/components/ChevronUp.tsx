@@ -1,4 +1,4 @@
-export default function ChevronUp({ size = 16 }: { size?: number }) {
+export default function ChevronUp({ size = 16, className = 'cta-arrow' }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -10,7 +10,7 @@ export default function ChevronUp({ size = 16 }: { size?: number }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="cta-arrow"
+      className={className}
       style={{ flexShrink: 0 }}
     >
       <polyline points="6 15 12 9 18 15" />

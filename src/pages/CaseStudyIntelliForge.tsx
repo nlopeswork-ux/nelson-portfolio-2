@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
+import ChevronLeft from '../components/ChevronLeft'
+import ChevronRight from '../components/ChevronRight'
 
 const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
@@ -217,13 +219,13 @@ export default function CaseStudyIntelliForge() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginTop: 20 }}>
-          <button onClick={() => setPersonaIdx(i => (i - 1 + personas.length) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>←</button>
+          <button onClick={() => setPersonaIdx(i => (i - 1 + personas.length) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronLeft size={16} className="" /></button>
           <div style={{ display: 'flex', gap: 8 }}>
             {personas.map((_, i) => (
               <button key={i} onClick={() => setPersonaIdx(i)} style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === personaIdx ? '#002FA7' : '#DCE8FF', border: 'none', padding: 0 }} />
             ))}
           </div>
-          <button onClick={() => setPersonaIdx(i => (i + 1) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>→</button>
+          <button onClick={() => setPersonaIdx(i => (i + 1) % personas.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronRight size={16} className="" /></button>
         </div>
       </div>
 
@@ -308,13 +310,13 @@ export default function CaseStudyIntelliForge() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginTop: 20 }}>
-          <button onClick={() => setTestingIdx(i => (i - 1 + testingRounds.length) % testingRounds.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>←</button>
+          <button onClick={() => setTestingIdx(i => (i - 1 + testingRounds.length) % testingRounds.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronLeft size={16} className="" /></button>
           <div style={{ display: 'flex', gap: 8 }}>
             {testingRounds.map((_, i) => (
               <button key={i} onClick={() => setTestingIdx(i)} style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === testingIdx ? '#002FA7' : '#DCE8FF', border: 'none', padding: 0 }} />
             ))}
           </div>
-          <button onClick={() => setTestingIdx(i => (i + 1) % testingRounds.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', fontSize: 16, fontWeight: 700, border: 'none', fontFamily: "'Inter', sans-serif" }}>→</button>
+          <button onClick={() => setTestingIdx(i => (i + 1) % testingRounds.length)} style={{ cursor: 'pointer', width: 36, height: 36, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#F2F6FF', color: '#3D63E0', border: 'none' }}><ChevronRight size={16} className="" /></button>
         </div>
       </div>
 
