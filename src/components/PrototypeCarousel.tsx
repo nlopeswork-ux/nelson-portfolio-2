@@ -23,12 +23,19 @@ const SWIPE_THRESHOLD = 40
 export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: PrototypeCarouselProps) {
   const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState<Record<number, boolean>>({})
+  const [settled, setSettled] = useState(true)
   const touchStartX = useRef<number | null>(null)
   const isMobileFrame = aspectRatio === 'mobile'
 
   const go = useCallback((delta: number) => {
+    setSettled(false)
     setIndex(i => (i + delta + images.length) % images.length)
   }, [images.length])
+
+  const goTo = useCallback((i: number) => {
+    setSettled(false)
+    setIndex(i)
+  }, [])
 
   if (images.length === 0) return null
   const current = images[index]
@@ -76,12 +83,12 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
         >
           {!failed[index] ? (
             <img
-              key={current.src}
               src={current.src}
               alt={current.alt}
               loading={index === 0 ? 'eager' : 'lazy'}
-              onError={() => setFailed(f => ({ ...f, [index]: true }))}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              onLoad={() => setSettled(true)}
+              onError={() => { setFailed(f => ({ ...f, [index]: true })); setSettled(true) }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: settled ? 1 : 0, transition: 'opacity 180ms ease-out' }}
             />
           ) : (
             <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, padding: 16, textAlign: 'center', background: 'repeating-linear-gradient(135deg, #EEF1F8, #EEF1F8 10px, #E4E8F4 10px, #E4E8F4 20px)' }}>
@@ -106,7 +113,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
                 type="button"
                 aria-label={`Go to slide ${i + 1}`}
                 aria-current={i === index}
-                onClick={() => setIndex(i)}
+                onClick={() => goTo(i)}
                 style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === index ? '#002FA7' : '#DCE8FF', border: 'none', padding: 0 }}
               />
             ))}

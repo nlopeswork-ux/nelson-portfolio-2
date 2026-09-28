@@ -247,9 +247,9 @@ input::placeholder { color: #A0A4B8; }
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(-25px, 25px) scale(1.04); }
 }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-play-state: paused !important; }
 }
 
 /* ── Responsive grids ── */
@@ -400,15 +400,29 @@ input::placeholder { color: #A0A4B8; }
   .nav-links  { display: none; }
   .nav-burger { display: flex; }
   .nav-dropdown {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 4px;
-    padding-top: 14px;
-    margin-top: 12px;
-    border-top: 1px solid rgba(20,30,60,0.1);
     width: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid transparent;
+    transition: max-height 220ms ease-out, opacity 180ms ease-out, margin-top 220ms ease-out, padding-top 220ms ease-out, border-color 220ms ease-out;
   }
-  .nav-dropdown.open { display: flex; }
+  .nav-dropdown.open {
+    max-height: 320px;
+    opacity: 1;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top-color: rgba(20,30,60,0.1);
+  }
+}
+
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .nav-dropdown { transition: opacity 150ms ease; }
 }
 
 /* ── Journey timeline — all rows become single column on mobile ── */
