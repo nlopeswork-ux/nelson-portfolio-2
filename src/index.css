@@ -8,6 +8,7 @@
   --color-primary-soft: rgba(42, 76, 184, 0.12);
   --color-primary-halo: rgba(0, 47, 167, 0.18);
   --transition-fast: 0.15s ease;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -250,6 +251,20 @@ input::placeholder { color: #A0A4B8; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-play-state: paused !important; }
+}
+
+/* ── Hero stagger-in (homepage banner) ── */
+.hero-reveal {
+  transition: opacity 450ms var(--ease-out), transform 450ms var(--ease-out);
+}
+@starting-style {
+  .hero-reveal { opacity: 0; transform: translateY(14px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal { transition: opacity 200ms ease; }
+  @starting-style {
+    .hero-reveal { transform: none; }
+  }
 }
 
 /* ── Responsive grids ── */
