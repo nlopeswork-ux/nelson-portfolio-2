@@ -160,16 +160,16 @@ export default function About() {
         <div className="skills-marquee">
           <div className="skills-marquee-track">
             <div className="skills-marquee-group">
-              {skills.map(s => <span key={s} className="skills-pill">{s}</span>)}
+              {skills.map(s => <span key={s} className="skills-card">{s}</span>)}
             </div>
             <div className="skills-marquee-group" aria-hidden="true">
-              {skills.map(s => <span key={`${s}-dup`} className="skills-pill">{s}</span>)}
+              {skills.map(s => <span key={`${s}-dup`} className="skills-card">{s}</span>)}
             </div>
           </div>
         </div>
-        <div style={{ marginTop: 12, padding: '18px 24px', background: '#F7FAFF', borderRadius: 16, fontSize: 14, color: '#4A4F63' }}>
+        <p style={{ marginTop: 16, fontSize: 14, color: '#5A5F73' }}>
           <span style={{ fontWeight: 600, color: '#12141F' }}>Methodologies:</span> Agile, Lean, Scrum, Waterfall, Design Thinking
-        </div>
+        </p>
       </div>
 
       {/* ── PHILOSOPHY ── */}

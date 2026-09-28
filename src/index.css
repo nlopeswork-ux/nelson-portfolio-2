@@ -285,12 +285,12 @@ input::placeholder { color: #A0A4B8; }
   gap: 12px;
   padding-right: 12px;
 }
-.skills-pill {
+.skills-card {
   flex-shrink: 0;
   white-space: nowrap;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #F2F6FF;
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: rgba(0, 47, 167, 0.05);
   color: #12141F;
   font-size: 15px;
   font-weight: 600;
