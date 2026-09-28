@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import CaseStudyShell, { Body, DarkBox } from '../components/CaseStudyShell'
+import ChevronDown from '../components/ChevronDown'
+import ChevronUp from '../components/ChevronUp'
 
 const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
@@ -91,9 +93,9 @@ export default function CaseStudyDesignSystem() {
 
           <button
             onClick={() => setMethodologyOpen(o => !o)}
-            style={{ cursor: 'pointer', display: 'inline-flex', fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}
+            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}
           >
-            {methodologyOpen ? 'Hide audit methodology ↑' : 'Show audit methodology ↓'}
+            {methodologyOpen ? <>Hide audit methodology<ChevronUp size={14} /></> : <>Show audit methodology<ChevronDown size={14} /></>}
           </button>
 
           {methodologyOpen && (

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Nav from '../components/Nav'
+import ChevronDown from '../components/ChevronDown'
+import ChevronUp from '../components/ChevronUp'
 
 const kpmgEngagements = [
   { client: 'Global energy company', industry: 'Financial Services', period: '2026–Present', scope: 'IntelliForge SR2R — ontology-driven financial close system, 200 franchise dealers' },
@@ -58,7 +60,7 @@ export default function Journey() {
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>KPMG</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>Took ownership of enterprise product design across multiple industries and regions, leading end-to-end digital products from discovery to delivery while shaping product strategy, design systems and scalable user experiences.</p>
             <button type="button" aria-expanded={kpmgOpen} className="engagement-toggle" onClick={() => setKpmgOpen(o => !o)}>
-              {kpmgOpen ? 'Hide engagements ↑' : 'Show engagements ↓'}
+              {kpmgOpen ? <>Hide engagements<ChevronUp size={14} /></> : <>Show engagements<ChevronDown size={14} /></>}
             </button>
             {kpmgOpen && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 0, marginTop: 16, padding: 20, background: '#F7FAFF', borderRadius: 14 }}>
@@ -80,7 +82,7 @@ export default function Journey() {
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>Deloitte Digital</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>Grew from delivering individual screens to owning end-to-end digital experiences for aviation, energy, automotive and insurance clients.</p>
             <button type="button" aria-expanded={deloitteOpen} className="engagement-toggle" onClick={() => setDeloitteOpen(o => !o)}>
-              {deloitteOpen ? 'Hide engagements ↑' : 'Show engagements ↓'}
+              {deloitteOpen ? <>Hide engagements<ChevronUp size={14} /></> : <>Show engagements<ChevronDown size={14} /></>}
             </button>
             {deloitteOpen && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 0, marginTop: 16, padding: 20, background: '#F7FAFF', borderRadius: 14 }}>

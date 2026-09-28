@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
+import ChevronRight from '../components/ChevronRight'
 import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
 import onerakImg from '../imports/OneRAK_Portal_Revamp.png'
 import tamkeenImg from '../imports/National_Workforce_Digital_Platform.png'
@@ -168,7 +169,7 @@ export default function Work() {
                     <div style={{ fontSize: 12, fontWeight: 600, color: '#001A5C' }}>— {s.quoteAttribution}</div>
                   </div>
                 )}
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#002FA7' }}>Read the full case study →</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>Read the full case study<ChevronRight size={15} /></div>
               </div>
             </Link>
           ))}

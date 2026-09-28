@@ -206,6 +206,7 @@ button:focus-visible,
   font-size: 13px;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
+  gap: 4px;
 }
 
 .carousel-arrow:hover,
@@ -382,6 +383,7 @@ input::placeholder { color: #A0A4B8; }
 @media (max-width: 480px) {
   .rg-4    { grid-template-columns: 1fr; }
   .rg-stats { grid-template-columns: 1fr; }
+  .cta-arrow { display: none; }
 }
 
 /* ── Nav ── */

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
+import ChevronRight from '../components/ChevronRight'
+import ChevronDown from '../components/ChevronDown'
+import ChevronUp from '../components/ChevronUp'
 import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.jpg'
 
 const GradCap = () => (
@@ -200,13 +203,13 @@ export default function About() {
                   onClick={() => toggle(phase.id)}
                   style={{ marginTop: 'auto', alignSelf: 'flex-start' }}
                 >
-                  {isOpen ? 'Show less ↑' : 'Learn more ↓'}
+                  {isOpen ? <>Show less<ChevronUp size={14} /></> : <>Learn more<ChevronDown size={14} /></>}
                 </button>
                 {isOpen && (
                   <div style={{ marginTop: 16, padding: 16, background: 'rgba(0,47,167,0.03)', borderRadius: 14, borderTop: '1px solid #EAF1FF' }}>
                     <p style={{ fontSize: 13, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 10px' }}>{phase.detail}</p>
                     <div style={{ fontSize: 13, fontWeight: 600, color: '#12141F', fontStyle: 'italic', margin: '0 0 10px' }}>"{phase.question}"</div>
-                    <Link to={phase.proof.to} style={{ fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label} →</Link>
+                    <Link to={phase.proof.to} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label}<ChevronRight size={14} /></Link>
                   </div>
                 )}
               </div>

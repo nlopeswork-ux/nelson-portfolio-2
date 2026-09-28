@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
+import ChevronDown from '../components/ChevronDown'
+import ChevronUp from '../components/ChevronUp'
 import imgStepper from '../imports/stepper-activity.png'
 import imgShareholders from '../imports/shareholders-form.png'
 import imgLicenseSuccess from '../imports/license-success.png'
@@ -131,8 +133,8 @@ export default function CaseStudyOneRAK() {
         <div style={{ marginBottom: 24 }}>
           <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>3. Heuristic Accessibility Assessment</div>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>The team scored the secondary government portal against 10 Nielsen usability heuristics (0 = excellent to 4 = catastrophic). The most severe single finding — a Major (3) — was aesthetic/minimalist design: form-heavy screens packed multiple long fields together with no grouping or spacing.</p>
-          <button onClick={() => setHeuristicsOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
-            {heuristicsOpen ? 'Hide heuristic scores ↑' : 'Show heuristic scores ↓'}
+          <button onClick={() => setHeuristicsOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
+            {heuristicsOpen ? <>Hide heuristic scores<ChevronUp size={14} /></> : <>Show heuristic scores<ChevronDown size={14} /></>}
           </button>
           {heuristicsOpen && (
             <div className="table-scroll" style={{ background: 'rgba(0,47,167,0.03)', borderRadius: 14, padding: 16 }}>
