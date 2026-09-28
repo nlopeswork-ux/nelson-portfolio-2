@@ -157,10 +157,15 @@ export default function About() {
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>Skills &amp; Expertise</div>
         <h2 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 24px' }}>Where I add the most value</h2>
-        <div className="rg-4">
-          {skills.map(s => (
-            <div key={s} style={{ background: '#FFFFFF', padding: '24px 20px', fontSize: 15, fontWeight: 600, color: '#12141F' }}>{s}</div>
-          ))}
+        <div className="skills-marquee">
+          <div className="skills-marquee-track">
+            <div className="skills-marquee-group">
+              {skills.map(s => <span key={s} className="skills-pill">{s}</span>)}
+            </div>
+            <div className="skills-marquee-group" aria-hidden="true">
+              {skills.map(s => <span key={`${s}-dup`} className="skills-pill">{s}</span>)}
+            </div>
+          </div>
         </div>
         <div style={{ marginTop: 12, padding: '18px 24px', background: '#F7FAFF', borderRadius: 16, fontSize: 14, color: '#4A4F63' }}>
           <span style={{ fontWeight: 600, color: '#12141F' }}>Methodologies:</span> Agile, Lean, Scrum, Waterfall, Design Thinking
