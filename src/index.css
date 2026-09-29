@@ -108,7 +108,7 @@ button:focus-visible,
 
 .secondary-btn {
   border: 1.5px solid var(--color-primary);
-  border-radius: 24px;
+  border-radius: 12px;
 }
 
 .primary-btn:hover,
