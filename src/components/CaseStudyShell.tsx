@@ -31,7 +31,7 @@ export default function CaseStudyShell({ eyebrow, title, description, meta, stat
 
       {/* HERO */}
       <div style={{ position: 'relative', padding: 'clamp(120px,18vw,180px) 20px 60px', maxWidth: 900, margin: '0 auto' }}>
-        <div style={{ position: 'absolute', top: -160, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.32), transparent 70%)', filter: 'blur(70px)', animation: 'driftA 24s ease-in-out infinite', zIndex: -1 }} />
+        <div style={{ position: 'absolute', top: -160, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.32), transparent 70%)', filter: 'blur(70px)', animation: 'driftA 24s var(--ease-in-out) infinite', zIndex: -1 }} />
 
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: accentColor, marginBottom: 16 }}>{eyebrow}</div>
         <h1 style={{ fontSize: 'clamp(28px,5.5vw,56px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#12141F', margin: '0 0 24px', lineHeight: 1.1 }}>{title}</h1>

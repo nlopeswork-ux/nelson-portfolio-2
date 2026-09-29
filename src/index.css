@@ -9,6 +9,7 @@
   --color-primary-halo: rgba(0, 47, 167, 0.18);
   --transition-fast: 0.15s ease;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -243,11 +244,13 @@ input::placeholder { color: #A0A4B8; }
 
 @keyframes driftA {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -20px) scale(1.05); }
+  33% { transform: translate(24px, -18px) scale(1.04); }
+  66% { transform: translate(-10px, 12px) scale(0.98); }
 }
 @keyframes driftB {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-25px, 25px) scale(1.04); }
+  33% { transform: translate(-18px, 16px) scale(1.03); }
+  66% { transform: translate(14px, -12px) scale(0.97); }
 }
 
 @media (prefers-reduced-motion: reduce) {

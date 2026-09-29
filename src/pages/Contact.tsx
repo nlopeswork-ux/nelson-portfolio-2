@@ -19,8 +19,8 @@ export default function Contact() {
     <div style={{ position: 'relative', overflow: 'hidden', background: '#FFFFFF', minHeight: '100vh' }}>
       <Nav />
 
-      <div style={{ position: 'absolute', top: -160, left: -140, width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%)', filter: 'blur(60px)', animation: 'driftA 22s ease-in-out infinite' }} />
-      <div style={{ position: 'absolute', top: 120, right: -200, width: 520, height: 520, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.22), rgba(242,246,255,0.08) 60%, transparent 75%)', filter: 'blur(70px)', animation: 'driftB 26s ease-in-out infinite' }} />
+      <div style={{ position: 'absolute', top: -160, left: -140, width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%)', filter: 'blur(60px)', animation: 'driftA 22s var(--ease-in-out) infinite' }} />
+      <div style={{ position: 'absolute', top: 120, right: -200, width: 520, height: 520, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.22), rgba(242,246,255,0.08) 60%, transparent 75%)', filter: 'blur(70px)', animation: 'driftB 26s var(--ease-in-out) infinite' }} />
 
       <div ref={ref} style={{ position: 'relative', padding: '170px 32px 140px', maxWidth: 1200, margin: '0 auto', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)', transition: 'opacity 600ms ease-out, transform 600ms ease-out' }}>
         <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 64px' }}>
