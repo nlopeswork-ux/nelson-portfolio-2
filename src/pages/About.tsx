@@ -266,7 +266,7 @@ export default function About() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 32, fontSize: 14, color: '#5A5F73' }}>
-          Fluent in English and French, working proficiency in Spanish.
+          Fluent in Portuguese and English, working proficiency in Spanish and French.
         </div>
       </div>
 
