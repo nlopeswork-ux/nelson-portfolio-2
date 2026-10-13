@@ -130,7 +130,7 @@ export default function Portfolio() {
       </div>
 
       {/* FEATURED WORK PREVIEW */}
-      <div ref={preview.ref} style={{ position: 'relative', padding: '24px 32px 96px', maxWidth: 1200, margin: '0 auto', ...preview.style }}>
+      <div ref={preview.ref} style={{ position: 'relative', padding: '32px 32px 112px', maxWidth: 1200, margin: '0 auto', ...preview.style }}>
         <div className="rg-featured">
           <div>
             <div style={{ fontSize: 14, fontWeight: 500, color: '#6B7086', marginBottom: 6 }}>Featured work</div>
@@ -148,7 +148,7 @@ export default function Portfolio() {
       </div>
 
       {/* AREA TEASERS */}
-      <div ref={teaserGroup.ref} style={{ position: 'relative', padding: '20px 32px 32px', maxWidth: 1200, margin: '0 auto' }}>
+      <div ref={teaserGroup.ref} style={{ position: 'relative', padding: '24px 32px 96px', maxWidth: 1200, margin: '0 auto' }}>
         <div className="rg-teasers">
           {teasers.map(({ to, label, sub, desc, cta }, i) => {
             const tilt = teaserTilts[to]
@@ -165,10 +165,6 @@ export default function Portfolio() {
                   transitionDelay: `${i * 70}ms`,
                 } as React.CSSProperties}
               >
-                <div
-                  className="teaser-float"
-                  style={{ animationDuration: `${7 + i}s`, animationDelay: `${i * 0.6}s` }}
-                >
                 <Link
                   to={to}
                   className="teaser-card-v3"
@@ -188,7 +184,6 @@ export default function Portfolio() {
                   </div>
                   <div className="teaser-cta-link" aria-hidden="true">{cta}<ChevronRight size={15} /></div>
                 </Link>
-                </div>
               </div>
             )
           })}
@@ -196,7 +191,7 @@ export default function Portfolio() {
       </div>
 
       {/* CONTACT CTA */}
-      <div id="contact" ref={contact.ref} style={{ position: 'relative', padding: '40px 32px 120px', maxWidth: 1200, margin: '0 auto', ...contact.style }}>
+      <div id="contact" ref={contact.ref} style={{ position: 'relative', padding: '64px 32px 120px', maxWidth: 1200, margin: '0 auto', ...contact.style }}>
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.3), transparent 70%)', filter: 'blur(70px)', zIndex: -1 }} />
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', padding: '40px 24px' }}>

@@ -344,17 +344,6 @@ input::placeholder { color: #A0A4B8; }
   }
 }
 
-/* Continuous gentle float, like the hero's floating chips — independent of the
-   entrance transition (separate element) and the hover-lift transition on the
-   card itself (separate element again), so none of the three ever fight over
-   the same `transform`. */
-.teaser-float {
-  animation: floatSlow 8s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .teaser-float { animation: none; }
-}
-
 /* ── Area teaser cards (homepage): soft bulb glow, hover-flip, text-link CTA ── */
 .teaser-card-v3 {
   position: relative;
