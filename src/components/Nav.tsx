@@ -47,13 +47,13 @@ export default function Nav() {
       borderRadius: 20,
       boxShadow: '0 10px 30px rgba(20,30,60,0.14)',
     }}>
-      {/* Top row: logo + desktop links + burger */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Link to="/" className="logo-link" style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#1A1D29', textDecoration: 'none', flexShrink: 0 }}>
+      {/* Top row: logo | desktop links (true center) | burger */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', columnGap: 12 }}>
+        <Link to="/" className="logo-link" style={{ justifySelf: 'start', fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#1A1D29', textDecoration: 'none', flexShrink: 0 }}>
           Nelson Lopes
         </Link>
 
-        <nav className="nav-links" style={{ alignItems: 'center', gap: 12 }}>
+        <nav className="nav-links" style={{ justifySelf: 'center', alignItems: 'center', gap: 12 }}>
           {links.map(({ to, label }) => (
             <Link key={to} to={to} className="nav-link" style={linkStyle(to)}>{label}</Link>
           ))}
@@ -65,7 +65,7 @@ export default function Nav() {
           aria-label="Toggle menu"
           aria-expanded={open}
           className="nav-burger"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6, color: '#1A1D29', alignItems: 'center', justifyContent: 'center' }}
+          style={{ justifySelf: 'end', background: 'none', border: 'none', cursor: 'pointer', padding: 6, color: '#1A1D29', alignItems: 'center', justifyContent: 'center' }}
         >
           {open
             ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
