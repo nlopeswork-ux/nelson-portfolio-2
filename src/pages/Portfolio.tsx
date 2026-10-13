@@ -152,6 +152,10 @@ export default function Portfolio() {
                   transitionDelay: `${i * 70}ms`,
                 } as React.CSSProperties}
               >
+                <div
+                  className="teaser-float"
+                  style={{ animationDuration: `${7 + i}s`, animationDelay: `${i * 0.6}s` }}
+                >
                 <Link
                   to={to}
                   className="teaser-card-v3"
@@ -171,6 +175,7 @@ export default function Portfolio() {
                   </div>
                   <div className="teaser-cta-link" aria-hidden="true">{cta}<ChevronRight size={15} /></div>
                 </Link>
+                </div>
               </div>
             )
           })}
