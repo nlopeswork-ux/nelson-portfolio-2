@@ -10,6 +10,7 @@
   --transition-fast: 0.15s ease;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.22, 0.64, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -277,9 +278,22 @@ input::placeholder { color: #A0A4B8; }
 }
 
 /* ── Hero floating labels + accents (decorative, not interactive) ── */
-.hero-float {
+.hero-float-enter {
   position: absolute;
   z-index: 2;
+  transition: opacity 650ms var(--ease-out-back), transform 650ms var(--ease-out-back);
+}
+@starting-style {
+  .hero-float-enter { opacity: 0; transform: translate(var(--enter-x), var(--enter-y)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-enter { transition: opacity 200ms ease; }
+  @starting-style {
+    .hero-float-enter { transform: none; }
+  }
+}
+
+.hero-float {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -316,7 +330,7 @@ input::placeholder { color: #A0A4B8; }
   -webkit-box-decoration-break: clone;
 }
 @media (max-width: 900px) {
-  .hero-float, .hero-accent { display: none; }
+  .hero-float-enter, .hero-accent { display: none; }
 }
 
 /* ── Teaser scroll-in reveal: staggered, settles at a slight permanent tilt ── */

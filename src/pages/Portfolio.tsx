@@ -81,20 +81,33 @@ export default function Portfolio() {
         <div className="hero-accent" style={{ top: 100, right: '10%', width: 8, height: 8, background: '#002FA7', borderRadius: '50%', opacity: 0.4, animation: 'floatSlow 9s ease-in-out infinite 1s' }} />
         <div className="hero-accent" style={{ bottom: 70, left: '12%', width: 10, height: 10, border: '2px solid #3D63E0', borderRadius: '50%', opacity: 0.45, animation: 'floatSlow 8s ease-in-out infinite 0.5s' }} />
 
-        {/* floating labels — glass chips, not buttons */}
-        <div className="hero-float" style={{ top: 190, left: '4%', animation: 'floatSlow 8s ease-in-out infinite' }}>
-          <span className="hero-float-icon">{heroTagIcons[heroTags[0].icon]}</span>
-          <span>
-            <span className="hero-float-label">{heroTags[0].label}</span>
-            <span className="hero-float-caption">{heroTags[0].caption}</span>
-          </span>
+        {/* floating labels — glass chips, not buttons. Each converges toward the
+            headline from its own side: top-left tag drifts in from upper-left,
+            bottom-right tag from lower-right, staggered and settling with a
+            slight overshoot. */}
+        <div
+          className="hero-float-enter"
+          style={{ top: 190, left: '4%', ['--enter-x' as string]: '-36px', ['--enter-y' as string]: '-28px', transitionDelay: '150ms' } as React.CSSProperties}
+        >
+          <div className="hero-float" style={{ animation: 'floatSlow 8s ease-in-out infinite' }}>
+            <span className="hero-float-icon">{heroTagIcons[heroTags[0].icon]}</span>
+            <span>
+              <span className="hero-float-label">{heroTags[0].label}</span>
+              <span className="hero-float-caption">{heroTags[0].caption}</span>
+            </span>
+          </div>
         </div>
-        <div className="hero-float" style={{ bottom: 40, right: '5%', animation: 'floatSlow 9s ease-in-out infinite 0.8s' }}>
-          <span className="hero-float-icon">{heroTagIcons[heroTags[1].icon]}</span>
-          <span>
-            <span className="hero-float-label">{heroTags[1].label}</span>
-            <span className="hero-float-caption">{heroTags[1].caption}</span>
-          </span>
+        <div
+          className="hero-float-enter"
+          style={{ bottom: 40, right: '5%', ['--enter-x' as string]: '36px', ['--enter-y' as string]: '28px', transitionDelay: '300ms' } as React.CSSProperties}
+        >
+          <div className="hero-float" style={{ animation: 'floatSlow 9s ease-in-out infinite 0.8s' }}>
+            <span className="hero-float-icon">{heroTagIcons[heroTags[1].icon]}</span>
+            <span>
+              <span className="hero-float-label">{heroTags[1].label}</span>
+              <span className="hero-float-caption">{heroTags[1].caption}</span>
+            </span>
+          </div>
         </div>
 
         <div style={{ position: 'relative', maxWidth: 920, margin: '0 auto', textAlign: 'center', padding: '0 32px 32px' }}>
