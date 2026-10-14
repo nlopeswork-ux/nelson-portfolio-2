@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
@@ -84,11 +85,11 @@ const phaseTheme: Record<string, { base: string; glow: string }> = {
 }
 
 const philosophyItems = [
-  { n: '01', text: 'Clarity over decoration.' },
-  { n: '02', text: 'Research before assumptions.' },
-  { n: '03', text: 'Systems before screens.' },
-  { n: '04', text: 'Accessibility by default.' },
-  { n: '05', text: 'Products should reduce complexity, not display it.' },
+  { n: '01', text: 'Clarity over decoration' },
+  { n: '02', text: 'Research before assumptions' },
+  { n: '03', text: 'Systems before screens' },
+  { n: '04', text: 'Accessibility by default' },
+  { n: '05', text: 'Products should reduce complexity, not display it' },
 ]
 
 const skillGroups = [
@@ -286,7 +287,7 @@ export default function About() {
                     aria-expanded={isOpen}
                     className="engagement-toggle"
                     onClick={() => toggle(phase.id)}
-                    style={{ marginTop: 'auto', alignSelf: 'flex-start', background: '#FFFFFF' }}
+                    style={{ marginTop: 'auto', alignSelf: 'flex-start' }}
                   >
                     {isOpen ? <>Show less<ChevronUp size={14} /></> : <>Learn more<ChevronDown size={14} /></>}
                   </button>
@@ -344,7 +345,7 @@ export default function About() {
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '0 20px 40px', fontSize: 13, color: '#6B7086' }}>© 2026 Nelson Lopes. Designed with care.</div>
+      <Footer />
     </div>
   )
 }

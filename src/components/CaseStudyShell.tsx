@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
+import Footer from './Footer'
 import Counter from './Counter'
 import ChevronLeft from './ChevronLeft'
 
@@ -72,7 +73,7 @@ export default function CaseStudyShell({ eyebrow, title, description, meta, stat
         <p style={{ fontSize: 12, lineHeight: 1.6, color: '#A0A4B8', margin: 0 }}>Client names and identifying details have been generalized to respect confidentiality agreements. Metrics and outcomes reflect the real scope and impact of the engagement.</p>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '0 20px 40px', fontSize: 13, color: '#6B7086' }}>© 2026 Nelson Lopes. Designed with care.</div>
+      <Footer />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import intelliforgeImg from '../imports/hero.png'
 
@@ -203,9 +204,10 @@ export default function Portfolio() {
               Email me directly<ChevronRight />
             </a>
           </div>
-          <div style={{ textAlign: 'center', marginTop: 48, fontSize: 13, color: '#6B7086' }}>© 2026 Nelson Lopes. Designed with care.</div>
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

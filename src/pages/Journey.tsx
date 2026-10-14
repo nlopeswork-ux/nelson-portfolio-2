@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
 
@@ -57,7 +58,7 @@ export default function Journey() {
           {/* KPMG */}
           <TimelineRow period="2023 — Present">
             <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>Lead UX/UI Designer</h3>
-            <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>KPMG</div>
+            <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>KPMG Portugal</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>Took ownership of enterprise product design across multiple industries and regions, leading end-to-end digital products from discovery to delivery while shaping product strategy, design systems and scalable user experiences.</p>
             <button type="button" aria-expanded={kpmgOpen} className="engagement-toggle" onClick={() => setKpmgOpen(o => !o)}>
               {kpmgOpen ? <>Hide engagements<ChevronUp size={14} /></> : <>Show engagements<ChevronDown size={14} /></>}
@@ -126,7 +127,7 @@ export default function Journey() {
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '40px 32px', fontSize: 13, color: '#6B7086' }}>© 2026 Nelson Lopes. Designed with care.</div>
+      <Footer />
     </div>
   )
 }

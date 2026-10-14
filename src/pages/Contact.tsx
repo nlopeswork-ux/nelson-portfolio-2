@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null)
@@ -54,7 +55,7 @@ export default function Contact() {
         <div style={{ textAlign: 'center', marginTop: 56, fontSize: 14, color: '#A0A4B8' }}>Usually replies within a coffee's brew ☕ — based in Lisbon, happy to work with anyone, anywhere.</div>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '40px 32px', fontSize: 13, color: '#6B7086' }}>© 2026 Nelson Lopes. Designed with care.</div>
+      <Footer />
     </div>
   )
 }

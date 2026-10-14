@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import ChevronLeft from '../components/ChevronLeft'
 import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
@@ -254,7 +255,7 @@ export default function Work() {
         <span style={{ fontSize: 13, color: '#A0A4B8' }}>More case studies in progress</span>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '40px 32px', fontSize: 13, color: '#6B7086' }}>© 2026 Nelson Lopes. Designed with care.</div>
+      <Footer />
     </div>
   )
 }
