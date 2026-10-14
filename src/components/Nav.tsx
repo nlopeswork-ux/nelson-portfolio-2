@@ -51,7 +51,7 @@ export default function Nav() {
           side groups' widths never push it off-center) | burger */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Link to="/" className="logo-link" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
-          <img src="/logo-nl.svg" alt="" width={32} height={32} />
+          <img src="/logo-nl.svg" alt="" height={32} style={{ display: 'block', width: 'auto' }} />
         </Link>
 
         <nav className="nav-links" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', alignItems: 'center' }}>

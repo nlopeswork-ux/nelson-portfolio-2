@@ -6,8 +6,9 @@ export default function Footer() {
     <div style={{ padding: '0 20px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ padding: '48px 0 32px' }}>
-          <Link to="/" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center' }}>
-            <img src="/logo-footer.svg" alt="" height={20} style={{ display: 'block', width: 'auto' }} />
+          <Link to="/" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            <img src="/logo-nl.svg" alt="" height={20} style={{ display: 'block', width: 'auto' }} />
+            <img src="/logo-wordmark.svg" alt="" height={15} style={{ display: 'block', width: 'auto' }} />
           </Link>
         </div>
 
