@@ -119,12 +119,12 @@ function FunnelIcon({ size = 22 }: { size?: number }) {
   )
 }
 
-const METHOD_VISUALS: Record<string, { Icon: (p: { size?: number }) => ReactElement; bg: string; fg: string; className: string }> = {
-  designThinking: { Icon: BulbIcon, bg: '#0B1640', fg: '#FFFFFF', className: 'method-card--design' },
-  waterfall: { Icon: StairsIcon, bg: '#6B7390', fg: '#FFFFFF', className: 'method-card--waterfall' },
-  agile: { Icon: RefreshIcon, bg: '#3D56A6', fg: '#FFFFFF', className: 'method-card--agile' },
-  scrum: { Icon: ColumnsIcon, bg: '#1E3A8A', fg: '#FFFFFF', className: 'method-card--scrum' },
-  lean: { Icon: FunnelIcon, bg: '#E8ECFA', fg: '#0F2EA1', className: 'method-card--lean' },
+const METHOD_VISUALS: Record<string, { Icon: (p: { size?: number }) => ReactElement; accent: string; className: string }> = {
+  designThinking: { Icon: BulbIcon, accent: '#0B1640', className: 'method-card--design' },
+  waterfall: { Icon: StairsIcon, accent: '#6B7390', className: 'method-card--waterfall' },
+  agile: { Icon: RefreshIcon, accent: '#3D56A6', className: 'method-card--agile' },
+  scrum: { Icon: ColumnsIcon, accent: '#1E3A8A', className: 'method-card--scrum' },
+  lean: { Icon: FunnelIcon, accent: '#0F2EA1', className: 'method-card--lean' },
 }
 
 const methodologies = [
@@ -309,11 +309,11 @@ export default function About() {
               const v = METHOD_VISUALS[m.key]
               const { Icon } = v
               return (
-                <div key={m.key} className={`method-card ${v.className}`} style={{ background: v.bg, color: v.fg }}>
+                <div key={m.key} className={`method-card ${v.className}`} style={{ color: v.accent }}>
                   <Icon />
                   <div>
                     <div className="method-card-title">{m.title}</div>
-                    <div className="method-card-subtitle" style={{ opacity: 0.75 }}>{m.subtitle}</div>
+                    <div className="method-card-subtitle" style={{ opacity: 0.8 }}>{m.subtitle}</div>
                   </div>
                 </div>
               )

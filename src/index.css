@@ -540,6 +540,7 @@ input::placeholder { color: #A0A4B8; }
   justify-content: space-between;
   padding: 24px;
   border-radius: 24px;
+  background: rgba(0, 47, 167, 0.05);
   transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
