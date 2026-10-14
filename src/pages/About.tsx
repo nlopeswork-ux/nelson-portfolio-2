@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -76,6 +76,64 @@ function PhilosophyFlower({ hovered, onHover, size = 340 }: { hovered: number | 
     </svg>
   )
 }
+
+function iconProps(size: number) {
+  return { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.75, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true }
+}
+function BulbIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg {...iconProps(size)}>
+      <path d="M9 18h6M10 21h4" />
+      <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.44 1 1.14 1 1.9V16h5v-.2c0-.76.4-1.46 1-1.9A6 6 0 0 0 12 3Z" />
+    </svg>
+  )
+}
+function StairsIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg {...iconProps(size)}>
+      <path d="M4 20v-4h4v-4h4V8h4V4" />
+    </svg>
+  )
+}
+function RefreshIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg {...iconProps(size)}>
+      <path d="M4 11a8 8 0 0 1 14-5.2M20 4v4h-4" />
+      <path d="M20 13a8 8 0 0 1-14 5.2M4 20v-4h4" />
+    </svg>
+  )
+}
+function ColumnsIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg {...iconProps(size)}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M9 4v16M15 4v16" />
+    </svg>
+  )
+}
+function FunnelIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg {...iconProps(size)}>
+      <path d="M4 5h16l-6 7.5V18l-4 2v-7.5Z" />
+    </svg>
+  )
+}
+
+const METHOD_VISUALS: Record<string, { Icon: (p: { size?: number }) => ReactElement; bg: string; fg: string; className: string }> = {
+  designThinking: { Icon: BulbIcon, bg: '#0B1640', fg: '#FFFFFF', className: 'method-card--design' },
+  waterfall: { Icon: StairsIcon, bg: '#6B7390', fg: '#FFFFFF', className: 'method-card--waterfall' },
+  agile: { Icon: RefreshIcon, bg: '#3D56A6', fg: '#FFFFFF', className: 'method-card--agile' },
+  scrum: { Icon: ColumnsIcon, bg: '#1E3A8A', fg: '#FFFFFF', className: 'method-card--scrum' },
+  lean: { Icon: FunnelIcon, bg: '#E8ECFA', fg: '#0F2EA1', className: 'method-card--lean' },
+}
+
+const methodologies = [
+  { key: 'designThinking', title: 'Design Thinking', subtitle: 'Discovery' },
+  { key: 'waterfall', title: 'Waterfall', subtitle: 'Planned delivery' },
+  { key: 'agile', title: 'Agile', subtitle: 'Adaptive delivery' },
+  { key: 'scrum', title: 'Scrum', subtitle: 'Adaptive delivery' },
+  { key: 'lean', title: 'Lean', subtitle: 'Efficiency & value' },
+]
 
 const phaseTheme: Record<string, { base: string; glow: string }> = {
   discover: { base: '#F9F8FC', glow: '#F0845F' },
@@ -244,9 +302,24 @@ export default function About() {
             </div>
           </div>
         </div>
-        <p style={{ marginTop: 16, fontSize: 14, color: '#5A5F73' }}>
-          <span style={{ fontWeight: 600, color: '#12141F' }}>Methodologies:</span> Agile, Lean, Scrum, Waterfall, Design Thinking
-        </p>
+        <div style={{ marginTop: 40 }}>
+          <div style={{ ...eyebrow, marginBottom: 16 }}>Methodologies</div>
+          <div className="methodologies-grid">
+            {methodologies.map(m => {
+              const v = METHOD_VISUALS[m.key]
+              const { Icon } = v
+              return (
+                <div key={m.key} className={`method-card ${v.className}`} style={{ background: v.bg, color: v.fg }}>
+                  <Icon />
+                  <div>
+                    <div className="method-card-title">{m.title}</div>
+                    <div className="method-card-subtitle" style={{ opacity: 0.75 }}>{m.subtitle}</div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
 
       {/* ── HOW I WORK ── */}
