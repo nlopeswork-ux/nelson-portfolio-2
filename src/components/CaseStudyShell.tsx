@@ -107,7 +107,7 @@ export function VideoBlock({ src, poster, label }: { src: string; poster: string
     <div style={{ marginBottom: 24 }}>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
       <div style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', background: '#12141F' }}>
-        <video controls preload="metadata" playsInline poster={poster} style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <video controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline poster={poster} style={{ width: '100%', height: 'auto', display: 'block' }}>
           <source src={src} type="video/mp4" />
         </video>
       </div>
