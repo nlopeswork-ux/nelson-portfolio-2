@@ -21,7 +21,7 @@ const deloitteEngagements = [
   { client: 'Energy operator', industry: 'Energy', period: '2019', scope: 'Internal digital workspace' },
   { client: 'Insurance group', industry: 'Insurance', period: '2018–2019', scope: 'Digital product design for broker platform' },
   { client: 'Automotive brand', industry: 'Automotive', period: '2018', scope: 'Dealer-facing UX design sprint' },
-  { client: 'Energy retailer', industry: 'Energy', period: '2021–2023', scope: 'Gamified loyalty app (2021–2023) and programme website (2020–2023) rewarding sustainable habits', link: { to: '/work/edp-planeta-zero', label: 'View case study' } },
+  { client: 'Energy retailer', industry: 'Energy', period: '2020–2022', scope: 'Gamified loyalty app (2021–2022) and programme website (2020–2022) rewarding sustainable habits', link: { to: '/work/edp-planeta-zero', label: 'View case study' } },
   { client: 'Real estate group', industry: 'Real Estate', period: '2021–2022', scope: 'Fully digital property website revamp with smarter search and valuation tools', link: { to: '/work/era-revamp', label: 'View case study' } },
   { client: 'Various clients', industry: 'Multiple', period: '2018–2023', scope: 'Workshop facilitation, design sprints, UX audits' },
 ]

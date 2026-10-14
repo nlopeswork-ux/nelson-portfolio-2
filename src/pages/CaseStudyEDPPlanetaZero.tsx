@@ -14,7 +14,7 @@ const copy = {
     { label: 'Client', value: 'EDP Comercial (Portugal)' },
     { label: 'Role', value: 'Designed the full digital experience (UX/UI, screens and graphics), with support on content design for social media and EDP internal communications about the programme. Video: storyboard and script by me with a copywriter; screens and graphics by me; motion design in partnership with a motion designer.', span: true },
     { label: 'Platform', value: 'Mobile app and website (desktop and mobile)' },
-    { label: 'Year', value: 'App 2021–2023 · Website 2020–2023' },
+    { label: 'Year', value: 'App 2021–2022 · Website 2020–2022' },
     { label: 'Team', value: 'Account, Copywriter, Motion Designer, UX/UI Designer and Lead UX/UI Designer' },
   ],
   appLabel: 'App',
