@@ -214,8 +214,7 @@ export default function Work() {
                   borderRadius: 14,
                   overflow: 'hidden',
                   background: '#F5F7FC',
-                  aspectRatio: '4 / 3',
-                  maxHeight: 280,
+                  aspectRatio: '562 / 180',
                 }}>
                   <img
                     src={s.image}
@@ -225,11 +224,10 @@ export default function Work() {
                       width: '100%',
                       height: '100%',
                       display: 'block',
-                      objectFit: 'contain',
+                      objectFit: 'cover',
                       objectPosition: 'center',
                     }}
                   />
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(to bottom, transparent, #F5F7FC)', pointerEvents: 'none' }} />
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
