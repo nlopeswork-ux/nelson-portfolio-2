@@ -479,44 +479,50 @@ input::placeholder { color: #A0A4B8; }
   .teaser-card-v3:hover, .teaser-card-v3:focus-visible { transform: none; }
 }
 
-/* ── Skills marquee (About page) ── */
-.skills-marquee {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
-  mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+/* ── Skills & Expertise infographic (About page): semantic groups instead
+   of one undifferentiated scrolling row, with generous internal spacing ── */
+.skill-group-card {
+  padding: 28px;
+  border-radius: 18px;
+  background: rgba(0, 47, 167, 0.03);
+  border: 1px solid rgba(0, 47, 167, 0.07);
 }
-.skills-marquee-track {
+.skill-group-header {
   display: flex;
-  width: max-content;
-  animation: skills-marquee-scroll 26s linear infinite;
-}
-.skills-marquee-group {
-  display: flex;
-  flex-shrink: 0;
+  align-items: center;
   gap: 12px;
-  padding-right: 12px;
+  margin-bottom: 20px;
+}
+.skill-group-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(61,99,224,0.16), rgba(0,47,167,0.06));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skill-group-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #001A5C;
+}
+.skill-group-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .skills-card {
-  flex-shrink: 0;
   white-space: nowrap;
-  padding: 20px 24px;
-  border-radius: 14px;
-  background: rgba(0, 47, 167, 0.05);
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #FFFFFF;
   color: #12141F;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-}
-@keyframes skills-marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@media (hover: hover) and (pointer: fine) {
-  .skills-marquee:hover .skills-marquee-track { animation-play-state: paused; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .skills-marquee-track { animation: none; width: 100%; }
-  .skills-marquee-group:first-child { flex-wrap: wrap; }
-  .skills-marquee-group:last-child { display: none; }
 }
 
 /* ── Certifications marquee (About page) ── */
