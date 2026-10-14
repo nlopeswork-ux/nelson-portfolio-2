@@ -796,6 +796,9 @@ input::placeholder { color: #A0A4B8; }
   .cs-timeline-line-v { display: block; position: absolute; top: 0; bottom: 0; left: 11px; width: 2px; background: linear-gradient(180deg,#001A5C,#3D63E0); pointer-events: none; }
   .rg-4         { grid-template-columns: 1fr 1fr; }
   .rg-2         { grid-template-columns: 1fr; }
+  .rg-phase     { grid-template-columns: 1fr; }
+  .methodologies-grid { grid-template-columns: 1fr; }
+  .method-card  { flex-direction: row; align-items: center; gap: 16px; padding: 16px 20px; }
   .rg-edu       { grid-template-columns: 1fr; }
   .rg-teasers   { grid-template-columns: 1fr; }
   .rg-featured  { grid-template-columns: 1fr; gap: 32px; }
