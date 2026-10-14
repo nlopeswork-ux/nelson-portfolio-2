@@ -954,8 +954,7 @@ input::placeholder { color: #A0A4B8; }
   border-radius: 20px;
   overflow: hidden;
   padding: 24px;
-  background: #F9FAFC;
-  border: 1px solid #EAF1FF;
+  background: #FFFFFF;
   border-top: 3px solid #002FA7;
   box-shadow: 0 4px 12px rgba(20,30,60,0.04);
   transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
