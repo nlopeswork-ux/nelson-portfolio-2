@@ -8,6 +8,33 @@ import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
 import onerakImg from '../imports/OneRAK_Portal_Revamp.png'
 import tamkeenImg from '../imports/National_Workforce_Digital_Platform.png'
 import dsImg from '../imports/Internal_DS.png'
+import edpAppPoster from '../imports/EDP-planetazero-app-poster.png'
+import eraPoster from '../imports/era-showcase-poster.png'
+
+const earlierWork = [
+  {
+    id: 'edp-planeta-zero',
+    to: '/work/edp-planeta-zero',
+    poster: edpAppPoster,
+    eyebrow: 'EDP COMERCIAL — ENERGY · PORTUGAL',
+    title: 'EDP Planeta Zero',
+    description: 'Gamified app and programme website where customers earn Zs, level up and unlock rewards, with a CO₂ simulator and a community movement.',
+    tag: 'Energy',
+    cta: 'See case study',
+    alt: 'EDP Planeta Zero product film thumbnail',
+  },
+  {
+    id: 'era-revamp',
+    to: '/work/era-revamp',
+    poster: eraPoster,
+    eyebrow: 'ERA IMOBILIÁRIA — REAL ESTATE · PORTUGAL',
+    title: 'ERA Digital Revamp',
+    description: 'A new fully digital website with smarter search, favourites with notes and a free home valuation.',
+    tag: 'Real Estate',
+    cta: 'See case study',
+    alt: 'ERA Digital Revamp product film thumbnail',
+  },
+]
 
 const filterOptions = ['All', 'Financial Services', 'Government', 'Internal Platform']
 
@@ -246,6 +273,40 @@ export default function Work() {
           ))}
         </div>
 
+      </div>
+
+      {/* EARLIER WORK */}
+      <div style={{ padding: '24px 32px 56px', maxWidth: 1200, margin: '0 auto' }}>
+        <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 12px' }}>Earlier work: UX/UI and product film</h2>
+        <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', maxWidth: 640, margin: '0 0 28px' }}>Digital experiences I designed end to end, presented through product films. I designed the UX/UI, screens and graphics, and wrote the storyboard and script with a copywriter — the animation was handled by a motion designer.</p>
+        <div className="work-grid">
+          {earlierWork.map(w => (
+            <Link key={w.id} to={w.to} className="case-card interactive-card" style={{ display: 'block', textDecoration: 'none', borderRadius: 20, overflow: 'hidden', background: '#FFFFFF', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
+              <div style={{ padding: 12 }}>
+                <div style={{ position: 'relative', width: '100%', borderRadius: 14, overflow: 'hidden', background: '#F5F7FC', aspectRatio: '562 / 180' }}>
+                  <img
+                    src={w.poster}
+                    alt={w.alt}
+                    onError={e => { e.currentTarget.style.display = 'none' }}
+                    style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }}
+                  />
+                  <div aria-hidden="true" style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'rgba(18,20,31,0.55)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M6 4l10 6-10 6V4z" fill="#FFFFFF" /></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style={{ padding: '8px 24px 24px' }}>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{w.eyebrow}</div>
+                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{w.title}</h3>
+                <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{w.description}</p>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 14 }}>{w.tag}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{w.cta}<ChevronRight size={15} /></div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* PLACEHOLDER */}

@@ -49,14 +49,16 @@ export default function CaseStudyShell({ eyebrow, title, description, meta, stat
         </div>
 
         {/* STATS */}
-        <div className="rg-stats" style={{ '--stat-cols': stats.length } as React.CSSProperties}>
-          {stats.map(({ value, label }) => (
-            <div key={label} style={{ textAlign: 'center', padding: 20, borderRadius: 18, background: '#F2F6FF' }}>
-              <div style={{ fontSize: stats.length === 4 ? 22 : 30, fontWeight: 800, color: accentColor, lineHeight: 1.1 }}><Counter value={value} /></div>
-              <div style={{ fontSize: 13, color: '#5A5F73', marginTop: 4 }}>{label}</div>
-            </div>
-          ))}
-        </div>
+        {stats.length > 0 && (
+          <div className="rg-stats" style={{ '--stat-cols': stats.length } as React.CSSProperties}>
+            {stats.map(({ value, label }) => (
+              <div key={label} style={{ textAlign: 'center', padding: 20, borderRadius: 18, background: '#F2F6FF' }}>
+                <div style={{ fontSize: stats.length === 4 ? 22 : 30, fontWeight: 800, color: accentColor, lineHeight: 1.1 }}><Counter value={value} /></div>
+                <div style={{ fontSize: 13, color: '#5A5F73', marginTop: 4 }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* CONTENT */}
@@ -96,6 +98,35 @@ export function DarkBox({ label, children }: { label?: string; children: React.R
     <div style={{ padding: 28, borderRadius: 24, background: '#12141F', color: '#F2F6FF', marginBottom: 24 }}>
       {label && <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#8FAEFF', marginBottom: 12 }}>{label}</div>}
       {children}
+    </div>
+  )
+}
+
+export function VideoBlock({ src, poster, label }: { src: string; poster: string; label?: string }) {
+  return (
+    <div style={{ marginBottom: 24 }}>
+      {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
+      <div style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', background: '#12141F' }}>
+        <video controls preload="metadata" playsInline poster={poster} style={{ width: '100%', height: 'auto', display: 'block' }}>
+          <source src={src} type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  )
+}
+
+export function FeatureList({ title, items }: { title?: string; items: string[] }) {
+  return (
+    <div style={{ marginBottom: 24 }}>
+      {title && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 }}>{title}</div>}
+      <ul className="rg-2" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        {items.map((item, i) => (
+          <li key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 15, lineHeight: 1.6, color: '#4A4F63' }}>
+            <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: '50%', background: '#002FA7', marginTop: 8, flexShrink: 0 }} />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -9,6 +9,8 @@ import CaseStudyIntelliForge from './pages/CaseStudyIntelliForge'
 import CaseStudyOneRAK from './pages/CaseStudyOneRAK'
 import CaseStudyTamkeen from './pages/CaseStudyTamkeen'
 import CaseStudyDesignSystem from './pages/CaseStudyDesignSystem'
+import CaseStudyEDPPlanetaZero from './pages/CaseStudyEDPPlanetaZero'
+import CaseStudyERARevamp from './pages/CaseStudyERARevamp'
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/work/onerak" element={<CaseStudyOneRAK />} />
         <Route path="/work/tamkeen" element={<CaseStudyTamkeen />} />
         <Route path="/work/design-system" element={<CaseStudyDesignSystem />} />
+        <Route path="/work/edp-planeta-zero" element={<CaseStudyEDPPlanetaZero />} />
+        <Route path="/work/era-revamp" element={<CaseStudyERARevamp />} />
         <Route path="/journey" element={<Journey />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

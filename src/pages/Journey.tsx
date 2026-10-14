@@ -1,15 +1,16 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
 
 const kpmgEngagements = [
-  { client: 'Global energy company', industry: 'Financial Services', period: '2026–Present', scope: 'IntelliForge SR2R — ontology-driven financial close system, 200 franchise dealers' },
-  { client: 'Government economic zone authority', industry: 'Government', period: '2025–2026', scope: 'OneRAK Portal Revamp — 3 portals unified, 18/18 services live' },
+  { client: 'Global energy company', industry: 'Financial Services', period: '2026–Present', scope: 'IntelliForge SR2R — ontology-driven financial close system, 200 franchise dealers', link: { to: '/work/intelliforge', label: 'View case study' } },
+  { client: 'Government economic zone authority', industry: 'Government', period: '2025–2026', scope: 'OneRAK Portal Revamp — 3 portals unified, 18/18 services live', link: { to: '/work/onerak', label: 'View case study' } },
   { client: 'Retail bank', industry: 'Financial Services', period: '2024–2025', scope: 'Backoffice — 1,350+ frames, 14 feature areas' },
   { client: 'Retail bank — mobile', industry: 'Financial Services', period: '2024–2025', scope: 'Mobile Banking App Redesign — 1,590+ screens, 12 core features' },
-  { client: 'National workforce fund', industry: 'Government', period: '2023–present', scope: 'National Workforce Platform — end-to-end digital funding ecosystem' },
+  { client: 'National workforce fund', industry: 'Government', period: '2023–present', scope: 'National Workforce Platform — end-to-end digital funding ecosystem', link: { to: '/work/tamkeen', label: 'View case study' } },
 ]
 
 const deloitteEngagements = [
@@ -20,6 +21,8 @@ const deloitteEngagements = [
   { client: 'Energy operator', industry: 'Energy', period: '2019', scope: 'Internal digital workspace' },
   { client: 'Insurance group', industry: 'Insurance', period: '2018–2019', scope: 'Digital product design for broker platform' },
   { client: 'Automotive brand', industry: 'Automotive', period: '2018', scope: 'Dealer-facing UX design sprint' },
+  { client: 'Energy retailer', industry: 'Energy', period: '2021–2023', scope: 'Gamified loyalty app (2021–2023) and programme website (2020–2023) rewarding sustainable habits', link: { to: '/work/edp-planeta-zero', label: 'View case study' } },
+  { client: 'Real estate group', industry: 'Real Estate', period: '2021–2022', scope: 'Fully digital property website revamp with smarter search and valuation tools', link: { to: '/work/era-revamp', label: 'View case study' } },
   { client: 'Various clients', industry: 'Multiple', period: '2018–2023', scope: 'Workshop facilitation, design sprints, UX audits' },
 ]
 
@@ -68,7 +71,15 @@ export default function Journey() {
                 {kpmgEngagements.map((eng, i) => (
                   <div key={i} className="timeline-eng-row" style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: 12, fontSize: 14, padding: '10px 0', borderBottom: i < kpmgEngagements.length - 1 ? '1px solid #EAF1FF' : 'none' }}>
                     <div style={{ fontWeight: 600, color: '#12141F' }}>{eng.client}</div>
-                    <div style={{ color: '#5A5F73' }}>{eng.industry} · {eng.period}<br />{eng.scope}</div>
+                    <div style={{ color: '#5A5F73' }}>
+                      {eng.industry} · {eng.period}<br />{eng.scope}
+                      {'link' in eng && eng.link && (
+                        <>
+                          {' — '}
+                          <Link to={eng.link.to} style={{ color: '#002FA7', fontWeight: 600, textDecoration: 'none' }}>{eng.link.label}</Link>
+                        </>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -90,7 +101,15 @@ export default function Journey() {
                 {deloitteEngagements.map((eng, i) => (
                   <div key={i} className="timeline-eng-row" style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: 12, fontSize: 14, padding: '10px 0', borderBottom: i < deloitteEngagements.length - 1 ? '1px solid #EAF1FF' : 'none' }}>
                     <div style={{ fontWeight: 600, color: '#12141F' }}>{eng.client}</div>
-                    <div style={{ color: '#5A5F73' }}>{eng.industry} · {eng.period}<br />{eng.scope}</div>
+                    <div style={{ color: '#5A5F73' }}>
+                      {eng.industry} · {eng.period}<br />{eng.scope}
+                      {'link' in eng && eng.link && (
+                        <>
+                          {' — '}
+                          <Link to={eng.link.to} style={{ color: '#002FA7', fontWeight: 600, textDecoration: 'none' }}>{eng.link.label}</Link>
+                        </>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
