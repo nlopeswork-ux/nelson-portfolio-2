@@ -7,7 +7,7 @@ export default function Footer() {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ padding: '48px 0 32px' }}>
           <Link to="/" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center' }}>
-            <img src="/logo-nl.svg" alt="" height={40} style={{ display: 'block', width: 'auto' }} />
+            <img src="/logo-nl.svg" alt="" style={{ display: 'block', height: 40, width: 'auto' }} />
           </Link>
         </div>
 
