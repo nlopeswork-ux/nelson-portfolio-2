@@ -1,5 +1,8 @@
 {
   "description": "Streamline your task management with an intuitive platform that helps users organize, prioritize, and track their projects efficiently.",
+  "icons": {
+    "icon": "/logo-nl.svg"
+  },
   "robots": {
     "index": false
   },

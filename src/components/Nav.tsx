@@ -50,7 +50,8 @@ export default function Nav() {
       {/* Top row: logo | desktop links (true center, absolutely positioned so the
           side groups' widths never push it off-center) | burger */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Link to="/" className="logo-link" style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#1A1D29', textDecoration: 'none', flexShrink: 0 }}>
+        <Link to="/" className="logo-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 16, fontWeight: 700, letterSpacing: '-0.01em', color: '#1A1D29', textDecoration: 'none', flexShrink: 0 }}>
+          <img src="/logo-nl.svg" alt="" width={32} height={32} style={{ borderRadius: 8 }} />
           Nelson Lopes
         </Link>
 
