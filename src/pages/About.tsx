@@ -1,24 +1,94 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import ChevronRight from '../components/ChevronRight'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
-import ChevronLeft from '../components/ChevronLeft'
 import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.jpg'
 import iadeLogo from '../imports/logos/iade.png'
 import ecvLogo from '../imports/logos/ecv.png'
 import ixdfLogo from '../imports/logos/ixdf.png'
 
-const thumb = { width: 48, height: 48, borderRadius: 8, flexShrink: 0, background: '#F7FAFF', border: '1px solid #EAF1FF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' } as const
+const thumb = { width: 48, height: 48, borderRadius: 8, flexShrink: 0, background: '#F7FAFF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' } as const
 const thumbImg = { width: '70%', height: '70%', objectFit: 'contain' } as const
+
+const eyebrow = { fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C' } as const
+const eyebrowWithTitle = { ...eyebrow, marginBottom: 12 } as const
+const eyebrowStandalone = { ...eyebrow, marginBottom: 20 } as const
+const sectionTitle = { fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' } as const
+
+const PHILOSOPHY_ANGLES = [-90, -18, 54, 126, 198]
+
+function PhilosophyFlower({ hovered, onHover, size = 340 }: { hovered: number | null; onHover: (i: number | null) => void; size?: number }) {
+  const cx = 180, cy = 180, R = 96, d = 74
+  const order = [...PHILOSOPHY_ANGLES.map((_, i) => i)].sort((a, b) => (a === hovered ? 1 : b === hovered ? -1 : 0))
+  return (
+    <svg viewBox="0 0 360 360" width={size} height={size} style={{ flexShrink: 0, overflow: 'visible' }}>
+      <defs>
+        <filter id="philosophy-center-shadow" x="-60%" y="-60%" width="220%" height="220%">
+          <feDropShadow dx="0" dy="4" stdDeviation="7" floodColor="rgba(20,30,60,0.22)" />
+        </filter>
+      </defs>
+      <g style={{ mixBlendMode: 'multiply' }}>
+        {order.map(i => {
+          const rad = (PHILOSOPHY_ANGLES[i] * Math.PI) / 180
+          const isHovered = hovered === i
+          return (
+            <circle
+              key={i}
+              cx={cx + d * Math.cos(rad)}
+              cy={cy + d * Math.sin(rad)}
+              r={R}
+              fill={isHovered ? 'rgba(61,99,224,0.34)' : 'rgba(61,99,224,0.14)'}
+              stroke={isHovered ? '#3D63E0' : '#9FB4F2'}
+              strokeWidth={isHovered ? 2 : 1}
+              style={{ cursor: 'pointer', transition: 'fill 160ms ease, stroke 160ms ease, stroke-width 160ms ease' }}
+              onMouseEnter={() => onHover(i)}
+              onMouseLeave={() => onHover(null)}
+            />
+          )
+        })}
+      </g>
+      <circle cx={cx} cy={cy} r={66} fill="#FFFFFF" stroke="#DCE4F9" strokeWidth={1.5} filter="url(#philosophy-center-shadow)" style={{ pointerEvents: 'none' }} />
+      <text x={cx} y={cy - 6} textAnchor="middle" fontSize={14} fontWeight={800} fill="#001A5C" fontFamily="Inter, sans-serif" style={{ pointerEvents: 'none' }}>DESIGN</text>
+      <text x={cx} y={cy + 13} textAnchor="middle" fontSize={14} fontWeight={800} fill="#001A5C" fontFamily="Inter, sans-serif" style={{ pointerEvents: 'none' }}>PHILOSOPHY</text>
+      {PHILOSOPHY_ANGLES.map((deg, i) => {
+        const rad = (deg * Math.PI) / 180
+        const nd = d + R * 0.46
+        const isHovered = hovered === i
+        return (
+          <text
+            key={i}
+            x={cx + nd * Math.cos(rad)}
+            y={cy + nd * Math.sin(rad) + 5}
+            textAnchor="middle"
+            fontSize={isHovered ? 14 : 13}
+            fontWeight={800}
+            fill="#001A5C"
+            fontFamily="Inter, sans-serif"
+            style={{ pointerEvents: 'none', transition: 'font-size 160ms ease' }}
+          >
+            {String(i + 1).padStart(2, '0')}
+          </text>
+        )
+      })}
+    </svg>
+  )
+}
+
+const phaseTheme: Record<string, { base: string; glow: string }> = {
+  discover: { base: '#F9F8FC', glow: '#F0845F' },
+  define: { base: '#F6FAF9', glow: '#4FBF93' },
+  design: { base: '#F6F7FC', glow: '#6E86D6' },
+  deliver: { base: '#FBF8F2', glow: '#E8A33D' },
+}
 
 const philosophyItems = [
   { n: '01', text: 'Clarity over decoration.' },
   { n: '02', text: 'Research before assumptions.' },
   { n: '03', text: 'Systems before screens.' },
   { n: '04', text: 'Accessibility by default.' },
-  { n: '05', text: 'Products should reduce complexity, not display it.', full: true },
+  { n: '05', text: 'Products should reduce complexity, not display it.' },
 ]
 
 const skills = ['Product Design', 'UX Research', 'Design Systems', 'Accessibility', 'Strategy', 'Leadership', 'Visual Design', 'AI for Designers']
@@ -74,24 +144,9 @@ const certifications = [
 
 export default function About() {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
-  const [certIdx, setCertIdx] = useState(0)
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth <= 640)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 640px)')
-    const handler = (e: MediaQueryListEvent) => { setIsMobile(e.matches); setCertIdx(0) }
-    mq.addEventListener('change', handler)
-    setIsMobile(mq.matches)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
-
-  const perSlide = isMobile ? 1 : 3
-  const certSlides = []
-  for (let i = 0; i < certifications.length; i += perSlide) certSlides.push(certifications.slice(i, i + perSlide))
+  const [philosophyHover, setPhilosophyHover] = useState<number | null>(null)
 
   const toggle = (id: string) => setExpanded(e => ({ ...e, [id]: !e[id] }))
-  const certPrev = () => setCertIdx(i => (i - 1 + certSlides.length) % certSlides.length)
-  const certNext = () => setCertIdx(i => (i + 1) % certSlides.length)
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', background: '#FFFFFF', minHeight: '100vh' }}>
@@ -109,14 +164,14 @@ export default function About() {
             <p style={{ fontSize: 18, lineHeight: 1.75, color: '#4A4F63', margin: '0 0 20px' }}>I believe the best design isn't the one people notice. It's the one that quietly helps them achieve what they came to do.</p>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>That work has also taken me across borders — international client engagements across financial services and government, among others.</p>
           </div>
-          <div style={{ flex: '0 0 auto', width: 'min(320px, 100%)', height: 480, borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 50px rgba(120,150,255,0.18)', background: '#F2F6FF' }}>
+          <div style={{ flex: '0 0 auto', width: 'min(320px, 100%)', height: 480, borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 50px rgba(120,150,255,0.18)', background: '#F2F6FF', animation: 'floatSlow 9s ease-in-out infinite' }}>
             <img src={profileImg} alt="Nelson Lopes" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
           </div>
         </div>
 
         <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
 
-        <h3 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' }}>How I Think</h3>
+        <h2 style={sectionTitle}>How I Think</h2>
         <div style={{ columns: '2 340px', columnGap: 48 }}>
           <p style={{ fontSize: 17, lineHeight: 1.75, color: '#4A4F63', margin: '0 0 20px' }}>Curiosity has always shaped the way I approach both design and life.</p>
           <p style={{ fontSize: 17, lineHeight: 1.75, color: '#4A4F63', margin: '0 0 20px' }}>As a child, I dreamed of becoming a car designer. I wasn't fascinated by cars themselves, but by the balance between engineering, aesthetics and human experience. I admired how thoughtful design could make something complex feel effortless. Although my path led me into digital products instead, I realised I was pursuing the very same idea: creating experiences where clarity, craftsmanship and purpose work together seamlessly.</p>
@@ -128,6 +183,32 @@ export default function About() {
 
         <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
 
+        <div className="philosophy-layout">
+          <PhilosophyFlower hovered={philosophyHover} onHover={setPhilosophyHover} />
+          <div className="philosophy-list">
+            {philosophyItems.map(({ n, text }, i) => {
+              const isHovered = philosophyHover === i
+              return (
+                <div
+                  key={n}
+                  className="philosophy-row"
+                  onMouseEnter={() => setPhilosophyHover(i)}
+                  onMouseLeave={() => setPhilosophyHover(null)}
+                  style={{
+                    background: isHovered ? 'rgba(61,99,224,0.12)' : 'rgba(0,47,167,0.05)',
+                    boxShadow: isHovered ? '0 6px 18px rgba(20,30,60,0.08)' : 'none',
+                  }}
+                >
+                  <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C', minWidth: 24, flexShrink: 0 }}>{n}</div>
+                  <div style={{ fontSize: 15, fontWeight: 600, color: '#12141F' }}>{text}</div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
+
         <div style={{ textAlign: 'center', maxWidth: 900, margin: '0 auto', padding: '24px 0' }}>
           <div style={{ fontFamily: "Georgia,'Times New Roman',serif", fontSize: 52, lineHeight: 1, color: '#001A5C', opacity: 0.35, marginBottom: 8 }}>"</div>
           <p style={{ fontFamily: "Georgia,'Times New Roman',serif", fontStyle: 'italic', fontSize: 'clamp(22px,3vw,34px)', lineHeight: 1.45, color: '#2A2F3A', margin: 0 }}>Clarity over complexity. Understanding before execution. Progress through collaboration.</p>
@@ -135,7 +216,7 @@ export default function About() {
 
         <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
 
-        <h3 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' }}>Beyond Design</h3>
+        <h2 style={sectionTitle}>Beyond Design</h2>
         <div style={{ columns: '2 300px', columnGap: 40 }}>
           <p style={{ fontSize: 17, lineHeight: 1.75, color: '#4A4F63', margin: '0 0 20px' }}>Curiosity doesn't stop when I close my laptop.</p>
           <p style={{ fontSize: 17, lineHeight: 1.75, color: '#4A4F63', margin: '0 0 20px' }}>I'm constantly exploring emerging technologies, particularly Artificial Intelligence, and I'm always interested in discovering products that solve problems with elegance and simplicity. I find inspiration in architecture, industrial design, photography and the quiet beauty of minimalist spaces — but just as often in everyday moments, conversations and the way people naturally interact with the world around them.</p>
@@ -150,8 +231,8 @@ export default function About() {
 
       {/* ── SKILLS ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>Skills &amp; Expertise</div>
-        <h2 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 24px' }}>Where I add the most value</h2>
+        <div style={eyebrowWithTitle}>Skills &amp; Expertise</div>
+        <h2 style={sectionTitle}>Where I add the most value</h2>
         <div className="skills-marquee">
           <div className="skills-marquee-track">
             <div className="skills-marquee-group">
@@ -167,52 +248,43 @@ export default function About() {
         </p>
       </div>
 
-      {/* ── PHILOSOPHY ── */}
-      <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24, textAlign: 'center' }}>Design Philosophy</div>
-        <div className="rg-2" style={{ maxWidth: 900, margin: '0 auto' }}>
-          {philosophyItems.map(({ n, text, full }) => (
-            <div key={n} style={{ gridColumn: full ? '1 / -1' : undefined, display: 'flex', alignItems: 'center', gap: 20, padding: '20px 24px', background: 'rgba(0,47,167,0.05)', borderRadius: 14 }}>
-              <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C', minWidth: 24, flexShrink: 0 }}>{n}</div>
-              <div style={{ fontSize: 'clamp(17px,2.2vw,22px)', fontWeight: 700, letterSpacing: '-0.01em', color: '#12141F' }}>{text}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ── HOW I WORK ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12, textAlign: 'center' }}>How I Work</div>
-        <h2 style={{ fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 32px', textAlign: 'center' }}>From discovery to a shipped decision</h2>
+        <div style={eyebrowWithTitle}>How I Work</div>
+        <h2 style={sectionTitle}>From discovery to a shipped decision</h2>
         <div className="rg-phase">
           {workPhases.map(phase => {
             const isOpen = !!expanded[phase.id]
+            const theme = phaseTheme[phase.id]
             return (
-              <div key={phase.id} style={{ display: 'flex', flexDirection: 'column', height: '100%', border: '1px solid #EAF1FF', borderRadius: 16, padding: 24, background: '#FFFFFF', boxShadow: '0 4px 12px rgba(20,30,60,0.04)' }}>
-                <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#002FA7', marginBottom: 16, flexShrink: 0 }} />
-                <h3 style={{ fontSize: 17, fontWeight: 700, color: '#12141F', margin: '0 0 8px' }}>{phase.name}</h3>
-                <p style={{ fontSize: 14, lineHeight: 1.6, color: '#5A5F73', margin: '0 0 12px' }}>{phase.description}</p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 16 }}>
-                  {phase.deliverables.map(d => (
-                    <div key={d} style={{ fontSize: 12, color: '#8A8FA3' }}>· {d}</div>
-                  ))}
-                </div>
-                <button
-                  type="button"
-                  aria-expanded={isOpen}
-                  className="engagement-toggle"
-                  onClick={() => toggle(phase.id)}
-                  style={{ marginTop: 'auto', alignSelf: 'flex-start' }}
-                >
-                  {isOpen ? <>Show less<ChevronUp size={14} /></> : <>Learn more<ChevronDown size={14} /></>}
-                </button>
-                {isOpen && (
-                  <div style={{ marginTop: 16, padding: 16, background: 'rgba(0,47,167,0.03)', borderRadius: 14, borderTop: '1px solid #EAF1FF' }}>
-                    <p style={{ fontSize: 13, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 10px' }}>{phase.detail}</p>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: '#12141F', fontStyle: 'italic', margin: '0 0 10px' }}>"{phase.question}"</div>
-                    <Link to={phase.proof.to} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label}<ChevronRight size={14} /></Link>
+              <div key={phase.id} className="phase-card-v3" style={{ background: theme.base }}>
+                <div className="teaser-glow" style={{ background: theme.glow }} />
+                <div className="teaser-grain" />
+                <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, color: '#12141F', margin: '0 0 8px' }}>{phase.name}</h3>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 12px' }}>{phase.description}</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 16 }}>
+                    {phase.deliverables.map(d => (
+                      <div key={d} style={{ fontSize: 12, color: '#6B7086' }}>· {d}</div>
+                    ))}
                   </div>
-                )}
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    className="engagement-toggle"
+                    onClick={() => toggle(phase.id)}
+                    style={{ marginTop: 'auto', alignSelf: 'flex-start', background: '#FFFFFF' }}
+                  >
+                    {isOpen ? <>Show less<ChevronUp size={14} /></> : <>Learn more<ChevronDown size={14} /></>}
+                  </button>
+                  {isOpen && (
+                    <div style={{ marginTop: 16, padding: 16, background: 'rgba(255,255,255,0.6)', borderRadius: 14, borderTop: '1px solid rgba(255,255,255,0.8)' }}>
+                      <p style={{ fontSize: 13, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 10px' }}>{phase.detail}</p>
+                      <div style={{ fontSize: 13, fontWeight: 600, color: '#12141F', fontStyle: 'italic', margin: '0 0 10px' }}>"{phase.question}"</div>
+                      <Link to={phase.proof.to} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label}<ChevronRight size={14} /></Link>
+                    </div>
+                  )}
+                </div>
               </div>
             )
           })}
@@ -221,7 +293,7 @@ export default function About() {
 
       {/* ── EDUCATION ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 20 }}>Education</div>
+        <div style={eyebrowStandalone}>Education</div>
         <div className="rg-edu" style={{ marginBottom: 60 }}>
           {education.map(({ degree, school, logo }) => (
             <div key={degree} style={{ display: 'flex', alignItems: 'center', gap: 14, border: '1px solid #EAF1FF', borderRadius: 12, padding: 22, background: '#FFFFFF', boxShadow: '0 4px 12px rgba(20,30,60,0.04)' }}>
@@ -235,33 +307,22 @@ export default function About() {
         </div>
 
         {/* CERTIFICATIONS */}
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 20 }}>Certifications</div>
-        <div>
-          <div style={{ overflow: 'hidden' }}>
-            <div style={{ display: 'flex', transform: `translateX(${-certIdx * 100}%)`, transition: 'transform 420ms ease-out' }}>
-              {certSlides.map((slide, si) => (
-                <div key={si} className={isMobile ? undefined : 'carousel-3'} style={{ flex: '0 0 100%' }}>
-                  {slide.map(({ title, org, logo }) => (
-                    <div key={title} style={{ display: 'flex', alignItems: 'center', gap: 14, border: '1px solid #EAF1FF', borderRadius: 12, padding: 22, background: '#FFFFFF', boxShadow: '0 4px 12px rgba(20,30,60,0.04)' }}>
-                      <div style={thumb}><img src={logo} alt="" style={thumbImg} /></div>
-                      <div>
-                        <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{title}</div>
-                        <div style={{ fontSize: 13, color: '#5A5F73' }}>{org}</div>
-                      </div>
+        <div style={eyebrowStandalone}>Certifications</div>
+        <div className="cert-marquee">
+          <div className="cert-marquee-track">
+            {[0, 1].map(dup => (
+              <div className="cert-marquee-group" key={dup} aria-hidden={dup === 1}>
+                {certifications.map(({ title, org, logo }) => (
+                  <div key={title} className="cert-card">
+                    <div style={thumb}><img src={logo} alt="" style={thumbImg} /></div>
+                    <div>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{title}</div>
+                      <div style={{ fontSize: 13, color: '#5A5F73' }}>{org}</div>
                     </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginTop: 20 }}>
-            <button type="button" aria-label="Previous" className="carousel-arrow" onClick={certPrev}><ChevronLeft size={16} className="" /></button>
-            <div style={{ display: 'flex', gap: 8 }}>
-              {certSlides.map((_, i) => (
-                <button key={i} type="button" onClick={() => setCertIdx(i)} style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === certIdx ? '#3D63E0' : '#D8E0F5', border: 'none', padding: 0 }} />
-              ))}
-            </div>
-            <button type="button" aria-label="Next" className="carousel-arrow" onClick={certNext}><ChevronRight size={16} className="" /></button>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
 

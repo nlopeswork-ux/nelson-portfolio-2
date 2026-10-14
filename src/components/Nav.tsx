@@ -17,23 +17,23 @@ export default function Nav() {
     return pathname === to
   }
 
-  // `.nav-link` in index.css reserves a transparent 2px bottom border at
-  // rest, so only the color needs to change here — hover/focus swap that
-  // same border to an underline via CSS, with no layout shift either way.
+  // Current page gets a light-blue filled pill (same tokens as the
+  // category badge on the Work page cards); hover/focus/press states for
+  // both the active and inactive cases live in `.nav-link`'s CSS
+  // pseudo-classes (index.css) — only the base/active split is inline.
   const linkStyle = (to: string): React.CSSProperties => ({
-    color: isActive(to) ? '#002FA7' : '#4A4F63',
-    borderBottomColor: isActive(to) ? '#002FA7' : 'transparent',
+    color: isActive(to) ? '#12141F' : '#4A4F63',
+    background: isActive(to) ? '#F2F6FF' : 'transparent',
     textDecoration: 'none',
     fontWeight: isActive(to) ? 600 : 500,
   })
 
   const mobileLink: React.CSSProperties = {
     fontSize: 16,
-    padding: '10px 0',
+    padding: '10px 14px',
+    borderRadius: 999,
     textDecoration: 'none',
-    transition: 'color 200ms ease-out',
-    borderBottom: 'none',
-    paddingBottom: 0,
+    transition: 'color 200ms ease-out, background-color 200ms ease-out',
   }
 
   return (
@@ -54,9 +54,17 @@ export default function Nav() {
           Nelson Lopes
         </Link>
 
-        <nav className="nav-links" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', alignItems: 'center', gap: 12 }}>
+        <nav className="nav-links" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', alignItems: 'center' }}>
           {links.map(({ to, label }) => (
-            <Link key={to} to={to} className="nav-link" style={linkStyle(to)}>{label}</Link>
+            <Link
+              key={to}
+              to={to}
+              className={`nav-link${isActive(to) ? ' is-active' : ''}`}
+              style={linkStyle(to)}
+              aria-current={isActive(to) ? 'page' : undefined}
+            >
+              {label}
+            </Link>
           ))}
         </nav>
 
@@ -82,9 +90,11 @@ export default function Nav() {
             key={to}
             to={to}
             onClick={() => setOpen(false)}
+            aria-current={isActive(to) ? 'page' : undefined}
             style={{
               ...mobileLink,
-              color: isActive(to) ? '#002FA7' : '#4A4F63',
+              color: isActive(to) ? '#12141F' : '#4A4F63',
+              background: isActive(to) ? '#F2F6FF' : 'transparent',
               fontWeight: isActive(to) ? 700 : 500,
             }}
           >

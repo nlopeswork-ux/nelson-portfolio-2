@@ -55,24 +55,35 @@ a { color: #001A5C; text-decoration: none; }
 a:hover { color: var(--color-primary-hover); }
 
 /*
- * Underline indicator, not a pill/half-circle fill: `.nav-link` reserves
- * a transparent 2px bottom border at rest so hover/active never shifts
- * layout (only the border-color animates, via the global `border-color`
- * transition on `a`/`button` above), matching the current-page indicator
- * already set inline in Nav.tsx's `linkStyle`. `!important` on
- * border-bottom-color is required here — Nav.tsx sets that same property
- * inline (to color the current-page indicator), and an inline style beats
- * a non-`!important` stylesheet rule regardless of `:hover` specificity.
+ * Pill indicator: the current page gets a light-blue filled pill (set
+ * inline via Nav.tsx's `linkStyle`, same #F2F6FF/#12141F tokens as the
+ * category badge on the Work page cards; `!important` here since that
+ * inline background/color would otherwise win over these pseudo-classes
+ * regardless of specificity). Inactive links get a soft navy-tinted pill
+ * on hover/focus and a slightly stronger one on press; the active link's
+ * own hover/press just deepens its light-blue fill instead of inverting
+ * to a dark one.
  */
 .nav-link:hover,
 .nav-link:focus-visible {
+  background: rgba(0,47,167,0.08) !important;
   color: var(--color-primary-hover) !important;
-  border-bottom-color: var(--color-primary-hover) !important;
 }
 
 .nav-link:active {
+  background: rgba(0,47,167,0.14) !important;
   color: var(--color-primary-active) !important;
-  border-bottom-color: var(--color-primary-active) !important;
+}
+
+.nav-link.is-active:hover,
+.nav-link.is-active:focus-visible {
+  background: #E3ECFF !important;
+  color: #12141F !important;
+}
+
+.nav-link.is-active:active {
+  background: #D3E0FF !important;
+  color: #12141F !important;
 }
 
 a:active, button:active, [role="button"]:active, .interactive-card:active {
@@ -508,6 +519,85 @@ input::placeholder { color: #A0A4B8; }
   .skills-marquee-group:last-child { display: none; }
 }
 
+/* ── Certifications marquee (About page) ── */
+.cert-marquee {
+  overflow: hidden;
+  margin: -20px 0;
+  padding: 20px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+.cert-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: cert-marquee-scroll 36s linear infinite;
+}
+.cert-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 20px;
+  padding-right: 20px;
+}
+.cert-card {
+  flex-shrink: 0;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 12px;
+  padding: 22px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(20, 30, 60, 0.04);
+}
+@keyframes cert-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .cert-marquee:hover .cert-marquee-track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cert-marquee-track { animation: none; width: 100%; flex-wrap: wrap; }
+  .cert-marquee-group { flex-wrap: wrap; }
+  .cert-marquee-group:last-child { display: none; }
+}
+@media (max-width: 640px) {
+  .cert-card { width: 260px; }
+}
+
+/* ── Design philosophy flower + list (About page) ── */
+.philosophy-layout {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.philosophy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 1 auto;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+}
+.philosophy-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border-radius: 14px;
+  cursor: default;
+  white-space: nowrap;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+@media (max-width: 768px) {
+  .philosophy-layout { flex-direction: column; }
+  .philosophy-list { width: 100%; }
+  .philosophy-row { white-space: normal; }
+}
+
 /* ── Responsive grids ── */
 .rg-meta  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .rg-stats { display: grid; grid-template-columns: repeat(var(--stat-cols, 3), 1fr); gap: 20px; }
@@ -536,6 +626,116 @@ input::placeholder { color: #A0A4B8; }
 
 /* Work page cards grid — prevents overflow on narrow viewports */
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+/* ── Work page filter tabs: Apple-style segmented control ──
+   A rounded track holding plain-text tabs; the selected one gets a
+   solid dark capsule inset within it. Scrolls horizontally when the
+   tabs don't fit, with edge fade + chevron affordances on overflow. */
+.work-filter-wrap {
+  position: relative;
+}
+.work-filter-track {
+  display: inline-flex;
+  gap: 2px;
+  max-width: 100%;
+  padding: 4px;
+  background: #F0F1F5;
+  border-radius: 999px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+.work-filter-track::-webkit-scrollbar { display: none; }
+
+.work-filter-tab {
+  flex-shrink: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #4A4F63;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.work-filter-tab:hover {
+  color: #12141F;
+  background: rgba(18,20,31,0.06);
+}
+.work-filter-tab:active {
+  background: rgba(18,20,31,0.12);
+}
+.work-filter-tab:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-primary-halo);
+}
+.work-filter-tab.is-active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+}
+.work-filter-tab.is-active:hover {
+  background: var(--color-primary-hover);
+  color: #FFFFFF;
+}
+.work-filter-tab.is-active:active {
+  background: var(--color-primary-active);
+  color: #FFFFFF;
+}
+
+.work-filter-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.work-filter-fade.visible { opacity: 1; }
+.work-filter-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #FFFFFF, rgba(255,255,255,0));
+}
+.work-filter-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #FFFFFF, rgba(255,255,255,0));
+}
+
+.work-filter-scroll {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(20,30,60,0.1);
+  background: #FFFFFF;
+  color: #4A4F63;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(20,30,60,0.1);
+}
+.work-filter-scroll:hover { color: #12141F; }
+.work-filter-scroll:active { transform: translateY(-50%) scale(0.92); }
+.work-filter-scroll:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--color-primary-halo);
+}
+.work-filter-scroll-left { left: -4px; }
+.work-filter-scroll-right { right: -4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .work-filter-track { scroll-behavior: auto; }
+}
 
 /* Overflow-safe table wrapper */
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -643,13 +843,14 @@ input::placeholder { color: #A0A4B8; }
   opacity: 0.5;
 }
 
-.nav-links { display: flex; gap: 12px; font-size: 14px; font-weight: 500; }
+.nav-links { display: flex; gap: 4px; font-size: 14px; font-weight: 500; }
 .nav-link {
   padding: 8px 16px;
-  border-bottom: 2px solid transparent;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 .nav-burger { display: none; }
 .nav-dropdown { display: none; }
@@ -710,4 +911,39 @@ input::placeholder { color: #A0A4B8; }
   .case-card > div:first-child > div img {
     object-position: center !important;
   }
+}
+
+/* ── Phase cards (About › How I Work): same glass-gradient chrome as the
+   homepage area cards, minus the hover-flip, so they can grow in place
+   when the "Learn more" toggle opens ── */
+.phase-card-v3 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(18,20,31,0.08);
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .phase-card-v3:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px rgba(18,20,31,0.14);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phase-card-v3:hover { transform: none; }
+}
+
+/* Pin the glow blob to the top-right corner here instead of .teaser-glow's
+   default bottom anchor — the "Learn more" toggle lives at the bottom of
+   these cards and pushes the card taller on expand, so a bottom-anchored
+   glow would hop around with it. */
+.phase-card-v3 .teaser-glow {
+  top: -70px;
+  right: -10%;
+  bottom: auto;
+  left: auto;
 }
