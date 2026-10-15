@@ -52,9 +52,9 @@ const teasers: { to: TeaserPath; label: string; sub: string; desc: string; cta: 
 ]
 
 const teaserTheme: Record<TeaserPath, { base: string; glow: string }> = {
-  '/work': { base: '#F6F7FC', glow: '#002FA7' },
-  '/journey': { base: '#F6F7FC', glow: '#2A4CB8' },
-  '/about': { base: '#F6F7FC', glow: '#3D63E0' },
+  '/work': { base: '#E4EAFA', glow: '#002FA7', opacity: 0.55 },
+  '/journey': { base: '#EDF1FC', glow: '#002FA7', opacity: 0.35 },
+  '/about': { base: '#F6F7FC', glow: '#002FA7', opacity: 0.18 },
 }
 
 const teaserTilts: Record<TeaserPath, number> = {
@@ -172,7 +172,7 @@ export default function Portfolio() {
                   style={{ background: teaserTheme[to].base }}
                   aria-label={`${label} — ${sub}. ${desc}`}
                 >
-                  <div className="teaser-glow" style={{ background: teaserTheme[to].glow }} />
+                  <div className="teaser-glow" style={{ background: teaserTheme[to].glow, opacity: teaserTheme[to].opacity }} />
                   <div className="teaser-grain" />
                   <div className="teaser-label-v3" aria-hidden="true">{label}</div>
                   <div className="teaser-flip" aria-hidden="true">
