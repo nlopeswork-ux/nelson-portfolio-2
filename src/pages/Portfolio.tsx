@@ -52,9 +52,9 @@ const teasers: { to: TeaserPath; label: string; sub: string; desc: string; cta: 
 ]
 
 const teaserTheme: Record<TeaserPath, { base: string; glow: string }> = {
-  '/work': { base: '#F9F8FC', glow: '#F0845F' },
-  '/journey': { base: '#F6FAF9', glow: '#4FBF93' },
-  '/about': { base: '#F6F7FC', glow: '#6E86D6' },
+  '/work': { base: '#F6F7FC', glow: '#002FA7' },
+  '/journey': { base: '#F6F7FC', glow: '#2A4CB8' },
+  '/about': { base: '#F6F7FC', glow: '#3D63E0' },
 }
 
 const teaserTilts: Record<TeaserPath, number> = {
