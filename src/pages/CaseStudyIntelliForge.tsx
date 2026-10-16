@@ -3,7 +3,9 @@ import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseS
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
 import showcaseVideo from '../imports/inteli-showcase.mp4'
+import browserFrame from '../imports/browser-frame.svg'
 
+// Video sits in the white area of the 1492×961 frame (1440×900, the video's own ratio).
 // Plays once, muted, when scrolled into view; stays on the last frame when it ends.
 function ShowcaseVideo({ src, label }: { src: string; label?: string }) {
   const ref = useRef<HTMLVideoElement>(null)
@@ -19,8 +21,9 @@ function ShowcaseVideo({ src, label }: { src: string; label?: string }) {
   return (
     <div>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
-      <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(20,30,60,0.12)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)' }}>
-        <video ref={ref} controls muted controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="auto" playsInline style={{ width: '100%', aspectRatio: '1440 / 900', display: 'block', background: '#fff' }}>
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 961' }}>
+        <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
+        <video ref={ref} controls muted controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="auto" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${31 / 9.61}%`, width: `${1440 / 14.92}%`, height: `${900 / 9.61}%`, borderRadius: '1.944% / 3.111%', objectFit: 'cover', background: '#fff' }}>
           <source src={src} type="video/mp4" />
         </video>
       </div>
