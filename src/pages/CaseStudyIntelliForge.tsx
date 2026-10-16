@@ -21,7 +21,7 @@ function ShowcaseVideo({ src, label }: { src: string; label?: string }) {
   return (
     <div>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
-      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 961' }}>
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 961', filter: 'drop-shadow(0 24px 40px rgba(0,26,92,0.14)) drop-shadow(0 6px 14px rgba(0,26,92,0.08))' }}>
         <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
         <video ref={ref} controls muted controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="auto" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${31 / 9.61}%`, width: `${1440 / 14.92}%`, height: `${900 / 9.61}%`, borderRadius: '1.944% / 3.111%', objectFit: 'cover', background: '#fff' }}>
           <source src={src} type="video/mp4" />
