@@ -5,14 +5,14 @@ import ChevronRight from '../components/ChevronRight'
 import showcaseVideo from '../imports/inteli-showcase.mp4'
 import browserFrame from '../imports/browser-frame.svg'
 
-// Browser mockup (1492×900): the video sits in its white area, below the tab bar.
+// Browser mockup (1492×1001): the white area below the tab bar is 1440×900, the video's own ratio.
 function BrowserVideo({ src, label }: { src: string; label?: string }) {
   return (
     <div>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
-      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 900' }}>
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 1001' }}>
         <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
-        <video controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${71 / 9}%`, width: `${1440 / 14.92}%`, height: `${799 / 9}%`, objectFit: 'cover', objectPosition: 'top', background: '#fff' }}>
+        <video controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${71 / 10.01}%`, width: `${1440 / 14.92}%`, height: `${900 / 10.01}%`, objectFit: 'cover', objectPosition: 'top', background: '#fff' }}>
           <source src={src} type="video/mp4" />
         </video>
       </div>
