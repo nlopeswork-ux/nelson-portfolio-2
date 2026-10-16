@@ -1,8 +1,24 @@
 import { useState } from 'react'
-import CaseStudyShell, { Body, DarkBox, SeverityChip, VideoBlock } from '../components/CaseStudyShell'
+import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
 import showcaseVideo from '../imports/inteli-showcase.mp4'
+import browserFrame from '../imports/browser-frame.svg'
+
+// Browser mockup (1492×900): the video sits in its white area, below the tab bar.
+function BrowserVideo({ src, label }: { src: string; label?: string }) {
+  return (
+    <div>
+      {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 900' }}>
+        <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
+        <video controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${71 / 9}%`, width: `${1440 / 14.92}%`, height: `${799 / 9}%`, objectFit: 'cover', objectPosition: 'top', background: '#fff' }}>
+          <source src={src} type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  )
+}
 
 const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
@@ -146,7 +162,7 @@ export default function CaseStudyIntelliForge() {
 
       {/* PROTOTYPE SHOWCASE */}
       <div style={{ ...S, paddingBottom: 32 }}>
-        <VideoBlock src={showcaseVideo} label="Prototype showcase" />
+        <BrowserVideo src={showcaseVideo} label="Prototype showcase" />
       </div>
 
       {/* RESEARCH */}
