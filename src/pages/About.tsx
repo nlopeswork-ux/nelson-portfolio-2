@@ -388,6 +388,7 @@ export default function About() {
                     boxShadow: isHovered ? '0 6px 18px rgba(20,30,60,0.08)' : 'none',
                   }}
                 >
+                  <span aria-hidden="true" className="philosophy-dot" />
                   <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C', minWidth: 24, flexShrink: 0 }}>{n}</div>
                   <div style={{ fontSize: 15, fontWeight: 600, color: '#12141F' }}>{text}</div>
                 </div>

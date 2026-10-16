@@ -7,6 +7,14 @@
   --color-primary-active: #00227A;
   --color-primary-soft: rgba(42, 76, 184, 0.12);
   --color-primary-halo: rgba(0, 47, 167, 0.18);
+  /* Orange accent (logo dot). Decorative only: markers, bars, halos, hovers.
+     --color-accent (#FF6F00) is 2.8:1 on white, so never use it for text.
+     --color-accent-icon (3.5:1) is the minimum for arrows/icons; --color-accent-text (5.2:1) passes AA for small text. */
+  --color-accent: #FF6F00;
+  --color-accent-icon: #E65F00;
+  --color-accent-text: #C2410C;
+  --color-accent-soft: rgba(255, 111, 0, 0.12);
+  --color-accent-halo: rgba(255, 111, 0, 0.14);
   --transition-fast: 0.15s ease;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -347,7 +355,7 @@ input::placeholder { color: #A0A4B8; }
   -webkit-box-decoration-break: clone;
 }
 @media (max-width: 900px) {
-  .hero-float-enter, .hero-accent { display: none; }
+  .hero-float-enter, .hero-accent, .hero-bulb-halo { display: none; }
 }
 
 /* ── Teaser scroll-in reveal: staggered, settles at a slight permanent tilt ── */
@@ -992,4 +1000,85 @@ input::placeholder { color: #A0A4B8; }
 }
 @media (prefers-reduced-motion: reduce) {
   .phase-card-v3:hover { transform: none; }
+}
+
+
+/* ═══ Orange accent system ═══
+   Rules: blue stays the interactive colour (CTAs, filters, links, focus rings).
+   Orange only marks emphasis: dots, short bars, halos and hover/arrow details.
+   Hover effects are gated to real pointers; focus-visible keeps the blue ring. */
+
+/* Homepage hero: soft halo behind the orange top-left accent */
+.hero-bulb-halo {
+  position: absolute;
+  z-index: 0;
+  top: 47px;
+  left: calc(7% - 93px);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent-halo), transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+/* Small dot beside a label / page title */
+.label-with-dot { display: flex; align-items: center; gap: 8px; }
+.label-dot,
+.title-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+.title-dot { width: 0.22em; height: 0.22em; margin-right: 0.3em; vertical-align: 0.1em; }
+
+/* Case study section headings: Hook / Impact / Decisions */
+.cs-h2-mark { display: flex; align-items: center; gap: 12px; }
+.cs-h2-mark::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* One highlighted metric per case study: orange bar above the (still blue) value */
+.stat-highlight { position: relative; }
+.stat-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 28px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+}
+
+/* Journey timeline markers */
+.tl-marker { flex-shrink: 0; border-radius: 50%; }
+.tl-marker-current { width: 10px; height: 10px; background: var(--color-accent); box-shadow: 0 0 0 4px var(--color-accent-soft); }
+.tl-marker-milestone { width: 8px; height: 8px; border: 2px solid var(--color-accent); }
+
+/* About: philosophy list dots + short rule under the pull quote */
+.philosophy-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+  transition: transform 160ms var(--ease-out);
+}
+.philosophy-row:hover .philosophy-dot { transform: scale(1.35); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bulb-halo { animation: none; }
+  .philosophy-dot { transition: none; }
+  .philosophy-row:hover .philosophy-dot { transform: none; }
 }

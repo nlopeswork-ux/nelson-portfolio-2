@@ -306,7 +306,7 @@ export default function CaseStudyOneRAK() {
     >
       {/* THE HOOK */}
       <div style={{ ...S, paddingTop: 48 }}>
-        <h2 style={H2}>{t.hookTitle}</h2>
+        <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         {t.hook.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>
 
@@ -445,7 +445,7 @@ export default function CaseStudyOneRAK() {
 
       {/* KEY DECISIONS */}
       <div style={S}>
-        <h2 style={H2}>{t.rejectedTitle}</h2>
+        <h2 className="cs-h2-mark" style={H2}>{t.rejectedTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.rejectedIntro}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
           {t.rejectedDecisions.map(({ rejected, chosen }, i) => (
@@ -493,7 +493,7 @@ export default function CaseStudyOneRAK() {
 
       {/* OUTCOMES */}
       <div style={S}>
-        <h2 style={H2}>{t.outcomesTitle}</h2>
+        <h2 className="cs-h2-mark" style={H2}>{t.outcomesTitle}</h2>
         <div className="rg-2" style={{ marginBottom: 24 }}>
           {t.outcomes.map(({ value, label }) => (
             <div key={label} style={{ padding: 20, borderRadius: 16, background: '#F2F6FF', textAlign: 'center' }}>

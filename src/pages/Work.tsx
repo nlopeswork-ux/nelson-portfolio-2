@@ -248,7 +248,7 @@ export default function Work() {
       <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>{p.eyebrow}</div>
         <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 16px', maxWidth: 700 }}>
-          {p.title}
+          <span aria-hidden="true" className="title-dot" />{p.title}
         </h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, color: '#5A5F73', maxWidth: 600, margin: 0 }}>
           {p.subtitle}

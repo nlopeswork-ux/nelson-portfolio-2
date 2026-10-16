@@ -255,7 +255,7 @@ export default function CaseStudyDesignSystem() {
     >
       {/* THE HOOK */}
       <div style={{ ...S, paddingTop: 48 }}>
-        <h2 style={H2}>{t.hookTitle}</h2>
+        <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         {t.hook.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>
 

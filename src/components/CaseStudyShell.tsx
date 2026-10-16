@@ -65,8 +65,8 @@ export default function CaseStudyShell({ eyebrow, title, description, meta, stat
         {/* STATS */}
         {stats.length > 0 && (
           <div className="rg-stats" style={{ '--stat-cols': stats.length } as React.CSSProperties}>
-            {stats.map(({ value, label }) => (
-              <div key={label} style={{ textAlign: 'center', padding: 20, borderRadius: 18, background: '#F2F6FF' }}>
+            {stats.map(({ value, label }, i) => (
+              <div key={label} className={i === 0 ? 'stat-highlight' : undefined} style={{ textAlign: 'center', padding: 20, borderRadius: 18, background: '#F2F6FF' }}>
                 <div style={{ fontSize: stats.length === 4 ? 22 : 30, fontWeight: 800, color: accentColor, lineHeight: 1.1 }}><Counter value={value} /></div>
                 <div style={{ fontSize: 13, color: '#5A5F73', marginTop: 4 }}>{label}</div>
               </div>

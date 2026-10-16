@@ -136,10 +136,11 @@ export default function Portfolio() {
       {/* HERO */}
       <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 80px' }}>
         <div style={{ position: 'absolute', top: -180, left: -160, width: 620, height: 620, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%)', filter: 'blur(60px)', animation: 'driftA 22s var(--ease-in-out) infinite' }} />
+        <div className="hero-bulb-halo" aria-hidden="true" />
         <div style={{ position: 'absolute', top: -60, right: -220, width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.22), rgba(242,246,255,0.08) 60%, transparent 75%)', filter: 'blur(70px)', animation: 'driftB 26s var(--ease-in-out) infinite' }} />
 
         {/* geometric accents */}
-        <div className="hero-accent" style={{ top: 140, left: '7%', width: 14, height: 14, background: '#3D63E0', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5, animation: 'floatSlow 7s ease-in-out infinite' }} />
+        <div className="hero-accent" style={{ top: 140, left: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5, animation: 'floatSlow 7s ease-in-out infinite' }} />
         <div className="hero-accent" style={{ top: 100, right: '10%', width: 8, height: 8, background: '#002FA7', borderRadius: '50%', opacity: 0.4, animation: 'floatSlow 9s ease-in-out infinite 1s' }} />
         <div className="hero-accent" style={{ bottom: 70, left: '12%', width: 10, height: 10, border: '2px solid #3D63E0', borderRadius: '50%', opacity: 0.45, animation: 'floatSlow 8s ease-in-out infinite 0.5s' }} />
 
@@ -195,10 +196,10 @@ export default function Portfolio() {
       <div ref={preview.ref} style={{ position: 'relative', padding: '32px 32px 112px', maxWidth: 1200, margin: '0 auto', ...preview.style }}>
         <div className="rg-featured">
           <div>
-            <div style={{ fontSize: 14, fontWeight: 500, color: '#6B7086', marginBottom: 6 }}>{t.featuredLabel}</div>
+            <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#6B7086', marginBottom: 6 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
             <h2 style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 6px' }}>{t.featuredTitle}</h2>
             <p style={{ fontSize: 16, color: '#5A5F73', margin: '0 0 8px' }}>{t.featuredDesc}</p>
-            <Link to="/work/intelliforge" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#3D63E0' }}>{t.seeCaseStudy}<ChevronRight size={15} /></Link>
+            <Link to="/work/intelliforge" className="featured-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#3D63E0' }}>{t.seeCaseStudy}<ChevronRight size={15} /></Link>
           </div>
 
           <img

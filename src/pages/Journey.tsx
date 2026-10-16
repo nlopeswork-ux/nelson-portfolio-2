@@ -8,10 +8,13 @@ import { useLanguage } from '../i18n/LanguageContext'
 
 const divider = <div style={{ height: 1, background: '#EAF1FF' }} />
 
-function TimelineRow({ period, children }: { period: string; children: React.ReactNode }) {
+function TimelineRow({ period, marker, children }: { period: string; marker?: 'current' | 'milestone'; children: React.ReactNode }) {
   return (
     <div className="timeline-row" style={{ padding: '32px 0 32px 0', borderRadius: 16 }}>
-      <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C', paddingTop: 4 }}>{period}</div>
+      <div style={{ display: 'flex', alignItems: 'center', alignSelf: 'start', gap: 10, fontSize: 14, fontWeight: 600, color: '#001A5C', paddingTop: 4 }}>
+        {marker && <span aria-hidden="true" className={`tl-marker tl-marker-${marker}`} />}
+        {period}
+      </div>
       <div>{children}</div>
     </div>
   )
@@ -108,7 +111,7 @@ export default function Journey() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
 
           {/* KPMG */}
-          <TimelineRow period={t.roles[0].period}>
+          <TimelineRow period={t.roles[0].period} marker="current">
             <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[0].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[0].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>{t.roles[0].body}</p>
@@ -138,7 +141,7 @@ export default function Journey() {
           {divider}
 
           {/* Deloitte */}
-          <TimelineRow period={t.roles[1].period}>
+          <TimelineRow period={t.roles[1].period} marker="milestone">
             <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[1].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[1].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>{t.roles[1].body}</p>

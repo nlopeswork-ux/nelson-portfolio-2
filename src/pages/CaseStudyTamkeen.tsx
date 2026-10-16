@@ -487,10 +487,10 @@ export default function CaseStudyTamkeen() {
           <div className="cs-timeline-line" />
           <div className="cs-timeline-line-v" />
           <div className="cs-timeline">
-            {t.phases.map(({ year, label, body }) => (
+            {t.phases.map(({ year, label, body }, phaseIndex) => (
               <div key={year} style={{ display: 'flex', gap: 20 }}>
                 <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div style={{ width: 24, height: 24, borderRadius: '50%', background: year >= '2025' ? '#3D63E0' : '#001A5C', border: '4px solid #FFFFFF', boxShadow: `0 0 0 2px ${year >= '2025' ? '#3D63E0' : '#001A5C'}`, flexShrink: 0 }} />
+                  <div style={{ width: 24, height: 24, borderRadius: '50%', background: phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C', border: '4px solid #FFFFFF', boxShadow: `0 0 0 2px ${phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C'}`, flexShrink: 0 }} />
                 </div>
                 <div style={{ paddingBottom: 32 }}>
                   <div style={{ fontSize: 26, fontWeight: 800, color: '#12141F', marginBottom: 4 }}>{year}</div>
