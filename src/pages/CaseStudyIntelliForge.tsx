@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
+import CaseStudyShell, { Body, DarkBox, SeverityChip, VideoBlock } from '../components/CaseStudyShell'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
+import showcaseVideo from '../imports/inteli-showcase.mp4'
 
 const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
@@ -141,6 +142,11 @@ export default function CaseStudyIntelliForge() {
         <p style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 20px' }}>The process works. The economics don't.</p>
         <Body>At 60–90 minutes of analyst time per franchise per cycle, the engagement consumes up to 300 analyst-hours every single month. The cost of the 200th franchise equals the cost of the first. Nothing compounds. When the client's Mobility division — roughly 10× the current engagement in scale — issued a bid invitation, the engagement team faced a structural problem: winning that contract and delivering it manually would require 10× the headcount. Winning it on a cost basis was not commercially viable.</Body>
         <Body>IntelliForge SR2R is an ontology-driven Decision Twin — a governed control layer sitting on top of Business Central — that ingests submissions, maps accounts with confidence scoring, scores close readiness, predicts risk, estimates the cost of inaction, generates intervention plans, automates governed journal entries, and maintains a complete, reproducible audit trail. Eight decision capabilities. One system. Near-zero marginal cost of scale.</Body>
+      </div>
+
+      {/* PROTOTYPE SHOWCASE */}
+      <div style={{ ...S, paddingBottom: 32 }}>
+        <VideoBlock src={showcaseVideo} label="Prototype showcase" />
       </div>
 
       {/* RESEARCH */}

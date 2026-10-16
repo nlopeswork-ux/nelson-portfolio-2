@@ -102,7 +102,7 @@ export function DarkBox({ label, children }: { label?: string; children: React.R
   )
 }
 
-export function VideoBlock({ src, poster, label }: { src: string; poster: string; label?: string }) {
+export function VideoBlock({ src, poster, label }: { src: string; poster?: string; label?: string }) {
   return (
     <div style={{ marginBottom: 24 }}>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
