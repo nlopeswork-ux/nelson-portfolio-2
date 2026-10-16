@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import ChevronLeft from '../components/ChevronLeft'
+import { useLanguage, type Lang } from '../i18n/LanguageContext'
 import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
 import onerakImg from '../imports/OneRAK_Portal_Revamp.png'
 import tamkeenImg from '../imports/National_Workforce_Digital_Platform.png'
@@ -11,92 +12,80 @@ import dsImg from '../imports/Internal_DS.png'
 import edpAppPoster from '../imports/EDP-planetazero-app-poster.png'
 import eraPoster from '../imports/era-showcase-poster.png'
 
-const earlierWork = [
-  {
-    id: 'edp-planeta-zero',
-    to: '/work/edp-planeta-zero',
-    poster: edpAppPoster,
-    eyebrow: 'EDP COMERCIAL — ENERGY · PORTUGAL',
-    title: 'EDP Planeta Zero',
-    description: 'Gamified app and programme website where customers earn Zs, level up and unlock rewards, with a CO₂ simulator and a community movement.',
-    tag: 'Energy',
-    cta: 'See case study',
-    alt: 'EDP Planeta Zero product film thumbnail',
-  },
-  {
-    id: 'era-revamp',
-    to: '/work/era-revamp',
-    poster: eraPoster,
-    eyebrow: 'ERA IMOBILIÁRIA — REAL ESTATE · PORTUGAL',
-    title: 'ERA Digital Revamp',
-    description: 'A new fully digital website with smarter search, favourites with notes and a free home valuation.',
-    tag: 'Real Estate',
-    cta: 'See case study',
-    alt: 'ERA Digital Revamp product film thumbnail',
-  },
+type Category = 'all' | 'financial-services' | 'government' | 'internal-platform'
+
+const categoryLabel: Record<Lang, Record<Category, string>> = {
+  en: { all: 'All', 'financial-services': 'Financial Services', government: 'Government', 'internal-platform': 'Internal Platform' },
+  pt: { all: 'Todos', 'financial-services': 'Serviços Financeiros', government: 'Setor Público', 'internal-platform': 'Plataforma Interna' },
+}
+
+const filterOptions: Category[] = ['all', 'financial-services', 'government', 'internal-platform']
+
+const studiesBase = [
+  { id: 'intelliforge', to: '/work/intelliforge', title: 'IntelliForge SR2R', category: 'financial-services' as Category, color: 'linear-gradient(135deg, #002FA7 0%, #3D63E0 100%)', initials: 'SR2R', image: intelliforgeImg },
+  { id: 'onerak', to: '/work/onerak', title: 'OneRAK Portal Revamp', category: 'government' as Category, color: 'linear-gradient(135deg, #0F4C75 0%, #1B6CA8 100%)', initials: 'GEZ', image: onerakImg },
+  { id: 'tamkeen', to: '/work/tamkeen', title: 'National Workforce Digital Platform', category: 'government' as Category, color: 'linear-gradient(135deg, #1E3A5F 0%, #2E6EA6 100%)', initials: 'NWP', image: tamkeenImg },
+  { id: 'design-system', to: '/work/design-system', title: 'Internal Design System', category: 'internal-platform' as Category, color: 'linear-gradient(135deg, #2D2D2D 0%, #4A4A6A 100%)', initials: 'DS', image: dsImg },
 ]
 
-const filterOptions = ['All', 'Financial Services', 'Government', 'Internal Platform']
+const studiesText: Record<Lang, Record<string, { summary: string; quote: string | null; quoteAttribution: string | null }>> = {
+  en: {
+    intelliforge: { summary: 'Turned 200 manual close cycles into a governed, auditable system.', quote: 'The confidence scoring changed how fast the team could move — cases that sat in review for a day now clear in minutes.', quoteAttribution: 'Head of Delivery, the client' },
+    onerak: { summary: '18/18 services unified, 97.8% task success, 82% fewer support calls.', quote: 'What used to take a full audit cycle to trace, we can now walk through in one meeting.', quoteAttribution: 'Engagement Lead, KPMG' },
+    tamkeen: { summary: 'Replaced a fully manual funding process with one unified ecosystem.', quote: null, quoteAttribution: null },
+    'design-system': { summary: 'A shared foundation across 15 projects, delivering the flagship pilot 25% faster.', quote: null, quoteAttribution: null },
+  },
+  pt: {
+    intelliforge: { summary: 'Transformou 200 ciclos de fecho manuais num sistema governado e auditável.', quote: 'A pontuação de confiança mudou a velocidade a que a equipa conseguia avançar — casos que ficavam um dia em revisão agora ficam concluídos em minutos.', quoteAttribution: 'Head of Delivery do cliente' },
+    onerak: { summary: '18/18 serviços unificados, 97,8% de sucesso nas tarefas, menos 82% de chamadas de suporte.', quote: 'O que antes levava um ciclo de auditoria completo a rastrear, agora conseguimos percorrer numa única reunião.', quoteAttribution: 'Engagement Lead, KPMG' },
+    tamkeen: { summary: 'Substituiu um processo de financiamento totalmente manual por um ecossistema unificado.', quote: null, quoteAttribution: null },
+    'design-system': { summary: 'Uma base partilhada em 15 projetos, entregando o piloto principal 25% mais rápido.', quote: null, quoteAttribution: null },
+  },
+}
 
-const studies = [
-  {
-    id: 'intelliforge',
-    to: '/work/intelliforge',
-    client: 'Global energy company',
-    title: 'IntelliForge SR2R',
-    summary: 'Turned 200 manual close cycles into a governed, auditable system.',
-    industry: 'Financial Services',
-    tags: ['Financial Services'],
-    quote: 'The confidence scoring changed how fast the team could move — cases that sat in review for a day now clear in minutes.',
-    quoteAttribution: 'Head of Delivery, the client',
-    color: 'linear-gradient(135deg, #002FA7 0%, #3D63E0 100%)',
-    initials: 'SR2R',
-    image: intelliforgeImg,
-  },
-  {
-    id: 'onerak',
-    to: '/work/onerak',
-    client: 'KPMG × government economic zone authority',
-    title: 'OneRAK Portal Revamp',
-    summary: '18/18 services unified, 97.8% task success, 82% fewer support calls.',
-    industry: 'Government',
-    tags: ['Government'],
-    quote: 'What used to take a full audit cycle to trace, we can now walk through in one meeting.',
-    quoteAttribution: 'Engagement Lead, KPMG',
-    color: 'linear-gradient(135deg, #0F4C75 0%, #1B6CA8 100%)',
-    initials: 'GEZ',
-    image: onerakImg,
-  },
-  {
-    id: 'tamkeen',
-    to: '/work/tamkeen',
-    client: 'National workforce-development fund',
-    title: 'National Workforce Digital Platform',
-    summary: 'Replaced a fully manual funding process with one unified ecosystem.',
-    industry: 'Government',
-    tags: ['Government'],
-    quote: null,
-    quoteAttribution: null,
-    color: 'linear-gradient(135deg, #1E3A5F 0%, #2E6EA6 100%)',
-    initials: 'NEOT',
-    image: tamkeenImg,
-  },
-  {
-    id: 'design-system',
-    to: '/work/design-system',
-    client: 'Internal — multiple client domains',
-    title: 'Internal Design System',
-    summary: 'A shared foundation across 15 projects, delivering the flagship pilot 25% faster.',
-    industry: 'Internal Platform',
-    tags: ['Internal Platform'],
-    quote: null,
-    quoteAttribution: null,
-    color: 'linear-gradient(135deg, #2D2D2D 0%, #4A4A6A 100%)',
-    initials: 'DS',
-    image: dsImg,
-  },
+const earlierWorkBase = [
+  { id: 'edp-planeta-zero', to: '/work/edp-planeta-zero', poster: edpAppPoster },
+  { id: 'era-revamp', to: '/work/era-revamp', poster: eraPoster },
 ]
 
+const earlierWorkText: Record<Lang, Record<string, { eyebrow: string; title: string; description: string; tag: string; cta: string; alt: string }>> = {
+  en: {
+    'edp-planeta-zero': {
+      eyebrow: 'EDP COMERCIAL — ENERGY · PORTUGAL',
+      title: 'EDP Planeta Zero',
+      description: 'Gamified app and programme website where customers earn Zs, level up and unlock rewards, with a CO₂ simulator and a community movement.',
+      tag: 'Energy',
+      cta: 'See case study',
+      alt: 'EDP Planeta Zero product film thumbnail',
+    },
+    'era-revamp': {
+      eyebrow: 'ERA IMOBILIÁRIA — REAL ESTATE · PORTUGAL',
+      title: 'ERA Digital Revamp',
+      description: 'A new fully digital website with smarter search, favourites with notes and a free home valuation.',
+      tag: 'Real Estate',
+      cta: 'See case study',
+      alt: 'ERA Digital Revamp product film thumbnail',
+    },
+  },
+  pt: {
+    'edp-planeta-zero': {
+      eyebrow: 'EDP COMERCIAL — ENERGIA · PORTUGAL',
+      title: 'EDP Planeta Zero',
+      description: 'App e website do programa com gamificação, em que os clientes ganham Zs, sobem de nível e desbloqueiam vantagens, com um simulador de CO₂ e um movimento de comunidade.',
+      tag: 'Energia',
+      cta: 'Ver case study',
+      alt: 'Miniatura do filme de produto EDP Planeta Zero',
+    },
+    'era-revamp': {
+      eyebrow: 'ERA IMOBILIÁRIA — IMOBILIÁRIO · PORTUGAL',
+      title: 'ERA Digital Revamp',
+      description: 'Um novo website totalmente digital com pesquisa mais inteligente, favoritos com notas e avaliação gratuita de imóveis.',
+      tag: 'Imobiliário',
+      cta: 'Ver case study',
+      alt: 'Miniatura do filme de produto ERA Digital Revamp',
+    },
+  },
+}
 
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null)
@@ -114,7 +103,17 @@ function useFadeIn() {
   return { ref, style: { opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)', transition: 'opacity 600ms ease-out, transform 600ms ease-out' } }
 }
 
-function WorkFilterTabs({ options, value, onChange }: { options: string[]; value: string; onChange: (next: string) => void }) {
+function WorkFilterTabs({
+  options, value, onChange, labels, ariaLabel, scrollLeftLabel, scrollRightLabel,
+}: {
+  options: Category[]
+  value: Category
+  onChange: (next: Category) => void
+  labels: Record<Category, string>
+  ariaLabel: string
+  scrollLeftLabel: string
+  scrollRightLabel: string
+}) {
   const trackRef = useRef<HTMLDivElement>(null)
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({})
   const [canScrollLeft, setCanScrollLeft] = useState(false)
@@ -164,7 +163,7 @@ function WorkFilterTabs({ options, value, onChange }: { options: string[]; value
       <div
         className="work-filter-track"
         role="radiogroup"
-        aria-label="Filter by category"
+        aria-label={ariaLabel}
         ref={trackRef}
         onScroll={updateScrollState}
       >
@@ -180,19 +179,19 @@ function WorkFilterTabs({ options, value, onChange }: { options: string[]; value
             onClick={() => onChange(f)}
             onKeyDown={e => onKeyDown(e, i)}
           >
-            {f}
+            {labels[f]}
           </button>
         ))}
       </div>
       <div className={`work-filter-fade work-filter-fade-left${canScrollLeft ? ' visible' : ''}`} aria-hidden="true" />
       <div className={`work-filter-fade work-filter-fade-right${canScrollRight ? ' visible' : ''}`} aria-hidden="true" />
       {canScrollLeft && (
-        <button type="button" className="work-filter-scroll work-filter-scroll-left" onClick={() => scrollBy(-1)} aria-label="Scroll categories left">
+        <button type="button" className="work-filter-scroll work-filter-scroll-left" onClick={() => scrollBy(-1)} aria-label={scrollLeftLabel}>
           <ChevronLeft size={14} className="" />
         </button>
       )}
       {canScrollRight && (
-        <button type="button" className="work-filter-scroll work-filter-scroll-right" onClick={() => scrollBy(1)} aria-label="Scroll categories right">
+        <button type="button" className="work-filter-scroll work-filter-scroll-right" onClick={() => scrollBy(1)} aria-label={scrollRightLabel}>
           <ChevronRight size={14} />
         </button>
       )}
@@ -200,13 +199,45 @@ function WorkFilterTabs({ options, value, onChange }: { options: string[]; value
   )
 }
 
+const pageCopy = {
+  en: {
+    eyebrow: 'Work',
+    title: 'Case studies from the decision layer.',
+    subtitle: 'Selected engagements where the interface was only as good as the decisions built underneath it.',
+    readFull: 'Read the full case study',
+    moreInProgress: 'More case studies in progress',
+    filterLabel: 'Filter by category',
+    scrollLeft: 'Scroll categories left',
+    scrollRight: 'Scroll categories right',
+    earlierWorkTitle: 'Earlier work: UX/UI and product film',
+    earlierWorkText: 'Digital experiences I designed end to end, presented through product films. I designed the UX/UI, screens and graphics, and wrote the storyboard and script with a copywriter — the animation was handled by a motion designer.',
+  },
+  pt: {
+    eyebrow: 'Trabalho',
+    title: 'Case studies da camada de decisão.',
+    subtitle: 'Colaborações selecionadas onde a interface só foi tão boa quanto as decisões construídas por trás dela.',
+    readFull: 'Ver a case study completa',
+    moreInProgress: 'Mais case studies em curso',
+    filterLabel: 'Filtrar por categoria',
+    scrollLeft: 'Deslocar categorias para a esquerda',
+    scrollRight: 'Deslocar categorias para a direita',
+    earlierWorkTitle: 'Trabalho anterior: UX/UI e filme de produto',
+    earlierWorkText: 'Experiências digitais que desenhei de ponta a ponta, apresentadas em filmes de produto. Desenhei o UX/UI, os ecrãs e os gráficos, e escrevi o storyboard e o guião com um copywriter — a animação ficou a cargo de um motion designer.',
+  },
+}
+
 export default function Work() {
-  const [activeFilter, setActiveFilter] = useState('All')
+  const { lang } = useLanguage()
+  const p = pageCopy[lang]
+  const [activeFilter, setActiveFilter] = useState<Category>('all')
   const list = useFadeIn()
 
+  const studies = useMemo(() => studiesBase.map(s => ({ ...s, ...studiesText[lang][s.id] })), [lang])
+  const earlierWork = useMemo(() => earlierWorkBase.map(w => ({ ...w, ...earlierWorkText[lang][w.id] })), [lang])
+
   const filtered = useMemo(() =>
-    activeFilter === 'All' ? studies : studies.filter(s => s.tags.includes(activeFilter)),
-    [activeFilter]
+    activeFilter === 'all' ? studies : studies.filter(s => s.category === activeFilter),
+    [activeFilter, studies]
   )
 
   return (
@@ -215,18 +246,26 @@ export default function Work() {
 
       {/* HEADER */}
       <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>Work</div>
+        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>{p.eyebrow}</div>
         <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 16px', maxWidth: 700 }}>
-          Case studies from the decision layer.
+          {p.title}
         </h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, color: '#5A5F73', maxWidth: 600, margin: 0 }}>
-          Selected engagements where the interface was only as good as the decisions built underneath it.
+          {p.subtitle}
         </p>
       </div>
 
       {/* FILTERS */}
       <div style={{ padding: '24px 32px 0', maxWidth: 1200, margin: '0 auto' }}>
-        <WorkFilterTabs options={filterOptions} value={activeFilter} onChange={setActiveFilter} />
+        <WorkFilterTabs
+          options={filterOptions}
+          value={activeFilter}
+          onChange={setActiveFilter}
+          labels={categoryLabel[lang]}
+          ariaLabel={p.filterLabel}
+          scrollLeftLabel={p.scrollLeft}
+          scrollRightLabel={p.scrollRight}
+        />
       </div>
 
       {/* RESULTS */}
@@ -258,7 +297,7 @@ export default function Work() {
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{s.industry}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{s.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
                 {s.quote && (
@@ -267,7 +306,7 @@ export default function Work() {
                     <div style={{ fontSize: 12, fontWeight: 600, color: '#001A5C' }}>— {s.quoteAttribution}</div>
                   </div>
                 )}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>Read the full case study<ChevronRight size={15} /></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
               </div>
             </Link>
           ))}
@@ -277,8 +316,8 @@ export default function Work() {
 
       {/* EARLIER WORK */}
       <div style={{ padding: '0 32px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 12px' }}>Earlier work: UX/UI and product film</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', maxWidth: 640, margin: '0 0 28px' }}>Digital experiences I designed end to end, presented through product films. I designed the UX/UI, screens and graphics, and wrote the storyboard and script with a copywriter — the animation was handled by a motion designer.</p>
+        <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 12px' }}>{p.earlierWorkTitle}</h2>
+        <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', maxWidth: 640, margin: '0 0 28px' }}>{p.earlierWorkText}</p>
         <div className="work-grid">
           {earlierWork.map(w => (
             <Link key={w.id} to={w.to} className="case-card interactive-card" style={{ display: 'block', textDecoration: 'none', borderRadius: 20, overflow: 'hidden', background: '#FFFFFF', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
@@ -311,7 +350,7 @@ export default function Work() {
 
       {/* PLACEHOLDER */}
       <div style={{ padding: '0 32px 120px', maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
-        <span style={{ fontSize: 13, color: '#A0A4B8' }}>More case studies in progress</span>
+        <span style={{ fontSize: 13, color: '#A0A4B8' }}>{p.moreInProgress}</span>
       </div>
 
       <Footer />

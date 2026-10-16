@@ -2,6 +2,12 @@ import { useCallback, useRef, useState } from 'react'
 import type { KeyboardEvent, TouchEvent } from 'react'
 import ChevronLeft from './ChevronLeft'
 import ChevronRight from './ChevronRight'
+import { useLanguage } from '../i18n/LanguageContext'
+
+const carouselCopy = {
+  en: { groupLabel: 'Prototype screens', imagePending: 'Image pending', previous: 'Previous screen', next: 'Next screen', goToSlide: (n: number) => `Go to slide ${n}` },
+  pt: { groupLabel: 'Ecrãs do protótipo', imagePending: 'Imagem por adicionar', previous: 'Ecrã anterior', next: 'Ecrã seguinte', goToSlide: (n: number) => `Ir para o ecrã ${n}` },
+}
 
 export interface CarouselImage {
   src: string
@@ -23,6 +29,8 @@ const ASPECT: Record<'mobile' | 'wide', string> = {
 const SWIPE_THRESHOLD = 40
 
 export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: PrototypeCarouselProps) {
+  const { lang } = useLanguage()
+  const c = carouselCopy[lang]
   const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState<Record<number, boolean>>({})
   const [settled, setSettled] = useState(true)
@@ -63,7 +71,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
     <div
       role="group"
       aria-roledescription="carousel"
-      aria-label="Prototype screens"
+      aria-label={c.groupLabel}
       tabIndex={0}
       onKeyDown={onKeyDown}
       onTouchStart={onTouchStart}
@@ -94,7 +102,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
             />
           ) : (
             <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, padding: 16, textAlign: 'center', background: 'repeating-linear-gradient(135deg, #EEF1F8, #EEF1F8 10px, #E4E8F4 10px, #E4E8F4 20px)' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#8A8FA3', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Image pending</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#8A8FA3', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{c.imagePending}</div>
               <div style={{ fontSize: 12, fontWeight: 600, color: '#5A5F73', wordBreak: 'break-all' }}>{current.src.split('/').pop()}</div>
             </div>
           )}
@@ -107,20 +115,20 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
 
       {!single && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
-          <button type="button" className="carousel-arrow" aria-label="Previous screen" onClick={() => go(-1)}><ChevronLeft size={16} className="" /></button>
+          <button type="button" className="carousel-arrow" aria-label={c.previous} onClick={() => go(-1)}><ChevronLeft size={16} className="" /></button>
           <div style={{ display: 'flex', gap: 8 }}>
             {images.map((img, i) => (
               <button
                 key={img.src}
                 type="button"
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={c.goToSlide(i + 1)}
                 aria-current={i === index}
                 onClick={() => goTo(i)}
                 style={{ cursor: 'pointer', width: 8, height: 8, borderRadius: '50%', background: i === index ? '#002FA7' : '#DCE8FF', border: 'none', padding: 0 }}
               />
             ))}
           </div>
-          <button type="button" className="carousel-arrow" aria-label="Next screen" onClick={() => go(1)}><ChevronRight size={16} className="" /></button>
+          <button type="button" className="carousel-arrow" aria-label={c.next} onClick={() => go(1)}><ChevronRight size={16} className="" /></button>
         </div>
       )}
     </div>

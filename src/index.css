@@ -876,6 +876,28 @@ input::placeholder { color: #A0A4B8; }
   opacity: 0.5;
 }
 
+/* ── Language switch (accordion, not a boxed dropdown) ── */
+.lang-switch-panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 100%;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  transition: max-height 200ms var(--ease-out), opacity 150ms var(--ease-out);
+}
+.lang-switch-panel.open {
+  max-height: 60px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .nav-links { display: flex; gap: 4px; font-size: 14px; font-weight: 500; }
 .nav-link {
   padding: 8px 16px;
