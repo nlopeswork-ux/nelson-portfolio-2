@@ -1,18 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
 import showcaseVideo from '../imports/inteli-showcase.mp4'
-import browserFrame from '../imports/browser-frame.svg'
 
-// Browser mockup (1492×1001): the white area below the tab bar is 1440×900, the video's own ratio.
-function BrowserVideo({ src, label }: { src: string; label?: string }) {
+// Plays once, muted, when scrolled into view; stays on the last frame when it ends.
+function ShowcaseVideo({ src, label }: { src: string; label?: string }) {
+  const ref = useRef<HTMLVideoElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el || typeof IntersectionObserver === 'undefined') return
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.play().catch(() => {}); io.disconnect() }
+    }, { threshold: 0.5 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
   return (
     <div>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
-      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 1001' }}>
-        <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
-        <video controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${71 / 10.01}%`, width: `${1440 / 14.92}%`, height: `${900 / 10.01}%`, objectFit: 'cover', objectPosition: 'top', background: '#fff' }}>
+      <div style={{ borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(20,30,60,0.12)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)' }}>
+        <video ref={ref} controls muted controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="auto" playsInline style={{ width: '100%', aspectRatio: '1440 / 900', display: 'block', background: '#fff' }}>
           <source src={src} type="video/mp4" />
         </video>
       </div>
@@ -162,7 +170,7 @@ export default function CaseStudyIntelliForge() {
 
       {/* PROTOTYPE SHOWCASE */}
       <div style={{ ...S, paddingBottom: 32 }}>
-        <BrowserVideo src={showcaseVideo} label="Prototype showcase" />
+        <ShowcaseVideo src={showcaseVideo} label="Prototype showcase" />
       </div>
 
       {/* RESEARCH */}
