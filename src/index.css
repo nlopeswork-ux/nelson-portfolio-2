@@ -328,7 +328,7 @@ input::placeholder { color: #A0A4B8; }
   border: 1px solid rgba(20,30,60,0.08);
   border-radius: 999px;
   padding: 8px 16px 8px 8px;
-  box-shadow: 0 6px 18px rgba(20,30,60,0.08);
+  box-shadow: 0 6px 18px rgba(20,30,60,0.06);
   pointer-events: none;
   user-select: none;
 }
@@ -655,7 +655,7 @@ input::placeholder { color: #A0A4B8; }
 /* Product strategy timeline — horizontal on desktop, vertical on mobile */
 .cs-timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .cs-timeline > div { flex-direction: column !important; gap: 0 !important; }
-.cs-timeline > div > div:first-child { margin-bottom: 20px; }
+.cs-timeline > div > div:first-child { margin-bottom: 20px; align-items: flex-start !important; }
 .cs-timeline-line { position: absolute; top: 11px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg,#001A5C,#3D63E0); pointer-events: none; }
 .cs-timeline-line-v { display: none; }
 
