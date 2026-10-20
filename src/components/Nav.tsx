@@ -97,7 +97,7 @@ export default function Nav() {
           side groups' widths never push it off-center) | language + burger */}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Link to="/" className="logo-link" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}>
-          <img src="/logo-nl.svg" alt="" style={{ display: 'block', height: 24, width: 'auto' }} />
+          <img src={`${import.meta.env.BASE_URL}logo-nl.svg`} alt="" style={{ display: 'block', height: 24, width: 'auto' }} />
         </Link>
 
         <nav className="nav-links" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', alignItems: 'center' }}>
