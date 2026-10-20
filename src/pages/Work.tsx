@@ -324,7 +324,7 @@ export default function Work() {
       </div>
 
       {/* METHOD AND TOOLING */}
-      <div style={{ position: 'relative', padding: 'clamp(72px,10vw,128px) 0' }}>
+      <div style={{ position: 'relative', padding: 'clamp(40px,5vw,64px) 0 clamp(120px,11.3vw,144px)' }}>
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', background: '#EEF3FF', WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%)', maskImage: 'linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%)' }}>
           <div style={{ position: 'absolute', top: -120, left: -120, width: 520, height: 520, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.55), transparent 70%)', filter: 'blur(60px)' }} />
           <div style={{ position: 'absolute', bottom: -120, right: -100, width: 460, height: 460, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,111,0,0.12), transparent 70%)', filter: 'blur(70px)' }} />
