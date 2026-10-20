@@ -332,7 +332,7 @@ export default function Work() {
           <div style={{ position: 'absolute', bottom: '6%', right: '-4%', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,111,0,0.09)', filter: 'blur(80px)' }} />
         </div>
         <div style={{ position: 'relative', padding: '0 32px', maxWidth: 1200, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 28px' }}>{p.methodTitle}</h2>
+        <h2 style={{ fontSize: 'clamp(18px,2.2vw,22px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 24px' }}>{p.methodTitle}</h2>
         <Link to="/work/agentic-ux-flow" className="case-card interactive-card" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 24, textDecoration: 'none', borderRadius: 20, overflow: 'hidden', background: '#FFFFFF', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', padding: 12 }}>
           <div style={{ flex: '1 1 320px', minWidth: 0, borderRadius: 14, overflow: 'hidden', background: '#F5F7FC', aspectRatio: '562 / 180' }}>
             <img src={agenticImg} alt="" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }} />
