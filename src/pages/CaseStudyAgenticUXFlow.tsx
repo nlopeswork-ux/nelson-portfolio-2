@@ -20,7 +20,7 @@ const copy = {
       { label: 'Status', value: 'In development, private for testing and refinement', short: 'In development · private' },
       { label: 'Format', value: 'Claude Code plugin: skills, agents and verification scripts', short: 'Claude Code plugin' },
       { label: 'Scope', value: 'Solo project' },
-      { label: 'Responsibilities', value: 'Workflow Design · Agent Roles · Intake and Briefing · Assumption Tracking · Quality Gates · Checkpoints', short: 'Workflow Design · Agent Roles +4', span: true },
+      { label: 'Responsibilities', value: 'Workflow Design · Agent Roles · Intake and Briefing · Assumption Tracking · Quality Gates · Checkpoints', short: 'Workflow Design · Agent Roles +4' },
     ],
     stats: [
       { value: '7', label: 'stages in the pipeline' },
@@ -99,7 +99,7 @@ const copy = {
       { label: 'Estado', value: 'Em desenvolvimento, privado para testes e refinamento', short: 'Em desenvolvimento · privado' },
       { label: 'Formato', value: 'Plugin do Claude Code: skills, agentes e scripts de verificação', short: 'Plugin do Claude Code' },
       { label: 'Âmbito', value: 'Projeto individual' },
-      { label: 'Responsabilidades', value: 'Design de Workflow · Papéis dos Agentes · Intake e Briefing · Registo de Pressupostos · Quality Gates · Checkpoints', short: 'Design de Workflow · Papéis dos Agentes +4', span: true },
+      { label: 'Responsabilidades', value: 'Design de Workflow · Papéis dos Agentes · Intake e Briefing · Registo de Pressupostos · Quality Gates · Checkpoints', short: 'Design de Workflow · Papéis dos Agentes +4' },
     ],
     stats: [
       { value: '7', label: 'etapas no pipeline' },
