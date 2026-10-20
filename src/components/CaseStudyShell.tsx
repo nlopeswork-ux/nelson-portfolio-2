@@ -16,14 +16,16 @@ const shellCopy = {
     backToWork: 'Back to all work',
     confidentiality: 'Client names and identifying details have been generalized to respect confidentiality agreements. Metrics and outcomes reflect the real scope and impact of the engagement.',
     onThisPage: 'On this page',
-    projectDetails: 'Project details',
+    showDetails: 'Show full details',
+    hideDetails: 'Hide full details',
     relatedTitle: 'Also worth a look',
   },
   pt: {
     backToWork: 'Voltar a todo o trabalho',
     confidentiality: 'Os nomes de clientes e detalhes identificativos foram generalizados para respeitar acordos de confidencialidade. As métricas e os resultados refletem o âmbito e o impacto reais da colaboração.',
     onThisPage: 'Nesta página',
-    projectDetails: 'Detalhes do projeto',
+    showDetails: 'Ver todos os detalhes',
+    hideDetails: 'Ocultar detalhes',
     relatedTitle: 'Vale também a pena ver',
   },
 }
@@ -31,6 +33,8 @@ const shellCopy = {
 interface MetaItem {
   label: string
   value: string
+  /** Abbreviated value shown in the hero; the full value appears on hover or focus. */
+  short?: string
   span?: boolean
 }
 
@@ -120,6 +124,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
   const lockRef = useRef(0)
   const { items, active, setActive } = useSectionIndex(mainRef, lockRef, [lang, pathname])
   const showToc = items.length >= 2
+  const hasAbbr = meta.some(m => !!m.short && m.short !== m.value)
 
   const goTo = (id: string) => {
     setActive(id)
@@ -136,22 +141,39 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
       <div className="cs-container cs-hero cs-hero--card">
         <div style={{ position: 'absolute', top: -160, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.32), transparent 70%)', filter: 'blur(70px)', animation: 'driftA 24s var(--ease-in-out) infinite', zIndex: -1 }} />
 
-        <div className={stats.length > 0 ? 'cs-herocard cs-herocard--stats' : 'cs-herocard'} data-details={detailsOpen}>
+        <div className={stats.length > 0 ? 'cs-herocard cs-herocard--stats' : 'cs-herocard'} data-details={detailsOpen} data-abbr={hasAbbr}>
           <h1 style={{ fontSize: 'clamp(28px,5.5vw,56px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#12141F', margin: '0 0 24px', lineHeight: 1.1, maxWidth: 900 }}>{title}</h1>
           <p style={{ fontSize: 'clamp(16px,2vw,19px)', lineHeight: 1.7, color: '#5A5F73', maxWidth: 720, margin: '0 0 8px' }}>{description}</p>
 
           <div className="rg-meta" style={{ padding: '32px 0 0' }}>
-            {meta.map(({ label, value, span }, i) => (
-              <div key={label} className={i >= 3 ? 'cs-meta-extra' : undefined} style={{ gridColumn: span ? '1 / -1' : undefined, minWidth: 0 }}>
-                <div style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#5A5F73', marginBottom: 8 }}>{label}</div>
-                <div style={{ fontSize: 15, fontWeight: 500, color: '#12141F', lineHeight: 1.5 }}>{value}</div>
-              </div>
-            ))}
+            {meta.map(({ label, value, short, span }, i) => {
+              const abbr = !!short && short !== value
+              const m = abbr ? short!.match(/^(.*?)\s*(\+\d+)$/) : null
+              return (
+                <div key={label} className={`${i >= 3 ? 'cs-meta-extra ' : ''}${abbr ? 'cs-meta-item cs-meta-item--abbr' : 'cs-meta-item'}`} tabIndex={abbr ? 0 : undefined} style={{ gridColumn: span ? '1 / -1' : undefined, minWidth: 0 }}>
+                  <div style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#5A5F73', marginBottom: 8 }}>{label}</div>
+                  <div className="cs-meta-value" style={{ fontSize: 15, fontWeight: 500, color: '#12141F', lineHeight: 1.5 }}>
+                    {abbr ? (
+                      <>
+                        <span aria-hidden="true" className="cs-meta-short">
+                          {(() => {
+                            const base = m ? m[1] : short!
+                            const cut = base.lastIndexOf(' ') + 1
+                            return <>{base.slice(0, cut)}<span className="cs-meta-tail">{base.slice(cut)}{m ? <span className="cs-meta-more">{m[2]}</span> : <span className="cs-meta-ellipsis">…</span>}</span></>
+                          })()}
+                        </span>
+                        <span className="cs-meta-full">{value}</span>
+                      </>
+                    ) : value}
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
-          {meta.length > 3 && (
+          {(hasAbbr || meta.length > 3) && (
             <button type="button" className="cs-details-toggle" aria-expanded={detailsOpen} onClick={() => setDetailsOpen(o => !o)}>
-              {t.projectDetails}
+              {detailsOpen ? t.hideDetails : t.showDetails}
               {detailsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
           )}

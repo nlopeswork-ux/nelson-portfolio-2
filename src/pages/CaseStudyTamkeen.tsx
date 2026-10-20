@@ -10,10 +10,10 @@ const copy = {
     title: 'National Workforce Digital Platform',
     description: 'Designing a national workforce-development ecosystem — from a manual, email-and-in-person process to a unified digital platform for citizens, businesses and government, across four years of continuous evolution.',
     meta: [
-      { label: 'Role', value: 'UX/UI Designer (2023, on kickoff) → Senior UX/UI Designer & Design Lead (2024–present)' },
-      { label: 'Client', value: 'National workforce-development fund (Government / Employment & Economic Development)' },
-      { label: 'Team (peak)', value: '1 Design Lead · 2 UX/UI Designers · 2 Business Analysts · 1 PM · 1 Solution Architect · 5 OutSystems Developers · 1 QA Lead' },
-      { label: 'Deliverable', value: 'Unified digital ecosystem serving 5 external and 15 internal user roles across four annual delivery phases', span: true },
+      { label: 'Role', value: 'UX/UI Designer (2023, on kickoff) → Senior UX/UI Designer & Design Lead (2024–present)', short: 'UX/UI Designer → Design Lead' },
+      { label: 'Client', value: 'National workforce-development fund (Government / Employment & Economic Development)', short: 'National workforce-development fund' },
+      { label: 'Team (peak)', value: '1 Design Lead · 2 UX/UI Designers · 2 Business Analysts · 1 PM · 1 Solution Architect · 5 OutSystems Developers · 1 QA Lead', short: '1 Design Lead · 2 UX/UI Designers +5' },
+      { label: 'Deliverable', value: 'Unified digital ecosystem serving 5 external and 15 internal user roles across four annual delivery phases', short: 'Unified digital ecosystem · 5 external, 15 internal roles', span: true },
     ],
     stats: [
       { value: '5', label: 'external user roles served' },
@@ -170,10 +170,10 @@ const copy = {
     title: 'Plataforma Digital Nacional de Força de Trabalho',
     description: 'Desenho de um ecossistema nacional de desenvolvimento da força de trabalho — de um processo manual, por email e presencial, a uma plataforma digital unificada para cidadãos, empresas e governo, ao longo de quatro anos de evolução contínua.',
     meta: [
-      { label: 'Função', value: 'UX/UI Designer (2023, no arranque) → Senior UX/UI Designer & Design Lead (2024–presente)' },
-      { label: 'Cliente', value: 'Fundo nacional de desenvolvimento da força de trabalho (Setor Público / Emprego e Desenvolvimento Económico)' },
-      { label: 'Equipa (pico)', value: '1 Design Lead · 2 UX/UI Designers · 2 Business Analysts · 1 PM · 1 Solution Architect · 5 OutSystems Developers · 1 QA Lead' },
-      { label: 'Entregável', value: 'Ecossistema digital unificado a servir 5 papéis externos e 15 internos ao longo de quatro fases anuais de entrega', span: true },
+      { label: 'Função', value: 'UX/UI Designer (2023, no arranque) → Senior UX/UI Designer & Design Lead (2024–presente)', short: 'UX/UI Designer → Design Lead' },
+      { label: 'Cliente', value: 'Fundo nacional de desenvolvimento da força de trabalho (Setor Público / Emprego e Desenvolvimento Económico)', short: 'Fundo nacional de desenvolvimento' },
+      { label: 'Equipa (pico)', value: '1 Design Lead · 2 UX/UI Designers · 2 Business Analysts · 1 PM · 1 Solution Architect · 5 OutSystems Developers · 1 QA Lead', short: '1 Design Lead · 2 UX/UI Designers +5' },
+      { label: 'Entregável', value: 'Ecossistema digital unificado a servir 5 papéis externos e 15 internos ao longo de quatro fases anuais de entrega', short: 'Ecossistema digital unificado · 5 papéis externos e 15 internos', span: true },
     ],
     stats: [
       { value: '5', label: 'papéis de utilizador externos servidos' },

@@ -23,7 +23,7 @@ function ShowcaseVideo({ src, label }: { src: string; label?: string }) {
   return (
     <div>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
-      <div style={{ position: 'relative', width: '100%', aspectRatio: '1492 / 961', filter: 'drop-shadow(0 24px 40px rgba(0,26,92,0.14)) drop-shadow(0 6px 14px rgba(0,26,92,0.08))' }}>
+      <div style={{ position: 'relative', width: 'calc(100% - 48px)', aspectRatio: '1492 / 961', filter: 'drop-shadow(0 18px 32px rgba(0,26,92,0.10)) drop-shadow(0 3px 8px rgba(0,26,92,0.06))' }}>
         <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
         <video ref={ref} controls muted controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="auto" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${31 / 9.61}%`, width: `${1440 / 14.92}%`, height: `${900 / 9.61}%`, borderRadius: '1.944% / 3.111%', objectFit: 'cover', background: '#fff' }}>
           <source src={src} type="video/mp4" />
@@ -44,9 +44,9 @@ const copy = {
       { label: 'Role', value: 'Product Designer (UX/UI)' },
       { label: 'Client', value: 'Global energy company' },
       { label: 'Timeline', value: '14 weeks — Phase 1 prototype' },
-      { label: 'Team', value: '1 Designer · Architect · Data Engineer · 2 Engineers · Partner · PM' },
-      { label: 'Tools', value: 'Figma · FigJam · Python (FastAPI) · RDFLib · YAML' },
-      { label: 'Deliverable', value: '7-screen control plane · 5 decision engines · 20 API endpoints' },
+      { label: 'Team', value: '1 Designer · Architect · Data Engineer · 2 Engineers · Partner · PM', short: '1 Designer · Architect +4' },
+      { label: 'Tools', value: 'Figma · FigJam · Python (FastAPI) · RDFLib · YAML', short: 'Figma · FigJam · Python (FastAPI) +2' },
+      { label: 'Deliverable', value: '7-screen control plane · 5 decision engines · 20 API endpoints', short: '7-screen control plane +2' },
     ],
     stats: [
       { value: '200', label: 'franchise dealers in monthly scope' },
@@ -208,9 +208,9 @@ const copy = {
       { label: 'Função', value: 'Product Designer (UX/UI)' },
       { label: 'Cliente', value: 'Empresa global de energia' },
       { label: 'Duração', value: '14 semanas — protótipo da Fase 1' },
-      { label: 'Equipa', value: '1 Designer · Architect · Data Engineer · 2 Engineers · Partner · PM' },
-      { label: 'Ferramentas', value: 'Figma · FigJam · Python (FastAPI) · RDFLib · YAML' },
-      { label: 'Entregável', value: 'Control plane com 7 ecrãs · 5 motores de decisão · 20 endpoints de API' },
+      { label: 'Equipa', value: '1 Designer · Architect · Data Engineer · 2 Engineers · Partner · PM', short: '1 Designer · Architect +4' },
+      { label: 'Ferramentas', value: 'Figma · FigJam · Python (FastAPI) · RDFLib · YAML', short: 'Figma · FigJam · Python (FastAPI) +2' },
+      { label: 'Entregável', value: 'Control plane com 7 ecrãs · 5 motores de decisão · 20 endpoints de API', short: 'Control plane com 7 ecrãs +2' },
     ],
     stats: [
       { value: '200', label: 'concessionários franchisados no âmbito mensal' },

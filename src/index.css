@@ -1103,7 +1103,7 @@ input::placeholder { color: #A0A4B8; }
 html { scrollbar-gutter: stable; }
 .cs-container { max-width: var(--container-max); margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 .cs-hero { position: relative; padding-top: clamp(172px, 15vw, 188px); padding-bottom: 8px; }
-.cs-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
+.cs-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(32px, 3.4vw, 48px); align-items: start; }
 .cs-main { grid-column: 1 / span 9; min-width: 0; padding-top: 40px; }
 .cs-main > div > p { max-width: 720px; }
 .cs-main h2 { scroll-margin-top: var(--sticky-top); }
@@ -1165,9 +1165,15 @@ html { scrollbar-gutter: stable; }
 .cs-hero--card { padding-top: clamp(140px, 13vw, 156px); padding-bottom: 0; }
 .cs-herocard { position: relative; background: #F4F7FF; border: 1px solid #DCE8FF; border-radius: 24px; padding: 40px; }
 .cs-herocard--stats { margin-bottom: 72px; }
-.cs-details-toggle { display: none; }
+.cs-details-toggle { display: none; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 16px; font: inherit; font-size: 14px; font-weight: 600; color: #002FA7; background: #FFFFFF; border: 1px solid #DCE8FF; border-radius: 999px; cursor: pointer; }
+.cs-herocard[data-abbr="true"] .cs-details-toggle { display: inline-flex; }
+@media (min-width: 768px) {
+  .cs-herocard .cs-details-toggle { position: absolute; top: 20px; right: 20px; margin: 0; padding: 7px 14px; font-size: 13px; z-index: 2; }
+  .cs-herocard h1 { max-width: min(900px, calc(100% - 210px)) !important; }
+}
+.cs-details-toggle:focus-visible { outline: 2px solid #002FA7; outline-offset: 2px; }
 .cs-herostats { list-style: none; display: grid; grid-template-columns: repeat(var(--stat-cols, 3), minmax(0, 1fr)); gap: 16px; margin: 40px 0 -95px; padding: 0; position: relative; }
-.cs-herostat { position: relative; text-align: center; padding: 20px 16px; background: #FFFFFF; border-radius: 20px; box-shadow: 0 10px 24px rgba(18, 20, 31, 0.08); }
+.cs-herostat { position: relative; text-align: center; padding: 20px 16px; background: #FFFFFF; border-radius: 20px; box-shadow: 0 6px 16px rgba(18, 20, 31, 0.06); }
 .cs-herostat-figure { position: relative; display: inline-block; }
 .cs-herostat-dot { position: absolute; right: 100%; top: 50%; width: 10px; height: 10px; margin: -5px 10px 0 0; border-radius: 50%; background: var(--color-accent); }
 .cs-herostat-num { font-size: 30px; font-weight: 800; line-height: 1.2; white-space: nowrap; }
@@ -1183,6 +1189,19 @@ html { scrollbar-gutter: stable; }
   .cs-herostat { border-radius: 14px; box-shadow: none; border: 1px solid #DCE8FF; padding: 16px 12px; }
   .cs-meta-extra { display: none; }
   .cs-herocard[data-details="true"] .cs-meta-extra { display: block; }
-  .cs-details-toggle { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; padding: 8px 16px; font: inherit; font-size: 14px; font-weight: 600; color: #002FA7; background: #FFFFFF; border: 1px solid #DCE8FF; border-radius: 999px; cursor: pointer; }
-  .cs-details-toggle:focus-visible { outline: 2px solid #002FA7; outline-offset: 2px; }
+  .cs-details-toggle { display: inline-flex; }
 }
+
+/* Abbreviated meta values: full text on hover / focus (tap on touch). */
+.cs-meta-item { position: relative; }
+.cs-meta-item--abbr { outline: none; }
+.cs-meta-more { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #EAF1FF; color: #002FA7; font-size: 12px; font-weight: 700; line-height: 1.6; vertical-align: 1px; }
+.cs-meta-tail { white-space: nowrap; }
+.cs-meta-ellipsis { margin-left: 1px; color: #8A8FA3; }
+/* Expanded: every value shows in full, in place. */
+.cs-herocard[data-details="true"] .cs-meta-short { display: none; }
+.cs-herocard[data-details="true"] .cs-meta-item--abbr .cs-meta-full { position: static; width: auto; min-width: 0; margin: 0; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; font: inherit; opacity: 1; transform: none; pointer-events: auto; }
+.cs-meta-item--abbr .cs-meta-full { position: absolute; left: -14px; top: 100%; z-index: 20; width: calc(100% + 28px); min-width: 240px; margin-top: 4px; padding: 12px 14px; background: #FFFFFF; border: 1px solid #DCE8FF; border-radius: 14px; box-shadow: 0 14px 32px rgba(18, 20, 31, 0.12); font-size: 14px; font-weight: 500; line-height: 1.5; color: #12141F; opacity: 0; pointer-events: none; transform: translateY(3px); transition: opacity 150ms ease-out, transform 150ms ease-out; }
+.cs-meta-item--abbr:hover .cs-meta-full, .cs-meta-item--abbr:focus .cs-meta-full, .cs-meta-item--abbr:focus-within .cs-meta-full { opacity: 1; transform: none; }
+.cs-meta-item--abbr:focus-visible .cs-meta-short { outline: 2px solid #002FA7; outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .cs-meta-item--abbr .cs-meta-full { transition: none; } }

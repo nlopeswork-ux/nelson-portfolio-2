@@ -17,10 +17,10 @@ const copy = {
     description: 'A plugin I designed and built that gives an AI agent a design process to follow: a brief before any pixels, assumptions that stay visible, human checkpoints, and gates that check the work instead of trusting it.',
     meta: [
       { label: 'Role', value: 'Designer and builder' },
-      { label: 'Status', value: 'In development, private for testing and refinement' },
-      { label: 'Format', value: 'Claude Code plugin: skills, agents and verification scripts' },
+      { label: 'Status', value: 'In development, private for testing and refinement', short: 'In development · private' },
+      { label: 'Format', value: 'Claude Code plugin: skills, agents and verification scripts', short: 'Claude Code plugin' },
       { label: 'Scope', value: 'Solo project' },
-      { label: 'Responsibilities', value: 'Workflow Design · Agent Roles · Intake and Briefing · Assumption Tracking · Quality Gates · Checkpoints', span: true },
+      { label: 'Responsibilities', value: 'Workflow Design · Agent Roles · Intake and Briefing · Assumption Tracking · Quality Gates · Checkpoints', short: 'Workflow Design · Agent Roles +4', span: true },
     ],
     stats: [
       { value: '7', label: 'stages in the pipeline' },
@@ -96,10 +96,10 @@ const copy = {
     description: 'Um plugin que desenhei e construí e que dá a um agente de IA um processo de design a seguir: um brief antes de qualquer pixel, pressupostos que ficam visíveis, checkpoints humanos e gates que verificam o trabalho em vez de confiar nele.',
     meta: [
       { label: 'Função', value: 'Designer e construtor' },
-      { label: 'Estado', value: 'Em desenvolvimento, privado para testes e refinamento' },
-      { label: 'Formato', value: 'Plugin do Claude Code: skills, agentes e scripts de verificação' },
+      { label: 'Estado', value: 'Em desenvolvimento, privado para testes e refinamento', short: 'Em desenvolvimento · privado' },
+      { label: 'Formato', value: 'Plugin do Claude Code: skills, agentes e scripts de verificação', short: 'Plugin do Claude Code' },
       { label: 'Âmbito', value: 'Projeto individual' },
-      { label: 'Responsabilidades', value: 'Design de Workflow · Papéis dos Agentes · Intake e Briefing · Registo de Pressupostos · Quality Gates · Checkpoints', span: true },
+      { label: 'Responsabilidades', value: 'Design de Workflow · Papéis dos Agentes · Intake e Briefing · Registo de Pressupostos · Quality Gates · Checkpoints', short: 'Design de Workflow · Papéis dos Agentes +4', span: true },
     ],
     stats: [
       { value: '7', label: 'etapas no pipeline' },
