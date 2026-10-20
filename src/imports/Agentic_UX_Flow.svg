@@ -1,80 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562 180" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract interface with AI nodes connected in the background">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562 180" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Three overlapping interface layers with an approved item and a pending item">
   <defs>
-    <linearGradient id="ax-blue" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8FAEFF"/>
-      <stop offset="1" stop-color="#3D63E0"/>
-    </linearGradient>
-    <linearGradient id="ax-deep" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#3D63E0"/>
-      <stop offset="1" stop-color="#002FA7"/>
-    </linearGradient>
-    <linearGradient id="ax-glass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="#EAF1FF" stop-opacity="0.78"/>
-    </linearGradient>
-    <linearGradient id="ax-link" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8FAEFF" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#3D63E0" stop-opacity="0.9"/>
-    </linearGradient>
-    <filter id="ax-soft" x="-20%" y="-30%" width="140%" height="170%">
-      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#002FA7" flood-opacity="0.10"/>
-    </filter>
-    <filter id="ax-float" x="-30%" y="-40%" width="160%" height="200%">
-      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#002FA7" flood-opacity="0.16"/>
+    <filter id="ax-lift" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#12141F" flood-opacity="0.09"/>
     </filter>
   </defs>
+  <g transform="translate(20 0)">
+    <!-- back layer: screen -->
+    <rect x="100" y="24" width="240" height="132" rx="10" fill="#FFFFFF" stroke="#DCE3F0"/>
+    <line x1="100" y1="42" x2="340" y2="42" stroke="#E6EBF5"/>
+    <rect x="116" y="29" width="60" height="7" rx="3.5" fill="#E6EBF5"/>
+    <rect x="116" y="56" width="70" height="9" rx="4.5" fill="#CBD5E6"/>
+    <rect x="116" y="74" width="62" height="6" rx="3" fill="#E6EBF5"/>
+    <rect x="116" y="86" width="48" height="6" rx="3" fill="#E6EBF5"/>
+    <rect x="116" y="124" width="40" height="12" rx="6" fill="#002FA7"/>
 
-  <!-- ghost window -->
-  <rect x="118" y="20" width="326" height="140" rx="12" fill="#FFFFFF" stroke="#EEF1F6" filter="url(#ax-soft)"/>
-  <g fill="#DDE3EE">
-    <circle cx="136" cy="33" r="2.8"/><circle cx="146" cy="33" r="2.8"/><circle cx="156" cy="33" r="2.8"/>
-  </g>
-  <rect x="178" y="28" width="90" height="10" rx="5" fill="#E9EDF5"/>
+    <!-- middle layer: list -->
+    <rect x="200" y="70" width="170" height="58" rx="10" fill="#FFFFFF" stroke="#DCE3F0" filter="url(#ax-lift)"/>
+    <rect x="212" y="80" width="146" height="16" rx="5" fill="#FFFFFF" stroke="#E6EBF5"/>
+    <rect x="219" y="85" width="6" height="6" rx="1.5" fill="none" stroke="#B7CCFF"/>
+    <rect x="234" y="86.5" width="70" height="3" rx="1.5" fill="#E6EBF5"/>
+    <rect x="212" y="102" width="146" height="16" rx="5" fill="#EEF3FF" stroke="#B7CCFF"/>
+    <rect x="219" y="107" width="6" height="6" rx="1.5" fill="#002FA7"/>
+    <path d="M220.3 110 l1.5 1.5 l2.4 -2.8" fill="none" stroke="#FFFFFF" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="234" y="108.5" width="86" height="3" rx="1.5" fill="#CBD5E6"/>
 
-  <!-- sidebar skeleton -->
-  <rect x="136" y="58" width="34" height="8" rx="4" fill="url(#ax-blue)" opacity="0.8"/>
-  <rect x="136" y="74" width="28" height="8" rx="4" fill="#E9EDF5"/>
-  <rect x="136" y="90" width="31" height="8" rx="4" fill="#E9EDF5"/>
-
-  <!-- content skeleton -->
-  <rect x="188" y="58" width="120" height="10" rx="5" fill="#DDE3EE"/>
-  <rect x="188" y="78" width="170" height="7" rx="3.5" fill="#E9EDF5"/>
-  <rect x="188" y="92" width="140" height="7" rx="3.5" fill="#E9EDF5"/>
-  <rect x="188" y="112" width="84" height="36" rx="8" fill="#F8FAFF" stroke="#EEF1F6"/>
-  <rect x="198" y="122" width="34" height="6" rx="3" fill="#E9EDF5"/>
-  <rect x="198" y="134" width="50" height="6" rx="3" fill="#EEF1F6"/>
-  <rect x="282" y="112" width="84" height="36" rx="8" fill="#F8FAFF" stroke="#EEF1F6"/>
-  <rect x="292" y="122" width="34" height="6" rx="3" fill="#E9EDF5"/>
-  <rect x="292" y="134" width="50" height="6" rx="3" fill="#EEF1F6"/>
-
-  <!-- connections between the AI nodes -->
-  <g fill="none" stroke="url(#ax-link)" stroke-width="1.3" stroke-linecap="round">
-    <path d="M162 133 C190 133 206 130 232 130"/>
-    <path d="M232 130 C262 130 290 131 326 130"/>
-    <path d="M326 130 C356 130 368 92 386 58"/>
-    <path d="M310 63 C336 63 360 62 386 58" stroke-dasharray="1 4"/>
-  </g>
-
-  <!-- floating glass card -->
-  <rect x="364" y="34" width="100" height="54" rx="10" fill="url(#ax-glass)" stroke="#FFFFFF" stroke-width="1.5" filter="url(#ax-float)"/>
-  <rect x="402" y="50" width="44" height="6" rx="3" fill="#DDE3EE"/>
-  <rect x="402" y="62" width="30" height="6" rx="3" fill="#E9EDF5"/>
-
-  <!-- floating action pill -->
-  <rect x="92" y="118" width="88" height="30" rx="15" fill="url(#ax-deep)" filter="url(#ax-float)"/>
-  <rect x="108" y="130" width="34" height="6" rx="3" fill="#FFFFFF" opacity="0.85"/>
-
-  <!-- AI nodes -->
-  <g>
-    <circle cx="386" cy="58" r="11" fill="url(#ax-blue)" opacity="0.22"/>
-    <circle cx="386" cy="58" r="6" fill="url(#ax-blue)"/>
-    <circle cx="310" cy="63" r="7" fill="#3D63E0" opacity="0.16"/>
-    <circle cx="310" cy="63" r="3.2" fill="#3D63E0" opacity="0.85"/>
-    <circle cx="162" cy="133" r="7" fill="#FFFFFF" opacity="0.28"/>
-    <circle cx="162" cy="133" r="3.2" fill="#FFFFFF"/>
-    <circle cx="232" cy="130" r="8" fill="#FF6F00" opacity="0.16"/>
-    <circle cx="232" cy="130" r="3.4" fill="#FF6F00"/>
-    <circle cx="326" cy="130" r="7" fill="#3D63E0" opacity="0.16"/>
-    <circle cx="326" cy="130" r="3.2" fill="#3D63E0" opacity="0.85"/>
+    <!-- front layer: pending -->
+    <rect x="330" y="108" width="92" height="34" rx="10" fill="#FFFFFF" stroke="#DCE3F0" filter="url(#ax-lift)"/>
+    <rect x="342.5" y="121.5" width="9" height="9" rx="2.5" fill="none" stroke="#FF6F00" stroke-width="1.4"/>
+    <rect x="360" y="124" width="46" height="4" rx="2" fill="#E6EBF5"/>
   </g>
 </svg>
