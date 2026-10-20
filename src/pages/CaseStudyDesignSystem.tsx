@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import CaseStudyShell, { Body, DarkBox } from '../components/CaseStudyShell'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
@@ -114,6 +115,8 @@ const copy = {
     beforeText: '"Use this button variant when the action is destructive, but avoid it in confirmation dialogs where the user hasn\'t yet reviewed consequences."',
     afterLabel: 'After (agent-readable)',
     afterText: 'variant: destructive · valid_contexts: [standalone_action] · invalid_contexts: [unreviewed_confirmation] · fallback: secondary',
+    phase2Link: 'The same structure now serves as the UI base of the Agentic UX Flow plugin, which reads it when building screens.',
+    phase2LinkLabel: 'See the Agentic UX Flow case study',
     phase2Closing: 'Phase 2 is live today, powering an internal initiative to define a new accelerator product for digital platform delivery — using the DS as the structured foundation an AI agent reads to generate pages and prototypes, not just a human designer.',
     resultsTitle: 'Results',
     results: [
@@ -229,6 +232,8 @@ const copy = {
     beforeText: '"Usa esta variante de botão quando a ação for destrutiva, mas evita-a em diálogos de confirmação onde o utilizador ainda não reviu as consequências."',
     afterLabel: 'Depois (legível por agente)',
     afterText: 'variant: destructive · valid_contexts: [standalone_action] · invalid_contexts: [unreviewed_confirmation] · fallback: secondary',
+    phase2Link: 'Essa mesma estrutura serve agora de base de UI ao plugin Agentic UX Flow, que a lê ao construir ecrãs.',
+    phase2LinkLabel: 'Ver o case study do Agentic UX Flow',
     phase2Closing: 'A Fase 2 está em produção hoje, a potenciar uma iniciativa interna para definir um novo produto acelerador de entrega de plataformas digitais — usando o DS como a fundação estruturada que um agente de IA lê para gerar páginas e protótipos, não apenas um designer humano.',
     resultsTitle: 'Resultados',
     results: [
@@ -408,6 +413,10 @@ export default function CaseStudyDesignSystem() {
           </div>
         </div>
         <Body>{t.phase2Closing}</Body>
+        <Body>
+          {t.phase2Link}{' '}
+          <Link to="/work/agentic-ux-flow" style={{ color: '#002FA7', fontWeight: 600, textDecoration: 'none' }}>{t.phase2LinkLabel}</Link>
+        </Body>
       </div>
 
       {/* RESULTS */}

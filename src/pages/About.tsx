@@ -192,6 +192,7 @@ const copy = {
     processNote: 'Process matters as much as craft.',
     howIWorkEyebrow: 'How I Work',
     howIWorkTitle: 'From discovery to a shipped decision',
+    methodLink: 'See how I turned this into a repeatable agent workflow: Agentic UX Flow',
     showLess: 'Show less',
     learnMore: 'Learn more',
     workPhases: [
@@ -284,6 +285,7 @@ const copy = {
       { n: '05', text: 'Os produtos devem reduzir a complexidade, não exibi-la' },
     ],
     processNote: 'O processo importa tanto quanto o craft.',
+    methodLink: 'Ver como transformei isto num workflow de agente repetível: Agentic UX Flow',
     howIWorkEyebrow: 'Como Trabalho',
     howIWorkTitle: 'Da descoberta a uma decisão implementada',
     showLess: 'Mostrar menos',
@@ -487,6 +489,11 @@ export default function About() {
                       <p style={{ fontSize: 13, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 10px' }}>{phase.detail}</p>
                       <div style={{ fontSize: 13, fontWeight: 600, color: '#12141F', fontStyle: 'italic', margin: '0 0 10px' }}>"{phase.question}"</div>
                       <Link to={phase.proof.to} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label}<ChevronRight size={14} /></Link>
+                      {phase.id === 'define' && (
+                        <div style={{ marginTop: 8 }}>
+                          <Link to="/work/agentic-ux-flow" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{t.methodLink}<ChevronRight size={14} /></Link>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

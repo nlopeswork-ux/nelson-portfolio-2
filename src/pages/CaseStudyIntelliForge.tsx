@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
@@ -176,6 +177,9 @@ const copy = {
         quoteAttrib: '— Client Regional Finance Manager, Round 3 testing' as string | null,
       },
     ],
+    methodTitle: 'The method behind it',
+    method: 'The way this case was run, with a brief first, assumptions kept visible and a human decision at each checkpoint, is the process I later formalised as the Agentic UX Flow plugin.',
+    methodLink: 'See the Agentic UX Flow case study',
     impactTitle: 'Concluding with Impact',
     impactIntro: 'Delivered as a fully validated, development-ready prototype at the end of 14 weeks: a 7-tab control plane, 5 decision engines, 20 FastAPI endpoints, 195 automated tests, and 600 synthetic artifact files covering 12 franchises × 12 months.',
     kpiColumns: ['KPI', 'Baseline', 'Result / Target'],
@@ -338,6 +342,9 @@ const copy = {
         quoteAttrib: '— Regional Finance Manager do Cliente, testes da Ronda 3' as string | null,
       },
     ],
+    methodTitle: 'O método por trás',
+    method: 'A forma como este caso foi conduzido, com o brief primeiro, os pressupostos sempre visíveis e uma decisão humana em cada checkpoint, é o processo que depois formalizei no plugin Agentic UX Flow.',
+    methodLink: 'Ver o case study do Agentic UX Flow',
     impactTitle: 'Concluir com Impacto',
     impactIntro: 'Entregue como um protótipo totalmente validado e pronto para desenvolvimento, ao fim de 14 semanas: um control plane de 7 separadores, 5 motores de decisão, 20 endpoints FastAPI, 195 testes automatizados, e 600 ficheiros de artefactos sintéticos cobrindo 12 concessionários × 12 meses.',
     kpiColumns: ['KPI', 'Referência', 'Resultado / Objetivo'],
@@ -591,6 +598,13 @@ export default function CaseStudyIntelliForge() {
           <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.7, color: '#3A3F4C', margin: '0 0 8px' }}>"{t.quote}"</p>
           <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C' }}>{t.quoteAttrib}</div>
         </div>
+      </div>
+
+      {/* METHOD */}
+      <div style={S}>
+        <h2 style={H2}>{t.methodTitle}</h2>
+        <Body>{t.method}</Body>
+        <Link to="/work/agentic-ux-flow" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', textDecoration: 'none' }}>{t.methodLink}<ChevronRight size={15} /></Link>
       </div>
 
       {/* WHAT'S NEXT */}

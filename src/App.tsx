@@ -10,6 +10,7 @@ import CaseStudyIntelliForge from './pages/CaseStudyIntelliForge'
 import CaseStudyOneRAK from './pages/CaseStudyOneRAK'
 import CaseStudyTamkeen from './pages/CaseStudyTamkeen'
 import CaseStudyDesignSystem from './pages/CaseStudyDesignSystem'
+import CaseStudyAgenticUXFlow from './pages/CaseStudyAgenticUXFlow'
 import CaseStudyEDPPlanetaZero from './pages/CaseStudyEDPPlanetaZero'
 import CaseStudyERARevamp from './pages/CaseStudyERARevamp'
 
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/work/onerak" element={<CaseStudyOneRAK />} />
           <Route path="/work/tamkeen" element={<CaseStudyTamkeen />} />
           <Route path="/work/design-system" element={<CaseStudyDesignSystem />} />
+          <Route path="/work/agentic-ux-flow" element={<CaseStudyAgenticUXFlow />} />
           <Route path="/work/edp-planeta-zero" element={<CaseStudyEDPPlanetaZero />} />
           <Route path="/work/era-revamp" element={<CaseStudyERARevamp />} />
           <Route path="/journey" element={<Journey />} />
