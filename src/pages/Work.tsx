@@ -325,9 +325,11 @@ export default function Work() {
 
       {/* METHOD AND TOOLING */}
       <div style={{ position: 'relative', padding: 'clamp(40px,5vw,64px) 0 clamp(120px,11.3vw,144px)' }}>
-        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', background: '#EEF3FF', WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%)', maskImage: 'linear-gradient(180deg, transparent 0%, #000 28%, #000 72%, transparent 100%)' }}>
-          <div style={{ position: 'absolute', top: -120, left: -120, width: 520, height: 520, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.55), transparent 70%)', filter: 'blur(60px)' }} />
-          <div style={{ position: 'absolute', bottom: -120, right: -100, width: 460, height: 460, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,111,0,0.12), transparent 70%)', filter: 'blur(70px)' }} />
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%)', maskImage: 'linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%)' }}>
+          <div style={{ position: 'absolute', top: '8%', left: '-6%', width: '340px', height: '340px', borderRadius: '50%', background: 'rgba(183,204,255,0.38)', filter: 'blur(70px)' }} />
+          <div style={{ position: 'absolute', top: '38%', left: '38%', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(210,224,255,0.45)', filter: 'blur(80px)' }} />
+          <div style={{ position: 'absolute', top: '4%', right: '6%', width: '240px', height: '240px', borderRadius: '50%', background: 'rgba(183,204,255,0.28)', filter: 'blur(70px)' }} />
+          <div style={{ position: 'absolute', bottom: '6%', right: '-4%', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,111,0,0.09)', filter: 'blur(80px)' }} />
         </div>
         <div style={{ position: 'relative', padding: '0 32px', maxWidth: 1200, margin: '0 auto' }}>
         <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 28px' }}>{p.methodTitle}</h2>
