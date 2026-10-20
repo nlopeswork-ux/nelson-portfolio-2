@@ -49,10 +49,9 @@ const earlierWorkBase = [
   { id: 'era-revamp', to: '/work/era-revamp', poster: eraPoster },
 ]
 
-const earlierWorkText: Record<Lang, Record<string, { eyebrow: string; title: string; description: string; tag: string; cta: string; alt: string }>> = {
+const earlierWorkText: Record<Lang, Record<string, { title: string; description: string; tag: string; cta: string; alt: string }>> = {
   en: {
     'edp-planeta-zero': {
-      eyebrow: 'EDP COMERCIAL — ENERGY · PORTUGAL',
       title: 'EDP Planeta Zero',
       description: 'Gamified app and programme website where customers earn Zs, level up and unlock rewards, with a CO₂ simulator and a community movement.',
       tag: 'Energy',
@@ -60,7 +59,6 @@ const earlierWorkText: Record<Lang, Record<string, { eyebrow: string; title: str
       alt: 'EDP Planeta Zero product film thumbnail',
     },
     'era-revamp': {
-      eyebrow: 'ERA IMOBILIÁRIA — REAL ESTATE · PORTUGAL',
       title: 'ERA Digital Revamp',
       description: 'A new fully digital website with smarter search, favourites with notes and a free home valuation.',
       tag: 'Real Estate',
@@ -70,7 +68,6 @@ const earlierWorkText: Record<Lang, Record<string, { eyebrow: string; title: str
   },
   pt: {
     'edp-planeta-zero': {
-      eyebrow: 'EDP COMERCIAL — ENERGIA · PORTUGAL',
       title: 'EDP Planeta Zero',
       description: 'App e website do programa com gamificação, em que os clientes ganham Zs, sobem de nível e desbloqueiam vantagens, com um simulador de CO₂ e um movimento de comunidade.',
       tag: 'Energia',
@@ -78,7 +75,6 @@ const earlierWorkText: Record<Lang, Record<string, { eyebrow: string; title: str
       alt: 'Miniatura do filme de produto EDP Planeta Zero',
     },
     'era-revamp': {
-      eyebrow: 'ERA IMOBILIÁRIA — IMOBILIÁRIO · PORTUGAL',
       title: 'ERA Digital Revamp',
       description: 'Um novo website totalmente digital com pesquisa mais inteligente, favoritos com notas e avaliação gratuita de imóveis.',
       tag: 'Imobiliário',
@@ -202,7 +198,6 @@ function WorkFilterTabs({
 
 const pageCopy = {
   en: {
-    eyebrow: 'Work',
     title: 'Case studies from the decision layer.',
     subtitle: 'Selected engagements where the interface was only as good as the decisions built underneath it.',
     readFull: 'Read the full case study',
@@ -218,7 +213,6 @@ const pageCopy = {
     earlierWorkText: 'Digital experiences I designed end to end, presented through product films. I designed the UX/UI, screens and graphics, and wrote the storyboard and script with a copywriter — the animation was handled by a motion designer.',
   },
   pt: {
-    eyebrow: 'Trabalho',
     title: 'Case studies da camada de decisão.',
     subtitle: 'Colaborações selecionadas onde a interface só foi tão boa quanto as decisões construídas por trás dela.',
     readFull: 'Ver a case study completa',
@@ -254,8 +248,7 @@ export default function Work() {
       <Nav />
 
       {/* HEADER */}
-      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>{p.eyebrow}</div>
+      <div style={{ position: 'relative', padding: 'clamp(172px,15vw,188px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
         <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 16px', maxWidth: 700 }}>
           <span aria-hidden="true" className="title-dot" />{p.title}
         </h1>
@@ -370,10 +363,9 @@ export default function Work() {
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{w.eyebrow}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{w.tag}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{w.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{w.description}</p>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 14 }}>{w.tag}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{w.cta}<ChevronRight size={15} /></div>
               </div>
             </Link>

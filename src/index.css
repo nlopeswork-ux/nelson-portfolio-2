@@ -1082,3 +1082,81 @@ input::placeholder { color: #A0A4B8; }
   .philosophy-dot { transition: none; }
   .philosophy-row:hover .philosophy-dot { transform: none; }
 }
+
+/* Breadcrumb: one absolute slot under the nav pill, identical on every page below home. */
+.breadcrumb { position: absolute; top: 96px; left: 0; right: 0; z-index: 50; max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 24px; display: flex; align-items: center; pointer-events: none; }
+.breadcrumb-list { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; list-style: none; min-width: 0; max-width: 100%; font-size: 13px; line-height: 1; color: #6B7086; pointer-events: auto; }
+.breadcrumb-item { flex: 0 0 auto; white-space: nowrap; }
+.breadcrumb-current { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #12141F; font-weight: 600; }
+.breadcrumb-sep { flex: 0 0 auto; color: #C3C8D8; }
+.breadcrumb-link { color: #6B7086; text-decoration: none; border-radius: 4px; transition: color var(--transition-fast); }
+.breadcrumb-link:hover { color: #002FA7; }
+.breadcrumb-link:focus-visible { outline: 2px solid #002FA7; outline-offset: 3px; }
+
+/* Shell for case study detail pages: one container, 9 + 3 columns. */
+:root {
+  --container-max: 1200px;
+  --gutter: 24px;
+  --nav-h: 82px;
+  --sticky-top: calc(var(--nav-h) + 24px);
+}
+html { scrollbar-gutter: stable; }
+.cs-container { max-width: var(--container-max); margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+.cs-hero { position: relative; padding-top: clamp(140px, 13vw, 156px); padding-bottom: 8px; }
+.cs-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
+.cs-main { grid-column: 1 / span 9; min-width: 0; padding-top: 40px; }
+.cs-main > div > p { max-width: 720px; }
+.cs-main h2 { scroll-margin-top: var(--sticky-top); }
+.cs-aside { grid-column: 10 / span 3; position: sticky; top: var(--sticky-top); align-self: start; margin-top: 40px; }
+.cs-toc-title { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #12141F; margin: 0 0 12px; }
+.cs-toc-toggle { display: none; }
+.cs-toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.cs-toc-link { display: block; width: 100%; text-align: left; font: inherit; font-size: 14px; line-height: 1.4; font-weight: 500; color: #4A4F63; background: none; border: 0; border-left: 2px solid #EAF1FF; padding: 7px 0 7px 14px; cursor: pointer; transition: color 0.15s ease-out, border-color 0.15s ease-out; }
+.cs-toc-link:hover { color: #002FA7; }
+.cs-toc-link[aria-current="true"] { color: #002FA7; font-weight: 600; border-left-color: #002FA7; }
+.cs-toc-link:focus-visible, .cs-toc-toggle:focus-visible, .cs-aside-link:focus-visible { outline: 2px solid #002FA7; outline-offset: 2px; border-radius: 4px; }
+.cs-toc-short { display: flex; flex-direction: column; gap: 12px; }
+.cs-aside-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 600; color: #002FA7; text-decoration: none; }
+.cs-aside-link:hover { text-decoration: underline; }
+
+@media (max-width: 1023px) {
+  .cs-layout { display: flex; flex-direction: column; align-items: stretch; }
+  .cs-main { padding-top: 32px; }
+  .cs-aside:has(.cs-toc-short) { display: none; }
+  .cs-aside { order: -1; position: static; align-self: stretch; margin: 0; padding-top: 8px; }
+  .cs-toc-title { display: none; }
+  .cs-toc-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; font: inherit; font-size: 14px; font-weight: 600; color: #002FA7; background: #F2F6FF; border: 0; border-radius: 12px; padding: 12px 16px; cursor: pointer; }
+  .cs-toc-list { display: none; padding-top: 8px; }
+  .cs-toc[data-open="true"] .cs-toc-list { display: flex; }
+}
+@media (max-width: 767px) {
+  :root { --gutter: 16px; }
+  .rg-meta { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-toc-link { transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Third-level breadcrumb collapses to a back link on small screens. */
+.breadcrumb-back { display: none; font-size: 13px; font-weight: 600; color: #002FA7; text-decoration: none; }
+@media (max-width: 767px) {
+  .breadcrumb[data-depth="3"] .breadcrumb-list { display: none; }
+  .breadcrumb[data-depth="3"] .breadcrumb-back { display: inline-flex; pointer-events: auto; }
+}
+
+/* Related cases: small horizontal cards for pages without a section index. */
+.related-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.related-card { display: flex; align-items: center; gap: 12px; padding: 8px 12px 8px 8px; border: 1px solid #EAF1FF; border-radius: 12px; background: #FFFFFF; text-decoration: none; color: #002FA7; transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out; }
+.related-card:hover { border-color: #B7CCFF; box-shadow: 0 6px 16px rgba(120, 150, 255, 0.12); }
+.related-card:focus-visible { outline: 2px solid #002FA7; outline-offset: 2px; }
+.related-thumb { width: 64px; height: 44px; flex: 0 0 auto; border-radius: 8px; object-fit: cover; background: #F5F7FC; }
+.related-title { flex: 1; min-width: 0; font-size: 13px; font-weight: 600; line-height: 1.35; color: #12141F; }
+@media (max-width: 1023px) { .related-list { flex-direction: row; flex-wrap: wrap; } .related-list li { flex: 1 1 240px; } }
+@media (prefers-reduced-motion: reduce) { .related-card { transition: none; } }
+
+/* When the first block opens with a large H2, centre the sidebar label on that heading's first line. */
+@media (min-width: 1024px) {
+  .cs-layout:has(.cs-main > div:first-child > h2:first-child) .cs-aside,
+  .cs-layout:has(.cs-main > div:first-child > div:first-child > h2:first-child) .cs-aside { margin-top: 50px; }
+}

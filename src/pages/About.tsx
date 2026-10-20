@@ -144,7 +144,7 @@ const certifications = [
 
 const copy = {
   en: {
-    eyebrow: 'About',
+    title: 'Design as the thread through everything I do',
     bio: [
       "Design has been the thread connecting everything I've done, even before I realised it would become my career.",
       "I began in Graphic Design, where I developed a deep appreciation for visual communication, typography and the subtle details that shape how people perceive information. Over time, I became less interested in the interface itself and more interested in the people behind it. That curiosity naturally led me into UX, UI and eventually Product Design.",
@@ -239,7 +239,7 @@ const copy = {
     languages: 'Fluent in Portuguese and English, working proficiency in Spanish and French.',
   },
   pt: {
-    eyebrow: 'Sobre',
+    title: 'O design como fio condutor de tudo o que faço',
     bio: [
       'O design tem sido o fio condutor de tudo o que fiz, mesmo antes de perceber que se tornaria a minha carreira.',
       'Comecei no Design Gráfico, onde desenvolvi uma apreciação profunda pela comunicação visual, tipografia e os detalhes subtis que moldam a forma como as pessoas percecionam a informação. Com o tempo, deixei de estar tão interessado na interface em si e passei a interessar-me mais pelas pessoas por trás dela. Essa curiosidade levou-me naturalmente para UX, UI e, eventualmente, Design de Produto.',
@@ -348,8 +348,10 @@ export default function About() {
       <Nav />
 
       {/* ── ABOUT BIO ── */}
-      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ ...eyebrow, marginBottom: 32 }}>{t.eyebrow}</div>
+      <div style={{ position: 'relative', padding: 'clamp(172px,15vw,188px) 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
+        <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 40px', maxWidth: 700 }}>
+          <span aria-hidden="true" className="title-dot" />{t.title}
+        </h1>
 
         <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 320px', minWidth: 0 }}>

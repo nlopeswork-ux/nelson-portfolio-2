@@ -1,18 +1,28 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { relatedCases } from './relatedCases'
+import { tocLabel } from './tocLabels'
+import { Link, useLocation } from 'react-router-dom'
 import Nav from './Nav'
 import Footer from './Footer'
 import Counter from './Counter'
 import ChevronLeft from './ChevronLeft'
+import ChevronRight from './ChevronRight'
+import ChevronUp from './ChevronUp'
+import ChevronDown from './ChevronDown'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const shellCopy = {
   en: {
     backToWork: 'Back to all work',
     confidentiality: 'Client names and identifying details have been generalized to respect confidentiality agreements. Metrics and outcomes reflect the real scope and impact of the engagement.',
+    onThisPage: 'On this page',
+    relatedTitle: 'Also worth a look',
   },
   pt: {
     backToWork: 'Voltar a todo o trabalho',
     confidentiality: 'Os nomes de clientes e detalhes identificativos foram generalizados para respeitar acordos de confidencialidade. As métricas e os resultados refletem o âmbito e o impacto reais da colaboração.',
+    onThisPage: 'Nesta página',
+    relatedTitle: 'Vale também a pena ver',
   },
 }
 
@@ -37,25 +47,101 @@ interface CaseStudyShellProps {
   children: React.ReactNode
 }
 
+interface TocItem {
+  id: string
+  label: string
+}
+
+const slugify = (text: string) =>
+  text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+
+// Reads the H2s that the page rendered inside <main>, gives them ids, and
+// tracks which one is current while scrolling. Anchors are buttons, not
+// href="#id", because the router already owns the URL hash.
+function useSectionIndex(mainRef: React.RefObject<HTMLElement | null>, lockRef: React.MutableRefObject<number>, deps: unknown[]) {
+  const [items, setItems] = useState<TocItem[]>([])
+  const [active, setActive] = useState('')
+
+  useEffect(() => {
+    const main = mainRef.current
+    if (!main) return
+    const heads = Array.from(main.querySelectorAll('h2'))
+    const used = new Set<string>()
+    const next = heads.map((h, i) => {
+      let id = h.id || slugify(h.textContent || '') || `section-${i}`
+      while (used.has(id)) id += `-${i}`
+      used.add(id)
+      h.id = id
+      return { id, label: tocLabel(h.textContent || '') }
+    })
+    setItems(next)
+    setActive(next[0]?.id ?? '')
+
+    if (next.length === 0) return
+    let frame = 0
+    const update = () => {
+      frame = 0
+      if (Date.now() < lockRef.current) return
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        setActive(next[next.length - 1].id)
+        return
+      }
+      const line = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 48
+      let current = next[0].id
+      for (const { id } of next) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= line) current = id
+      }
+      setActive(current)
+    }
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update) }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    update()
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (frame) cancelAnimationFrame(frame)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps)
+
+  return { items, active, setActive }
+}
+
 export default function CaseStudyShell({ eyebrow, title, description, meta, stats, accentColor = '#002FA7', children }: CaseStudyShellProps) {
   const { lang } = useLanguage()
+  const { pathname } = useLocation()
   const t = shellCopy[lang]
+  const mainRef = useRef<HTMLElement>(null)
+  const [tocOpen, setTocOpen] = useState(false)
+  const lockRef = useRef(0)
+  const { items, active, setActive } = useSectionIndex(mainRef, lockRef, [lang, pathname])
+  const showToc = items.length >= 2
+
+  const goTo = (id: string) => {
+    setActive(id)
+    lockRef.current = Date.now() + 900
+    document.getElementById(id)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
+    setTocOpen(false)
+  }
+
   return (
-    <div style={{ position: 'relative', overflow: 'hidden', background: '#FFFFFF', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', overflow: 'clip', background: '#FFFFFF', minHeight: '100vh' }}>
       <Nav />
 
       {/* HERO */}
-      <div style={{ position: 'relative', padding: 'clamp(120px,18vw,180px) 20px 60px', maxWidth: 900, margin: '0 auto' }}>
+      <div className="cs-container cs-hero">
         <div style={{ position: 'absolute', top: -160, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.32), transparent 70%)', filter: 'blur(70px)', animation: 'driftA 24s var(--ease-in-out) infinite', zIndex: -1 }} />
 
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: accentColor, marginBottom: 16 }}>{eyebrow}</div>
-        <h1 style={{ fontSize: 'clamp(28px,5.5vw,56px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#12141F', margin: '0 0 24px', lineHeight: 1.1 }}>{title}</h1>
+        <h1 style={{ fontSize: 'clamp(28px,5.5vw,56px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#12141F', margin: '0 0 24px', lineHeight: 1.1, maxWidth: 900 }}>{title}</h1>
         <p style={{ fontSize: 'clamp(16px,2vw,19px)', lineHeight: 1.7, color: '#5A5F73', maxWidth: 720, margin: '0 0 44px' }}>{description}</p>
 
         {/* META GRID */}
-        <div className="rg-meta" style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', borderRadius: 20, padding: 28, marginBottom: 24 }}>
+        <div className="rg-meta" style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', borderRadius: 20, padding: '28px 0 0', marginBottom: stats.length > 0 ? 32 : 0 }}>
           {meta.map(({ label, value, span }) => (
-            <div key={label} style={{ gridColumn: span ? '1 / -1' : undefined }}>
+            <div key={label} style={{ gridColumn: span ? '1 / -1' : undefined, minWidth: 0 }}>
               <div style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: accentColor, marginBottom: 8 }}>{label}</div>
               <div style={{ fontSize: 15, fontWeight: 600, color: '#12141F', lineHeight: 1.5 }}>{value}</div>
             </div>
@@ -75,17 +161,53 @@ export default function CaseStudyShell({ eyebrow, title, description, meta, stat
         )}
       </div>
 
-      {/* CONTENT */}
-      {children}
+      {/* CONTENT: 9 columns of content + 3 columns of sticky sidebar */}
+      <div className="cs-container cs-layout">
+        <main ref={mainRef} className="cs-main">{children}</main>
+
+        <aside className="cs-aside">
+          {showToc ? (
+            <nav aria-label={t.onThisPage} className="cs-toc" data-open={tocOpen}>
+              <button type="button" className="cs-toc-toggle" aria-expanded={tocOpen} onClick={() => setTocOpen(o => !o)}>
+                {t.onThisPage}
+                {tocOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </button>
+              <div className="cs-toc-title">{t.onThisPage}</div>
+              <ol className="cs-toc-list">
+                {items.map(({ id, label }) => (
+                  <li key={id}>
+                    <button type="button" className="cs-toc-link" aria-current={active === id ? 'true' : undefined} onClick={() => goTo(id)}>{label}</button>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          ) : (
+            <div className="cs-toc cs-toc-short">
+              <div className="cs-toc-title">{t.relatedTitle}</div>
+              <ul className="related-list">
+                {relatedCases(pathname.split('/').filter(Boolean)[1] ?? '').map(c => (
+                  <li key={c.slug}>
+                    <Link to={`/work/${c.slug}`} className="related-card">
+                      <img src={c.image} alt="" className="related-thumb" />
+                      <span className="related-title">{c.title}</span>
+                      <ChevronRight size={14} />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </aside>
+      </div>
 
       {/* BACK LINK */}
-      <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 20px 80px' }}>
+      <div className="cs-container" style={{ paddingTop: 16, paddingBottom: 80 }}>
         <Link to="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', textDecoration: 'none' }}>
           <ChevronLeft size={15} className="" />{t.backToWork}
         </Link>
       </div>
 
-      <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 20px 40px', textAlign: 'center' }}>
+      <div className="cs-container" style={{ paddingBottom: 40, textAlign: 'center' }}>
         <p style={{ fontSize: 12, lineHeight: 1.6, color: '#A0A4B8', margin: 0 }}>{t.confidentiality}</p>
       </div>
 

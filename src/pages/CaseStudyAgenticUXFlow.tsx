@@ -6,7 +6,7 @@ import dsImg from '../imports/Internal_DS.png'
 import { useLanguage } from '../i18n/LanguageContext'
 
 // ds-allow-hardcode:start - layout and ink values shared with every other case study; the site has no spacing or ink tokens
-const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
+const S = { padding: '0 0 48px' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
 const H3 = { fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 } as const
 // ds-allow-hardcode:end
@@ -47,8 +47,8 @@ const copy = {
     pathsTitle: 'Two paths',
     pathsIntro: 'Not every request deserves the full process. A router reads the brief, proposes a path and explains why. I decide, and I can always change it.',
     paths: [
-      { tag: 'Quick', name: 'Rápido', when: 'One screen, a clear user.', steps: ['Brief', 'Design', 'Prototype', 'Test'], note: 'The shortest route that still has a brief, gates and a test. This is the path used to build the page you are reading.' },
-      { tag: 'Complete', name: 'Completo', when: 'A product or a flow, or a user nobody has validated.', steps: ['Brief', 'Research', 'Structure', 'Design', 'Prototype', 'Test', 'Iterate'], note: 'Adds research and structure before design, because those are the stages where a wrong assumption is cheapest to fix.' },
+      { name: 'Quick', when: 'One screen, a clear user.', steps: ['Brief', 'Design', 'Prototype', 'Test'], note: 'The shortest route that still has a brief, gates and a test. This is the path used to build the page you are reading.' },
+      { name: 'Complete', when: 'A product or a flow, or a user nobody has validated.', steps: ['Brief', 'Research', 'Structure', 'Design', 'Prototype', 'Test', 'Iterate'], note: 'Adds research and structure before design, because those are the stages where a wrong assumption is cheapest to fix.' },
     ],
     pathsMore: 'Three more variants exist for a single component, for designing from an image, and for auditing something that already exists.',
     decisionsTitle: 'Design decisions',
@@ -127,8 +127,8 @@ const copy = {
     pathsTitle: 'Dois percursos',
     pathsIntro: 'Nem todos os pedidos merecem o processo completo. Um router lê o brief, propõe um percurso e explica porquê. Eu decido, e posso sempre mudar.',
     paths: [
-      { tag: 'Rápido', name: 'Rápido', when: 'Um ecrã, um utilizador claro.', steps: ['Brief', 'Design', 'Protótipo', 'Teste'], note: 'O caminho mais curto que ainda tem brief, gates e teste. Foi o percurso usado para construir a página que estás a ler.' },
-      { tag: 'Completo', name: 'Completo', when: 'Um produto ou um fluxo, ou um utilizador que ninguém validou.', steps: ['Brief', 'Pesquisa', 'Estrutura', 'Design', 'Protótipo', 'Teste', 'Iterar'], note: 'Acrescenta pesquisa e estrutura antes do design, porque são as etapas onde um pressuposto errado é mais barato de corrigir.' },
+      { name: 'Rápido', when: 'Um ecrã, um utilizador claro.', steps: ['Brief', 'Design', 'Protótipo', 'Teste'], note: 'O caminho mais curto que ainda tem brief, gates e teste. Foi o percurso usado para construir a página que estás a ler.' },
+      { name: 'Completo', when: 'Um produto ou um fluxo, ou um utilizador que ninguém validou.', steps: ['Brief', 'Pesquisa', 'Estrutura', 'Design', 'Protótipo', 'Teste', 'Iterar'], note: 'Acrescenta pesquisa e estrutura antes do design, porque são as etapas onde um pressuposto errado é mais barato de corrigir.' },
     ],
     pathsMore: 'Existem mais três variantes: para um só componente, para desenhar a partir de uma imagem e para auditar algo que já existe.',
     decisionsTitle: 'Decisões de design',
@@ -187,7 +187,7 @@ export default function CaseStudyAgenticUXFlow() {
       stats={t.stats}
     >
       {/* THE HOOK */}
-      <div style={{ ...S, paddingTop: 48 }}>
+      <div style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         {t.hook.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>
@@ -224,7 +224,6 @@ export default function CaseStudyAgenticUXFlow() {
                   ? { padding: 24, borderRadius: 20, background: '#12141F', color: '#F2F6FF' }
                   : { padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(20,30,60,0.1)' }}
               >
-                <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: dark ? '#8FAEFF' : '#001A5C', marginBottom: 6 }}>{path.tag}</div>
                 <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', color: dark ? '#F2F6FF' : '#12141F', marginBottom: 6 }}>{path.name}</div>
                 <p style={{ fontSize: 14, lineHeight: 1.6, color: dark ? '#C7D4FF' : '#5A5F73', margin: '0 0 16px' }}>{path.when}</p>
                 <ol style={{ listStyle: 'none', margin: '0 0 16px', padding: 0, display: 'flex', flexWrap: 'wrap', gap: 8 }}>

@@ -1,8 +1,8 @@
 import CaseStudyShell, { Body, DarkBox } from '../components/CaseStudyShell'
 import { useLanguage } from '../i18n/LanguageContext'
 
-const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
-const SW = { padding: '0 20px 64px', maxWidth: 900, margin: '0 auto' } as const
+const S = { padding: '0 0 48px' } as const
+const SW = { padding: '0 0 48px' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
 
 const copy = {
@@ -347,7 +347,7 @@ export default function CaseStudyTamkeen() {
       stats={t.stats}
     >
       {/* 02 CONTEXT */}
-      <div style={{ ...SW, paddingTop: 48 }}>
+      <div style={SW}>
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.contextLabel}</div>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.context1}</p>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.context2}</p>
@@ -437,10 +437,10 @@ export default function CaseStudyTamkeen() {
       <div style={SW}>
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.workshopLabel}</div>
         <h2 style={H2}>{t.workshopTitle}</h2>
-        <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px', maxWidth: 760 }}>{t.workshop1}</p>
-        <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px', maxWidth: 760 }}>{t.workshop2}</p>
+        <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.workshop1}</p>
+        <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.workshop2}</p>
 
-        <div style={{ padding: 24, borderRadius: 18, background: '#F2F6FF', marginBottom: 32, maxWidth: 760 }}>
+        <div style={{ padding: 24, borderRadius: 18, background: '#F2F6FF', marginBottom: 32 }}>
           <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.04em', color: '#001A5C', marginBottom: 8 }}>{t.processLabel}</div>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: '#3A3F4C', margin: 0 }}>{t.processBody}</p>
         </div>
@@ -452,12 +452,12 @@ export default function CaseStudyTamkeen() {
           ))}
         </div>
 
-        <div style={{ maxWidth: 760, marginBottom: 32 }}>
+        <div style={{ marginBottom: 32 }}>
           <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.04em', color: '#001A5C', marginBottom: 6 }}>{t.myRoleLabel}</div>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.myRoleBody}</p>
         </div>
 
-        <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto', padding: '24px 0' }}>
+        <div style={{ textAlign: 'center', padding: '24px 0' }}>
           <div style={{ fontFamily: "Georgia,'Times New Roman',serif", fontSize: 44, lineHeight: 1, color: '#001A5C', opacity: 0.35, marginBottom: 8 }}>"</div>
           <p style={{ fontFamily: "Georgia,'Times New Roman',serif", fontStyle: 'italic', fontSize: 24, lineHeight: 1.45, color: '#2A2F3A', margin: 0 }}>{t.pullQuote}</p>
         </div>
@@ -481,7 +481,7 @@ export default function CaseStudyTamkeen() {
       <div style={SW}>
         <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.solutionLabel}</div>
         <h2 style={H2}>{t.solutionTitle}</h2>
-        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 48px', maxWidth: 720 }}>{t.solutionIntro}</p>
+        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 48px' }}>{t.solutionIntro}</p>
 
         <div style={{ position: 'relative' }}>
           <div className="cs-timeline-line" />

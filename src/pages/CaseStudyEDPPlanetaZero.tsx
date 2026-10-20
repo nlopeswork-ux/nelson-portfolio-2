@@ -5,7 +5,7 @@ import appPoster from '../imports/EDP-planetazero-app-poster.png'
 import websiteVideo from '../imports/EDP-planetazero-web.mp4'
 import websitePoster from '../imports/EDP-planetazero-web-poster.png'
 
-const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
+const S = { padding: '0 0 48px' } as const
 
 const copy = {
   en: {
@@ -84,7 +84,7 @@ export default function CaseStudyEDPPlanetaZero() {
 
   return (
     <CaseStudyShell eyebrow={t.eyebrow} title={t.title} description={t.description} meta={t.meta} stats={[]}>
-      <div style={{ ...S, paddingTop: 48 }}>
+      <div style={S}>
         <VideoBlock src={appVideo} poster={appPoster} label={t.appLabel} />
         <FeatureList title={t.appFeaturesTitle} items={t.appFeatures} />
       </div>

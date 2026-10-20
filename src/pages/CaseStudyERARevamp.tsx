@@ -3,7 +3,7 @@ import { useLanguage } from '../i18n/LanguageContext'
 import eraVideo from '../imports/era-showcase.mp4'
 import eraPoster from '../imports/era-showcase-poster.png'
 
-const S = { padding: '0 20px 64px', maxWidth: 760, margin: '0 auto' } as const
+const S = { padding: '0 0 48px' } as const
 
 const copy = {
   en: {
@@ -62,7 +62,7 @@ export default function CaseStudyERARevamp() {
 
   return (
     <CaseStudyShell eyebrow={t.eyebrow} title={t.title} description={t.description} meta={t.meta} stats={[]}>
-      <div style={{ ...S, paddingTop: 48 }}>
+      <div style={S}>
         <VideoBlock src={eraVideo} poster={eraPoster} label={t.videoLabel} />
         <FeatureList title={t.featuresTitle} items={t.features} />
       </div>

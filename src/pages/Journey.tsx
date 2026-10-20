@@ -22,7 +22,6 @@ function TimelineRow({ period, marker, children }: { period: string; marker?: 'c
 
 const copy = {
   en: {
-    eyebrow: 'Professional Journey',
     title: 'From graphic design to product leadership',
     showEngagements: 'Show engagements',
     hideEngagements: 'Hide engagements',
@@ -54,7 +53,6 @@ const copy = {
     ],
   },
   pt: {
-    eyebrow: 'Percurso Profissional',
     title: 'Do design gráfico à liderança de produto',
     showEngagements: 'Mostrar colaborações',
     hideEngagements: 'Ocultar colaborações',
@@ -98,10 +96,9 @@ export default function Journey() {
       <Nav />
 
       {/* HEADER */}
-      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
+      <div style={{ position: 'relative', padding: 'clamp(172px,15vw,188px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ position: 'absolute', top: 40, right: -220, width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.28), transparent 70%)', filter: 'blur(75px)', zIndex: -1 }} />
         <div style={{ maxWidth: 900 }}>
-          <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 12 }}>{t.eyebrow}</div>
           <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: 0 }}>{t.title}</h1>
         </div>
       </div>
