@@ -38,7 +38,6 @@ const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterS
 
 const copy = {
   en: {
-    eyebrow: 'Case Study',
     title: 'IntelliForge SR2R',
     description: 'Designing a governed, ontology-driven Intelligent Financial Close system that transforms 200 manual month-end close cycles into a scalable, auditable decision engine — and builds the evidence base for a 10× volume bid.',
     meta: [
@@ -203,7 +202,6 @@ const copy = {
     ],
   },
   pt: {
-    eyebrow: 'Case Study',
     title: 'IntelliForge SR2R',
     description: 'Desenho de um sistema de Fecho Financeiro Inteligente, governado e orientado por ontologia, que transforma 200 ciclos de fecho mensal manuais num motor de decisão escalável e auditável — e constrói a base de evidência para uma proposta de 10× o volume.',
     meta: [
@@ -377,7 +375,6 @@ export default function CaseStudyIntelliForge() {
 
   return (
     <CaseStudyShell
-      eyebrow={t.eyebrow}
       title={t.title}
       description={t.description}
       meta={t.meta}

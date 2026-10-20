@@ -10,7 +10,6 @@ const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterS
 
 const copy = {
   en: {
-    eyebrow: 'Case Study',
     title: 'Internal Design System',
     description: 'Building an internal design platform that unified structure and components across projects, cutting redundant rebuild work and accelerating delivery — then evolving that same foundation from documentation a designer could read into a structured source an AI agent can read too.',
     meta: [
@@ -127,7 +126,6 @@ const copy = {
     ],
   },
   pt: {
-    eyebrow: 'Case Study',
     title: 'Design System Interno',
     description: 'Construção de uma plataforma de design interna que unificou estrutura e componentes entre projetos, reduzindo trabalho redundante de reconstrução e acelerando a entrega — evoluindo depois essa mesma base de documentação legível por um designer para uma fonte estruturada que um agente de IA também consegue ler.',
     meta: [
@@ -252,7 +250,6 @@ export default function CaseStudyDesignSystem() {
 
   return (
     <CaseStudyShell
-      eyebrow={t.eyebrow}
       title={t.title}
       description={t.description}
       meta={t.meta}

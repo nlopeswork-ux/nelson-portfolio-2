@@ -7,7 +7,6 @@ const S = { padding: '0 0 48px' } as const
 
 const copy = {
   en: {
-    eyebrow: 'Case Study · Product Film',
     title: 'ERA Digital Revamp',
     description: 'Revamp to build a new, fully digital website integrating new functionalities.',
     meta: [
@@ -31,7 +30,6 @@ const copy = {
     ],
   },
   pt: {
-    eyebrow: 'Case Study · Filme de Produto',
     title: 'ERA Digital Revamp',
     description: 'Revamp para construir um novo website totalmente digital, integrando novas funcionalidades.',
     meta: [
@@ -61,7 +59,7 @@ export default function CaseStudyERARevamp() {
   const t = copy[lang]
 
   return (
-    <CaseStudyShell eyebrow={t.eyebrow} title={t.title} description={t.description} meta={t.meta} stats={[]}>
+    <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]}>
       <div style={S}>
         <VideoBlock src={eraVideo} poster={eraPoster} label={t.videoLabel} />
         <FeatureList title={t.featuresTitle} items={t.features} />

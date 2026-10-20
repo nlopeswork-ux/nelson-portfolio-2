@@ -13,7 +13,6 @@ const H3 = { fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 }
 
 const copy = {
   en: {
-    eyebrow: 'Case Study',
     title: 'Agentic UX Flow',
     description: 'A plugin I designed and built that gives an AI agent a design process to follow: a brief before any pixels, assumptions that stay visible, human checkpoints, and gates that check the work instead of trusting it.',
     meta: [
@@ -93,7 +92,6 @@ const copy = {
     ],
   },
   pt: {
-    eyebrow: 'Case Study',
     title: 'Agentic UX Flow',
     description: 'Um plugin que desenhei e construí e que dá a um agente de IA um processo de design a seguir: um brief antes de qualquer pixel, pressupostos que ficam visíveis, checkpoints humanos e gates que verificam o trabalho em vez de confiar nele.',
     meta: [
@@ -180,7 +178,6 @@ export default function CaseStudyAgenticUXFlow() {
 
   return (
     <CaseStudyShell
-      eyebrow={t.eyebrow}
       title={t.title}
       description={t.description}
       meta={t.meta}

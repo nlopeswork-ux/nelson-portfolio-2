@@ -7,14 +7,11 @@ const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterS
 
 const copy = {
   en: {
-    eyebrow: 'Case Study · 01 Overview',
     title: 'National Workforce Digital Platform',
     description: 'Designing a national workforce-development ecosystem — from a manual, email-and-in-person process to a unified digital platform for citizens, businesses and government, across four years of continuous evolution.',
     meta: [
       { label: 'Role', value: 'UX/UI Designer (2023, on kickoff) → Senior UX/UI Designer & Design Lead (2024–present)' },
       { label: 'Client', value: 'National workforce-development fund (Government / Employment & Economic Development)' },
-      { label: 'Timeline', value: 'January 2023 – Present (3.5+ years), across 4 annual phases: 2023 Foundation, 2024 Platform Expansion, 2025 Omnichannel, 2026 Intelligence & Personalisation (current)' },
-      { label: 'Platform', value: 'OutSystems (low-code) — External Platform + Internal Operations Platform' },
       { label: 'Team (peak)', value: '1 Design Lead · 2 UX/UI Designers · 2 Business Analysts · 1 PM · 1 Solution Architect · 5 OutSystems Developers · 1 QA Lead' },
       { label: 'Deliverable', value: 'Unified digital ecosystem serving 5 external and 15 internal user roles across four annual delivery phases', span: true },
     ],
@@ -170,14 +167,11 @@ const copy = {
     reflectionLearned: 'government platforms succeed as service ecosystems, not collections of digital forms. Designing for evolution — building each release so the next one extends it rather than replacing it — mattered more over a 4-year engagement than getting any single release perfect. Leading the product across multiple phases also reinforced that operational efficiency and customer experience are frequently the same problem seen from two sides, not competing priorities to trade off.',
   },
   pt: {
-    eyebrow: 'Case Study · 01 Visão Geral',
     title: 'Plataforma Digital Nacional de Força de Trabalho',
     description: 'Desenho de um ecossistema nacional de desenvolvimento da força de trabalho — de um processo manual, por email e presencial, a uma plataforma digital unificada para cidadãos, empresas e governo, ao longo de quatro anos de evolução contínua.',
     meta: [
       { label: 'Função', value: 'UX/UI Designer (2023, no arranque) → Senior UX/UI Designer & Design Lead (2024–presente)' },
       { label: 'Cliente', value: 'Fundo nacional de desenvolvimento da força de trabalho (Setor Público / Emprego e Desenvolvimento Económico)' },
-      { label: 'Duração', value: 'Janeiro 2023 – Presente (mais de 3,5 anos), em 4 fases anuais: 2023 Fundação, 2024 Expansão da Plataforma, 2025 Omnichannel, 2026 Inteligência e Personalização (atual)' },
-      { label: 'Plataforma', value: 'OutSystems (low-code) — Plataforma Externa + Plataforma de Operações Internas' },
       { label: 'Equipa (pico)', value: '1 Design Lead · 2 UX/UI Designers · 2 Business Analysts · 1 PM · 1 Solution Architect · 5 OutSystems Developers · 1 QA Lead' },
       { label: 'Entregável', value: 'Ecossistema digital unificado a servir 5 papéis externos e 15 internos ao longo de quatro fases anuais de entrega', span: true },
     ],
@@ -340,7 +334,6 @@ export default function CaseStudyTamkeen() {
 
   return (
     <CaseStudyShell
-      eyebrow={t.eyebrow}
       title={t.title}
       description={t.description}
       meta={t.meta}

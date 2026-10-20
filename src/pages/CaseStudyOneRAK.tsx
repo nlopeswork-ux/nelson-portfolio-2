@@ -18,7 +18,6 @@ const screenImages = [imgStepper, imgShareholders, imgLicenseSuccess, imgLicense
 
 const copy = {
   en: {
-    eyebrow: 'Case Study',
     title: 'OneRAK Portal Revamp',
     description: 'Turning three disconnected, low-trust government portals — the Customer Portal, the Agent Portal, and the Secondary Government Portal — into one unified, evidence-based OneRAK experience for investors, agents, and government stakeholders.',
     meta: [
@@ -152,7 +151,6 @@ const copy = {
     quote3Attr: '— Engagement Lead, KPMG',
   },
   pt: {
-    eyebrow: 'Case Study',
     title: 'OneRAK Portal Revamp',
     description: 'Transformar três portais governamentais desligados e de baixa confiança — o Portal de Clientes, o Portal de Agentes e o Portal Governamental Secundário — numa única experiência OneRAK unificada e baseada em evidência, para investidores, agentes e stakeholders governamentais.',
     meta: [
@@ -298,7 +296,6 @@ export default function CaseStudyOneRAK() {
 
   return (
     <CaseStudyShell
-      eyebrow={t.eyebrow}
       title={t.title}
       description={t.description}
       meta={t.meta}

@@ -9,7 +9,6 @@ const S = { padding: '0 0 48px' } as const
 
 const copy = {
   en: {
-    eyebrow: 'Case Study · Product Film',
     title: 'EDP Planeta Zero',
     description: 'Gamified programme that rewards sustainable habits, across a mobile app and a website.',
     meta: [
@@ -43,7 +42,6 @@ const copy = {
     ],
   },
   pt: {
-    eyebrow: 'Case Study · Filme de Produto',
     title: 'EDP Planeta Zero',
     description: 'Programa de gamificação que premeia hábitos sustentáveis, numa app mobile e num website.',
     meta: [
@@ -83,7 +81,7 @@ export default function CaseStudyEDPPlanetaZero() {
   const t = copy[lang]
 
   return (
-    <CaseStudyShell eyebrow={t.eyebrow} title={t.title} description={t.description} meta={t.meta} stats={[]}>
+    <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]}>
       <div style={S}>
         <VideoBlock src={appVideo} poster={appPoster} label={t.appLabel} />
         <FeatureList title={t.appFeaturesTitle} items={t.appFeatures} />
