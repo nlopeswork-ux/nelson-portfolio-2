@@ -1205,3 +1205,17 @@ html { scrollbar-gutter: stable; }
 .cs-meta-item--abbr:hover .cs-meta-full, .cs-meta-item--abbr:focus .cs-meta-full, .cs-meta-item--abbr:focus-within .cs-meta-full { opacity: 1; transform: none; }
 .cs-meta-item--abbr:focus-visible .cs-meta-short { outline: 2px solid #002FA7; outline-offset: 3px; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) { .cs-meta-item--abbr .cs-meta-full { transition: none; } }
+
+/* Case study chapter rhythm: a chapter is a direct child of .cs-main that holds an h2.
+   Modules without an h2 (highlight boxes) stay attached to the chapter above. */
+.cs-main > div { padding-bottom: 0 !important; }
+.cs-main > div:last-child { padding-bottom: 48px !important; }
+.cs-main > div:has(h2)::before { content: '⸻'; display: block; text-align: center; font-size: 22px; line-height: 1; color: #001A5C; margin: 56px 0; }
+.cs-main > div:first-child:has(h2)::before { display: none; }
+.cs-main > div:not(:has(h2)) { padding-top: 32px !important; }
+.cs-h2-mark::before { display: none; }
+.cs-h2-mark { gap: 0; }
+.cs-h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #12141F; margin: 0 0 12px; }
+@media (max-width: 640px) {
+  .cs-main > div:has(h2)::before { margin: 40px 0; }
+}
