@@ -401,7 +401,7 @@ export default function CaseStudyIntelliForge() {
         <Body>{t.researchIntro}</Body>
 
         <div style={{ padding: 24, borderRadius: 20, background: '#F2F6FF', border: '1px solid #EAF1FF', marginBottom: 28 }}>
-          <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.auditTitle}</div>
+          <h3 className="cs-h3">{t.auditTitle}</h3>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.auditBody}</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginBottom: 20 }}>
             {t.auditStats.map(([v, l]) => (

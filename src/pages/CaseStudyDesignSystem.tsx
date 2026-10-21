@@ -265,7 +265,7 @@ export default function CaseStudyDesignSystem() {
         <Body>{t.phase1Intro}</Body>
 
         <div style={{ padding: 24, borderRadius: 20, background: '#F2F6FF', border: '1px solid #EAF1FF', marginBottom: 28 }}>
-          <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.auditingTitle}</div>
+          <h3 className="cs-h3">{t.auditingTitle}</h3>
 
           <div style={{ display: 'flex', gap: 20, alignItems: 'baseline', flexWrap: 'wrap', padding: '16px 20px', borderRadius: 14, background: '#12141F', color: '#F2F6FF', marginBottom: 16 }}>
             <div style={{ fontSize: 26, fontWeight: 800, color: '#8FAEFF', lineHeight: 1.1 }}>{t.inflationHeadline}</div>
@@ -307,7 +307,7 @@ export default function CaseStudyDesignSystem() {
           )}
         </div>
 
-        <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 }}>{t.categorisingTitle}</div>
+        <h3 className="cs-h3">{t.categorisingTitle}</h3>
         <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.categorisingIntro}</p>
 
         <div className="table-scroll" style={{ padding: 24, borderRadius: 20, border: '1px solid #EAF1FF', background: '#F8FAFF', marginBottom: 28 }}>
@@ -331,7 +331,7 @@ export default function CaseStudyDesignSystem() {
           </table>
         </div>
 
-        <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 }}>{t.agnosticTitle}</div>
+        <h3 className="cs-h3">{t.agnosticTitle}</h3>
         <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.agnosticIntro}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 28 }}>
           <div style={{ padding: 24, borderRadius: 20, background: '#12141F', color: '#F2F6FF' }}>
@@ -362,7 +362,7 @@ export default function CaseStudyDesignSystem() {
           ))}
         </div>
 
-        <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 }}>{t.principlesTitle}</div>
+        <h3 className="cs-h3">{t.principlesTitle}</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
           {t.principles.map(({ n, name, desc }) => (
             <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
@@ -375,7 +375,7 @@ export default function CaseStudyDesignSystem() {
           ))}
         </div>
 
-        <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 }}>{t.governanceTitle}</div>
+        <h3 className="cs-h3">{t.governanceTitle}</h3>
         <DarkBox label={t.governanceBoxLabel}>
           {t.governanceBox.map((p, i) => (
             <p key={i} style={{ fontSize: 16, lineHeight: 1.75, margin: i === t.governanceBox.length - 1 ? 0 : '0 0 16px' }}>{p}</p>

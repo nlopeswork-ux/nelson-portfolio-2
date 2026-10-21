@@ -81,6 +81,8 @@ const copy = {
     track3Body: 'The team scored the secondary government portal against 10 Nielsen usability heuristics (0 = excellent to 4 = catastrophic). The most severe single finding — a Major (3) — was aesthetic/minimalist design: form-heavy screens packed multiple long fields together with no grouping or spacing.',
     showHeuristics: 'Show heuristic scores',
     hideHeuristics: 'Hide heuristic scores',
+    showBench: 'Show benchmark tables',
+    hideBench: 'Hide benchmark tables',
     heuristicColumns: ['Heuristic', 'Score', 'Example finding'],
     heuristicRows: [
       { h: 'Visibility of system status', score: '1 – Cosmetic', finding: 'Step indicator scrolls out of view during long forms' },
@@ -244,6 +246,8 @@ const copy = {
     track3Body: 'A equipa avaliou o portal governamental secundário em 10 heurísticas de usabilidade de Nielsen (0 = excelente a 4 = catastrófico). A descoberta isolada mais severa — um Major (3) — foi design estético/minimalista: ecrãs cheios de formulários juntavam vários campos longos sem agrupamento nem espaçamento.',
     showHeuristics: 'Mostrar pontuações heurísticas',
     hideHeuristics: 'Ocultar pontuações heurísticas',
+    showBench: 'Mostrar tabelas de benchmark',
+    hideBench: 'Ocultar tabelas de benchmark',
     heuristicColumns: ['Heurística', 'Pontuação', 'Exemplo de descoberta'],
     heuristicRows: [
       { h: 'Visibilidade do estado do sistema', score: '1 – Cosmético', finding: 'O indicador de passos sai do ecrã em formulários longos' },
@@ -375,6 +379,7 @@ export default function CaseStudyOneRAK() {
   const t = copy[lang]
   const [personaIdx, setPersonaIdx] = useState(0)
   const [heuristicsOpen, setHeuristicsOpen] = useState(false)
+  const [benchOpen, setBenchOpen] = useState(false)
   const [screenIdx, setScreenIdx] = useState(0)
 
   const prototypeScreens = t.prototypeScreens.map((s, i) => ({ ...s, image: screenImages[i] }))
@@ -469,11 +474,8 @@ export default function CaseStudyOneRAK() {
           <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track5Title}</div>
           <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.track5Intro}</p>
 
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.trendTitle}</div>
-          <div style={{ marginBottom: 24 }}><DataTable columns={t.trendColumns} rows={t.trendRows} /></div>
-
           <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.localTitle}</div>
-          <div style={{ marginBottom: 24 }}>
+          <div style={{ marginBottom: 20 }}>
             {t.localItems.map(([label, text]) => (
               <p key={label} style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
                 <strong style={{ color: '#12141F' }}>{label}: </strong>{text}
@@ -481,8 +483,17 @@ export default function CaseStudyOneRAK() {
             ))}
           </div>
 
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.worldTitle}</div>
-          <div style={{ marginBottom: 24 }}><DataTable columns={t.worldColumns} rows={t.worldRows} /></div>
+          <button onClick={() => setBenchOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
+            {benchOpen ? <>{t.hideBench}<ChevronUp size={14} /></> : <>{t.showBench}<ChevronDown size={14} /></>}
+          </button>
+          {benchOpen && (
+            <div style={{ marginBottom: 20 }}>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.trendTitle}</div>
+              <div style={{ marginBottom: 24 }}><DataTable columns={t.trendColumns} rows={t.trendRows} /></div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.worldTitle}</div>
+              <DataTable columns={t.worldColumns} rows={t.worldRows} />
+            </div>
+          )}
 
           <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.track5Closing}</p>
         </div>
@@ -511,12 +522,12 @@ export default function CaseStudyOneRAK() {
         </div>
 
         <div style={{ marginBottom: 32 }}>
-          <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.journeysTitle}</div>
+          <h3 className="cs-h3">{t.journeysTitle}</h3>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.journeysBody}</p>
         </div>
 
         <div>
-          <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.dlsTitle}</div>
+          <h3 className="cs-h3">{t.dlsTitle}</h3>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 14px' }}>{t.dlsBody}</p>
           {t.dlsPoints.map(([label, text]) => (
             <p key={label} style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>

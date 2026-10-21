@@ -1,4 +1,5 @@
 import CaseStudyShell, { Body, DarkBox } from '../components/CaseStudyShell'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const S = { padding: '0 0 48px' } as const
@@ -97,9 +98,11 @@ const copy = {
     phases: [
       { year: '2023', label: 'Foundation', body: 'Replace manual processes with a unified digital platform. Delivered the full External Platform (Individual, Enterprise, Vendor, Training Provider, Bank), eligibility assessment, funding applications, internal assessment and approval workflows, payment requests, reimbursements, IBAN management, and the Internal Operations Platform.' },
       { year: '2024', label: 'Platform Expansion', body: 'Grow the ecosystem and reduce operational complexity. Delivered the Job Centre persona, a Customer 360 view, multi-persona profiles, a Programme Recommendation experience, an Applications Dashboard, site-visit management, and early AI-assisted document/compliance checks. Also the quick-wins cycle documented in Validation.' },
-      { year: '2025', label: 'Omnichannel Experience', body: 'Increase engagement across channels, including mobile.' },
+      { year: '2025', label: 'Omnichannel Experience', body: 'Increase engagement through mobile. Delivered NEOT — a native mobile companion app covering application tracking, notifications, reimbursement status, monitoring requests and profile management.', link: true },
       { year: '2026', label: 'Intelligence & Personalisation (current)', body: 'Personalised onboarding, dynamic profile completion, an AI operational agent, AI-assisted monitoring and compliance intelligence, and executive business-intelligence dashboards.' },
     ],
+    neotLinkText: 'This phase shipped as NEOT — a dedicated mobile app. See the full ',
+    neotLinkLabel: 'NEOT Mobile App case study ↗',
     iaTitle: 'Information Architecture — External Platform (7 Sections)',
     iaColumns: ['Section', 'What it contains'],
     iaSections: [
@@ -135,7 +138,7 @@ const copy = {
     ecosystem: [
       'Individual Portal', 'Enterprise Portal', 'Training Provider Portal',
       'Vendor Portal', 'Banking Portal', 'Job Centre Portal',
-      'Internal Operations Platform', 'AI-Assisted Operational Services (2026, current)',
+      'Internal Operations Platform', 'NEOT Mobile Application (2025)', 'AI-Assisted Operational Services (2026, current)',
     ],
     validationLabel: '09 Validation & Continuous Product Iteration',
     validationIntro: 'Validation ran as a continuous activity, not a single usability-testing pass. Every year has included a recurring cycle of client retrospective workshops, run specifically to identify and implement quick wins. One full cycle is documented in a dated internal deliverable ("UX Monitoring," the Fund, 20 May 2024) reviewing three flows: Customer Application, Assessment & Approval, and E-Bill Payments.',
@@ -154,8 +157,8 @@ const copy = {
     validationClosing: 'Beyond this documented cycle: across the 3.5-year engagement, most of these nine quick wins shipped, along with a larger set of further quick wins from other workshop cycles.',
     impactLabel: '10 Impact',
     impactGroups: [
-      { label: 'Business Impact', bg: '#12141F', items: ['Created a unified national digital platform for workforce development, replacing a fully manual, email-and-in-person process.', 'Established a scalable product architecture that absorbed 3 major expansions (Job Centre, AI services, BI dashboards) without a ground-up rebuild.', 'Reduced dependency on manual operational processes across Assessment, Disbursement and Monitoring.'] },
-      { label: 'User Impact', bg: '#3A5A99', items: ['Simplified funding journeys for 5 external personas through one shared Application Detail (360) record.', 'Improved transparency at every application stage via the status-tracker design principle.', 'Reduced administrative effort through integrated, unified reimbursement workflows.'] },
+      { label: 'Business Impact', bg: '#12141F', items: ['Created a unified national digital platform for workforce development, replacing a fully manual, email-and-in-person process.', 'Established a scalable product architecture that absorbed 4 major expansions (Job Centre, NEOT mobile, AI services, BI dashboards) without a ground-up rebuild.', 'Reduced dependency on manual operational processes across Assessment, Disbursement and Monitoring.'] },
+      { label: 'User Impact', bg: '#3A5A99', items: ['Simplified funding journeys for 5 external personas through one shared Application Detail (360) record.', 'Improved transparency at every application stage via the status-tracker design principle.', 'Reduced administrative effort through integrated, unified reimbursement workflows.', 'Extended access through NEOT, a dedicated mobile experience (2025).'] },
       { label: 'Team Impact', bg: '#2A4CB8', items: ['A shared design system reduced implementation effort and kept 5 external and 15 internal experiences visually and behaviourally consistent across 4 annual releases.', 'A repeatable annual delivery model let the team plan a year at a time instead of one continuous, undifferentiated backlog.'] },
     ],
     reflectionLabel: '11 Reflection',
@@ -257,9 +260,11 @@ const copy = {
     phases: [
       { year: '2023', label: 'Fundação', body: 'Substituir processos manuais por uma plataforma digital unificada. Entregue a Plataforma Externa completa (Individual, Empresa, Fornecedor, Entidade Formadora, Banco), avaliação de elegibilidade, candidaturas de financiamento, workflows internos de avaliação e aprovação, pedidos de pagamento, reembolsos, gestão de IBAN, e a Plataforma de Operações Internas.' },
       { year: '2024', label: 'Expansão da Plataforma', body: 'Expandir o ecossistema e reduzir a complexidade operacional. Entregue a persona Job Centre, uma vista Customer 360, perfis multi-persona, uma experiência de Recomendação de Programas, um Dashboard de Candidaturas, gestão de visitas no terreno, e primeiras verificações de documentos/conformidade assistidas por IA. Também o ciclo de quick wins documentado em Validação.' },
-      { year: '2025', label: 'Experiência Omnichannel', body: 'Aumentar o envolvimento em vários canais, incluindo o mobile.' },
+      { year: '2025', label: 'Experiência Omnichannel', body: 'Aumentar o envolvimento através do mobile. Entregue a NEOT — uma app mobile companheira nativa que cobre acompanhamento de candidaturas, notificações, estado de reembolso, pedidos de monitorização e gestão de perfil.', link: true },
       { year: '2026', label: 'Inteligência e Personalização (atual)', body: 'Onboarding personalizado, preenchimento dinâmico de perfil, um agente operacional de IA, monitorização e inteligência de conformidade assistidas por IA, e dashboards executivos de business intelligence.' },
     ],
+    neotLinkText: 'Esta fase foi lançada como a NEOT — uma app mobile dedicada. Ver a ',
+    neotLinkLabel: 'case study completa da NEOT Mobile App ↗',
     iaTitle: 'Arquitetura de Informação — Plataforma Externa (7 Secções)',
     iaColumns: ['Secção', 'O que contém'],
     iaSections: [
@@ -295,7 +300,7 @@ const copy = {
     ecosystem: [
       'Portal Individual', 'Portal Empresa', 'Portal Entidade Formadora',
       'Portal Fornecedor', 'Portal Bancário', 'Portal Job Centre',
-      'Plataforma de Operações Internas', 'Serviços Operacionais Assistidos por IA (2026, atual)',
+      'Plataforma de Operações Internas', 'Aplicação Mobile NEOT (2025)', 'Serviços Operacionais Assistidos por IA (2026, atual)',
     ],
     validationLabel: '09 Validação e Iteração Contínua do Produto',
     validationIntro: 'A validação decorreu como uma atividade contínua, não uma única ronda de testes de usabilidade. Todos os anos incluíram um ciclo recorrente de workshops de retrospetiva com o cliente, realizados especificamente para identificar e implementar quick wins. Um ciclo completo está documentado num entregável interno datado ("UX Monitoring", o Fundo, 20 de maio de 2024), revendo três fluxos: Customer Application, Assessment & Approval e E-Bill Payments.',
@@ -314,8 +319,8 @@ const copy = {
     validationClosing: 'Para além deste ciclo documentado: ao longo dos 3,5 anos de colaboração, a maioria destes nove quick wins foi entregue, juntamente com um conjunto maior de outros quick wins de outros ciclos de workshop.',
     impactLabel: '10 Impacto',
     impactGroups: [
-      { label: 'Impacto no Negócio', bg: '#12141F', items: ['Criou uma plataforma digital nacional unificada para desenvolvimento da força de trabalho, substituindo um processo totalmente manual, por email e presencial.', 'Estabeleceu uma arquitetura de produto escalável que absorveu 3 grandes expansões (Job Centre, serviços de IA, dashboards de BI) sem uma reconstrução do zero.', 'Reduziu a dependência de processos operacionais manuais em Assessment, Disbursement e Monitoring.'] },
-      { label: 'Impacto no Utilizador', bg: '#3A5A99', items: ['Simplificou as jornadas de financiamento para 5 personas externas através de um único registo partilhado de Application Detail (360).', 'Melhorou a transparência em cada fase da candidatura através do princípio de design do indicador de estado.', 'Reduziu o esforço administrativo através de workflows de reembolso integrados e unificados.'] },
+      { label: 'Impacto no Negócio', bg: '#12141F', items: ['Criou uma plataforma digital nacional unificada para desenvolvimento da força de trabalho, substituindo um processo totalmente manual, por email e presencial.', 'Estabeleceu uma arquitetura de produto escalável que absorveu 4 grandes expansões (Job Centre, NEOT mobile, serviços de IA, dashboards de BI) sem uma reconstrução do zero.', 'Reduziu a dependência de processos operacionais manuais em Assessment, Disbursement e Monitoring.'] },
+      { label: 'Impacto no Utilizador', bg: '#3A5A99', items: ['Simplificou as jornadas de financiamento para 5 personas externas através de um único registo partilhado de Application Detail (360).', 'Melhorou a transparência em cada fase da candidatura através do princípio de design do indicador de estado.', 'Reduziu o esforço administrativo através de workflows de reembolso integrados e unificados.', 'Alargou o acesso através da NEOT, uma experiência mobile dedicada (2025).'] },
       { label: 'Impacto na Equipa', bg: '#2A4CB8', items: ['Um design system partilhado reduziu o esforço de implementação e manteve 5 experiências externas e 15 internas visual e comportamentalmente consistentes ao longo de 4 lançamentos anuais.', 'Um modelo de entrega anual repetível permitiu à equipa planear um ano de cada vez, em vez de um backlog contínuo e indiferenciado.'] },
     ],
     reflectionLabel: '11 Reflexão',
@@ -438,7 +443,7 @@ export default function CaseStudyTamkeen() {
           <p style={{ fontSize: 15, lineHeight: 1.7, color: '#3A3F4C', margin: 0 }}>{t.processBody}</p>
         </div>
 
-        <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 16 }}>{t.quickWinsTitle}</div>
+        <h3 className="cs-h3">{t.quickWinsTitle}</h3>
         <div className="rg-3" style={{ gap: 14, marginBottom: 36 }}>
           {t.quickWins.map((win, i) => (
             <div key={i} style={{ padding: '16px 18px', borderRadius: 14, background: '#F8FAFF', border: '1px solid #EAF1FF', fontSize: 13.5, lineHeight: 1.55, color: '#3A3F4C' }}>{win}</div>
@@ -480,7 +485,7 @@ export default function CaseStudyTamkeen() {
           <div className="cs-timeline-line" />
           <div className="cs-timeline-line-v" />
           <div className="cs-timeline">
-            {t.phases.map(({ year, label, body }, phaseIndex) => (
+            {t.phases.map(({ year, label, body, link }, phaseIndex) => (
               <div key={year} style={{ display: 'flex', gap: 20 }}>
                 <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <div style={{ width: 24, height: 24, borderRadius: '50%', background: phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C', border: '4px solid #FFFFFF', boxShadow: `0 0 0 2px ${phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C'}`, flexShrink: 0 }} />
@@ -488,7 +493,12 @@ export default function CaseStudyTamkeen() {
                 <div style={{ paddingBottom: 32 }}>
                   <div style={{ fontSize: 26, fontWeight: 800, color: '#12141F', marginBottom: 4 }}>{year}</div>
                   <div style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.05em', color: '#001A5C', marginBottom: 14 }}>{label}</div>
-                  <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5A5F73', margin: 0 }}>{body}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5A5F73', margin: link ? '0 0 10px' : 0 }}>{body}</p>
+                  {link && (
+                    <p style={{ fontSize: 13, lineHeight: 1.6, color: '#5A5F73', margin: 0, padding: 12, borderRadius: 10, background: '#F2F6FF' }}>
+                      {t.neotLinkText}<Link to="/work/neot" style={{ color: '#001A5C', fontWeight: 600, textDecoration: 'underline' }}>{t.neotLinkLabel}</Link>.
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
