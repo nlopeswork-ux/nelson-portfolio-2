@@ -16,6 +16,31 @@ const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterS
 
 const screenImages = [imgStepper, imgShareholders, imgLicenseSuccess, imgLicenseFinder, imgBusinessVisa]
 
+function DataTable({ columns, rows }: { columns: string[]; rows: string[][] }) {
+  return (
+    <div className="table-scroll" style={{ background: 'rgba(0,47,167,0.03)', borderRadius: 14, padding: 16 }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #EAF1FF' }}>
+            {columns.map(h => (
+              <th key={h} style={{ textAlign: 'left', padding: '10px 12px', color: '#001A5C', fontWeight: 600, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i} style={{ borderBottom: i < rows.length - 1 ? '1px solid #F2F6FF' : undefined }}>
+              {row.map((cell, j) => (
+                <td key={j} data-label={columns[j]} style={{ padding: '10px 12px', color: j === 0 ? '#12141F' : '#5A5F73', fontWeight: j === 0 ? 600 : undefined, verticalAlign: 'top' }}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 const copy = {
   en: {
     title: 'OneRAK Portal Revamp',
@@ -41,7 +66,7 @@ const copy = {
       'Thirteen months later, OneRAK is live: one unified experience spanning all 18 core services across the three portals, built on a shared Design Language System, and validated end-to-end with the same investors and agents who struggled with the original portals. Task success on the redesigned services now sits at 97.8%, average completion time on the flagship Instant Licence journey has dropped from 32 minutes to 11, and agent calls into internal IT for status chasing are down 82%.',
     ],
     researchTitle: 'Outlining the Research',
-    researchIntro: 'Before redesigning a single screen, the team needed a factual account of where the current portals actually break — not assumptions about what "modern government UX" should look like. The Discover phase ran four parallel tracks.',
+    researchIntro: 'Before redesigning a single screen, the team needed a factual account of where the current portals actually break — not assumptions about what "modern government UX" should look like. The Discover phase ran five parallel tracks.',
     track1Title: '1. Document & Stakeholder Review',
     track1Body: "The team reviewed 50+ existing documents (RFP, process maps, prior audits) and ran 45+ stakeholder interview sessions across the authority's divisions, alongside 3 design vision sessions, 3 full portal walkthroughs, and 4 dedicated agent focus interviews — building a shared, factual picture of business goals, technical constraints, and internal pain points before any design work started.",
     track2Title: '2. Usability Testing — Customer Portals',
@@ -69,6 +94,35 @@ const copy = {
     track4Body: 'Four focus interviews with field agents surfaced a different flavour of the same root problem: the portal treats agents as data-entry clerks rather than account managers. Agents described too much manual data entry, no way to track or retrieve what they had already submitted, and pre-approval delays with no explanation.',
     quote2: '"You submit, but there\'s no confirmation … we don\'t know what happens next."',
     quote2Attr: '— field agent, usability interview',
+    track5Title: '5. Competitive & Global Benchmarking',
+    track5Intro: 'A structured scan of UX, UI and technology trends across two local UAE platforms and five international ones, separating best-in-class patterns from features that just looked impressive. Every finding was tied to a "why it matters" note, so it fed requirements, not just inspiration.',
+    trendTitle: 'Trend Scan',
+    trendColumns: ['Theme', 'Reference pattern', 'Why it matters for OneRAK'],
+    trendRows: [
+      ['Mobile-first design', 'TAMM (UAE): full licence application on mobile, with auto-save and progress', 'Investors apply while travelling or multitasking'],
+      ['Real-time status', 'DubaiNow, UAE Pass: live application and payment status in one dashboard', 'Answers the "no licence tracker" usability finding'],
+      ['Reusable digital identity', 'UAE Pass, Singpass, e-Estonia: one verified identity, no repeated uploads', 'Removes the document re-entry users flagged'],
+      ['AI guidance', 'GoBusiness (SG), GOV.UK Chat: AI suggests the right licence or next step', 'Replaces jargon like "Open branch" with outcome-based language'],
+      ['Shared design systems', 'GOV.UK Design System: one component library across every service', 'Precedent for one shared DLS instead of three house styles'],
+    ],
+    localTitle: 'Local Benchmark — UAE',
+    localItems: [
+      ['TAMM 3.0', 'mobile-first, minimal clicks, an AI assistant that suggests next actions, and live status on every request.'],
+      ['UAE Pass', 'passport OCR that auto-fills identity fields, and one reusable verified identity across services.'],
+      ['U-Ask', 'a generative-AI chatbot answering plain-language queries in Arabic, English and Portuguese.'],
+    ],
+    worldTitle: 'World Benchmark',
+    worldColumns: ['Market', 'Platform', 'Exportable pattern'],
+    worldRows: [
+      ['Singapore', 'GoBusiness', 'Single window for 120+ e-services; AI e-Adviser recommends licences'],
+      ['Singapore', 'Singpass', 'Biometric identity across 2,700+ services, no password'],
+      ['Estonia', 'e-Estonia / X-Road', 'Agencies share verified data instead of re-asking for it'],
+      ['Estonia', 'e-Residency', 'Fully online company formation with real-time tracking'],
+      ['United Kingdom', 'GOV.UK Design System', 'One component library and plain-language standard'],
+      ['Australia', 'business.gov.au', '6-step business-structure wizard with live recommendations'],
+      ['New Zealand', 'RealMe', 'One secure login across public and private services'],
+    ],
+    track5Closing: 'Three patterns recurred everywhere — one reusable digital identity, real-time status, and one shared design system — and became non-negotiable requirements for OneRAK, shaping the Design Language System decision below.',
     personasTitle: 'Showcasing the Design Process',
     personasIntro: 'Personas Before Pixels — the research made clear that "the user" was actually at least two structurally different populations, and each needed its own persona model rather than a single generic investor archetype.',
     personas: [
@@ -93,6 +147,7 @@ const copy = {
       ['Why it matters', 'Focus states, inline validation, and tab-reachable help text became DLS-level requirements instead of a per-screen fix.'],
       ['Brand flexibility', 'The two portals keep distinct brand identities while sharing the same underlying components, spacing, and interaction rules.'],
       ['Component inventory', '142 components shipped across both libraries — badges, banners, blockquotes, text areas, time pickers, toasts, steppers, and upload patterns among them.'],
+      ['Benchmark alignment', 'Mirrors the identity, real-time status and shared design system pattern found across the benchmark above.'],
     ],
     learnedLabel: 'What We Learned',
     learnedBox: [
@@ -174,7 +229,7 @@ const copy = {
       'Treze meses depois, o OneRAK está em produção: uma experiência unificada que abrange os 18 serviços principais nos três portais, construída sobre um Design Language System partilhado, e validada de ponta a ponta com os mesmos investidores e agentes que tinham dificuldades com os portais originais. O sucesso nas tarefas nos serviços redesenhados está agora em 97,8%, o tempo médio de conclusão da jornada principal de Licença Instantânea caiu de 32 minutos para 11, e as chamadas de agentes para o IT interno a perguntar pelo estado caíram 82%.',
     ],
     researchTitle: 'Delinear a Investigação',
-    researchIntro: 'Antes de redesenhar um único ecrã, a equipa precisava de um retrato factual de onde os portais atuais realmente falhavam — não de suposições sobre o que "UX governamental moderna" deveria parecer. A fase de Discover decorreu em quatro pistas paralelas.',
+    researchIntro: 'Antes de redesenhar um único ecrã, a equipa precisava de um retrato factual de onde os portais atuais realmente falhavam — não de suposições sobre o que "UX governamental moderna" deveria parecer. A fase de Discover decorreu em cinco pistas paralelas.',
     track1Title: '1. Revisão de Documentos e Stakeholders',
     track1Body: 'A equipa reviu mais de 50 documentos existentes (RFP, mapas de processo, auditorias anteriores) e realizou mais de 45 sessões de entrevista a stakeholders em todas as divisões da autoridade, além de 3 sessões de visão de design, 3 percursos completos pelos portais e 4 entrevistas de foco dedicadas a agentes — construindo uma imagem factual e partilhada dos objetivos de negócio, restrições técnicas e pontos de dor internos antes de qualquer trabalho de design começar.',
     track2Title: '2. Testes de Usabilidade — Portais de Cliente',
@@ -202,6 +257,35 @@ const copy = {
     track4Body: 'Quatro entrevistas de foco com agentes de campo revelaram uma variante diferente do mesmo problema de raiz: o portal trata os agentes como funcionários de introdução de dados, não como gestores de conta. Os agentes descreveram demasiada introdução manual de dados, nenhuma forma de acompanhar ou recuperar o que já tinham submetido, e atrasos de pré-aprovação sem explicação.',
     quote2: '"Submetemos, mas não há confirmação … não sabemos o que acontece a seguir."',
     quote2Attr: '— agente de campo, entrevista de usabilidade',
+    track5Title: '5. Benchmarking Competitivo e Global',
+    track5Intro: 'Uma análise estruturada de tendências de UX, UI e tecnologia em duas plataformas locais dos EAU e cinco internacionais, para separar padrões best-in-class de funcionalidades que só pareciam impressionantes. Cada descoberta ficou ligada a uma nota de "porque importa", alimentando requisitos e não só inspiração.',
+    trendTitle: 'Análise de Tendências',
+    trendColumns: ['Tema', 'Padrão de referência', 'Porque importa para o OneRAK'],
+    trendRows: [
+      ['Design mobile-first', 'TAMM (EAU): pedido de licença completo no telemóvel, com gravação automática e progresso', 'Os investidores candidatam-se em viagem ou a fazer várias coisas'],
+      ['Estado em tempo real', 'DubaiNow, UAE Pass: estado de candidaturas e pagamentos num só painel', 'Responde à descoberta "sem acompanhamento de licença"'],
+      ['Identidade digital reutilizável', 'UAE Pass, Singpass, e-Estonia: uma identidade verificada, sem uploads repetidos', 'Elimina a reintrodução de documentos assinalada pelos utilizadores'],
+      ['Orientação com IA', 'GoBusiness (SG), GOV.UK Chat: a IA sugere a licença ou o passo seguinte', 'Substitui jargão como "Open branch" por linguagem orientada ao resultado'],
+      ['Design systems partilhados', 'GOV.UK Design System: uma biblioteca de componentes em todos os serviços', 'Precedente para um DLS partilhado em vez de três estilos próprios'],
+    ],
+    localTitle: 'Benchmark Local — EAU',
+    localItems: [
+      ['TAMM 3.0', 'mobile-first, poucos cliques, um assistente de IA que sugere as ações seguintes e estado em direto em cada pedido.'],
+      ['UAE Pass', 'OCR de passaporte que preenche os campos de identidade e uma identidade verificada reutilizável entre serviços.'],
+      ['U-Ask', 'um chatbot de IA generativa que responde em linguagem simples, em árabe, inglês e português.'],
+    ],
+    worldTitle: 'Benchmark Mundial',
+    worldColumns: ['Mercado', 'Plataforma', 'Padrão exportável'],
+    worldRows: [
+      ['Singapura', 'GoBusiness', 'Balcão único para 120+ e-serviços; o e-Adviser de IA recomenda licenças'],
+      ['Singapura', 'Singpass', 'Identidade biométrica em 2.700+ serviços, sem palavra-passe'],
+      ['Estónia', 'e-Estonia / X-Road', 'As entidades partilham dados verificados em vez de os pedir de novo'],
+      ['Estónia', 'e-Residency', 'Constituição de empresas 100% online, com acompanhamento em tempo real'],
+      ['Reino Unido', 'GOV.UK Design System', 'Uma biblioteca de componentes e um padrão de linguagem simples'],
+      ['Austrália', 'business.gov.au', 'Assistente de 6 passos de estrutura empresarial, com recomendações em direto'],
+      ['Nova Zelândia', 'RealMe', 'Um login seguro em serviços públicos e privados'],
+    ],
+    track5Closing: 'Três padrões repetiram-se em todo o lado — identidade digital reutilizável, estado em tempo real e um design system partilhado — e tornaram-se requisitos não negociáveis do OneRAK, moldando a decisão do Design Language System abaixo.',
     personasTitle: 'Mostrar o Processo de Design',
     personasIntro: 'Personas Antes de Pixels — a investigação deixou claro que "o utilizador" era, na verdade, pelo menos duas populações estruturalmente diferentes, e cada uma precisava do seu próprio modelo de persona em vez de um arquétipo genérico de investidor.',
     personas: [
@@ -226,6 +310,7 @@ const copy = {
       ['Porque importa', 'Estados de foco, validação inline e texto de ajuda acessível por tab passaram a ser requisitos ao nível do DLS, em vez de uma correção ecrã a ecrã.'],
       ['Flexibilidade de marca', 'Os dois portais mantêm identidades de marca distintas enquanto partilham os mesmos componentes, espaçamento e regras de interação subjacentes.'],
       ['Inventário de componentes', '142 componentes entregues nas duas bibliotecas — badges, banners, citações, text areas, seletores de hora, toasts, steppers e padrões de upload, entre outros.'],
+      ['Alinhamento com o benchmark', 'Espelha o padrão de identidade, estado em tempo real e design system partilhado encontrado no benchmark acima.'],
     ],
     learnedLabel: 'O Que Aprendemos',
     learnedBox: [
@@ -378,6 +463,28 @@ export default function CaseStudyOneRAK() {
             <p style={{ fontSize: 15, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote2}</p>
             <p style={{ fontSize: 13, color: '#5A5F73', margin: 0 }}>{t.quote2Attr}</p>
           </div>
+        </div>
+
+        <div style={{ marginTop: 24 }}>
+          <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track5Title}</div>
+          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.track5Intro}</p>
+
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.trendTitle}</div>
+          <div style={{ marginBottom: 24 }}><DataTable columns={t.trendColumns} rows={t.trendRows} /></div>
+
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.localTitle}</div>
+          <div style={{ marginBottom: 24 }}>
+            {t.localItems.map(([label, text]) => (
+              <p key={label} style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
+                <strong style={{ color: '#12141F' }}>{label}: </strong>{text}
+              </p>
+            ))}
+          </div>
+
+          <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.worldTitle}</div>
+          <div style={{ marginBottom: 24 }}><DataTable columns={t.worldColumns} rows={t.worldRows} /></div>
+
+          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.track5Closing}</p>
         </div>
       </div>
 
