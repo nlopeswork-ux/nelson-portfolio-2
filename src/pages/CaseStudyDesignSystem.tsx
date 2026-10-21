@@ -15,7 +15,6 @@ const copy = {
     meta: [
       { label: 'Role', value: 'Lead Product Designer' },
       { label: 'Timeline', value: '2023 — Present' },
-      { label: 'Platform', value: 'Internal enterprise projects (multiple client domains)', short: 'Internal enterprise projects' },
       { label: 'Team (initial)', value: '1 Lead Product Designer · 1 UX/UI Designer · 1 Junior UX/UI Designer · 1 Senior Front-End Engineer · 1 Front-End Engineer', short: '3 designers · 2 front-end engineers' },
       { label: 'Team (expanded)', value: '+ 1 Senior Back-End Architect · 1 Back-End Engineer (added as the system matured)', short: '+ 2 back-end roles' },
       { label: 'Tools', value: 'Figma (Variables, Auto Layout) · FigJam' },
@@ -131,7 +130,6 @@ const copy = {
     meta: [
       { label: 'Função', value: 'Lead Product Designer' },
       { label: 'Duração', value: '2023 — Presente' },
-      { label: 'Plataforma', value: 'Projetos empresariais internos (múltiplos domínios de cliente)', short: 'Projetos empresariais internos' },
       { label: 'Equipa (inicial)', value: '1 Lead Product Designer · 1 UX/UI Designer · 1 UX/UI Designer Júnior · 1 Senior Front-End Engineer · 1 Front-End Engineer', short: '3 designers · 2 front-end engineers' },
       { label: 'Equipa (expandida)', value: '+ 1 Senior Back-End Architect · 1 Back-End Engineer (adicionados à medida que o sistema amadureceu)', short: '+ 2 perfis back-end' },
       { label: 'Ferramentas', value: 'Figma (Variables, Auto Layout) · FigJam' },
