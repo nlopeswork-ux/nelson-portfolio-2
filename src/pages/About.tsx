@@ -261,7 +261,7 @@ const copy = {
     beyond: [
       'A curiosidade não para quando fecho o portátil.',
       'Exploro constantemente tecnologias emergentes, em particular Inteligência Artificial, e interessa-me sempre descobrir produtos que resolvem problemas com elegância e simplicidade. Encontro inspiração na arquitetura, no design industrial, na fotografia e na beleza discreta dos espaços minimalistas — mas tantas vezes também em momentos do dia a dia, em conversas e na forma natural como as pessoas interagem com o mundo à sua volta.',
-      'Algumas das minhas melhores ideias não surgem à frente de um ecrã. Chegam durante um passeio, um mergulho no mar, ou simplesmente ao reparar nos pequenos detalhes que a maioria das pessoas ignora. Há uma clareza particular que vem de estar na natureza — o ritmo do oceano, o silêncio de uma caminhada longa na praia — que espelha a mesma clareza que procuro no design: nada a mais, nada forçado.',
+      'Algumas das minhas melhores ideias não surgem à frente de um ecrã. Chegam durante um passeio, um mergulho numa piscina, ou simplesmente ao reparar nos pequenos detalhes que a maioria das pessoas ignora. Há uma clareza particular que vem de estar na natureza — o ritmo do oceano, o silêncio de uma caminhada longa na praia — que espelha a mesma clareza que procuro no design: nada a mais, nada forçado.',
       'Viajar ensinou-me que cada ambiente molda o comportamento de forma diferente, e observar as pessoas lembra-me constantemente que as decisões de design mais pequenas são muitas vezes as que têm mais impacto.',
     ],
     closingNote: 'A tecnologia evolui constantemente. O comportamento humano muda devagar. Por isso acredito que compreender as pessoas será sempre a competência de design mais valiosa.',
