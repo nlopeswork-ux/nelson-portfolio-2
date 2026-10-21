@@ -404,20 +404,20 @@ export default function CaseStudyOneRAK() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 32 }}>
           <div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track1Title}</div>
-            <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.track1Body}</p>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track1Title}</div>
+            <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.track1Body}</p>
           </div>
           <div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track2Title}</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track2Title}</div>
             {t.track2Body.map((p, i) => (
-              <p key={i} style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: i === t.track2Body.length - 1 ? 0 : '0 0 12px' }}>{p}</p>
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: i === t.track2Body.length - 1 ? 0 : '0 0 12px' }}>{p}</p>
             ))}
           </div>
         </div>
 
         <div style={{ padding: '16px 20px', borderLeft: '3px solid #C9D9FF', background: '#F8FAFF', borderRadius: '0 12px 12px 0', marginBottom: 32 }}>
-          <p style={{ fontSize: 15, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote1}</p>
-          <p style={{ fontSize: 13, color: '#5A5F73', margin: 0 }}>{t.quote1Attr}</p>
+          <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote1}</p>
+          <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{t.quote1Attr}</p>
         </div>
 
         <div style={{ padding: 24, borderRadius: 20, background: '#F2F6FF', border: '1px solid #EAF1FF', marginBottom: 32 }}>
@@ -432,9 +432,9 @@ export default function CaseStudyOneRAK() {
         </div>
 
         <div style={{ marginBottom: 24 }}>
-          <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track3Title}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.track3Body}</p>
-          <button onClick={() => setHeuristicsOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track3Title}</div>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.track3Body}</p>
+          <button onClick={() => setHeuristicsOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
             {heuristicsOpen ? <>{t.hideHeuristics}<ChevronUp size={14} /></> : <>{t.showHeuristics}<ChevronDown size={14} /></>}
           </button>
           {heuristicsOpen && (
@@ -462,28 +462,28 @@ export default function CaseStudyOneRAK() {
         </div>
 
         <div>
-          <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track4Title}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{t.track4Body}</p>
+          <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track4Title}</div>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{t.track4Body}</p>
           <div style={{ padding: '16px 20px', borderLeft: '3px solid #C9D9FF', background: '#F8FAFF', borderRadius: '0 12px 12px 0' }}>
-            <p style={{ fontSize: 15, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote2}</p>
-            <p style={{ fontSize: 13, color: '#5A5F73', margin: 0 }}>{t.quote2Attr}</p>
+            <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote2}</p>
+            <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{t.quote2Attr}</p>
           </div>
         </div>
 
         <div style={{ marginTop: 24 }}>
-          <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track5Title}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.track5Intro}</p>
+          <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track5Title}</div>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.track5Intro}</p>
 
           <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.localTitle}</div>
           <div style={{ marginBottom: 20 }}>
             {t.localItems.map(([label, text]) => (
-              <p key={label} style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
+              <p key={label} style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
                 <strong style={{ color: '#12141F' }}>{label}: </strong>{text}
               </p>
             ))}
           </div>
 
-          <button onClick={() => setBenchOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
+          <button onClick={() => setBenchOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
             {benchOpen ? <>{t.hideBench}<ChevronUp size={14} /></> : <>{t.showBench}<ChevronDown size={14} /></>}
           </button>
           {benchOpen && (
@@ -495,7 +495,7 @@ export default function CaseStudyOneRAK() {
             </div>
           )}
 
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.track5Closing}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.track5Closing}</p>
         </div>
       </div>
 
@@ -507,7 +507,7 @@ export default function CaseStudyOneRAK() {
         <div style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180, marginBottom: 20 }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 6 }}>{t.personas[personaIdx].segment}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: t.personas[personaIdx].note ? '0 0 10px' : 0 }}>{t.personas[personaIdx].desc}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: t.personas[personaIdx].note ? '0 0 10px' : 0 }}>{t.personas[personaIdx].desc}</p>
           {t.personas[personaIdx].note && <p style={{ fontSize: 14, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].note}</p>}
         </div>
 
@@ -530,7 +530,7 @@ export default function CaseStudyOneRAK() {
           <h3 className="cs-h3">{t.dlsTitle}</h3>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 14px' }}>{t.dlsBody}</p>
           {t.dlsPoints.map(([label, text]) => (
-            <p key={label} style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
+            <p key={label} style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
               <strong style={{ color: '#12141F' }}>{label}: </strong>{text}
             </p>
           ))}
@@ -588,7 +588,7 @@ export default function CaseStudyOneRAK() {
                 <img src={image} alt={title} style={{ width: '100%', height: 'auto', display: 'block' }} />
                 <div style={{ padding: '20px 24px' }}>
                   <div style={{ fontSize: 14, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{title}</div>
-                  <p style={{ fontSize: 13, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{caption}</p>
+                  <p style={{ fontSize: 14, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{caption}</p>
                 </div>
               </div>
             ))}
@@ -613,13 +613,13 @@ export default function CaseStudyOneRAK() {
           {t.outcomes.map(({ value, label }) => (
             <div key={label} style={{ padding: 20, borderRadius: 16, background: '#F2F6FF', textAlign: 'center' }}>
               <div style={{ fontSize: 28, fontWeight: 800, color: '#002FA7' }}>{value}</div>
-              <div style={{ fontSize: 13, color: '#5A5F73', marginTop: 4 }}>{label}</div>
+              <div style={{ fontSize: 14, color: '#5A5F73', marginTop: 4 }}>{label}</div>
             </div>
           ))}
         </div>
         <div style={{ padding: '24px 28px', borderRadius: 20, border: '1px solid rgba(61,99,224,0.2)', background: 'rgba(0,47,167,0.03)' }}>
           <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.7, color: '#3A3F4C', margin: '0 0 8px' }}>{t.quote3}</p>
-          <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C' }}>{t.quote3Attr}</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C' }}>{t.quote3Attr}</div>
         </div>
       </div>
     </CaseStudyShell>

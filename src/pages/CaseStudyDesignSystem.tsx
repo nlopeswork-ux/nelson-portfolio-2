@@ -272,7 +272,7 @@ export default function CaseStudyDesignSystem() {
             <div style={{ fontSize: 14, lineHeight: 1.6, color: '#C7D4FF' }}>{t.inflationNote}</div>
           </div>
 
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.auditIntro}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.auditIntro}</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 16 }}>
             {t.auditNumbers.map(({ label, value }) => (
@@ -283,11 +283,11 @@ export default function CaseStudyDesignSystem() {
             ))}
           </div>
 
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.gapFinding}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.gapFinding}</p>
 
           <button
             onClick={() => setMethodologyOpen(o => !o)}
-            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}
+            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}
           >
             {methodologyOpen ? <>{t.hideMethodology}<ChevronUp size={14} /></> : <>{t.showMethodology}<ChevronDown size={14} /></>}
           </button>
@@ -299,7 +299,7 @@ export default function CaseStudyDesignSystem() {
                 {t.auditDimensions.map(({ label, desc }) => (
                   <div key={label} style={{ padding: 16, borderRadius: 12, background: '#FFFFFF' }}>
                     <div style={{ fontSize: 12, fontWeight: 600, color: '#001A5C', marginBottom: 6 }}>{label}</div>
-                    <p style={{ fontSize: 13, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{desc}</p>
+                    <p style={{ fontSize: 14, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{desc}</p>
                   </div>
                 ))}
               </div>
@@ -308,7 +308,7 @@ export default function CaseStudyDesignSystem() {
         </div>
 
         <h3 className="cs-h3">{t.categorisingTitle}</h3>
-        <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.categorisingIntro}</p>
+        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.categorisingIntro}</p>
 
         <div className="table-scroll" style={{ padding: 24, borderRadius: 20, border: '1px solid #EAF1FF', background: '#F8FAFF', marginBottom: 28 }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
@@ -332,30 +332,30 @@ export default function CaseStudyDesignSystem() {
         </div>
 
         <h3 className="cs-h3">{t.agnosticTitle}</h3>
-        <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.agnosticIntro}</p>
+        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.agnosticIntro}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 28 }}>
           <div style={{ padding: 24, borderRadius: 20, background: '#12141F', color: '#F2F6FF' }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#8FAEFF', marginBottom: 10 }}>{t.coreLabel}</div>
             {t.coreLines.map((line, i) => (
-              <p key={i} style={{ fontSize: 15, lineHeight: 1.7, margin: i === t.coreLines.length - 1 ? 0 : '0 0 6px' }}>{line}</p>
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.7, margin: i === t.coreLines.length - 1 ? 0 : '0 0 6px' }}>{line}</p>
             ))}
           </div>
           <div style={{ padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(20,30,60,0.1)' }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 10 }}>{t.projectLabel}</div>
             {t.projectLines.map((line, i) => (
-              <p key={i} style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: i === t.projectLines.length - 1 ? 0 : '0 0 6px' }}>{line}</p>
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: i === t.projectLines.length - 1 ? 0 : '0 0 6px' }}>{line}</p>
             ))}
           </div>
         </div>
 
         <h2 style={{ ...H2, fontSize: 'clamp(18px,2.6vw,22px)', marginBottom: 8 }}>{t.judgmentTitle}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.judgmentIntro}</p>
+        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.judgmentIntro}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
           {t.judgmentCalls.map(({ n, name, desc }) => (
             <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
               </div>
             </div>
@@ -366,9 +366,9 @@ export default function CaseStudyDesignSystem() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
           {t.principles.map(({ n, name, desc }) => (
             <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
               </div>
             </div>
@@ -404,7 +404,7 @@ export default function CaseStudyDesignSystem() {
           </div>
           <div style={{ padding: 20, borderRadius: 16, background: '#12141F', color: '#F2F6FF' }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#8FAEFF', marginBottom: 10 }}>{t.afterLabel}</div>
-            <p style={{ fontSize: 13, lineHeight: 1.8, color: '#C7D4FF', margin: 0, fontFamily: 'monospace' }}>{t.afterText}</p>
+            <p style={{ fontSize: 14, lineHeight: 1.8, color: '#C7D4FF', margin: 0, fontFamily: 'monospace' }}>{t.afterText}</p>
           </div>
         </div>
         <Body>{t.phase2Closing}</Body>
@@ -421,7 +421,7 @@ export default function CaseStudyDesignSystem() {
           {t.results.map(({ value, label }) => (
             <div key={label} style={{ padding: 20, borderRadius: 16, background: '#F2F6FF', textAlign: 'center' }}>
               <div style={{ fontSize: 26, fontWeight: 800, color: '#002FA7' }}>{value}</div>
-              <div style={{ fontSize: 13, color: '#5A5F73', marginTop: 4 }}>{label}</div>
+              <div style={{ fontSize: 14, color: '#5A5F73', marginTop: 4 }}>{label}</div>
             </div>
           ))}
         </div>

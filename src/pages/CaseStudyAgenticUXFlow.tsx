@@ -8,7 +8,7 @@ import { useLanguage } from '../i18n/LanguageContext'
 // ds-allow-hardcode:start - layout and ink values shared with every other case study; the site has no spacing or ink tokens
 const S = { padding: '0 0 48px' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
-const H3 = { fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 12 } as const
+const H3 = { fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 12 } as const
 // ds-allow-hardcode:end
 
 const copy = {
@@ -196,9 +196,9 @@ export default function CaseStudyAgenticUXFlow() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {t.stages.map(({ n, name, desc }) => (
             <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
               </div>
             </div>
@@ -243,9 +243,9 @@ export default function CaseStudyAgenticUXFlow() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
           {t.decisions.map(({ n, name, desc }) => (
             <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function CaseStudyAgenticUXFlow() {
           {t.results.map(({ value, label }) => (
             <div key={label} style={{ padding: 20, borderRadius: 16, background: '#F2F6FF', textAlign: 'center' }}>
               <div style={{ fontSize: 26, fontWeight: 800, color: '#002FA7' }}>{value}</div>
-              <div style={{ fontSize: 13, color: '#5A5F73', marginTop: 4 }}>{label}</div>
+              <div style={{ fontSize: 14, color: '#5A5F73', marginTop: 4 }}>{label}</div>
             </div>
           ))}
         </div>

@@ -14,7 +14,7 @@ import ixdfLogo from '../imports/logos/ixdf.png'
 const thumb = { width: 48, height: 48, borderRadius: 8, flexShrink: 0, background: '#F7FAFF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' } as const
 const thumbImg = { width: '70%', height: '70%', objectFit: 'contain' } as const
 
-const eyebrow = { fontSize: 13, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C' } as const
+const eyebrow = { fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C' } as const
 const eyebrowWithTitle = { ...eyebrow, marginBottom: 12 } as const
 const eyebrowStandalone = { ...eyebrow, marginBottom: 20 } as const
 const sectionTitle = { fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' } as const
@@ -370,7 +370,7 @@ export default function About() {
         <h2 style={sectionTitle}>{t.howIThinkTitle}</h2>
         <div style={{ columns: '2 340px', columnGap: 48 }}>
           {t.howIThink.map((p, i) => (
-            <p key={i} style={{ fontSize: 17, lineHeight: 1.75, color: '#4A4F63', margin: i === t.howIThink.length - 1 ? 0 : '0 0 20px' }}>{p}</p>
+            <p key={i} style={{ fontSize: 16, lineHeight: 1.75, color: '#4A4F63', margin: i === t.howIThink.length - 1 ? 0 : '0 0 20px' }}>{p}</p>
           ))}
         </div>
 
@@ -393,8 +393,8 @@ export default function About() {
                   }}
                 >
                   <span aria-hidden="true" className="philosophy-dot" />
-                  <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C', minWidth: 24, flexShrink: 0 }}>{n}</div>
-                  <div style={{ fontSize: 15, fontWeight: 600, color: '#12141F' }}>{text}</div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C', minWidth: 24, flexShrink: 0 }}>{n}</div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: '#12141F' }}>{text}</div>
                 </div>
               )
             })}
@@ -413,13 +413,13 @@ export default function About() {
         <h2 style={sectionTitle}>{t.beyondTitle}</h2>
         <div style={{ columns: '2 300px', columnGap: 40 }}>
           {t.beyond.map((p, i) => (
-            <p key={i} style={{ fontSize: 17, lineHeight: 1.75, color: '#4A4F63', margin: i === t.beyond.length - 1 ? 0 : '0 0 20px' }}>{p}</p>
+            <p key={i} style={{ fontSize: 16, lineHeight: 1.75, color: '#4A4F63', margin: i === t.beyond.length - 1 ? 0 : '0 0 20px' }}>{p}</p>
           ))}
         </div>
 
         <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
 
-        <p style={{ textAlign: 'center', fontSize: 17, lineHeight: 1.7, color: '#5A5F73', maxWidth: 640, margin: '0 auto' }}>{t.closingNote}</p>
+        <p style={{ textAlign: 'center', fontSize: 16, lineHeight: 1.7, color: '#5A5F73', maxWidth: 640, margin: '0 auto' }}>{t.closingNote}</p>
       </div>
 
       <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', maxWidth: 1200, margin: '0 auto', padding: '0 20px 56px' }}>⸻</div>
@@ -458,7 +458,7 @@ export default function About() {
         </div>
       </div>
 
-      <p style={{ textAlign: 'center', fontSize: 15, fontStyle: 'italic', color: '#5A5F73', maxWidth: 1200, margin: '0 auto 56px', padding: '0 20px' }}>{t.processNote}</p>
+      <p style={{ textAlign: 'center', fontSize: 16, fontStyle: 'italic', color: '#5A5F73', maxWidth: 1200, margin: '0 auto 56px', padding: '0 20px' }}>{t.processNote}</p>
 
       {/* ── HOW I WORK ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
@@ -470,7 +470,7 @@ export default function About() {
             return (
               <div key={phase.id} className="phase-card-v3">
                 <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, color: '#12141F', margin: '0 0 8px' }}>{phase.name}</h3>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, color: '#12141F', margin: '0 0 8px' }}>{phase.name}</h3>
                   <p style={{ fontSize: 14, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 12px' }}>{phase.description}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 16 }}>
                     {phase.deliverables.map(d => (
@@ -488,12 +488,12 @@ export default function About() {
                   </button>
                   {isOpen && (
                     <div style={{ marginTop: 16, padding: 16, background: 'rgba(255,255,255,0.6)', borderRadius: 14, borderTop: '1px solid rgba(255,255,255,0.8)' }}>
-                      <p style={{ fontSize: 13, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 10px' }}>{phase.detail}</p>
-                      <div style={{ fontSize: 13, fontWeight: 600, color: '#12141F', fontStyle: 'italic', margin: '0 0 10px' }}>"{phase.question}"</div>
-                      <Link to={phase.proof.to} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label}<ChevronRight size={14} /></Link>
+                      <p style={{ fontSize: 14, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 10px' }}>{phase.detail}</p>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: '#12141F', fontStyle: 'italic', margin: '0 0 10px' }}>"{phase.question}"</div>
+                      <Link to={phase.proof.to} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{phase.proof.label}<ChevronRight size={14} /></Link>
                       {phase.id === 'define' && (
                         <div style={{ marginTop: 8 }}>
-                          <Link to="/work/agentic-ux-flow" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, fontWeight: 600, color: '#002FA7' }}>{t.methodLink}<ChevronRight size={14} /></Link>
+                          <Link to="/work/agentic-ux-flow" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{t.methodLink}<ChevronRight size={14} /></Link>
                         </div>
                       )}
                     </div>
@@ -515,8 +515,8 @@ export default function About() {
             <div key={degreeKey} style={{ display: 'flex', alignItems: 'center', gap: 14, border: '1px solid #EAF1FF', borderRadius: 12, padding: 22, background: '#FFFFFF', boxShadow: '0 4px 12px rgba(20,30,60,0.04)' }}>
               <div style={thumb}><img src={logo} alt="" style={thumbImg} /></div>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{t.degree[degreeKey as keyof typeof t.degree]}</div>
-                <div style={{ fontSize: 13, color: '#5A5F73' }}>{school}</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{t.degree[degreeKey as keyof typeof t.degree]}</div>
+                <div style={{ fontSize: 14, color: '#5A5F73' }}>{school}</div>
               </div>
             </div>
           ))}
@@ -532,8 +532,8 @@ export default function About() {
                   <div key={title} className="cert-card">
                     <div style={thumb}><img src={logo} alt="" style={thumbImg} /></div>
                     <div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{title}</div>
-                      <div style={{ fontSize: 13, color: '#5A5F73' }}>{org}</div>
+                      <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{title}</div>
+                      <div style={{ fontSize: 14, color: '#5A5F73' }}>{org}</div>
                     </div>
                   </div>
                 ))}

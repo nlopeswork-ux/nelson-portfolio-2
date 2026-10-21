@@ -22,7 +22,7 @@ function ShowcaseVideo({ src, label }: { src: string; label?: string }) {
   }, [])
   return (
     <div>
-      {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
+      {label && <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
       <div style={{ position: 'relative', width: 'calc(100% - 48px)', aspectRatio: '1492 / 961', filter: 'drop-shadow(0 18px 32px rgba(0,26,92,0.10)) drop-shadow(0 3px 8px rgba(0,26,92,0.06))' }}>
         <img src={browserFrame} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
         <video ref={ref} controls muted controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="auto" playsInline style={{ position: 'absolute', left: `${26 / 14.92}%`, top: `${31 / 9.61}%`, width: `${1440 / 14.92}%`, height: `${900 / 9.61}%`, borderRadius: '1.944% / 3.111%', objectFit: 'cover', background: '#fff' }}>
@@ -402,7 +402,7 @@ export default function CaseStudyIntelliForge() {
 
         <div style={{ padding: 24, borderRadius: 20, background: '#F2F6FF', border: '1px solid #EAF1FF', marginBottom: 28 }}>
           <h3 className="cs-h3">{t.auditTitle}</h3>
-          <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.auditBody}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.auditBody}</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginBottom: 20 }}>
             {t.auditStats.map(([v, l]) => (
               <div key={l} style={{ textAlign: 'center' }}>
@@ -437,8 +437,8 @@ export default function CaseStudyIntelliForge() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {t.researchTracks.map(({ n, title, body }) => (
             <div key={n}>
-              <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{n}. {title}</div>
-              <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{body}</p>
+              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{n}. {title}</div>
+              <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{body}</p>
             </div>
           ))}
         </div>
@@ -461,7 +461,7 @@ export default function CaseStudyIntelliForge() {
         <div style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180 }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 6 }}>{t.personaLabel} {t.personas[personaIdx].n}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>{t.personas[personaIdx].desc}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>{t.personas[personaIdx].desc}</p>
           <p style={{ fontSize: 14, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].implication}</p>
         </div>
 
@@ -528,7 +528,7 @@ export default function CaseStudyIntelliForge() {
       <div style={S}>
         <DarkBox label={t.archPrincipleLabel}>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#F2F6FF', marginBottom: 14 }}>{t.archPrincipleTitle}</div>
-          <p style={{ fontSize: 15, lineHeight: 1.75, margin: 0 }}>{t.archPrincipleBody}</p>
+          <p style={{ fontSize: 16, lineHeight: 1.75, margin: 0 }}>{t.archPrincipleBody}</p>
         </DarkBox>
       </div>
 
@@ -542,14 +542,14 @@ export default function CaseStudyIntelliForge() {
               {t.testingRounds.map(({ title, body, result, quote, quoteAttrib }) => (
                 <div key={title} style={{ flex: '0 0 100%', paddingRight: 4 }}>
                   <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{title}</div>
-                  <p style={{ fontSize: 15, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{body}</p>
+                  <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{body}</p>
                   {quote && (
                     <div style={{ padding: '16px 20px', borderLeft: '3px solid #C9D9FF', background: '#F2F6FF', borderRadius: '0 10px 10px 0', marginBottom: 12 }}>
-                      <p style={{ fontSize: 15, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{quote}</p>
-                      <p style={{ fontSize: 13, color: '#5A5F73', margin: 0 }}>{quoteAttrib}</p>
+                      <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{quote}</p>
+                      <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{quoteAttrib}</p>
                     </div>
                   )}
-                  <p style={{ fontSize: 15, fontWeight: 600, color: '#12141F', margin: 0 }}>{t.resultLabel}{result}</p>
+                  <p style={{ fontSize: 16, fontWeight: 600, color: '#12141F', margin: 0 }}>{t.resultLabel}{result}</p>
                 </div>
               ))}
             </div>
@@ -593,7 +593,7 @@ export default function CaseStudyIntelliForge() {
         </div>
         <div style={{ padding: '24px 28px', borderRadius: 20, border: '1px solid rgba(61,99,224,0.2)', background: 'rgba(0,47,167,0.03)' }}>
           <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.7, color: '#3A3F4C', margin: '0 0 8px' }}>"{t.quote}"</p>
-          <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C' }}>{t.quoteAttrib}</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C' }}>{t.quoteAttrib}</div>
         </div>
       </div>
 

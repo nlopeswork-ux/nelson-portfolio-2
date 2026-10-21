@@ -252,7 +252,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
 }
 
 export function Body({ children }: { children: React.ReactNode }) {
-  return <p style={{ fontSize: 17, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{children}</p>
+  return <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{children}</p>
 }
 
 export function SeverityChip({ children, tone = 'critical' }: { children: React.ReactNode; tone?: 'critical' | 'neutral' }) {

@@ -42,7 +42,7 @@ const copy = {
     seeCaseStudy: 'See case study',
     teasers: [
       {
-        to: '/work', label: 'Work', sub: '6 case studies live, more in progress',
+        to: '/work', label: 'Work', sub: '7 case studies live, more in progress',
         desc: 'Case studies from enterprise systems where the interface is only as good as the decisions underneath it.',
         cta: 'See the work',
       },
@@ -81,7 +81,7 @@ const copy = {
     seeCaseStudy: 'Ver case study',
     teasers: [
       {
-        to: '/work', label: 'Trabalho', sub: '6 case studies publicadas, mais em curso',
+        to: '/work', label: 'Trabalho', sub: '7 case studies publicadas, mais em curso',
         desc: 'Case studies de sistemas empresariais onde a interface só é tão boa quanto as decisões por trás dela.',
         cta: 'Ver o trabalho',
       },
@@ -182,7 +182,7 @@ export default function Portfolio() {
             {t.subtitle}
           </p>
           <div className="hero-reveal" style={{ transitionDelay: '180ms', display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/work" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', borderRadius: 12, color: '#002FA7', fontSize: 15, fontWeight: 600, boxShadow: '0 8px 24px rgba(120,150,255,0.12)', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
+            <Link to="/work" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: '#002FA7', borderRadius: 12, color: '#FFFFFF', fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
               {t.viewWork}<ChevronRight />
             </Link>
             <Link to="/contact" className="secondary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', color: '#002FA7', fontSize: 15, fontWeight: 600 }}>
@@ -262,7 +262,7 @@ export default function Portfolio() {
               {t.contactTitleLine1}<br />{t.contactTitleLine2}
             </h2>
             <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>
-            <a href="mailto:nlopes.nl@gmail.com" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '18px 36px', background: '#002FA7', color: '#FFFFFF', borderRadius: 12, fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
+            <a href="mailto:nlopes.nl@gmail.com" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: '#002FA7', color: '#FFFFFF', borderRadius: 12, fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
               {t.emailMe}<ChevronRight />
             </a>
           </div>

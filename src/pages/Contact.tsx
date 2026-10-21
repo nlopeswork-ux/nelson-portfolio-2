@@ -5,24 +5,24 @@ import { useLanguage } from '../i18n/LanguageContext'
 
 const copy = {
   en: {
-    eyebrow: 'Say hi 👋',
+    eyebrow: 'Say hi',
     title: "Let's make something people actually enjoy using.",
     subtitle: 'No forms, no gatekeeping — just pick your favourite way to reach me.',
     emailLabel: 'Email',
-    emailNote: 'Best for project briefs & coffee-shaped questions.',
+    emailNote: 'Best for project briefs and questions.',
     linkedinLabel: 'LinkedIn',
-    linkedinNote: 'Best for networking & mutual nosiness.',
-    footerNote: "Usually replies within a coffee's brew ☕ — based in Lisbon, happy to work with anyone, anywhere.",
+    linkedinNote: 'Best for networking and introductions.',
+    footerNote: "Based in Lisbon, happy to work with anyone, anywhere.",
   },
   pt: {
-    eyebrow: 'Diz olá 👋',
+    eyebrow: 'Diz olá',
     title: 'Vamos criar algo que as pessoas gostem mesmo de usar.',
     subtitle: 'Sem formulários, sem barreiras — escolhe a forma que preferires para falares comigo.',
     emailLabel: 'Email',
-    emailNote: 'Ideal para briefings de projeto e perguntas à conversa de café.',
+    emailNote: 'Ideal para briefings de projeto e perguntas.',
     linkedinLabel: 'LinkedIn',
-    linkedinNote: 'Ideal para networking e curiosidade mútua.',
-    footerNote: 'Costumo responder no tempo de um café ☕ — vivo em Lisboa, disponível para trabalhar com qualquer pessoa, em qualquer lugar.',
+    linkedinNote: 'Ideal para networking e apresentações.',
+    footerNote: 'Vivo em Lisboa, disponível para trabalhar com qualquer pessoa, em qualquer lugar.',
   },
 }
 
@@ -60,25 +60,25 @@ export default function Contact() {
 
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', maxWidth: 820, margin: '0 auto' }}>
           <a href="mailto:nlopes.nl@gmail.com" className="contact-card interactive-card" style={{ flex: 1, minWidth: 280, display: 'flex', flexDirection: 'column', gap: 16, padding: '40px 36px', borderRadius: 28, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 20px 50px rgba(120,150,255,0.12)', textDecoration: 'none', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
-            <div style={{ fontSize: 34 }}>✉️</div>
+            <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
             <div>
               <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 8 }}>{t.emailLabel}</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', wordBreak: 'break-all' }}>nlopes.nl@gmail.com</div>
             </div>
-            <div style={{ fontSize: 14, color: '#A0A4B8' }}>{t.emailNote}</div>
+            <div style={{ fontSize: 14, color: '#5A5F73' }}>{t.emailNote}</div>
           </a>
 
           <a href="https://www.linkedin.com/in/nelsonnlopes" target="_blank" rel="noopener noreferrer" className="contact-card interactive-card" style={{ flex: 1, minWidth: 280, display: 'flex', flexDirection: 'column', gap: 16, padding: '40px 36px', borderRadius: 28, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 20px 50px rgba(120,150,255,0.12)', textDecoration: 'none', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
-            <div style={{ fontSize: 34 }}>🔗</div>
+            <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg></div>
             <div>
               <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 8 }}>{t.linkedinLabel}</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F' }}>linkedin.com/in/nelsonnlopes</div>
             </div>
-            <div style={{ fontSize: 14, color: '#A0A4B8' }}>{t.linkedinNote}</div>
+            <div style={{ fontSize: 14, color: '#5A5F73' }}>{t.linkedinNote}</div>
           </a>
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: 56, fontSize: 14, color: '#A0A4B8' }}>{t.footerNote}</div>
+        <div style={{ textAlign: 'center', marginTop: 56, fontSize: 14, color: '#5A5F73' }}>{t.footerNote}</div>
       </div>
 
       <Footer />
