@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import CaseStudyShell, { Body, DarkBox } from '../components/CaseStudyShell'
 import ChevronRight from '../components/ChevronRight'
-import intelliforgeImg from '../imports/IntelliForge_SR2R.png'
-import dsImg from '../imports/Internal_DS.png'
+import intelliforgeImg from '../imports/IntelliForge_SR2R.webp'
+import dsImg from '../imports/Internal_DS.webp'
 import { useLanguage } from '../i18n/LanguageContext'
 
 // ds-allow-hardcode:start - layout and ink values shared with every other case study; the site has no spacing or ink tokens

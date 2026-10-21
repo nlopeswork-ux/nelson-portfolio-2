@@ -5,11 +5,11 @@ import ChevronUp from '../components/ChevronUp'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
 import { useLanguage } from '../i18n/LanguageContext'
-import imgStepper from '../imports/stepper-activity.png'
-import imgShareholders from '../imports/shareholders-form.png'
-import imgLicenseSuccess from '../imports/license-success.png'
-import imgLicenseFinder from '../imports/license-finder.png'
-import imgBusinessVisa from '../imports/business-visa.png'
+import imgStepper from '../imports/stepper-activity.webp'
+import imgShareholders from '../imports/shareholders-form.webp'
+import imgLicenseSuccess from '../imports/license-success.webp'
+import imgLicenseFinder from '../imports/license-finder.webp'
+import imgBusinessVisa from '../imports/business-visa.webp'
 
 const S = { padding: '0 0 48px' } as const
 const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }

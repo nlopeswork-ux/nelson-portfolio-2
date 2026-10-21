@@ -1,10 +1,10 @@
-import imgIntelliforge from '../imports/IntelliForge_SR2R.png'
-import imgOnerak from '../imports/OneRAK_Portal_Revamp.png'
-import imgTamkeen from '../imports/National_Workforce_Digital_Platform.png'
-import imgDs from '../imports/Internal_DS.png'
+import imgIntelliforge from '../imports/IntelliForge_SR2R.webp'
+import imgOnerak from '../imports/OneRAK_Portal_Revamp.webp'
+import imgTamkeen from '../imports/National_Workforce_Digital_Platform.webp'
+import imgDs from '../imports/Internal_DS.webp'
 import imgAgentic from '../imports/Agentic_UX_Flow.svg'
-import imgEdp from '../imports/EDP-planetazero-app-poster.png'
-import imgEra from '../imports/era-showcase-poster.png'
+import imgEdp from '../imports/EDP-planetazero-app-poster.webp'
+import imgEra from '../imports/era-showcase-poster.webp'
 
 export interface RelatedCase {
   slug: string

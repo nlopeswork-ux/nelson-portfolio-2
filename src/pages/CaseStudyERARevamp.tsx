@@ -1,7 +1,7 @@
 import CaseStudyShell, { VideoBlock, FeatureList } from '../components/CaseStudyShell'
 import { useLanguage } from '../i18n/LanguageContext'
 import eraVideo from '../imports/era-showcase.mp4'
-import eraPoster from '../imports/era-showcase-poster.png'
+import eraPoster from '../imports/era-showcase-poster.webp'
 
 const S = { padding: '0 0 48px' } as const
 

@@ -6,7 +6,7 @@ import ChevronRight from '../components/ChevronRight'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
 import { useLanguage } from '../i18n/LanguageContext'
-import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.jpg'
+import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.webp'
 import iadeLogo from '../imports/logos/iade.png'
 import ecvLogo from '../imports/logos/ecv.png'
 import ixdfLogo from '../imports/logos/ixdf.png'
@@ -166,7 +166,7 @@ const copy = {
     beyond: [
       "Curiosity doesn't stop when I close my laptop.",
       "I'm constantly exploring emerging technologies, particularly Artificial Intelligence, and I'm always interested in discovering products that solve problems with elegance and simplicity. I find inspiration in architecture, industrial design, photography and the quiet beauty of minimalist spaces — but just as often in everyday moments, conversations and the way people naturally interact with the world around them.",
-      "Some of my best ideas don't happen in front of a screen. They arrive during a walk, a swim in the sea, or simply by paying attention to the small details most people overlook. There's a particular kind of clarity that comes from being in nature — the rhythm of the ocean, the quiet of a long walk on the beach — that mirrors the same clarity I look for in design: nothing extra, nothing forced.",
+      "Some of my best ideas don't happen in front of a screen. They arrive during a walk, a swim in the swimming pool, or simply by paying attention to the small details most people overlook. There's a particular kind of clarity that comes from being in nature — the rhythm of the ocean, the quiet of a long walk on the beach — that mirrors the same clarity I look for in design: nothing extra, nothing forced.",
       'Travelling has taught me that every environment shapes behaviour differently, while observing people continually reminds me that the smallest design decisions often have the greatest impact.',
     ],
     closingNote: "Technology evolves constantly. Human behaviour changes slowly. That's why I believe understanding people will always be the most valuable design skill.",
@@ -361,7 +361,7 @@ export default function About() {
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.bioNote}</p>
           </div>
           <div style={{ flex: '0 0 auto', width: 'min(320px, 100%)', height: 480, borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 50px rgba(120,150,255,0.18)', background: '#F2F6FF', animation: 'floatSlow 9s ease-in-out infinite' }}>
-            <img src={profileImg} alt="Nelson Lopes" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
+            <img src={profileImg} alt="Nelson Lopes" width={1317} height={988} decoding="async" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
           </div>
         </div>
 

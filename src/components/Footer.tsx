@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <div style={{ padding: '0 20px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ padding: '48px 0 32px' }}>
+        <div style={{ padding: '48px 0 12px' }}>
           <Link to="/" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <AnimatedLogo />
           </Link>

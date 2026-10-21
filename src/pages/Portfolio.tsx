@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import { useLanguage, type Lang } from '../i18n/LanguageContext'
-import intelliforgeImg from '../imports/hero.png'
+import intelliforgeImg from '../imports/hero.webp'
 
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null)

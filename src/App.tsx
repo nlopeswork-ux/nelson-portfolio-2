@@ -1,19 +1,20 @@
+import { lazy, Suspense } from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Breadcrumb from './components/Breadcrumb'
 import { LanguageProvider } from './i18n/LanguageContext'
 import Portfolio from './pages/Portfolio'
-import Work from './pages/Work'
-import Journey from './pages/Journey'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import CaseStudyIntelliForge from './pages/CaseStudyIntelliForge'
-import CaseStudyOneRAK from './pages/CaseStudyOneRAK'
-import CaseStudyTamkeen from './pages/CaseStudyTamkeen'
-import CaseStudyDesignSystem from './pages/CaseStudyDesignSystem'
-import CaseStudyAgenticUXFlow from './pages/CaseStudyAgenticUXFlow'
-import CaseStudyEDPPlanetaZero from './pages/CaseStudyEDPPlanetaZero'
-import CaseStudyERARevamp from './pages/CaseStudyERARevamp'
+const Work = lazy(() => import('./pages/Work'))
+const Journey = lazy(() => import('./pages/Journey'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const CaseStudyIntelliForge = lazy(() => import('./pages/CaseStudyIntelliForge'))
+const CaseStudyOneRAK = lazy(() => import('./pages/CaseStudyOneRAK'))
+const CaseStudyTamkeen = lazy(() => import('./pages/CaseStudyTamkeen'))
+const CaseStudyDesignSystem = lazy(() => import('./pages/CaseStudyDesignSystem'))
+const CaseStudyAgenticUXFlow = lazy(() => import('./pages/CaseStudyAgenticUXFlow'))
+const CaseStudyEDPPlanetaZero = lazy(() => import('./pages/CaseStudyEDPPlanetaZero'))
+const CaseStudyERARevamp = lazy(() => import('./pages/CaseStudyERARevamp'))
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <HashRouter>
         <ScrollToTop />
         <Breadcrumb />
+        <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="/work" element={<Work />} />
@@ -35,6 +37,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        </Suspense>
       </HashRouter>
     </LanguageProvider>
   )

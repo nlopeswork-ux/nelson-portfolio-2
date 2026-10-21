@@ -1,9 +1,9 @@
 import CaseStudyShell, { VideoBlock, FeatureList } from '../components/CaseStudyShell'
 import { useLanguage } from '../i18n/LanguageContext'
 import appVideo from '../imports/EDP-planetazero-app.mp4'
-import appPoster from '../imports/EDP-planetazero-app-poster.png'
+import appPoster from '../imports/EDP-planetazero-app-poster.webp'
 import websiteVideo from '../imports/EDP-planetazero-web.mp4'
-import websitePoster from '../imports/EDP-planetazero-web-poster.png'
+import websitePoster from '../imports/EDP-planetazero-web-poster.webp'
 
 const S = { padding: '0 0 48px' } as const
 

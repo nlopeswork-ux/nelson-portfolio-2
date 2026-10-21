@@ -12,6 +12,7 @@ const STATES: Record<StateName, State> = {
 
 const T = {
   firstDelay: 900,
+  maxCycles: 2,
   holdInitials: 4000,
   holdMiddle: 700,
   holdFull: 6000,
@@ -97,6 +98,8 @@ export default function AnimatedLogo() {
     let i = 0
     let timer: ReturnType<typeof setTimeout> | undefined
     let running = false
+    let cycles = 0
+    let done = false
     let remaining = T.firstDelay
     let deadline = 0
     function schedule(ms: number) {
@@ -107,10 +110,15 @@ export default function AnimatedLogo() {
       const [to, from, move, hold] = seq[i]
       apply(to, from, { move })
       i = (i + 1) % seq.length
+      if (i === 0 && ++cycles >= T.maxCycles) {
+        done = true
+        running = false
+        return
+      }
       schedule(move + T.leadOut + hold)
     }
     function start() {
-      if (running) return
+      if (running || done) return
       running = true
       schedule(remaining)
     }
