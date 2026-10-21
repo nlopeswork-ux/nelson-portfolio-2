@@ -1240,8 +1240,8 @@ html { scrollbar-gutter: stable; }
   .nl-dot { fill: var(--nl-dot); }
 
   /* Estado por omissão = logo completo (sem JS / reduced motion) */
-  .nl-pill-body { transform: translateX(60px) scaleX(359.5); }
-  .nl-pill-cap  { transform: translateX(419.5px); }
+  .nl-pill-body { transform: translateX(60px) scaleX(362.71); }
+  .nl-pill-cap  { transform: translateX(422.71px); }
 
   .nl-g {
     transition: opacity var(--nl-fade) var(--nl-ease-out),
@@ -1261,6 +1261,6 @@ html { scrollbar-gutter: stable; }
     .nl-logo * { transition: none !important; }
     .nl-g.is-off { opacity: 1; transform: none; }
     .nl-tail, .nl-dot { transform: none !important; }
-    .nl-pill-body { transform: translateX(60px) scaleX(359.5) !important; }
-    .nl-pill-cap  { transform: translateX(419.5px) !important; }
+    .nl-pill-body { transform: translateX(60px) scaleX(362.71) !important; }
+    .nl-pill-cap  { transform: translateX(422.71px) !important; }
   }
