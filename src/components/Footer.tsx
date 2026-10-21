@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
 import ChevronUp from './ChevronUp'
+import AnimatedLogo from './AnimatedLogo'
 
 const copy = {
   en: { copyright: '© 2026 Nelson Lopes. Designed with care.', backToTop: 'Back to top' },
@@ -16,7 +17,7 @@ export default function Footer() {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ padding: '48px 0 32px' }}>
           <Link to="/" aria-label="Nelson Lopes" style={{ display: 'inline-flex', alignItems: 'center' }}>
-            <img src={`${import.meta.env.BASE_URL}logo-nl.svg`} alt="" style={{ display: 'block', height: 40, width: 'auto' }} />
+            <AnimatedLogo />
           </Link>
         </div>
 

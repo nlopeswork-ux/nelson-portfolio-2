@@ -1218,3 +1218,49 @@ html { scrollbar-gutter: stable; }
 @media (max-width: 640px) {
   .cs-main > div:has(h2)::before { margin: 40px 0; }
 }
+
+/* Footer animated wordmark */
+  .nl-logo {
+    --nl-ink: #0019FF;
+    --nl-pill: #E8ECFA;
+    --nl-dot: #FF6F00;
+    /* curvas do Emil Kowalski */
+    --nl-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1); /* movimento no ecrã */
+    --nl-ease-out: cubic-bezier(0.23, 1, 0.32, 1);     /* entradas/saídas */
+    --nl-move: 900ms;   /* definido pelo JS em cada fase */
+    --nl-fade: 520ms;
+    display: block;
+    width: 230px;
+    height: 40px;
+    overflow: visible;
+  }
+  .nl-logo * { transform-box: view-box; transform-origin: 0 0; }
+  .nl-ink { fill: var(--nl-ink); }
+  .nl-pill { fill: var(--nl-pill); }
+  .nl-dot { fill: var(--nl-dot); }
+
+  /* Estado por omissão = logo completo (sem JS / reduced motion) */
+  .nl-pill-body { transform: translateX(60px) scaleX(359.5); }
+  .nl-pill-cap  { transform: translateX(419.5px); }
+
+  .nl-g {
+    transition: opacity var(--nl-fade) var(--nl-ease-out),
+                transform var(--nl-fade) var(--nl-ease-out);
+  }
+  .nl-g.is-off { opacity: 0; transform: translateY(3px); }
+
+  .nl-logo.is-animated .nl-tail,
+  .nl-logo.is-animated .nl-dot,
+  .nl-logo.is-animated .nl-pill-body,
+  .nl-logo.is-animated .nl-pill-cap {
+    transition: transform var(--nl-move) var(--nl-ease-in-out) var(--nl-delay, 0ms);
+  }
+  .nl-logo.no-transition * { transition: none !important; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nl-logo * { transition: none !important; }
+    .nl-g.is-off { opacity: 1; transform: none; }
+    .nl-tail, .nl-dot { transform: none !important; }
+    .nl-pill-body { transform: translateX(60px) scaleX(359.5) !important; }
+    .nl-pill-cap  { transform: translateX(419.5px) !important; }
+  }
