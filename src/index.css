@@ -865,7 +865,6 @@ input::placeholder { color: #A0A4B8; }
 @media (max-width: 480px) {
   .rg-4    { grid-template-columns: 1fr; }
   .rg-stats { grid-template-columns: 1fr; }
-  .cta-arrow { display: none; }
 }
 
 /* ── Nav ── */
