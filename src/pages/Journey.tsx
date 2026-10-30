@@ -35,6 +35,8 @@ const copy = {
     kpmgEngagements: [
       { client: 'Global energy company', industry: 'Financial Services', period: '2026–Present', scope: 'IntelliForge SR2R — ontology-driven financial close system, 200 franchise dealers', link: { to: '/work/intelliforge', label: 'View case study' } },
       { client: 'Government economic zone authority', industry: 'Government', period: '2025–2026', scope: 'OneRAK Portal Revamp — 3 portals unified, 18/18 services live', link: { to: '/work/onerak', label: 'View case study' } },
+      { client: 'United Nations entity', industry: 'International organisation', period: '2025', scope: 'Staff Directory — people-management platform' },
+      { client: 'United Nations entity', industry: 'International organisation', period: '2025', scope: 'Internal Operations Tools — incident dashboards, incident mapping and management' },
       { client: 'Retail bank', industry: 'Financial Services', period: '2024–2025', scope: 'Backoffice — 1,350+ frames, 14 feature areas' },
       { client: 'Retail bank — mobile', industry: 'Financial Services', period: '2024–2025', scope: 'Mobile Banking App Redesign — 1,590+ screens, 12 core features' },
       { client: 'National workforce fund', industry: 'Government', period: '2023–present', scope: 'National Workforce Platform — end-to-end digital funding ecosystem', link: { to: '/work/tamkeen', label: 'View case study' } },
@@ -66,6 +68,8 @@ const copy = {
     kpmgEngagements: [
       { client: 'Empresa global de energia', industry: 'Serviços Financeiros', period: '2026–Presente', scope: 'IntelliForge SR2R — sistema de fecho financeiro orientado por ontologia, 200 concessionários', link: { to: '/work/intelliforge', label: 'Ver case study' } },
       { client: 'Autoridade de zona económica governamental', industry: 'Setor Público', period: '2025–2026', scope: 'OneRAK Portal Revamp — 3 portais unificados, 18/18 serviços em produção', link: { to: '/work/onerak', label: 'Ver case study' } },
+      { client: 'Entidade das Nações Unidas', industry: 'Organização internacional', period: '2025', scope: 'Staff Directory — plataforma de gestão de pessoas' },
+      { client: 'Entidade das Nações Unidas', industry: 'Organização internacional', period: '2025', scope: 'Internal Operations Tools — dashboards de incidentes, mapeamento e gestão de incidentes' },
       { client: 'Banco de retalho', industry: 'Serviços Financeiros', period: '2024–2025', scope: 'Backoffice — mais de 1.350 ecrãs, 14 áreas funcionais' },
       { client: 'Banco de retalho — mobile', industry: 'Serviços Financeiros', period: '2024–2025', scope: 'Redesign da App de Banca Móvel — mais de 1.590 ecrãs, 12 funcionalidades principais' },
       { client: 'Fundo nacional de trabalho', industry: 'Setor Público', period: '2023–presente', scope: 'Plataforma Nacional de Força de Trabalho — ecossistema digital de financiamento de ponta a ponta', link: { to: '/work/tamkeen', label: 'Ver case study' } },
