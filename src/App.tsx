@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import Breadcrumb from './components/Breadcrumb'
+import { Analytics } from '@vercel/analytics/react'
 import { LanguageProvider } from './i18n/LanguageContext'
 import Portfolio from './pages/Portfolio'
 const Work = lazy(() => import('./pages/Work'))
@@ -39,6 +40,7 @@ export default function App() {
         </Routes>
         </Suspense>
       </HashRouter>
+      <Analytics />
     </LanguageProvider>
   )
 }
