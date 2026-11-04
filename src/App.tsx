@@ -5,6 +5,7 @@ import Breadcrumb from './components/Breadcrumb'
 import { Analytics } from '@vercel/analytics/react'
 import { LanguageProvider } from './i18n/LanguageContext'
 import Portfolio from './pages/Portfolio'
+import HomeV2 from './pages/HomeV2'
 const Work = lazy(() => import('./pages/Work'))
 const Journey = lazy(() => import('./pages/Journey'))
 const About = lazy(() => import('./pages/About'))
@@ -26,6 +27,7 @@ export default function App() {
         <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Portfolio />} />
+          <Route path="/v2" element={<HomeV2 />} />
           <Route path="/work" element={<Work />} />
           <Route path="/work/intelliforge" element={<CaseStudyIntelliForge />} />
           <Route path="/work/onerak" element={<CaseStudyOneRAK />} />

@@ -48,7 +48,7 @@ export default function Breadcrumb() {
   const { lang } = useLanguage()
   const t = text[lang]
   const [section, slug] = pathname.split('/').filter(Boolean)
-  if (!section) return null
+  if (!section || section === 'v2') return null
 
   const trail: { label: string; to?: string }[] = [{ label: t.home, to: '/' }]
   const sectionLabel = t.pages[section] ?? section
