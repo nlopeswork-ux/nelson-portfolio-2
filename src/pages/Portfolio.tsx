@@ -40,22 +40,10 @@ const copy = {
     featuredTitle: 'IntelliForge SR2R',
     featuredDesc: 'A control layer for a 10× bid.',
     seeCaseStudy: 'See case study',
-    teasers: [
-      {
-        to: '/work', label: 'Work', sub: '7 case studies live, more in progress',
-        desc: 'Case studies from enterprise systems where the interface is only as good as the decisions underneath it.',
-        cta: 'See the work',
-      },
-      {
-        to: '/journey', label: 'Journey', sub: '11 years, 4 studios, one throughline',
-        desc: 'From graphic design to leading product strategy — eleven years, four studios, one throughline.',
-        cta: 'See the path',
-      },
-      {
-        to: '/about', label: 'About', sub: 'Design philosophy, curiosity, and the person behind it',
-        desc: 'How I think, what I believe about design, and what keeps me curious beyond the screen.',
-        cta: 'Read more',
-      },
+    rows: [
+      { to: '/work', label: 'Work', meta: '7 case studies', desc: 'Enterprise systems where the interface is only as good as the decisions underneath it.' },
+      { to: '/journey', label: 'Journey', meta: '11 years, 4 studios', desc: 'From graphic design to leading product strategy. One throughline.' },
+      { to: '/about', label: 'About', meta: 'Philosophy and curiosity', desc: 'How I think, what I believe about design, and what keeps me curious beyond the screen.' },
     ],
     contactTitleLine1: "Let's build something",
     contactTitleLine2: 'thoughtful together.',
@@ -79,22 +67,10 @@ const copy = {
     featuredTitle: 'IntelliForge SR2R',
     featuredDesc: 'Uma camada de controlo para uma proposta 10×.',
     seeCaseStudy: 'Ver case study',
-    teasers: [
-      {
-        to: '/work', label: 'Trabalho', sub: '7 case studies publicadas, mais em curso',
-        desc: 'Case studies de sistemas empresariais onde a interface só é tão boa quanto as decisões por trás dela.',
-        cta: 'Ver o trabalho',
-      },
-      {
-        to: '/journey', label: 'Percurso', sub: '11 anos, 4 estúdios, um só fio condutor',
-        desc: 'Do design gráfico à liderança de estratégia de produto — onze anos, quatro estúdios, um só fio condutor.',
-        cta: 'Ver o percurso',
-      },
-      {
-        to: '/about', label: 'Sobre', sub: 'Filosofia de design, curiosidade e a pessoa por trás do trabalho',
-        desc: 'Como penso, no que acredito em design, e o que me mantém curioso para além do ecrã.',
-        cta: 'Saber mais',
-      },
+    rows: [
+      { to: '/work', label: 'Trabalho', meta: '7 case studies', desc: 'Sistemas empresariais onde a interface só é tão boa quanto as decisões por trás dela.' },
+      { to: '/journey', label: 'Percurso', meta: '11 anos, 4 estúdios', desc: 'Do design gráfico à liderança de estratégia de produto. Um só fio condutor.' },
+      { to: '/about', label: 'Sobre', meta: 'Filosofia e curiosidade', desc: 'Como penso, no que acredito em design, e o que me mantém curioso para além do ecrã.' },
     ],
     contactTitleLine1: 'Vamos construir algo',
     contactTitleLine2: 'cuidado, juntos.',
@@ -103,30 +79,16 @@ const copy = {
   },
 }
 
-type Teaser = (typeof copy)['en']['teasers'][number]
-
 const heroTagIcons: Record<string, React.ReactNode> = {
   pen: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>,
   layers: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>,
-}
-
-const teaserTheme: Record<Teaser['to'], { base: string; glow: string; opacity: number }> = {
-  '/work': { base: '#E9EEFB', glow: '#3D63E0', opacity: 0.26 },
-  '/journey': { base: '#EFF2FC', glow: '#3D63E0', opacity: 0.18 },
-  '/about': { base: '#F6F7FC', glow: '#3D63E0', opacity: 0.1 },
-}
-
-const teaserTilts: Record<Teaser['to'], number> = {
-  '/work': -3,
-  '/journey': 2,
-  '/about': -2,
 }
 
 export default function Portfolio() {
   const { lang } = useLanguage()
   const t = copy[lang as Lang]
   const preview = useFadeIn()
-  const teasers = useFadeIn()
+  const rows = useFadeIn()
   const contact = useFadeIn()
 
   return (
@@ -210,47 +172,22 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* AREA TEASERS */}
-      <div ref={teasers.ref} style={{ position: 'relative', padding: '24px 32px 96px', maxWidth: 1200, margin: '0 auto' }}>
-        <div className="rg-teasers">
-          {t.teasers.map(({ to, label, sub, desc, cta }, i) => {
-            const tilt = teaserTilts[to]
-            return (
-              <div
-                key={to}
-                className="teaser-reveal"
-                style={{
-                  ['--tilt' as string]: `${tilt}deg`,
-                  opacity: teasers.visible ? 1 : 0,
-                  transform: teasers.visible
-                    ? 'rotate(var(--tilt))'
-                    : 'translateY(28px) rotate(calc(var(--tilt) * 3)) scale(0.97)',
-                  transitionDelay: `${i * 70}ms`,
-                } as React.CSSProperties}
-              >
-                <Link
-                  to={to}
-                  className="teaser-card-v3"
-                  style={{ background: teaserTheme[to].base }}
-                  aria-label={`${label} — ${sub}. ${desc}`}
-                >
-                  <div className="teaser-glow" style={{ background: teaserTheme[to].glow, opacity: teaserTheme[to].opacity }} />
-                  <div className="teaser-grain" />
-                  <div className="teaser-label-v3" aria-hidden="true">{label}</div>
-                  <div className="teaser-flip" aria-hidden="true">
-                    <div className="teaser-face teaser-face-front">
-                      <div className="teaser-sub-v3">{sub}</div>
-                    </div>
-                    <div className="teaser-face teaser-face-back">
-                      <p className="teaser-desc-v3">{desc}</p>
-                    </div>
-                  </div>
-                  <div className="teaser-cta-link" aria-hidden="true">{cta}<ChevronRight size={15} /></div>
-                </Link>
-              </div>
-            )
-          })}
-        </div>
+      {/* AREA ROWS */}
+      <div ref={rows.ref} className="hv2-index" style={{ paddingTop: 24, paddingBottom: 96, ...rows.style }}>
+        <ul style={{ marginTop: 0 }}>
+          {t.rows.map(({ to, label, meta, desc }) => (
+            <li key={to}>
+              <Link to={to} className="hv2-row">
+                <span className="hv2-row-label">{label}</span>
+                <span className="hv2-row-body">
+                  <span className="hv2-row-meta">{meta}</span>
+                  <span className="hv2-row-desc">{desc}</span>
+                </span>
+                <span className="hv2-row-arrow" aria-hidden="true"><ChevronRight size={22} /></span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* CONTACT CTA */}
