@@ -562,6 +562,9 @@ input::placeholder { color: #A0A4B8; }
   .tm-tile { position: static; justify-content: flex-start; gap: 10px; padding: 14px; min-height: 48px; color: var(--tool-color); }
   .tm-icon { width: calc(var(--iw) * 0.83px); height: calc(var(--ih) * 0.83px); }
   .tm-name { position: static; transform: none; padding: 0; border-radius: 0; background: none; color: #12141F; font-size: 14px; opacity: 1; pointer-events: auto; white-space: normal; }
+  /* No hover treatment on the mobile list: the name is always visible and static */
+  .tm-cell:hover .tm-name, .tm-cell:focus-visible .tm-name { transform: none; }
+  .tm-cell:focus-visible .tm-tile { box-shadow: none; }
 }
 @media (max-width: 400px) {
   .tm-tools { grid-template-columns: minmax(0, 1fr); }
