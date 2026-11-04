@@ -6,6 +6,9 @@ import ChevronRight from '../components/ChevronRight'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
 import { useLanguage } from '../i18n/LanguageContext'
+import { TOOL_ICONS, ZEROHEIGHT_COLOR } from '../components/toolIcons'
+import { squarify } from '../components/treemap'
+import zeroheightLogo from '../imports/logos/zeroheight.png'
 import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.webp'
 import iadeLogo from '../imports/logos/iade.png'
 import ecvLogo from '../imports/logos/ecv.png'
@@ -18,6 +21,38 @@ const eyebrow = { fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTr
 const eyebrowWithTitle = { ...eyebrow, marginBottom: 12 } as const
 const eyebrowStandalone = { ...eyebrow, marginBottom: 20 } as const
 const sectionTitle = { fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' } as const
+
+// Tile weights set how big each tool is in the treemap. PROVISIONAL, to be confirmed by Nelson:
+// 11 = main tool, 9 = near main, 2 = daily or frequent, 1 = occasional. The group title band
+// takes space from small groups, so the main tool needs extra weight to stay visibly largest.
+const TOOL_GROUPS = [
+  { id: 'ai', tint: '#D6E0FA', tools: [{ key: 'claudecode', name: 'Claude Code', weight: 9 }, { key: 'claude', name: 'Claude', weight: 2 }, { key: 'figmamake', name: 'Figma Make', weight: 2 }, { key: 'cursor', name: 'Cursor', weight: 1 }, { key: 'chatgpt', name: 'ChatGPT', weight: 1 }, { key: 'notebooklm', name: 'NotebookLM', weight: 1 }, { key: 'v0', name: 'v0', weight: 1 }, { key: 'githubcopilot', name: 'GitHub Copilot', weight: 1 }, { key: 'perplexity', name: 'Perplexity', weight: 1 }] },
+  { id: 'design', tint: '#E4DEF7', tools: [{ key: 'figma', name: 'Figma', weight: 11 }, { key: 'adobecreativecloud', name: 'Adobe Creative Cloud', weight: 2 }, { key: 'sketch', name: 'Sketch', weight: 1 }, { key: 'adobexd', name: 'Adobe XD', weight: 1 }] },
+  { id: 'systems', tint: '#D9EDE8', tools: [{ key: 'storybook', name: 'Storybook', weight: 2 }, { key: 'zeroheight', name: 'Zeroheight', weight: 1 }] },
+  { id: 'collab', tint: '#F2E9D6', tools: [{ key: 'miro', name: 'Miro', weight: 2 }, { key: 'jira', name: 'Jira', weight: 2 }, { key: 'confluence', name: 'Confluence', weight: 2 }, { key: 'notion', name: 'Notion', weight: 1 }] },
+  { id: 'research', tint: '#E3E6EC', tools: [{ key: 'maze', name: 'Maze', weight: 1 }, { key: 'hotjar', name: 'Hotjar', weight: 1 }, { key: 'googleanalytics', name: 'Google Analytics', weight: 1 }] },
+]
+
+// Abstract 20 x 9 canvas (matches the CSS aspect-ratio). TITLE_H is the group label band.
+const TM_W = 20
+const TM_H = 9
+const TITLE_H = 0.5
+const TOOL_TREE = squarify(
+  TOOL_GROUPS.map(g => ({ ...g, weight: g.tools.reduce((sum, tool) => sum + tool.weight, 0) })),
+  { x: 0, y: 0, w: TM_W, h: TM_H },
+).map(g => ({
+  ...g,
+  tools: squarify(g.tools, { x: 0, y: 0, w: g.w, h: g.h - TITLE_H }),
+}))
+
+// Optical sizing: every logo covers the same visual area (a 24px square), capped at 30px on its longest side.
+function iconSize(box: string) {
+  const [, , w, h] = box.split(' ').map(Number)
+  const k = Math.min(Math.sqrt((24 * 24) / (w * h)), 30 / Math.max(w, h))
+  return { ['--iw' as string]: Math.round(w * k * 10) / 10, ['--ih' as string]: Math.round(h * k * 10) / 10 } as React.CSSProperties
+}
+
+const pct = (v: number, of: number) => `${(v / of) * 100}%`
 
 const PHILOSOPHY_ANGLES = [-90, -18, 54, 126, 198]
 
@@ -173,6 +208,9 @@ const copy = {
     skillsEyebrow: 'Skills & Expertise',
     skillsTitle: 'Where I add the most value',
     skills: ['Product Design', 'UX Research', 'Design Systems', 'Accessibility', 'Strategy', 'Leadership', 'Visual Design', 'AI for Designers'],
+    toolsEyebrow: 'Tools & Stack',
+    toolsTitles: { ai: 'AI workflow', design: 'Design', systems: 'Design systems', collab: 'Collaboration', research: 'Research' } as Record<string, string>,
+    toolsLegend: 'Tile size reflects how often I use each tool. Hover a logo to see its name.',
     methodologiesEyebrow: 'Methodologies',
     methodologies: [
       { key: 'designThinking', title: 'Design Thinking', subtitle: 'Discovery' },
@@ -268,6 +306,9 @@ const copy = {
     skillsEyebrow: 'Competências e Especialização',
     skillsTitle: 'Onde acrescento mais valor',
     skills: ['Design de Produto', 'Investigação UX', 'Design Systems', 'Acessibilidade', 'Estratégia', 'Liderança', 'Design Visual', 'IA para Designers'],
+    toolsEyebrow: 'Ferramentas e Stack',
+    toolsTitles: { ai: 'Fluxo com IA', design: 'Design', systems: 'Design systems', collab: 'Colaboração', research: 'Research' } as Record<string, string>,
+    toolsLegend: 'O tamanho de cada mosaico reflete a frequência com que uso a ferramenta. Passa o rato num logo para ver o nome.',
     methodologiesEyebrow: 'Metodologias',
     methodologies: [
       { key: 'designThinking', title: 'Design Thinking', subtitle: 'Descoberta' },
@@ -437,6 +478,47 @@ export default function About() {
               {t.skills.map(s => <span key={`${s}-dup`} className="skills-card">{s}</span>)}
             </div>
           </div>
+        </div>
+        <div style={{ marginTop: 40 }}>
+          <div style={{ ...eyebrow, marginBottom: 16 }}>{t.toolsEyebrow}</div>
+          <div className="tm">
+            {TOOL_TREE.map(g => (
+              <section
+                key={g.id}
+                className="tm-group"
+                style={{ ['--x' as string]: pct(g.x, TM_W), ['--y' as string]: pct(g.y, TM_H), ['--w' as string]: pct(g.w, TM_W), ['--h' as string]: pct(g.h, TM_H), ['--tint' as string]: g.tint } as React.CSSProperties}
+              >
+                <div className="tm-group-box">
+                  <h3 className="tm-title">{t.toolsTitles[g.id]}</h3>
+                  <ul className="tm-tools">
+                    {g.tools.map(tool => {
+                      const icon = TOOL_ICONS[tool.key]
+                      return (
+                        <li
+                          key={tool.key}
+                          className="tm-cell"
+                          tabIndex={0}
+                          style={{ ['--x' as string]: pct(tool.x, g.w), ['--y' as string]: pct(tool.y, g.h - TITLE_H), ['--w' as string]: pct(tool.w, g.w), ['--h' as string]: pct(tool.h, g.h - TITLE_H), ['--tool-color' as string]: icon ? icon.color : ZEROHEIGHT_COLOR } as React.CSSProperties}
+                        >
+                          <span className="tm-tile">
+                            {icon ? (
+                              <svg viewBox={icon.box} aria-hidden="true" className="tm-icon" style={iconSize(icon.box)}>
+                                <path d={icon.path} fill="currentColor" />
+                              </svg>
+                            ) : (
+                              <span aria-hidden="true" className="tm-icon tm-icon-mask" style={{ ['--tool-mask' as string]: `url(${zeroheightLogo})`, ['--iw' as string]: 24, ['--ih' as string]: 24 } as React.CSSProperties} />
+                            )}
+                            <span className="tm-name">{tool.name}</span>
+                          </span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </section>
+            ))}
+          </div>
+          <p className="tm-legend">{t.toolsLegend}</p>
         </div>
         <div style={{ marginTop: 40 }}>
           <div style={{ ...eyebrow, marginBottom: 16 }}>{t.methodologiesEyebrow}</div>

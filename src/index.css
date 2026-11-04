@@ -533,6 +533,46 @@ input::placeholder { color: #A0A4B8; }
   .skills-marquee-group:last-child { display: none; }
 }
 
+/* ── Tools & stack treemap (About page) ── */
+.tm { position: relative; width: 100%; aspect-ratio: 20 / 9; }
+.tm-group { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); }
+.tm-group-box { position: absolute; inset: 4px; border-radius: 18px; background: color-mix(in srgb, var(--tint) 38%, #FFFFFF); }
+.tm-title { position: absolute; top: 9px; left: 14px; right: 14px; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; color: #5A5F73; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tm-tools { position: absolute; inset: 30px 6px 6px 6px; margin: 0; padding: 0; list-style: none; }
+.tm-cell { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); container-type: size; outline: none; }
+.tm-cell:hover, .tm-cell:focus-visible { z-index: 5; }
+.tm-tile { position: absolute; inset: 3px; border-radius: 12px; background: var(--tint); color: #5A5F73; display: flex; align-items: center; justify-content: center; transition: color 0.2s ease, box-shadow 0.2s ease; }
+.tm-cell:hover .tm-tile, .tm-cell:focus-visible .tm-tile { color: var(--tool-color); }
+.tm-cell:focus-visible .tm-tile { box-shadow: 0 0 0 2px #002FA7; }
+/* Every logo covers the same visual area (sized in iconSize), so only the tile carries the hierarchy */
+.tm-icon { width: calc(var(--iw) * 1px); height: calc(var(--ih) * 1px); flex-shrink: 0; }
+.tm-icon-mask { background: currentColor; -webkit-mask: var(--tool-mask) center / contain no-repeat; mask: var(--tool-mask) center / contain no-repeat; }
+/* The name only appears on hover or keyboard focus */
+.tm-name { position: absolute; top: calc(50% + 14px + 8px); left: 50%; transform: translate(-50%, -4px); padding: 5px 9px; border-radius: 8px; background: #12141F; color: #FFFFFF; font-size: 12px; font-weight: 600; line-height: 1.25; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s ease, transform 0.15s ease; }
+.tm-cell:hover .tm-name, .tm-cell:focus-visible .tm-name { opacity: 1; transform: translate(-50%, 0); }
+.tm-legend { margin: 14px 0 0; font-size: 13px; color: #5A5F73; }
+
+@media (max-width: 760px) {
+  .tm-legend { display: none; }
+  .tm { aspect-ratio: auto; }
+  .tm-group { position: static; width: auto; height: auto; margin-bottom: 12px; }
+  .tm-group-box { position: relative; inset: auto; padding: 36px 8px 8px; }
+  .tm-tools { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .tm-cell { position: static; container-type: normal; width: auto; height: auto; }
+  .tm-tile { position: static; justify-content: flex-start; gap: 10px; padding: 14px; min-height: 48px; color: var(--tool-color); }
+  .tm-icon { width: calc(var(--iw) * 0.83px); height: calc(var(--ih) * 0.83px); }
+  .tm-name { position: static; transform: none; padding: 0; border-radius: 0; background: none; color: #12141F; font-size: 14px; opacity: 1; pointer-events: auto; white-space: normal; }
+  /* No hover treatment on the mobile list: the name is always visible and static */
+  .tm-cell:hover .tm-name, .tm-cell:focus-visible .tm-name { transform: none; }
+  .tm-cell:focus-visible .tm-tile { box-shadow: none; }
+}
+@media (max-width: 400px) {
+  .tm-tools { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tm-tile, .tm-name { transition: none; }
+}
+
 /* ── Methodologies grid (About page) ── */
 .methodologies-grid {
   display: grid;
