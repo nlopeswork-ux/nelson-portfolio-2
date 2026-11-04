@@ -23,12 +23,13 @@ const eyebrowStandalone = { ...eyebrow, marginBottom: 20 } as const
 const sectionTitle = { fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' } as const
 
 // Tile weights set how big each tool is in the treemap. PROVISIONAL, to be confirmed by Nelson:
-// 6 = main tool, 4 = daily, 2 = regular, 1 = occasional.
+// 11 = main tool, 9 = near main, 2 = daily or frequent, 1 = occasional. The group title band
+// takes space from small groups, so the main tool needs extra weight to stay visibly largest.
 const TOOL_GROUPS = [
-  { id: 'ai', tint: '#D6E0FA', tools: [{ key: 'claudecode', name: 'Claude Code', weight: 4 }, { key: 'claude', name: 'Claude', weight: 4 }, { key: 'cursor', name: 'Cursor', weight: 2 }, { key: 'figmamake', name: 'Figma Make', weight: 2 }, { key: 'chatgpt', name: 'ChatGPT', weight: 2 }, { key: 'v0', name: 'v0', weight: 1 }, { key: 'githubcopilot', name: 'GitHub Copilot', weight: 1 }, { key: 'perplexity', name: 'Perplexity', weight: 1 }, { key: 'notebooklm', name: 'NotebookLM', weight: 1 }] },
-  { id: 'design', tint: '#E4DEF7', tools: [{ key: 'figma', name: 'Figma', weight: 6 }, { key: 'adobecreativecloud', name: 'Adobe Creative Cloud', weight: 2 }, { key: 'sketch', name: 'Sketch', weight: 1 }, { key: 'adobexd', name: 'Adobe XD', weight: 1 }] },
+  { id: 'ai', tint: '#D6E0FA', tools: [{ key: 'claudecode', name: 'Claude Code', weight: 9 }, { key: 'claude', name: 'Claude', weight: 2 }, { key: 'figmamake', name: 'Figma Make', weight: 2 }, { key: 'cursor', name: 'Cursor', weight: 1 }, { key: 'chatgpt', name: 'ChatGPT', weight: 1 }, { key: 'notebooklm', name: 'NotebookLM', weight: 1 }, { key: 'v0', name: 'v0', weight: 1 }, { key: 'githubcopilot', name: 'GitHub Copilot', weight: 1 }, { key: 'perplexity', name: 'Perplexity', weight: 1 }] },
+  { id: 'design', tint: '#E4DEF7', tools: [{ key: 'figma', name: 'Figma', weight: 11 }, { key: 'adobecreativecloud', name: 'Adobe Creative Cloud', weight: 2 }, { key: 'sketch', name: 'Sketch', weight: 1 }, { key: 'adobexd', name: 'Adobe XD', weight: 1 }] },
   { id: 'systems', tint: '#D9EDE8', tools: [{ key: 'storybook', name: 'Storybook', weight: 2 }, { key: 'zeroheight', name: 'Zeroheight', weight: 1 }] },
-  { id: 'collab', tint: '#F2E9D6', tools: [{ key: 'jira', name: 'Jira', weight: 2 }, { key: 'confluence', name: 'Confluence', weight: 2 }, { key: 'miro', name: 'Miro', weight: 2 }, { key: 'notion', name: 'Notion', weight: 1 }] },
+  { id: 'collab', tint: '#F2E9D6', tools: [{ key: 'miro', name: 'Miro', weight: 2 }, { key: 'jira', name: 'Jira', weight: 2 }, { key: 'confluence', name: 'Confluence', weight: 2 }, { key: 'notion', name: 'Notion', weight: 1 }] },
   { id: 'research', tint: '#E3E6EC', tools: [{ key: 'maze', name: 'Maze', weight: 1 }, { key: 'hotjar', name: 'Hotjar', weight: 1 }, { key: 'googleanalytics', name: 'Google Analytics', weight: 1 }] },
 ]
 
@@ -201,8 +202,8 @@ const copy = {
     skillsTitle: 'Where I add the most value',
     skills: ['Product Design', 'UX Research', 'Design Systems', 'Accessibility', 'Strategy', 'Leadership', 'Visual Design', 'AI for Designers'],
     toolsEyebrow: 'Tools & Stack',
-    toolsTitles: { ai: 'AI workflow', design: 'Design', systems: 'Design systems', collab: 'Collaboration', research: 'Research and analytics' } as Record<string, string>,
-    toolsLegend: 'Tile size reflects how often I use each tool. Hover a small tile to see its name.',
+    toolsTitles: { ai: 'AI workflow', design: 'Design', systems: 'Design systems', collab: 'Collaboration', research: 'Research' } as Record<string, string>,
+    toolsLegend: 'Tile size reflects how often I use each tool. Hover a logo to see its name.',
     methodologiesEyebrow: 'Methodologies',
     methodologies: [
       { key: 'designThinking', title: 'Design Thinking', subtitle: 'Discovery' },
@@ -299,8 +300,8 @@ const copy = {
     skillsTitle: 'Onde acrescento mais valor',
     skills: ['Design de Produto', 'Investigação UX', 'Design Systems', 'Acessibilidade', 'Estratégia', 'Liderança', 'Design Visual', 'IA para Designers'],
     toolsEyebrow: 'Ferramentas e Stack',
-    toolsTitles: { ai: 'Fluxo com IA', design: 'Design', systems: 'Design systems', collab: 'Colaboração', research: 'Research e analytics' } as Record<string, string>,
-    toolsLegend: 'O tamanho de cada mosaico reflete a frequência com que uso a ferramenta. Passa o rato num mosaico pequeno para ver o nome.',
+    toolsTitles: { ai: 'Fluxo com IA', design: 'Design', systems: 'Design systems', collab: 'Colaboração', research: 'Research' } as Record<string, string>,
+    toolsLegend: 'O tamanho de cada mosaico reflete a frequência com que uso a ferramenta. Passa o rato num logo para ver o nome.',
     methodologiesEyebrow: 'Metodologias',
     methodologies: [
       { key: 'designThinking', title: 'Design Thinking', subtitle: 'Descoberta' },
