@@ -45,6 +45,13 @@ const TOOL_TREE = squarify(
   tools: squarify(g.tools, { x: 0, y: 0, w: g.w, h: g.h - TITLE_H }),
 }))
 
+// Optical sizing: every logo covers the same visual area (a 24px square), capped at 30px on its longest side.
+function iconSize(box: string) {
+  const [, , w, h] = box.split(' ').map(Number)
+  const k = Math.min(Math.sqrt((24 * 24) / (w * h)), 30 / Math.max(w, h))
+  return { ['--iw' as string]: Math.round(w * k * 10) / 10, ['--ih' as string]: Math.round(h * k * 10) / 10 } as React.CSSProperties
+}
+
 const pct = (v: number, of: number) => `${(v / of) * 100}%`
 
 const PHILOSOPHY_ANGLES = [-90, -18, 54, 126, 198]
@@ -495,11 +502,11 @@ export default function About() {
                         >
                           <span className="tm-tile">
                             {icon ? (
-                              <svg viewBox="0 0 24 24" aria-hidden="true" className="tm-icon">
+                              <svg viewBox={icon.box} aria-hidden="true" className="tm-icon" style={iconSize(icon.box)}>
                                 <path d={icon.path} fill="currentColor" />
                               </svg>
                             ) : (
-                              <span aria-hidden="true" className="tm-icon tm-icon-mask" style={{ ['--tool-mask' as string]: `url(${zeroheightLogo})` } as React.CSSProperties} />
+                              <span aria-hidden="true" className="tm-icon tm-icon-mask" style={{ ['--tool-mask' as string]: `url(${zeroheightLogo})`, ['--iw' as string]: 24, ['--ih' as string]: 24 } as React.CSSProperties} />
                             )}
                             <span className="tm-name">{tool.name}</span>
                           </span>
