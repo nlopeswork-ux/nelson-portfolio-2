@@ -6,6 +6,7 @@ import ChevronRight from '../components/ChevronRight'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
 import { useLanguage } from '../i18n/LanguageContext'
+import { TOOL_ICONS } from '../components/toolIcons'
 import profileImg from '../imports/c6037aa9-14d7-4c26-9a01-4a3a2bb1cf8d.webp'
 import iadeLogo from '../imports/logos/iade.png'
 import ecvLogo from '../imports/logos/ecv.png'
@@ -173,6 +174,20 @@ const copy = {
     skillsEyebrow: 'Skills & Expertise',
     skillsTitle: 'Where I add the most value',
     skills: ['Product Design', 'UX Research', 'Design Systems', 'Accessibility', 'Strategy', 'Leadership', 'Visual Design', 'AI for Designers'],
+    toolsEyebrow: 'Tools & Stack',
+    toolsAi: {
+      title: 'AI workflow',
+      groups: [
+        { label: 'Build', tools: [{ key: 'claudecode', name: 'Claude Code' }, { key: 'cursor', name: 'Cursor' }, { key: 'v0', name: 'v0' }, { key: 'figmamake', name: 'Figma Make' }, { key: 'githubcopilot', name: 'GitHub Copilot' }] },
+        { label: 'Think and research', tools: [{ key: 'claude', name: 'Claude' }, { key: 'chatgpt', name: 'ChatGPT' }, { key: 'perplexity', name: 'Perplexity' }, { key: 'notebooklm', name: 'NotebookLM' }] },
+      ],
+    },
+    toolsIndex: [
+      { title: 'Design', names: ['Figma', 'Sketch', 'Adobe XD', 'Adobe Creative Cloud'] },
+      { title: 'Design systems', names: ['Storybook', 'Zeroheight'] },
+      { title: 'Collaboration', names: ['Miro', 'Jira', 'Confluence', 'Notion'] },
+      { title: 'Research and analytics', names: ['Maze', 'Hotjar', 'Google Analytics'] },
+    ],
     methodologiesEyebrow: 'Methodologies',
     methodologies: [
       { key: 'designThinking', title: 'Design Thinking', subtitle: 'Discovery' },
@@ -268,6 +283,20 @@ const copy = {
     skillsEyebrow: 'Competências e Especialização',
     skillsTitle: 'Onde acrescento mais valor',
     skills: ['Design de Produto', 'Investigação UX', 'Design Systems', 'Acessibilidade', 'Estratégia', 'Liderança', 'Design Visual', 'IA para Designers'],
+    toolsEyebrow: 'Ferramentas e Stack',
+    toolsAi: {
+      title: 'Fluxo com IA',
+      groups: [
+        { label: 'Construir', tools: [{ key: 'claudecode', name: 'Claude Code' }, { key: 'cursor', name: 'Cursor' }, { key: 'v0', name: 'v0' }, { key: 'figmamake', name: 'Figma Make' }, { key: 'githubcopilot', name: 'GitHub Copilot' }] },
+        { label: 'Pensar e pesquisar', tools: [{ key: 'claude', name: 'Claude' }, { key: 'chatgpt', name: 'ChatGPT' }, { key: 'perplexity', name: 'Perplexity' }, { key: 'notebooklm', name: 'NotebookLM' }] },
+      ],
+    },
+    toolsIndex: [
+      { title: 'Design', names: ['Figma', 'Sketch', 'Adobe XD', 'Adobe Creative Cloud'] },
+      { title: 'Design systems', names: ['Storybook', 'Zeroheight'] },
+      { title: 'Colaboração', names: ['Miro', 'Jira', 'Confluence', 'Notion'] },
+      { title: 'Research e analytics', names: ['Maze', 'Hotjar', 'Google Analytics'] },
+    ],
     methodologiesEyebrow: 'Metodologias',
     methodologies: [
       { key: 'designThinking', title: 'Design Thinking', subtitle: 'Descoberta' },
@@ -436,6 +465,40 @@ export default function About() {
             <div className="skills-marquee-group" aria-hidden="true">
               {t.skills.map(s => <span key={`${s}-dup`} className="skills-card">{s}</span>)}
             </div>
+          </div>
+        </div>
+        <div style={{ marginTop: 40 }}>
+          <div style={{ ...eyebrow, marginBottom: 16 }}>{t.toolsEyebrow}</div>
+          <div className="tools-layout">
+            <div className="tools-ai">
+              <div className="tools-group-title tools-group-lead">{t.toolsAi.title}</div>
+              {t.toolsAi.groups.map(g => (
+                <div key={g.label} className="tools-ai-group">
+                  <div className="tools-sublabel">{g.label}</div>
+                  <ul className="tools-list tools-list-2col">
+                    {g.tools.map(tool => {
+                      const icon = TOOL_ICONS[tool.key]
+                      return (
+                        <li key={tool.key} className="tool-chip" style={{ ['--tool-color' as string]: icon.color }}>
+                          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="tool-icon">
+                            <path d={icon.path} fill="currentColor" />
+                          </svg>
+                          <span className="tool-name">{tool.name}</span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <dl className="tools-index">
+              {t.toolsIndex.map(row => (
+                <div key={row.title} className="tools-index-row">
+                  <dt>{row.title}</dt>
+                  <dd>{row.names.join(', ')}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
         <div style={{ marginTop: 40 }}>
