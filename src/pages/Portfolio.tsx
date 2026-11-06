@@ -24,16 +24,12 @@ function useFadeIn() {
 
 const copy = {
   en: {
-    role: 'Lead Product Designer — Lisbon, Portugal',
+    role: 'Lead Product Designer · Lisbon, Portugal',
     titleLine1: 'Product systems for complex,',
     titleLine2Pre: '',
     titleLine2Highlight: 'high-stakes',
     titleLine2Post: ' decisions.',
-    subtitle: 'I design the decision layer beneath enterprise products — banking, insurance, government — where clarity has to survive real deadlines and real stakes.',
-    heroTags: [
-      { icon: 'pen', label: 'Product Design', caption: 'Shaping end-to-end flows' },
-      { icon: 'layers', label: 'Design Systems', caption: 'Scaling consistency' },
-    ],
+    subtitle: 'I design the decision layer beneath enterprise products: banking, insurance, government. Clarity has to survive real deadlines and real stakes.',
     viewWork: 'View selected work',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured work',
@@ -47,20 +43,16 @@ const copy = {
     ],
     contactTitleLine1: "Let's build something",
     contactTitleLine2: 'thoughtful together.',
-    contactSubtitle: 'Based in Lisbon — open to select global opportunities.',
+    contactSubtitle: 'Based in Lisbon, open to select global opportunities.',
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead Product Designer — Lisboa, Portugal',
+    role: 'Lead Product Designer · Lisboa, Portugal',
     titleLine1: 'Sistemas de produto para decisões',
     titleLine2Pre: 'complexas e de ',
     titleLine2Highlight: 'alto risco.',
     titleLine2Post: '',
-    subtitle: 'Desenho a camada de decisão por trás de produtos empresariais — banca, seguros, setor público — onde a clareza tem de sobreviver a prazos e riscos reais.',
-    heroTags: [
-      { icon: 'pen', label: 'Product Design', caption: 'A desenhar fluxos end-to-end' },
-      { icon: 'layers', label: 'Design Systems', caption: 'A escalar consistência' },
-    ],
+    subtitle: 'Desenho a camada de decisão por trás de produtos empresariais: banca, seguros, setor público. A clareza tem de sobreviver a prazos e riscos reais.',
     viewWork: 'Ver trabalho selecionado',
     getInTouch: 'Entrar em contacto',
     featuredLabel: 'Trabalho em destaque',
@@ -74,14 +66,9 @@ const copy = {
     ],
     contactTitleLine1: 'Vamos construir algo',
     contactTitleLine2: 'cuidado, juntos.',
-    contactSubtitle: 'Vivo em Lisboa — disponível para oportunidades globais selecionadas.',
+    contactSubtitle: 'Vivo em Lisboa, disponível para oportunidades globais selecionadas.',
     emailMe: 'Enviar email diretamente',
   },
-}
-
-const heroTagIcons: Record<string, React.ReactNode> = {
-  pen: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>,
-  layers: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>,
 }
 
 export default function Portfolio() {
@@ -96,44 +83,13 @@ export default function Portfolio() {
       <Nav />
 
       {/* HERO */}
-      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 80px' }}>
+      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 64px' }}>
         <div style={{ position: 'absolute', top: -180, left: -160, width: 620, height: 620, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%)', willChange: 'transform', animation: 'driftA 22s var(--ease-in-out) infinite' }} />
         <div className="hero-bulb-halo" aria-hidden="true" />
         <div style={{ position: 'absolute', top: -60, right: -220, width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.22), rgba(242,246,255,0.08) 60%, transparent 75%)', willChange: 'transform', animation: 'driftB 26s var(--ease-in-out) infinite' }} />
 
         {/* geometric accents */}
         <div className="hero-accent" style={{ top: 140, left: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5, animation: 'floatSlow 7s ease-in-out infinite' }} />
-        <div className="hero-accent" style={{ top: 100, right: '10%', width: 8, height: 8, background: '#002FA7', borderRadius: '50%', opacity: 0.4, animation: 'floatSlow 9s ease-in-out infinite 1s' }} />
-        <div className="hero-accent" style={{ bottom: 70, left: '12%', width: 10, height: 10, border: '2px solid #3D63E0', borderRadius: '50%', opacity: 0.45, animation: 'floatSlow 8s ease-in-out infinite 0.5s' }} />
-
-        {/* floating labels — glass chips, not buttons. Each converges toward the
-            headline from its own side: top-left tag drifts in from upper-left,
-            bottom-right tag from lower-right, staggered and settling with a
-            slight overshoot. */}
-        <div
-          className="hero-float-enter"
-          style={{ top: 190, left: '4%', ['--enter-x' as string]: '-36px', ['--enter-y' as string]: '-28px', transitionDelay: '150ms' } as React.CSSProperties}
-        >
-          <div className="hero-float" style={{ animation: 'floatSlow 8s ease-in-out infinite' }}>
-            <span className="hero-float-icon">{heroTagIcons[t.heroTags[0].icon]}</span>
-            <span>
-              <span className="hero-float-label">{t.heroTags[0].label}</span>
-              <span className="hero-float-caption">{t.heroTags[0].caption}</span>
-            </span>
-          </div>
-        </div>
-        <div
-          className="hero-float-enter"
-          style={{ bottom: 40, right: '5%', ['--enter-x' as string]: '36px', ['--enter-y' as string]: '28px', transitionDelay: '300ms' } as React.CSSProperties}
-        >
-          <div className="hero-float" style={{ animation: 'floatSlow 9s ease-in-out infinite 0.8s' }}>
-            <span className="hero-float-icon">{heroTagIcons[t.heroTags[1].icon]}</span>
-            <span>
-              <span className="hero-float-label">{t.heroTags[1].label}</span>
-              <span className="hero-float-caption">{t.heroTags[1].caption}</span>
-            </span>
-          </div>
-        </div>
 
         <div style={{ position: 'relative', maxWidth: 920, margin: '0 auto', textAlign: 'center', padding: '0 32px 32px' }}>
           <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
@@ -156,7 +112,7 @@ export default function Portfolio() {
 
       {/* FEATURED WORK PREVIEW */}
       <div ref={preview.ref} className="hv1-feat-wrap" style={preview.style}>
-        <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle} — ${t.seeCaseStudy}`}>
+        <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle}, ${t.seeCaseStudy}`}>
           <div className="hv1-feat-copy">
             <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#5A5F73', marginBottom: 14 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
             <h2>{t.featuredTitle}</h2>
@@ -170,7 +126,7 @@ export default function Portfolio() {
       </div>
 
       {/* AREA ROWS */}
-      <div ref={rows.ref} className="hv2-index" style={{ paddingTop: 24, paddingBottom: 96, ...rows.style }}>
+      <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 0, paddingBottom: 96, ...rows.style }}>
         <ul style={{ marginTop: 0 }}>
           {t.rows.map(({ to, label, meta, desc }) => (
             <li key={to}>
