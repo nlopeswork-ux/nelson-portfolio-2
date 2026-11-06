@@ -1059,8 +1059,8 @@ input::placeholder { color: #A0A4B8; }
   height: 200px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--color-accent-halo), transparent 70%);
-  filter: blur(24px);
   pointer-events: none;
+  will-change: transform;
   animation: floatSlow 7s ease-in-out infinite;
 }
 
@@ -1312,7 +1312,7 @@ html { scrollbar-gutter: stable; }
 .hv2-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #001A5C; }
 
 .hv2-hero { position: relative; padding: clamp(120px, 14vw, 180px) 0 clamp(72px, 9vw, 120px); }
-.hv2-halo { position: absolute; top: -200px; left: -180px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%); filter: blur(60px); pointer-events: none; animation: driftA 22s var(--ease-in-out) infinite; }
+.hv2-halo { position: absolute; top: -200px; left: -180px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%); pointer-events: none; will-change: transform; animation: driftA 22s var(--ease-in-out) infinite; }
 .hv2-hero-grid { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 3fr); gap: 64px; align-items: end; }
 .hv2-title { font-size: clamp(44px, 6.6vw, 96px); line-height: 1.02; font-weight: 900; letter-spacing: -0.045em; color: var(--ink-headline); margin: 24px 0 28px; max-width: 18ch; text-wrap: balance; }
 .hv2-title-pt { font-size: clamp(40px, 5.6vw, 84px); max-width: 20ch; }
@@ -1344,7 +1344,7 @@ html { scrollbar-gutter: stable; }
 .hv2-index li { border-bottom: 1px solid rgba(18, 20, 31, 0.14); }
 .hv2-row { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 40px; gap: 32px; align-items: center; padding: 40px 8px; color: #12141F; }
 /* Soft light blob that follows the pointer; opacity only, so hover never triggers layout */
-.hv2-row::before { content: ""; position: absolute; inset: -1px -24px; z-index: -1; border-radius: 40px; pointer-events: none; opacity: 0; transition: opacity 600ms var(--ease-out); background: radial-gradient(340px 150px at var(--mx, 30%) var(--my, 50%), rgba(0, 47, 167, 0.08), rgba(120, 160, 255, 0.04) 55%, transparent 100%); filter: blur(28px); }
+.hv2-row::before { content: ""; position: absolute; inset: -1px -24px; z-index: -1; border-radius: 40px; pointer-events: none; opacity: 0; transition: opacity 600ms var(--ease-out); background: radial-gradient(340px 150px at var(--mx, 30%) var(--my, 50%), rgba(0, 47, 167, 0.08), rgba(120, 160, 255, 0.05) 35%, rgba(120, 160, 255, 0.02) 65%, transparent 100%); }
 .hv2-row:hover::before, .hv2-row:focus-visible::before { opacity: 1; }
 .hv2-row-label { color: var(--ink-headline); font-size: clamp(40px, 5.6vw, 80px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; transition: color 250ms var(--ease-out); }
 .hv2-row:hover .hv2-row-label { color: #002FA7; }
