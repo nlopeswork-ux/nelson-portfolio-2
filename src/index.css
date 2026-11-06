@@ -2,8 +2,8 @@
 @import 'tailwindcss';
 
 :root {
-  /* Headline ink: softer than the #12141F body ink, still 12.4:1 on white (AAA) */
-  --ink-headline: #2F3445;
+  /* Headline ink: softer than the #12141F body ink, still 9.5:1 on white (AAA) */
+  --ink-headline: #3F4559;
   --color-primary: #002FA7;
   --color-primary-hover: #2A4CB8;
   --color-primary-active: #00227A;
