@@ -1340,8 +1340,10 @@ html { scrollbar-gutter: stable; }
 .hv2-index { max-width: 1200px; margin: 0 auto; padding: 0 32px clamp(96px, 11vw, 160px); }
 .hv2-index ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(18, 20, 31, 0.14); }
 .hv2-index li { border-bottom: 1px solid rgba(18, 20, 31, 0.14); }
-.hv2-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 40px; gap: 32px; align-items: center; padding: 40px 8px; color: #12141F; transition: background-color 250ms var(--ease-out), padding 250ms var(--ease-out); }
-.hv2-row:hover { background: rgba(0, 47, 167, 0.04); padding-left: 24px; }
+.hv2-row { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 40px; gap: 32px; align-items: center; padding: 40px 8px; color: #12141F; }
+/* Soft light blob that follows the pointer; opacity only, so hover never triggers layout */
+.hv2-row::before { content: ""; position: absolute; inset: -1px -24px; z-index: -1; border-radius: 40px; pointer-events: none; opacity: 0; transition: opacity 400ms var(--ease-out); background: radial-gradient(260px 120px at var(--mx, 30%) var(--my, 50%), rgba(0, 47, 167, 0.13), rgba(120, 160, 255, 0.07) 55%, transparent 100%); filter: blur(14px); }
+.hv2-row:hover::before, .hv2-row:focus-visible::before { opacity: 1; }
 .hv2-row-label { font-size: clamp(40px, 5.6vw, 80px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; transition: color 250ms var(--ease-out); }
 .hv2-row:hover .hv2-row-label { color: #002FA7; }
 .hv2-row-body { display: flex; flex-direction: column; gap: 8px; }
@@ -1373,6 +1375,6 @@ html { scrollbar-gutter: stable; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hv2-halo { animation: none; }
-  .hv2-featured-media img, .hv2-row, .hv2-row-arrow, .hv2-link svg { transition: none; }
+  .hv2-featured-media img, .hv2-row::before, .hv2-row-arrow, .hv2-link svg { transition: none; }
   .hv2-featured-media:hover img { transform: none; }
 }

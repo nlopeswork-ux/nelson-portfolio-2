@@ -92,6 +92,7 @@ export default function Nav() {
       border: '1px solid rgba(20,30,60,0.12)',
       borderRadius: 20,
       boxShadow: '0 10px 30px rgba(20,30,60,0.14)',
+      transform: 'translateZ(0)', willChange: 'transform',
     }}>
       {/* Top row: logo | desktop links (true center, absolutely positioned so the
           side groups' widths never push it off-center) | language + burger */}

@@ -177,7 +177,7 @@ export default function Portfolio() {
         <ul style={{ marginTop: 0 }}>
           {t.rows.map(({ to, label, meta, desc }) => (
             <li key={to}>
-              <Link to={to} className="hv2-row">
+              <Link to={to} className="hv2-row" onPointerMove={e => { const r = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`); e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`) }}>
                 <span className="hv2-row-label">{label}</span>
                 <span className="hv2-row-body">
                   <span className="hv2-row-meta">{meta}</span>
