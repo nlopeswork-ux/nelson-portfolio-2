@@ -103,7 +103,7 @@ export default function Journey() {
       <div style={{ position: 'relative', padding: 'clamp(172px,15vw,188px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ position: 'absolute', top: 40, right: -220, width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.28), transparent 70%)', filter: 'blur(75px)', zIndex: -1 }} />
         <div style={{ maxWidth: 900 }}>
-          <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: 0 }}>{t.title}</h1>
+          <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: 0 }}>{t.title}</h1>
         </div>
       </div>
 
@@ -113,7 +113,7 @@ export default function Journey() {
 
           {/* KPMG */}
           <TimelineRow period={t.roles[0].period} marker="current">
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[0].title}</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--ink-headline)', margin: '0 0 4px' }}>{t.roles[0].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[0].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>{t.roles[0].body}</p>
             <button type="button" aria-expanded={kpmgOpen} className="engagement-toggle" onClick={() => setKpmgOpen(o => !o)}>
@@ -143,7 +143,7 @@ export default function Journey() {
 
           {/* Deloitte */}
           <TimelineRow period={t.roles[1].period} marker="milestone">
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[1].title}</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--ink-headline)', margin: '0 0 4px' }}>{t.roles[1].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[1].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 16px' }}>{t.roles[1].body}</p>
             <button type="button" aria-expanded={deloitteOpen} className="engagement-toggle" onClick={() => setDeloitteOpen(o => !o)}>
@@ -173,7 +173,7 @@ export default function Journey() {
 
           {/* Wingman */}
           <TimelineRow period={t.roles[2].period}>
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[2].title}</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--ink-headline)', margin: '0 0 4px' }}>{t.roles[2].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[2].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.roles[2].body}</p>
           </TimelineRow>
@@ -182,7 +182,7 @@ export default function Journey() {
 
           {/* Ogilvy */}
           <TimelineRow period={t.roles[3].period}>
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[3].title}</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--ink-headline)', margin: '0 0 4px' }}>{t.roles[3].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[3].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.roles[3].body}</p>
           </TimelineRow>
@@ -191,7 +191,7 @@ export default function Journey() {
 
           {/* Biocol */}
           <TimelineRow period={t.roles[4].period}>
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 4px' }}>{t.roles[4].title}</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--ink-headline)', margin: '0 0 4px' }}>{t.roles[4].title}</h3>
             <div style={{ fontSize: 15, fontWeight: 500, color: '#5A5F73', marginBottom: 12 }}>{t.roles[4].company}</div>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.roles[4].body}</p>
           </TimelineRow>

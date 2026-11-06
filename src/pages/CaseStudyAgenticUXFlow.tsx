@@ -7,7 +7,7 @@ import { useLanguage } from '../i18n/LanguageContext'
 
 // ds-allow-hardcode:start - layout and ink values shared with every other case study; the site has no spacing or ink tokens
 const S = { padding: '0 0 48px' } as const
-const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
+const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px' }
 const H3 = { fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 12 } as const
 // ds-allow-hardcode:end
 
@@ -283,7 +283,7 @@ export default function CaseStudyAgenticUXFlow() {
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
                 <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{category}</div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{name}</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{name}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{desc}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{t.usedCta}<ChevronRight size={15} /></div>
               </div>

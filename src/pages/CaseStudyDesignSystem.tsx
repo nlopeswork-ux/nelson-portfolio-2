@@ -6,7 +6,7 @@ import ChevronUp from '../components/ChevronUp'
 import { useLanguage } from '../i18n/LanguageContext'
 
 const S = { padding: '0 0 48px' } as const
-const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }
+const H2 = { fontSize: 'clamp(20px,3vw,26px)' as const, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px' }
 
 const copy = {
   en: {

@@ -52,7 +52,7 @@ export default function Contact() {
       <div ref={ref} style={{ position: 'relative', padding: 'clamp(140px,13vw,156px) 32px 140px', maxWidth: 1200, margin: '0 auto', opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)', transition: 'opacity 600ms ease-out, transform 600ms ease-out' }}>
         <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 64px' }}>
           <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 20 }}>{t.eyebrow}</div>
-          <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', lineHeight: 1.1, fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px' }}>
+          <h1 style={{ fontSize: 'clamp(34px,5vw,54px)', lineHeight: 1.1, fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px' }}>
             {t.title}
           </h1>
           <p style={{ fontSize: 18, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{t.subtitle}</p>

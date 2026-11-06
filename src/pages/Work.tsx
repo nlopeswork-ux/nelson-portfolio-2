@@ -249,7 +249,7 @@ export default function Work() {
 
       {/* HEADER */}
       <div style={{ position: 'relative', padding: 'clamp(172px,15vw,188px) 20px 20px', maxWidth: 1200, margin: '0 auto' }}>
-        <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 16px', maxWidth: 700 }}>
+        <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 16px', maxWidth: 700 }}>
           <span aria-hidden="true" className="title-dot" />{p.title}
         </h1>
         <p style={{ fontSize: 17, lineHeight: 1.6, color: '#5A5F73', maxWidth: 600, margin: 0 }}>
@@ -300,7 +300,7 @@ export default function Work() {
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
                 <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{s.title}</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{s.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
                 {s.quote && (
                   <div style={{ padding: '14px 16px', borderRadius: 12, background: 'rgba(20,30,60,0.03)', marginBottom: 14 }}>
@@ -325,14 +325,14 @@ export default function Work() {
           <div style={{ position: 'absolute', bottom: '6%', right: '-4%', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,111,0,0.09)', filter: 'blur(80px)' }} />
         </div>
         <div style={{ position: 'relative', padding: '0 32px', maxWidth: 1200, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(18px,2.2vw,22px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 24px' }}>{p.methodTitle}</h2>
+        <h2 style={{ fontSize: 'clamp(18px,2.2vw,22px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 24px' }}>{p.methodTitle}</h2>
         <Link to="/work/agentic-ux-flow" className="case-card interactive-card" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 24, textDecoration: 'none', borderRadius: 20, overflow: 'hidden', background: '#FFFFFF', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', padding: 12 }}>
           <div style={{ flex: '1 1 320px', minWidth: 0, borderRadius: 14, overflow: 'hidden', background: '#F5F7FC', aspectRatio: '562 / 180' }}>
             <img src={agenticImg} alt="" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
           <div style={{ flex: '1 1 320px', padding: '8px 12px 12px' }}>
             <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{p.methodTag}</div>
-            <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{p.methodCardTitle}</h3>
+            <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{p.methodCardTitle}</h3>
             <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 14px' }}>{p.methodCardSummary}</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
           </div>
@@ -342,7 +342,7 @@ export default function Work() {
 
       {/* EARLIER WORK */}
       <div style={{ padding: '0 32px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 12px' }}>{p.earlierWorkTitle}</h2>
+        <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 12px' }}>{p.earlierWorkTitle}</h2>
         <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', maxWidth: 640, margin: '0 0 28px' }}>{p.earlierWorkText}</p>
         <div className="work-grid">
           {earlierWork.map(w => (
@@ -364,7 +364,7 @@ export default function Work() {
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
                 <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{w.tag}</div>
-                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 6px' }}>{w.title}</h3>
+                <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{w.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{w.description}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{w.cta}<ChevronRight size={15} /></div>
               </div>

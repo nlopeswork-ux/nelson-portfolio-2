@@ -2,6 +2,8 @@
 @import 'tailwindcss';
 
 :root {
+  /* Headline ink: softer than the #12141F body ink, still 12.4:1 on white (AAA) */
+  --ink-headline: #2F3445;
   --color-primary: #002FA7;
   --color-primary-hover: #2A4CB8;
   --color-primary-active: #00227A;
@@ -1312,7 +1314,7 @@ html { scrollbar-gutter: stable; }
 .hv2-hero { position: relative; padding: clamp(120px, 14vw, 180px) 0 clamp(72px, 9vw, 120px); }
 .hv2-halo { position: absolute; top: -200px; left: -180px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%); filter: blur(60px); pointer-events: none; animation: driftA 22s var(--ease-in-out) infinite; }
 .hv2-hero-grid { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 3fr); gap: 64px; align-items: end; }
-.hv2-title { font-size: clamp(44px, 6.6vw, 96px); line-height: 1.02; font-weight: 900; letter-spacing: -0.045em; color: #12141F; margin: 24px 0 28px; max-width: 18ch; text-wrap: balance; }
+.hv2-title { font-size: clamp(44px, 6.6vw, 96px); line-height: 1.02; font-weight: 900; letter-spacing: -0.045em; color: var(--ink-headline); margin: 24px 0 28px; max-width: 18ch; text-wrap: balance; }
 .hv2-title-pt { font-size: clamp(40px, 5.6vw, 84px); max-width: 20ch; }
 .hv2-subtitle { font-size: 20px; line-height: 1.6; color: #5A5F73; max-width: 52ch; margin: 0 0 44px; }
 .hv2-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
@@ -1324,14 +1326,14 @@ html { scrollbar-gutter: stable; }
 .hv2-stats { margin: 0; border-top: 1px solid rgba(18, 20, 31, 0.12); }
 .hv2-stat { display: flex; flex-direction: column-reverse; padding: 18px 0; border-bottom: 1px solid rgba(18, 20, 31, 0.12); }
 .hv2-stat dt { font-size: 14px; color: #5A5F73; }
-.hv2-stat dd { margin: 0; font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #12141F; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.hv2-stat dd { margin: 0; font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink-headline); font-variant-numeric: tabular-nums; line-height: 1.1; }
 
 .hv2-featured { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 32px clamp(96px, 11vw, 160px); display: grid; grid-template-columns: repeat(12, 1fr); align-items: center; }
 .hv2-featured-media { grid-column: 1 / span 8; grid-row: 1; display: block; border-radius: 20px; overflow: hidden; background: #E9EEFB; }
 .hv2-featured-media img { display: block; width: 100%; height: auto; transition: transform 600ms var(--ease-out); }
 .hv2-featured-media:hover img { transform: scale(1.02); }
 .hv2-featured-panel { grid-column: 8 / span 5; grid-row: 1; position: relative; z-index: 1; background: #FFFFFF; border: 1px solid rgba(18, 20, 31, 0.08); border-radius: 16px; padding: 36px; margin-top: 96px; }
-.hv2-featured-panel h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; color: #12141F; margin: 14px 0 8px; line-height: 1.1; }
+.hv2-featured-panel h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; color: var(--ink-headline); margin: 14px 0 8px; line-height: 1.1; }
 .hv2-featured-panel p { font-size: 17px; color: #5A5F73; margin: 0 0 20px; }
 .hv2-link { display: inline-flex; align-items: center; gap: 4px; font-size: 15px; font-weight: 600; color: #002FA7; }
 .hv2-link svg { transition: transform 200ms var(--ease-out); }
@@ -1344,7 +1346,7 @@ html { scrollbar-gutter: stable; }
 /* Soft light blob that follows the pointer; opacity only, so hover never triggers layout */
 .hv2-row::before { content: ""; position: absolute; inset: -1px -24px; z-index: -1; border-radius: 40px; pointer-events: none; opacity: 0; transition: opacity 600ms var(--ease-out); background: radial-gradient(340px 150px at var(--mx, 30%) var(--my, 50%), rgba(0, 47, 167, 0.08), rgba(120, 160, 255, 0.04) 55%, transparent 100%); filter: blur(28px); }
 .hv2-row:hover::before, .hv2-row:focus-visible::before { opacity: 1; }
-.hv2-row-label { font-size: clamp(40px, 5.6vw, 80px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; transition: color 250ms var(--ease-out); }
+.hv2-row-label { color: var(--ink-headline); font-size: clamp(40px, 5.6vw, 80px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; transition: color 250ms var(--ease-out); }
 .hv2-row:hover .hv2-row-label { color: #002FA7; }
 .hv2-row-body { display: flex; flex-direction: column; gap: 8px; }
 .hv2-row-meta { font-size: 14px; font-weight: 600; color: #001A5C; }

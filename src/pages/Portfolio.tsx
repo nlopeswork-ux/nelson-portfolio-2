@@ -137,7 +137,7 @@ export default function Portfolio() {
 
         <div style={{ position: 'relative', maxWidth: 920, margin: '0 auto', textAlign: 'center', padding: '0 32px 32px' }}>
           <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
-          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: lang === 'pt' ? 'balance' : undefined, fontSize: lang === 'pt' ? 'clamp(38px,5.6vw,68px)' : 'clamp(42px,6.6vw,78px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: '#12141F', margin: '0 0 28px' }}>
+          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: lang === 'pt' ? 'balance' : undefined, fontSize: lang === 'pt' ? 'clamp(38px,5.6vw,68px)' : 'clamp(42px,6.6vw,78px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
             {t.titleLine1}{lang === 'en' ? <br /> : ' '}{t.titleLine2Pre}<span style={{ whiteSpace: 'nowrap' }}><span className="hero-highlight">{t.titleLine2Highlight}</span></span>{t.titleLine2Post ? <>{' '}<span style={{ whiteSpace: 'nowrap' }}>{t.titleLine2Post.trim()}</span></> : null}
           </h1>
           <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 20, lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 600, margin: '0 auto 44px' }}>
@@ -159,7 +159,7 @@ export default function Portfolio() {
         <div className="rg-featured">
           <div>
             <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#6B7086', marginBottom: 6 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
-            <h2 style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 6px' }}>{t.featuredTitle}</h2>
+            <h2 style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{t.featuredTitle}</h2>
             <p style={{ fontSize: 16, color: '#5A5F73', margin: '0 0 8px' }}>{t.featuredDesc}</p>
             <Link to="/work/intelliforge" className="featured-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#3D63E0' }}>{t.seeCaseStudy}<ChevronRight size={15} /></Link>
           </div>
@@ -195,7 +195,7 @@ export default function Portfolio() {
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.3), transparent 70%)', filter: 'blur(70px)', zIndex: -1 }} />
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', padding: '40px 24px' }}>
-            <h2 style={{ fontSize: 'clamp(26px,3.2vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 20px', lineHeight: 1.2 }}>
+            <h2 style={{ fontSize: 'clamp(26px,3.2vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px', lineHeight: 1.2 }}>
               {t.contactTitleLine1}<br />{t.contactTitleLine2}
             </h2>
             <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>

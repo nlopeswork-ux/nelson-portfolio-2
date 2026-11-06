@@ -20,7 +20,7 @@ const thumbImg = { width: '70%', height: '70%', objectFit: 'contain' } as const
 const eyebrow = { fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C' } as const
 const eyebrowWithTitle = { ...eyebrow, marginBottom: 12 } as const
 const eyebrowStandalone = { ...eyebrow, marginBottom: 20 } as const
-const sectionTitle = { fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: '#12141F', margin: '0 0 24px' } as const
+const sectionTitle = { fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--ink-headline)', margin: '0 0 24px' } as const
 
 // Tile weights set how big each tool is in the treemap. PROVISIONAL, to be confirmed by Nelson:
 // 11 = main tool, 9 = near main, 2 = daily or frequent, 1 = occasional. The group title band
@@ -390,7 +390,7 @@ export default function About() {
 
       {/* ── ABOUT BIO ── */}
       <div style={{ position: 'relative', padding: 'clamp(172px,15vw,188px) 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
-        <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: '#12141F', margin: '0 0 40px', maxWidth: 700 }}>
+        <h1 style={{ fontSize: 'clamp(30px,4vw,46px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 40px', maxWidth: 700 }}>
           <span aria-hidden="true" className="title-dot" />{t.title}
         </h1>
 
@@ -552,7 +552,7 @@ export default function About() {
             return (
               <div key={phase.id} className="phase-card-v3">
                 <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
-                  <h3 style={{ fontSize: 16, fontWeight: 700, color: '#12141F', margin: '0 0 8px' }}>{phase.name}</h3>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink-headline)', margin: '0 0 8px' }}>{phase.name}</h3>
                   <p style={{ fontSize: 14, lineHeight: 1.6, color: '#4A4F63', margin: '0 0 12px' }}>{phase.description}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 16 }}>
                     {phase.deliverables.map(d => (
