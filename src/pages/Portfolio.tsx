@@ -155,21 +155,18 @@ export default function Portfolio() {
       </div>
 
       {/* FEATURED WORK PREVIEW */}
-      <div ref={preview.ref} style={{ position: 'relative', padding: '32px 32px 112px', maxWidth: 1200, margin: '0 auto', ...preview.style }}>
-        <div className="rg-featured">
-          <div>
-            <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#6B7086', marginBottom: 6 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
-            <h2 style={{ fontSize: 28, fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{t.featuredTitle}</h2>
-            <p style={{ fontSize: 16, color: '#5A5F73', margin: '0 0 8px' }}>{t.featuredDesc}</p>
-            <Link to="/work/intelliforge" className="featured-link" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#3D63E0' }}>{t.seeCaseStudy}<ChevronRight size={15} /></Link>
+      <div ref={preview.ref} className="hv1-feat-wrap" style={preview.style}>
+        <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle} — ${t.seeCaseStudy}`}>
+          <div className="hv1-feat-copy">
+            <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#5A5F73', marginBottom: 14 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
+            <h2>{t.featuredTitle}</h2>
+            <p>{t.featuredDesc}</p>
+            <span className="hv1-feat-link">{t.seeCaseStudy}<ChevronRight size={16} /></span>
           </div>
-
-          <img
-            src={intelliforgeImg}
-            alt="IntelliForge SR2R desktop preview"
-            style={{ width: '100%', height: 'auto', borderRadius: 16 }}
-          />
-        </div>
+          <div className="hv1-feat-media">
+            <img src={intelliforgeImg} alt="IntelliForge SR2R desktop preview" />
+          </div>
+        </Link>
       </div>
 
       {/* AREA ROWS */}
