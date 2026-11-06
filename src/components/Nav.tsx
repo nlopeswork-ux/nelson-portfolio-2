@@ -87,12 +87,13 @@ export default function Nav() {
       position: 'fixed', top: 20, left: 20, right: 20,
       maxWidth: 1200, margin: '0 auto', zIndex: 100,
       padding: '14px 24px',
-      background: 'rgba(255,255,255,0.6)',
-      backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
+      // Near-opaque instead of backdrop-filter: re-blurring whatever scrolls or
+      // hovers underneath the fixed bar was the source of the header flicker.
+      background: 'rgba(255,255,255,0.94)',
       border: '1px solid rgba(20,30,60,0.12)',
       borderRadius: 20,
       boxShadow: '0 10px 30px rgba(20,30,60,0.14)',
-      transform: 'translateZ(0)', willChange: 'transform',
+      transform: 'translateZ(0)',
     }}>
       {/* Top row: logo | desktop links (true center, absolutely positioned so the
           side groups' widths never push it off-center) | language + burger */}
