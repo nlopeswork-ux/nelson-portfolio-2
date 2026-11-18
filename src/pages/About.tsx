@@ -415,7 +415,7 @@ export default function About() {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
+        <div aria-hidden="true" style={{ height: 80 }} />
 
         <div className="philosophy-layout">
           <PhilosophyFlower label={t.philosophyLabel} hovered={philosophyHover} onHover={setPhilosophyHover} />
@@ -442,7 +442,7 @@ export default function About() {
           </div>
         </div>
 
-        <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
+        <div aria-hidden="true" style={{ height: 80 }} />
 
         <div style={{ textAlign: 'center', maxWidth: 900, margin: '0 auto', padding: '24px 0' }}>
           <div style={{ fontFamily: "Georgia,'Times New Roman',serif", fontSize: 52, lineHeight: 1, color: '#001A5C', opacity: 0.35, marginBottom: 8 }}>"</div>
@@ -458,7 +458,7 @@ export default function About() {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', margin: '56px 0' }}>⸻</div>
+        <div aria-hidden="true" style={{ height: 80 }} />
 
         <p style={{ textAlign: 'center', fontSize: 16, lineHeight: 1.7, color: '#5A5F73', maxWidth: 640, margin: '0 auto' }}>{t.closingNote}</p>
       </div>
@@ -587,7 +587,7 @@ export default function About() {
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', fontSize: 22, color: '#001A5C', maxWidth: 1200, margin: '0 auto', padding: '0 20px 56px' }}>⸻</div>
+      <div aria-hidden="true" style={{ height: 48 }} />
 
       {/* ── EDUCATION ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
