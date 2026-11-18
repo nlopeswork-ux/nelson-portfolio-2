@@ -1418,8 +1418,11 @@ html { scrollbar-gutter: stable; }
    drops that white into the page background, so it sits on the hero like the rest of the content. */
 .hv1-hero-media { position: relative; isolation: isolate; aspect-ratio: 5 / 4; margin-right: -32px; background: #FFFFFF; }
 .hv1-hero-media video { display: block; width: 100%; height: 100%; object-fit: contain; }
-/* Orange dot with its own halo: the halo is a child of the dot, so it paints above the video (no blend mode, no seam) */
-.hero-dot-halo::before { content: ""; position: absolute; left: 50%; top: 50%; width: 200px; height: 200px; border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, var(--color-accent-halo), transparent 70%); pointer-events: none; z-index: -1; }
+/* Two-tone glow centred on the orange dot: a wide blue blob underneath, an orange core on top.
+   Both are children of the dot, so they paint above the video (no blend mode, no seam). */
+.hero-dot-halo::before, .hero-dot-halo::after { content: ""; position: absolute; left: 50%; top: 50%; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+.hero-dot-halo::before { width: 520px; height: 520px; background: radial-gradient(circle, rgba(168,191,255,0.38), rgba(220,232,255,0.12) 55%, transparent 72%); z-index: -2; }
+.hero-dot-halo::after { width: 200px; height: 200px; background: radial-gradient(circle, var(--color-accent-halo), transparent 70%); z-index: -1; }
 @media (max-width: 900px) {
   .hv1-hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hv1-hero-media { width: 100%; max-width: 720px; }
