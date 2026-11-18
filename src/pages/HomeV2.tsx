@@ -22,8 +22,9 @@ const copy = {
       { to: '/journey', label: 'Journey', cta: 'See the journey', meta: '11 years, 4 studios', desc: 'From graphic design to leading product strategy. One throughline.' },
       { to: '/about', label: 'About', cta: 'Get to know me', meta: 'Philosophy and curiosity', desc: 'How I think, what I believe about design, and what keeps me curious beyond the screen.' },
     ],
-    contactTitle: "Let's build something thoughtful together.",
-    contactSubtitle: 'Based in Lisbon. Open to select global opportunities.',
+    contactTitleLine1: "Let's build something",
+    contactTitleLine2: 'thoughtful together.',
+    contactSubtitle: 'Based in Lisbon, open to select global opportunities.',
     emailMe: 'Email me directly',
   },
   pt: {
@@ -41,8 +42,9 @@ const copy = {
       { to: '/journey', label: 'Percurso', cta: 'Ver o percurso', meta: '11 anos, 4 estúdios', desc: 'Do design gráfico à liderança de estratégia de produto. Um só fio condutor.' },
       { to: '/about', label: 'Sobre', cta: 'Conhecer-me', meta: 'Filosofia e curiosidade', desc: 'Como penso, no que acredito em design, e o que me mantém curioso para além do ecrã.' },
     ],
-    contactTitle: 'Vamos construir algo cuidado, juntos.',
-    contactSubtitle: 'Vivo em Lisboa. Disponível para oportunidades globais selecionadas.',
+    contactTitleLine1: 'Vamos construir algo',
+    contactTitleLine2: 'cuidado, juntos.',
+    contactSubtitle: 'Vivo em Lisboa, disponível para oportunidades globais selecionadas.',
     emailMe: 'Enviar email diretamente',
   },
 }
@@ -92,29 +94,35 @@ export default function HomeV2() {
         </ul>
       </section>
 
-      {/* FEATURED: image with an overlapping text panel */}
-      <section className="hv2-featured">
-        <Link to="/work/intelliforge" className="hv2-featured-media" aria-label={`${t.featuredTitle}. ${t.seeCaseStudy}`}>
-          <img src={intelliforgeImg} alt="IntelliForge SR2R desktop preview" />
+      {/* FEATURED: same contained card as v1 */}
+      <div className="hv1-feat-wrap">
+        <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle}, ${t.seeCaseStudy}`}>
+          <div className="hv1-feat-copy">
+            <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#5A5F73', marginBottom: 14 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
+            <h2>{t.featuredTitle}</h2>
+            <p>{t.featuredDesc}</p>
+            <span className="hv1-feat-link">{t.seeCaseStudy}<ChevronRight size={16} /></span>
+          </div>
+          <div className="hv1-feat-media">
+            <img src={intelliforgeImg} alt="IntelliForge SR2R desktop preview" />
+          </div>
         </Link>
-        <div className="hv2-featured-panel">
-          <div className="hv2-eyebrow">{t.featuredLabel}</div>
-          <h2>{t.featuredTitle}</h2>
-          <p>{t.featuredDesc}</p>
-          <Link to="/work/intelliforge" className="hv2-link">{t.seeCaseStudy}<ChevronRight size={15} /></Link>
-        </div>
-      </section>
+      </div>
 
-      {/* CONTACT: full-bleed colour band resets the rhythm */}
-      <section className="hv2-contact" id="contact">
-        <div className="hv2-contact-inner">
-          <h2>{t.contactTitle}</h2>
-          <div>
-            <p>{t.contactSubtitle}</p>
-            <a href="mailto:nlopes.nl@gmail.com" className="hv2-btn-outline">{t.emailMe}</a>
+      {/* CONTACT: same centred block as v1 */}
+      <div id="contact" style={{ position: 'relative', padding: '0 32px var(--section-gap)', maxWidth: 1200, margin: '0 auto' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', padding: '0 24px' }}>
+            <h2 style={{ fontSize: 'clamp(26px,3.2vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px', lineHeight: 1.2 }}>
+              {t.contactTitleLine1}<br />{t.contactTitleLine2}
+            </h2>
+            <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>
+            <a href="mailto:nlopes.nl@gmail.com" className="secondary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', color: '#002FA7', fontSize: 15, fontWeight: 600 }}>
+              {t.emailMe}
+            </a>
           </div>
         </div>
-      </section>
+      </div>
 
       <Footer />
     </div>
