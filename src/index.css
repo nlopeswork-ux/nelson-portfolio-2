@@ -1310,7 +1310,7 @@ html { scrollbar-gutter: stable; }
   }
 
 /* ── Homepage v2 ── */
-.hv2-page { position: relative; overflow: hidden; background: #FAFBFE; min-height: 100vh; }
+.hv2-page { position: relative; overflow: hidden; background: #FFFFFF; min-height: 100vh; }
 .hv2-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #001A5C; }
 
 .hv2-hero { position: relative; padding: clamp(120px, 14vw, 180px) 0 var(--section-gap); }
@@ -1416,11 +1416,18 @@ html { scrollbar-gutter: stable; }
 .hv1-hero-copy { text-align: left; }
 /* No card and no mask: the video is exported on pure white with a 10% safe margin, and multiply
    drops that white into the page background, so it sits on the hero like the rest of the content. */
-.hv1-hero-media { position: relative; aspect-ratio: 5 / 4; margin-right: -32px; }
-.hv1-hero-media video { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.hv1-hero-media { position: relative; isolation: isolate; aspect-ratio: 5 / 4; margin-right: -32px; background: #FFFFFF; }
+.hv1-hero-media video { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* The glows sit ABOVE the video (no blend mode): a translucent tint over the video's white reads
+   the same as over the page, so there is no seam and nothing re-blends per video frame. */
+.hv1-hero-media::before, .hv1-hero-media::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; z-index: 2; }
+.hv1-hero-media::before { top: -240px; right: -220px; width: 620px; height: 620px; background: radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%); }
+.hv1-hero-media::after { top: -96px; right: 12px; width: 200px; height: 200px; background: radial-gradient(circle, var(--color-accent-halo), transparent 70%); }
 @media (max-width: 900px) {
   .hv1-hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hv1-hero-media { width: 100%; max-width: 720px; }
+  .hv1-hero-media::after { display: none; }
+  .hv1-hero-media::before { top: -40px; right: -60px; width: 440px; height: 440px; } /* stacked layout: keep the glow on the video, off the buttons */
 }
 
 /* Homepage v1: Work / Journey / About as three tall cards, same surface as the Work page case cards */
