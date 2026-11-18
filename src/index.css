@@ -1060,8 +1060,6 @@ input::placeholder { color: #A0A4B8; }
   border-radius: 50%;
   background: radial-gradient(circle, var(--color-accent-halo), transparent 70%);
   pointer-events: none;
-  will-change: transform;
-  animation: floatSlow 7s ease-in-out infinite;
 }
 
 /* Small dot beside a label / page title */
