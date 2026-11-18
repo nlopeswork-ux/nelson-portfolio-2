@@ -2,6 +2,8 @@
 @import 'tailwindcss';
 
 :root {
+  /* One vertical rhythm between homepage modules */
+  --section-gap: clamp(72px, 8vw, 96px);
   /* Headline ink: softer than the #12141F body ink, still 9.5:1 on white (AAA) */
   --ink-headline: #3F4559;
   --color-primary: #002FA7;
@@ -1380,7 +1382,7 @@ html { scrollbar-gutter: stable; }
 }
 
 /* ── Homepage v1: featured work card ── */
-.hv1-feat-wrap { max-width: 1200px; margin: 0 auto; padding: 32px 32px 96px; }
+.hv1-feat-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px var(--section-gap); }
 .hv1-feat { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; background: #F2F6FF; border-radius: 24px; color: inherit; text-decoration: none; }
 .hv1-feat-copy { padding: clamp(32px, 4vw, 56px); }
 .hv1-feat-copy h2 { font-size: clamp(32px, 3.4vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: var(--ink-headline); margin: 0 0 12px; }
@@ -1397,7 +1399,7 @@ html { scrollbar-gutter: stable; }
 .hv1-rows .hv2-row { padding: 28px 8px; }
 .hv1-rows .hv2-row-label { font-size: clamp(30px, 3.6vw, 44px); font-weight: 800; letter-spacing: -0.03em; }
 @media (max-width: 760px) {
-  .hv1-feat-wrap { padding: 16px 20px 72px; }
+  .hv1-feat-wrap { padding: 0 20px var(--section-gap); }
   .hv1-feat { grid-template-columns: 1fr; }
   .hv1-feat-media { padding: 20px 16px 0; order: -1; }
   .hv1-rows .hv2-row-label { font-size: 32px; }
@@ -1405,7 +1407,7 @@ html { scrollbar-gutter: stable; }
 @media (prefers-reduced-motion: reduce) { .hv1-feat-media img, .hv1-feat-link svg { transition: none; } }
 
 /* Home hero: copy left, showreel right */
-.hv1-hero-grid { position: relative; max-width: var(--container-max); margin: 0 auto; padding: 0 32px 32px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 4vw, 56px); align-items: center; }
+.hv1-hero-grid { position: relative; max-width: var(--container-max); margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 4vw, 56px); align-items: center; }
 .hv1-hero-copy { text-align: left; }
 /* No card and no mask: the video is exported on pure white with a 10% safe margin, and multiply
    drops that white into the page background, so it sits on the hero like the rest of the content. */
@@ -1432,3 +1434,10 @@ html { scrollbar-gutter: stable; }
   .hv1-card-title { margin-top: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .hv1-card, .hv1-card-link svg { transition: none; } }
+
+/* Hero actions: side by side at every width (View work + Get in touch) */
+.hv1-hero-actions { display: flex; gap: 16px; justify-content: flex-start; flex-wrap: nowrap; }
+@media (max-width: 560px) {
+  .hv1-hero-actions { gap: 12px; }
+  .hv1-hero-actions > a { flex: 1 1 0; justify-content: center; white-space: nowrap; padding: 14px 12px !important; }
+}

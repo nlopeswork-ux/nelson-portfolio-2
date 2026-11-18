@@ -58,7 +58,7 @@ const copy = {
     titleLine2Post: ' decisions.',
     subtitle: 'I design the decision layer beneath enterprise products: banking, insurance, government. Clarity has to survive real deadlines and real stakes.',
     showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
-    viewWork: 'View selected work',
+    viewWork: 'View work',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured work',
     featuredTitle: 'IntelliForge SR2R',
@@ -82,7 +82,7 @@ const copy = {
     titleLine2Post: '',
     subtitle: 'Desenho a camada de decisão por trás de produtos empresariais: banca, seguros, setor público. A clareza tem de sobreviver a prazos e riscos reais.',
     showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',
-    viewWork: 'Ver trabalho selecionado',
+    viewWork: 'Ver trabalho',
     getInTouch: 'Entrar em contacto',
     featuredLabel: 'Trabalho em destaque',
     featuredTitle: 'IntelliForge SR2R',
@@ -112,7 +112,7 @@ export default function Portfolio() {
       <Nav />
 
       {/* HERO */}
-      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px 64px' }}>
+      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px var(--section-gap)' }}>
         <div style={{ position: 'absolute', top: -180, right: -160, width: 620, height: 620, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%)', willChange: 'transform', animation: 'driftA 22s var(--ease-in-out) infinite' }} />
         <div className="hero-bulb-halo" aria-hidden="true" />
         <div style={{ position: 'absolute', top: -60, right: -220, width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle, rgba(200,216,255,0.22), rgba(242,246,255,0.08) 60%, transparent 75%)', willChange: 'transform', animation: 'driftB 26s var(--ease-in-out) infinite' }} />
@@ -129,7 +129,7 @@ export default function Portfolio() {
           <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 20, lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 520, margin: '0 0 44px' }}>
             {t.subtitle}
           </p>
-          <div className="hero-reveal" style={{ transitionDelay: '180ms', display: 'flex', gap: 16, justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+          <div className="hero-reveal hv1-hero-actions" style={{ transitionDelay: '180ms' }}>
             <Link to="/work" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: '#002FA7', borderRadius: 12, color: '#FFFFFF', fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
               {t.viewWork}<ChevronRight />
             </Link>
@@ -145,7 +145,7 @@ export default function Portfolio() {
       </div>
 
       {/* AREA ROWS */}
-      <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 32, paddingBottom: 64, ...rows.style }}>
+      <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 0, paddingBottom: 'var(--section-gap)', ...rows.style }}>
         <ul style={{ marginTop: 0 }}>
           {t.rows.map(({ to, label, cta, meta, desc }) => (
             <li key={to}>
@@ -176,16 +176,16 @@ export default function Portfolio() {
       </div>
 
       {/* CONTACT CTA */}
-      <div id="contact" ref={contact.ref} style={{ position: 'relative', padding: '64px 32px 120px', maxWidth: 1200, margin: '0 auto', ...contact.style }}>
+      <div id="contact" ref={contact.ref} style={{ position: 'relative', padding: '0 32px var(--section-gap)', maxWidth: 1200, margin: '0 auto', ...contact.style }}>
         <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.3), transparent 70%)', filter: 'blur(70px)', zIndex: -1 }} />
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', padding: '40px 24px' }}>
+          <div style={{ textAlign: 'center', padding: '0 24px' }}>
             <h2 style={{ fontSize: 'clamp(26px,3.2vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px', lineHeight: 1.2 }}>
               {t.contactTitleLine1}<br />{t.contactTitleLine2}
             </h2>
             <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>
-            <a href="mailto:nlopes.nl@gmail.com" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: '#002FA7', color: '#FFFFFF', borderRadius: 12, fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
-              {t.emailMe}<ChevronRight />
+            <a href="mailto:nlopes.nl@gmail.com" className="secondary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', color: '#002FA7', fontSize: 15, fontWeight: 600 }}>
+              {t.emailMe}
             </a>
           </div>
         </div>
