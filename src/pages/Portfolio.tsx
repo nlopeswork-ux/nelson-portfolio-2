@@ -144,6 +144,24 @@ export default function Portfolio() {
         </div>
       </div>
 
+      {/* AREA ROWS */}
+      <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 32, paddingBottom: 64, ...rows.style }}>
+        <ul style={{ marginTop: 0 }}>
+          {t.rows.map(({ to, label, meta, desc }) => (
+            <li key={to}>
+              <Link to={to} className="hv2-row">
+                <span className="hv2-row-label">{label}</span>
+                <span className="hv2-row-body">
+                  <span className="hv2-row-meta">{meta}</span>
+                  <span className="hv2-row-desc">{desc}</span>
+                </span>
+                <span className="hv2-row-arrow" aria-hidden="true"><ChevronRight size={22} /></span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* FEATURED WORK PREVIEW */}
       <div ref={preview.ref} className="hv1-feat-wrap" style={preview.style}>
         <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle}, ${t.seeCaseStudy}`}>
@@ -157,24 +175,6 @@ export default function Portfolio() {
             <img src={intelliforgeImg} alt="IntelliForge SR2R desktop preview" />
           </div>
         </Link>
-      </div>
-
-      {/* AREA ROWS */}
-      <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 0, paddingBottom: 96, ...rows.style }}>
-        <ul style={{ marginTop: 0 }}>
-          {t.rows.map(({ to, label, meta, desc }) => (
-            <li key={to}>
-              <Link to={to} className="hv2-row" onPointerMove={e => { const r = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`); e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`) }}>
-                <span className="hv2-row-label">{label}</span>
-                <span className="hv2-row-body">
-                  <span className="hv2-row-meta">{meta}</span>
-                  <span className="hv2-row-desc">{desc}</span>
-                </span>
-                <span className="hv2-row-arrow" aria-hidden="true"><ChevronRight size={22} /></span>
-              </Link>
-            </li>
-          ))}
-        </ul>
       </div>
 
       {/* CONTACT CTA */}
