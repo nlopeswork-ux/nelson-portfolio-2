@@ -89,7 +89,7 @@ export default function Portfolio() {
       <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px var(--section-gap)' }}>
 
         {/* geometric accents */}
-        <div className="hero-accent" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5 }} />
+        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5 }} />
 
         <div className="hv1-hero-grid">
         <div className="hv1-hero-copy">

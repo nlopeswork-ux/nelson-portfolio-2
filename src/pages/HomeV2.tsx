@@ -59,7 +59,7 @@ export default function HomeV2() {
 
       {/* HERO: asymmetric, left-aligned display type */}
       <section className="hv2-hero">
-        <div className="hero-accent" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5 }} />
+        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5 }} />
         <div className="hv2-hero-grid">
           <div className="hv2-hero-copy">
             <div className="hero-reveal hv2-eyebrow" style={{ transitionDelay: '0ms' }}>{t.role}</div>
