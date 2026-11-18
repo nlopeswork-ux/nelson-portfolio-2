@@ -147,15 +147,13 @@ export default function Portfolio() {
       {/* AREA ROWS */}
       <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 32, paddingBottom: 64, ...rows.style }}>
         <ul style={{ marginTop: 0 }}>
-          {t.rows.map(({ to, label, cta, meta, desc }, i) => (
+          {t.rows.map(({ to, label, cta, meta, desc }) => (
             <li key={to}>
-              <Link to={to} className={`hv1-card ${i === 0 ? 'hv1-card-dark' : 'hv1-card-light'}`}>
-                <span className="hv1-card-face">
-                  <span className="hv1-card-eyebrow">{meta}</span>
-                  <span className="hv1-card-title">{label}</span>
-                  <span className="hv1-card-cta">{cta}<ChevronRight size={16} /></span>
-                </span>
+              <Link to={to} className="case-card interactive-card hv1-card">
+                <span className="hv1-card-badge">{meta}</span>
+                <span className="hv1-card-title">{label}</span>
                 <span className="hv1-card-desc">{desc}</span>
+                <span className="hv1-card-link">{cta}<ChevronRight size={15} /></span>
               </Link>
             </li>
           ))}
