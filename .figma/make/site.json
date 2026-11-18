@@ -1,7 +1,12 @@
 {
-  "description": "Streamline your task management with an intuitive platform that helps users organize, prioritize, and track their projects efficiently.",
+  "title": "Nelson Lopes | Lead Product Designer",
+  "description": "Portfolio of Nelson Lopes, Lead Product Designer in Lisbon. Product systems for complex, high-stakes decisions in banking, insurance and government.",
+  "language": "en",
   "icons": {
     "icon": "/logo-nl.svg"
+  },
+  "openGraph": {
+    "image": "https://www.nnlopespt.space/og-image.png"
   },
   "robots": {
     "index": false
