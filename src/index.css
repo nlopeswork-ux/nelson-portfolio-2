@@ -1052,7 +1052,7 @@ input::placeholder { color: #A0A4B8; }
   position: absolute;
   z-index: 0;
   top: 47px;
-  left: calc(7% - 93px);
+  right: calc(7% - 93px);
   width: 200px;
   height: 200px;
   border-radius: 50%;
