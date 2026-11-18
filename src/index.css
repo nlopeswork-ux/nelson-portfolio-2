@@ -1440,3 +1440,18 @@ html { scrollbar-gutter: stable; }
   .hv1-hero-actions { gap: 12px; }
   .hv1-hero-actions > a { flex: 1 1 0; justify-content: center; white-space: nowrap; padding: 14px 12px !important; }
 }
+
+/* About portrait: tall card on desktop, wide face-centred crop on mobile (less vertical scroll) */
+.about-photo { width: min(320px, 100%); height: 480px; animation: floatSlow 9s ease-in-out infinite; }
+.about-photo img { object-position: center top; }
+@media (max-width: 760px) {
+  .about-photo { width: 100%; height: auto; aspect-ratio: 16 / 10; animation: none; }
+  .about-photo img { object-position: 52% 34%; }
+}
+
+/* Case studies on mobile: wide media runs edge to edge (cancels the 20px page gutter) */
+.if-frame { position: relative; width: calc(100% - 48px); }
+@media (max-width: 760px) {
+  .cs-bleed, .cs-bleed-frame, .if-frame { width: calc(100% + 40px) !important; max-width: none !important; margin-left: -20px; margin-right: -20px; }
+  .cs-bleed, .cs-bleed-frame { border-radius: 0 !important; border-left: 0 !important; border-right: 0 !important; }
+}

@@ -80,6 +80,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
         <div
+          className={isMobileFrame ? undefined : 'cs-bleed-frame'}
           style={{
             width: isMobileFrame ? 'min(280px, 68vw)' : '100%',
             maxWidth: isMobileFrame ? 280 : 680,
