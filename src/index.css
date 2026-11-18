@@ -1415,3 +1415,19 @@ html { scrollbar-gutter: stable; }
   .hv1-hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hv1-hero-media { width: 100%; max-width: 560px; }
 }
+
+/* Homepage v1: Work / Journey / About as three vertical cards on one row */
+.hv1-rows ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; border-top: 0; }
+.hv1-rows li { border-bottom: 0; display: flex; }
+.hv1-rows .hv2-row { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; min-height: 280px; padding: 28px; border: 1px solid rgba(18, 20, 31, 0.12); border-radius: 20px; background: #FFFFFF; transition: border-color 250ms var(--ease-out); }
+.hv1-rows .hv2-row::before { display: none; }
+.hv1-rows .hv2-row:hover, .hv1-rows .hv2-row:focus-visible { border-color: rgba(0, 47, 167, 0.55); }
+.hv1-rows .hv2-row-body { gap: 10px; }
+.hv1-rows .hv2-row-desc { font-size: 16px; }
+.hv1-rows .hv2-row-arrow { margin-top: auto; }
+@media (max-width: 760px) {
+  .hv1-rows ul { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .hv1-rows .hv2-row { min-height: 0; padding: 24px; gap: 14px; }
+  .hv1-rows .hv2-row-arrow { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hv1-rows .hv2-row { transition: none; } }
