@@ -5,6 +5,33 @@ import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import { useLanguage, type Lang } from '../i18n/LanguageContext'
 import intelliforgeImg from '../imports/hero.webp'
+import showreelMp4 from '../imports/hero-showreel.mp4'
+import showreelWebm from '../imports/hero-showreel.webm'
+import showreelPoster from '../imports/hero-showreel-poster.jpg'
+
+// Muted looping showreel (autoplay needs muted). Plays only while on screen,
+// and stays on the poster frame when the visitor prefers reduced motion.
+function HeroShowreel({ label }: { label: string }) {
+  const ref = useRef<HTMLVideoElement>(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) { el.pause(); return }
+    if (typeof IntersectionObserver === 'undefined') { el.play().catch(() => {}); return }
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) el.play().catch(() => {})
+      else el.pause()
+    }, { threshold: 0.2 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+  return (
+    <video ref={ref} aria-label={label} poster={showreelPoster} muted loop playsInline preload="metadata" disablePictureInPicture>
+      <source src={showreelWebm} type="video/webm" />
+      <source src={showreelMp4} type="video/mp4" />
+    </video>
+  )
+}
 
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null)
@@ -30,6 +57,7 @@ const copy = {
     titleLine2Highlight: 'high-stakes',
     titleLine2Post: ' decisions.',
     subtitle: 'I design the decision layer beneath enterprise products: banking, insurance, government. Clarity has to survive real deadlines and real stakes.',
+    showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
     viewWork: 'View selected work',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured work',
@@ -53,6 +81,7 @@ const copy = {
     titleLine2Highlight: 'alto risco.',
     titleLine2Post: '',
     subtitle: 'Desenho a camada de decisão por trás de produtos empresariais: banca, seguros, setor público. A clareza tem de sobreviver a prazos e riscos reais.',
+    showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',
     viewWork: 'Ver trabalho selecionado',
     getInTouch: 'Entrar em contacto',
     featuredLabel: 'Trabalho em destaque',
@@ -91,15 +120,16 @@ export default function Portfolio() {
         {/* geometric accents */}
         <div className="hero-accent" style={{ top: 140, left: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5, animation: 'floatSlow 7s ease-in-out infinite' }} />
 
-        <div style={{ position: 'relative', maxWidth: 920, margin: '0 auto', textAlign: 'center', padding: '0 32px 32px' }}>
+        <div className="hv1-hero-grid">
+        <div className="hv1-hero-copy">
           <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
-          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: lang === 'pt' ? 'balance' : undefined, fontSize: lang === 'pt' ? 'clamp(38px,5.6vw,68px)' : 'clamp(42px,6.6vw,78px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
-            {t.titleLine1}{lang === 'en' ? <br /> : ' '}{t.titleLine2Pre}<span style={{ whiteSpace: 'nowrap' }}><span className="hero-highlight">{t.titleLine2Highlight}</span></span>{t.titleLine2Post ? <>{' '}<span style={{ whiteSpace: 'nowrap' }}>{t.titleLine2Post.trim()}</span></> : null}
+          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: 'balance', fontSize: lang === 'pt' ? 'clamp(32px,3.6vw,50px)' : 'clamp(34px,4vw,56px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
+            {t.titleLine1}{' '}{t.titleLine2Pre}<span style={{ whiteSpace: 'nowrap' }}><span className="hero-highlight">{t.titleLine2Highlight}</span></span>{t.titleLine2Post ? <>{' '}<span style={{ whiteSpace: 'nowrap' }}>{t.titleLine2Post.trim()}</span></> : null}
           </h1>
-          <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 20, lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 600, margin: '0 auto 44px' }}>
+          <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 20, lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 520, margin: '0 0 44px' }}>
             {t.subtitle}
           </p>
-          <div className="hero-reveal" style={{ transitionDelay: '180ms', display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="hero-reveal" style={{ transitionDelay: '180ms', display: 'flex', gap: 16, justifyContent: 'flex-start', flexWrap: 'wrap' }}>
             <Link to="/work" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: '#002FA7', borderRadius: 12, color: '#FFFFFF', fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
               {t.viewWork}<ChevronRight />
             </Link>
@@ -107,6 +137,10 @@ export default function Portfolio() {
               {t.getInTouch}
             </Link>
           </div>
+        </div>
+        <div className="hero-reveal hv1-hero-media" style={{ transitionDelay: '240ms' }}>
+          <HeroShowreel label={t.showreelLabel} />
+        </div>
         </div>
       </div>
 
