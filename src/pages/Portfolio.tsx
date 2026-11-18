@@ -65,9 +65,9 @@ const copy = {
     featuredDesc: 'A control layer for a 10× bid.',
     seeCaseStudy: 'See case study',
     rows: [
-      { to: '/work', label: 'Work', meta: '7 case studies', desc: 'Enterprise systems where the interface is only as good as the decisions underneath it.' },
-      { to: '/journey', label: 'Journey', meta: '11 years, 4 studios', desc: 'From graphic design to leading product strategy. One throughline.' },
-      { to: '/about', label: 'About', meta: 'Philosophy and curiosity', desc: 'How I think, what I believe about design, and what keeps me curious beyond the screen.' },
+      { to: '/work', label: 'Work', cta: 'See the work', meta: '7 case studies', desc: 'Enterprise systems where the interface is only as good as the decisions underneath it.' },
+      { to: '/journey', label: 'Journey', cta: 'See the journey', meta: '11 years, 4 studios', desc: 'From graphic design to leading product strategy. One throughline.' },
+      { to: '/about', label: 'About', cta: 'Get to know me', meta: 'Philosophy and curiosity', desc: 'How I think, what I believe about design, and what keeps me curious beyond the screen.' },
     ],
     contactTitleLine1: "Let's build something",
     contactTitleLine2: 'thoughtful together.',
@@ -89,9 +89,9 @@ const copy = {
     featuredDesc: 'Uma camada de controlo para uma proposta 10×.',
     seeCaseStudy: 'Ver case study',
     rows: [
-      { to: '/work', label: 'Trabalho', meta: '7 case studies', desc: 'Sistemas empresariais onde a interface só é tão boa quanto as decisões por trás dela.' },
-      { to: '/journey', label: 'Percurso', meta: '11 anos, 4 estúdios', desc: 'Do design gráfico à liderança de estratégia de produto. Um só fio condutor.' },
-      { to: '/about', label: 'Sobre', meta: 'Filosofia e curiosidade', desc: 'Como penso, no que acredito em design, e o que me mantém curioso para além do ecrã.' },
+      { to: '/work', label: 'Trabalho', cta: 'Ver o trabalho', meta: '7 case studies', desc: 'Sistemas empresariais onde a interface só é tão boa quanto as decisões por trás dela.' },
+      { to: '/journey', label: 'Percurso', cta: 'Ver o percurso', meta: '11 anos, 4 estúdios', desc: 'Do design gráfico à liderança de estratégia de produto. Um só fio condutor.' },
+      { to: '/about', label: 'Sobre', cta: 'Conhecer-me', meta: 'Filosofia e curiosidade', desc: 'Como penso, no que acredito em design, e o que me mantém curioso para além do ecrã.' },
     ],
     contactTitleLine1: 'Vamos construir algo',
     contactTitleLine2: 'cuidado, juntos.',
@@ -147,15 +147,15 @@ export default function Portfolio() {
       {/* AREA ROWS */}
       <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 32, paddingBottom: 64, ...rows.style }}>
         <ul style={{ marginTop: 0 }}>
-          {t.rows.map(({ to, label, meta, desc }) => (
+          {t.rows.map(({ to, label, cta, meta, desc }, i) => (
             <li key={to}>
-              <Link to={to} className="hv2-row">
-                <span className="hv2-row-label">{label}</span>
-                <span className="hv2-row-body">
-                  <span className="hv2-row-meta">{meta}</span>
-                  <span className="hv2-row-desc">{desc}</span>
+              <Link to={to} className={`hv1-card ${i === 0 ? 'hv1-card-dark' : 'hv1-card-light'}`}>
+                <span className="hv1-card-face">
+                  <span className="hv1-card-eyebrow">{meta}</span>
+                  <span className="hv1-card-title">{label}</span>
+                  <span className="hv1-card-cta">{cta}<ChevronRight size={16} /></span>
                 </span>
-                <span className="hv2-row-arrow" aria-hidden="true"><ChevronRight size={22} /></span>
+                <span className="hv1-card-desc">{desc}</span>
               </Link>
             </li>
           ))}
