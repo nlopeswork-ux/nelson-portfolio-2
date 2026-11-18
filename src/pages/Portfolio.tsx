@@ -177,7 +177,6 @@ export default function Portfolio() {
 
       {/* CONTACT CTA */}
       <div id="contact" ref={contact.ref} style={{ position: 'relative', padding: '0 32px var(--section-gap)', maxWidth: 1200, margin: '0 auto', ...contact.style }}>
-        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 600, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(168,191,255,0.3), transparent 70%)', filter: 'blur(70px)', zIndex: -1 }} />
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', padding: '0 24px' }}>
             <h2 style={{ fontSize: 'clamp(26px,3.2vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px', lineHeight: 1.2 }}>
