@@ -81,7 +81,7 @@ export default function CaseStudyEDPPlanetaZero() {
   const t = copy[lang]
 
   return (
-    <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]}>
+    <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]} refined>
       <div style={S}>
         <VideoBlock src={appVideo} poster={appPoster} label={t.appLabel} />
         <FeatureList title={t.appFeaturesTitle} items={t.appFeatures} />

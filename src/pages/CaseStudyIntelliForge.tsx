@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useSwipe } from '../components/useSwipe'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
@@ -372,6 +373,8 @@ export default function CaseStudyIntelliForge() {
   const t = copy[lang]
   const [personaIdx, setPersonaIdx] = useState(0)
   const [testingIdx, setTestingIdx] = useState(0)
+  const personaSwipe = useSwipe(() => setPersonaIdx(i => (i - 1 + t.personas.length) % t.personas.length), () => setPersonaIdx(i => (i + 1) % t.personas.length))
+  const testingSwipe = useSwipe(() => setTestingIdx(i => (i - 1 + t.testingRounds.length) % t.testingRounds.length), () => setTestingIdx(i => (i + 1) % t.testingRounds.length))
 
   return (
     <CaseStudyShell
@@ -379,6 +382,7 @@ export default function CaseStudyIntelliForge() {
       description={t.description}
       meta={t.meta}
       stats={t.stats}
+      refined
     >
       {/* THE HOOK */}
       <div style={S}>
@@ -458,7 +462,7 @@ export default function CaseStudyIntelliForge() {
         <h2 style={H2}>{t.personasTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 24px' }}>{t.personasIntro}</p>
 
-        <div style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180 }}>
+        <div {...personaSwipe} style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180 }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 6 }}>{t.personaLabel} {t.personas[personaIdx].n}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>{t.personas[personaIdx].desc}</p>
@@ -506,19 +510,21 @@ export default function CaseStudyIntelliForge() {
       <div style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.keyDecisionsTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.keyDecisionsIntro}</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+        <div className="cs-decisions">
           {t.keyDecisions.map(({ title, rejected, shipped, result }) => (
-            <div key={title} style={{ padding: 24, borderRadius: 20, background: '#F8FAFF', border: '1px solid #EAF1FF' }}>
-              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 12 }}>{title}</div>
-              {rejected && (
-                <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>
-                  <strong style={{ color: '#B23A3A' }}>{t.rejectedLabel}</strong>{rejected}
+            <div key={title} className="cs-decision">
+              <div className="cs-decision-title">{title}</div>
+              <div className="cs-decision-body">
+                {rejected && (
+                  <p>
+                    <strong style={{ color: '#B23A3A' }}>{t.rejectedLabel}</strong>{rejected}
+                  </p>
+                )}
+                <p>
+                  <strong style={{ color: '#1F7A4D' }}>{t.shippedLabel}</strong>{shipped}
                 </p>
-              )}
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: result ? '0 0 10px' : 0 }}>
-                <strong style={{ color: '#1F7A4D' }}>{t.shippedLabel}</strong>{shipped}
-              </p>
-              {result && <p style={{ fontSize: 14, lineHeight: 1.7, color: '#12141F', margin: 0, fontWeight: 600 }}>{t.resultLabel}{result}</p>}
+                {result && <p className="cs-decision-result">{t.resultLabel}{result}</p>}
+              </div>
             </div>
           ))}
         </div>
@@ -536,7 +542,7 @@ export default function CaseStudyIntelliForge() {
       <div style={S}>
         <h2 style={H2}>{t.testingTitle}</h2>
 
-        <div style={{ overflow: 'hidden', borderRadius: 20, border: '1px solid #EAF1FF', background: '#F8FAFF', padding: 28 }}>
+        <div {...testingSwipe} style={{ overflow: 'hidden', borderRadius: 20, border: '1px solid #EAF1FF', background: '#F8FAFF', padding: 28 }}>
           <div style={{ overflow: 'hidden' }}>
             <div style={{ display: 'flex', transform: `translateX(-${testingIdx * 100}%)`, transition: 'transform 420ms ease-out' }}>
               {t.testingRounds.map(({ title, body, result, quote, quoteAttrib }) => (

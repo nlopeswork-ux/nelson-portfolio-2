@@ -338,6 +338,7 @@ export default function CaseStudyTamkeen() {
       description={t.description}
       meta={t.meta}
       stats={t.stats}
+      refined
     >
       {/* 02 CONTEXT */}
       <div style={SW}>
@@ -345,16 +346,11 @@ export default function CaseStudyTamkeen() {
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.context1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.context2}</p>
 
-        <div className="rg-2" style={{ gap: 20 }}>
+        <div className="rg-2 cs-rows">
           {t.contextCards.map(({ title, body }, i) => (
             <div
               key={title}
-              style={{
-                padding: '26px', borderRadius: 16,
-                background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(20,30,60,0.1)',
-                gridColumn: i === 4 ? '1 / -1' : undefined,
-              }}
+              className="cs-row" style={{ gridColumn: i === 4 ? '1 / -1' : undefined }}
             >
               <div style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.05em', color: '#12141F', marginBottom: 10 }}>{title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{body}</p>
@@ -368,9 +364,9 @@ export default function CaseStudyTamkeen() {
         <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.challengeLabel}</div>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.challenge1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.challenge2}</p>
-        <div className="rg-2">
+        <div className="rg-2 cs-rows">
           {t.challengeCards.map(({ text, bold }, i) => (
-            <div key={i} style={{ padding: '20px 24px', borderRadius: 16, background: '#F2F6FF' }}>
+            <div key={i} className="cs-row">
               <p style={{ fontSize: 14, lineHeight: 1.65, color: '#3A3F4C', margin: 0 }} dangerouslySetInnerHTML={{ __html: text.replace(bold, `<strong style="color:#12141F">${bold}</strong>`) }} />
             </div>
           ))}
@@ -382,9 +378,9 @@ export default function CaseStudyTamkeen() {
         <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.discoveryLabel}</div>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.discoveryIntro}</p>
 
-        <div className="rg-3" style={{ marginBottom: 36 }}>
+        <div className="rg-3 cs-rows" style={{ marginBottom: 36 }}>
           {t.researchTracks.map(({ n, title, body }) => (
-            <div key={n} style={{ padding: '26px', borderRadius: 16, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(20,30,60,0.1)' }}>
+            <div key={n} className="cs-row">
               <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{n}. {title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{body}</p>
             </div>
@@ -433,15 +429,15 @@ export default function CaseStudyTamkeen() {
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.workshop1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.workshop2}</p>
 
-        <div style={{ padding: 24, borderRadius: 18, background: '#F2F6FF', marginBottom: 32 }}>
+        <div className="cs-brief" style={{ marginBottom: 32 }}>
           <div style={{ fontSize: 14, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.04em', color: '#001A5C', marginBottom: 8 }}>{t.processLabel}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#3A3F4C', margin: 0 }}>{t.processBody}</p>
         </div>
 
         <h3 className="cs-h3">{t.quickWinsTitle}</h3>
-        <div className="rg-3" style={{ gap: 14, marginBottom: 36 }}>
+        <div className="rg-3 cs-rows" style={{ marginBottom: 36 }}>
           {t.quickWins.map((win, i) => (
-            <div key={i} style={{ padding: '16px 18px', borderRadius: 14, background: '#F8FAFF', border: '1px solid #EAF1FF', fontSize: 14.5, lineHeight: 1.55, color: '#3A3F4C' }}>{win}</div>
+            <div key={i} className="cs-row" style={{ fontSize: 14.5, lineHeight: 1.55, color: '#3A3F4C' }}>{win}</div>
           ))}
         </div>
 
@@ -459,9 +455,9 @@ export default function CaseStudyTamkeen() {
       {/* 07 DESIGN PRINCIPLES */}
       <div style={SW}>
         <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.principlesLabel}</div>
-        <div className="rg-2">
+        <div className="rg-2 cs-rows">
           {t.designPrinciples.map(([label, text]) => (
-            <div key={label} style={{ padding: '20px 24px', borderRadius: 16, background: '#F2F6FF' }}>
+            <div key={label} className="cs-row">
               <p style={{ fontSize: 14, lineHeight: 1.65, color: '#3A3F4C', margin: 0 }}>
                 <strong style={{ color: '#12141F' }}>{label}</strong> — {text}
               </p>
@@ -521,9 +517,9 @@ export default function CaseStudyTamkeen() {
 
       <div style={{ ...SW, paddingTop: 0 }}>
         <h2 style={H2}>{t.personasTitle}</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div className="cs-numlist">
           {t.personaGroups.map(({ label, title, body }) => (
-            <div key={label} style={{ padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(20,30,60,0.1)' }}>
+            <div key={label} className="cs-numrow" style={{ display: 'block' }}>
               <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 6 }}>{label}</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{body}</p>
@@ -566,9 +562,9 @@ export default function CaseStudyTamkeen() {
       {/* FINAL ECOSYSTEM */}
       <div style={SW}>
         <h2 style={H2}>{t.ecosystemTitle}</h2>
-        <div className="rg-3" style={{ gap: 14 }}>
+        <div className="rg-3 cs-rows">
           {t.ecosystem.map(name => (
-            <div key={name} style={{ padding: '18px 20px', borderRadius: 14, background: '#F8FAFF', border: '1px solid #EAF1FF', fontSize: 14.5, fontWeight: 600, color: '#12141F' }}>{name}</div>
+            <div key={name} className="cs-row" style={{ fontSize: 14.5, fontWeight: 600, color: '#12141F' }}>{name}</div>
           ))}
         </div>
       </div>

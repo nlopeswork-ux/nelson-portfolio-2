@@ -58,23 +58,17 @@ export default function Contact() {
           <p style={{ fontSize: 18, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{t.subtitle}</p>
         </div>
 
-        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', maxWidth: 820, margin: '0 auto' }}>
-          <a href="mailto:nlopes.nl@gmail.com" className="contact-card interactive-card" style={{ flex: 1, minWidth: 280, display: 'flex', flexDirection: 'column', gap: 16, padding: '40px 36px', borderRadius: 28, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 20px 50px rgba(120,150,255,0.12)', textDecoration: 'none', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
-            <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></div>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 8 }}>{t.emailLabel}</div>
-              <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', wordBreak: 'break-all' }}>nlopes.nl@gmail.com</div>
-            </div>
-            <div style={{ fontSize: 14, color: '#5A5F73' }}>{t.emailNote}</div>
+        <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', maxWidth: 920, margin: '0 auto' }}>
+          <a href="mailto:nlopes.nl@gmail.com" className="hs-side interactive-card" style={{ flex: 1, minWidth: 280 }}>
+            <div className="hs-top"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span className="hs-meta">{t.emailLabel}</span></div>
+            <span className="hs-title" style={{ fontSize: 'clamp(18px, 2vw, 22px)', wordBreak: 'break-all' }}>nlopes.nl@gmail.com</span>
+            <span className="hs-desc">{t.emailNote}</span>
           </a>
 
-          <a href="https://www.linkedin.com/in/nelsonnlopes" target="_blank" rel="noopener noreferrer" className="contact-card interactive-card" style={{ flex: 1, minWidth: 280, display: 'flex', flexDirection: 'column', gap: 16, padding: '40px 36px', borderRadius: 28, background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 20px 50px rgba(120,150,255,0.12)', textDecoration: 'none', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
-            <div><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg></div>
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 8 }}>{t.linkedinLabel}</div>
-              <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F' }}>linkedin.com/in/nelsonnlopes</div>
-            </div>
-            <div style={{ fontSize: 14, color: '#5A5F73' }}>{t.linkedinNote}</div>
+          <a href="https://www.linkedin.com/in/nelsonnlopes" target="_blank" rel="noopener noreferrer" className="hs-side interactive-card" style={{ flex: 1, minWidth: 280 }}>
+            <div className="hs-top"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg><span className="hs-meta">{t.linkedinLabel}</span></div>
+            <span className="hs-title" style={{ fontSize: 'clamp(18px, 2vw, 22px)', wordBreak: 'break-word' }}>linkedin.com/in/nelsonnlopes</span>
+            <span className="hs-desc">{t.linkedinNote}</span>
           </a>
         </div>
 

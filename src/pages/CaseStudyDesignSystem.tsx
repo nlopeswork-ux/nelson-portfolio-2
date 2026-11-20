@@ -252,6 +252,7 @@ export default function CaseStudyDesignSystem() {
       description={t.description}
       meta={t.meta}
       stats={t.stats}
+      refined
     >
       {/* THE HOOK */}
       <div style={S}>
@@ -264,7 +265,7 @@ export default function CaseStudyDesignSystem() {
         <h2 style={H2}>{t.phase1Title}</h2>
         <Body>{t.phase1Intro}</Body>
 
-        <div style={{ padding: 24, borderRadius: 20, background: '#F2F6FF', border: '1px solid #EAF1FF', marginBottom: 28 }}>
+        <div className="cs-brief" style={{ marginBottom: 28 }}>
           <h3 className="cs-h3">{t.auditingTitle}</h3>
 
           <div style={{ display: 'flex', gap: 20, alignItems: 'baseline', flexWrap: 'wrap', padding: '16px 20px', borderRadius: 14, background: '#12141F', color: '#F2F6FF', marginBottom: 16 }}>
@@ -350,10 +351,10 @@ export default function CaseStudyDesignSystem() {
 
         <h2 style={{ ...H2, fontSize: 'clamp(18px,2.6vw,22px)', marginBottom: 8 }}>{t.judgmentTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.judgmentIntro}</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
+        <div className="cs-numlist" style={{ marginBottom: 28 }}>
           {t.judgmentCalls.map(({ n, name, desc }) => (
-            <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+            <div key={n} className="cs-numrow">
+              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-index)', minWidth: 28 }}>{n}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
@@ -363,10 +364,10 @@ export default function CaseStudyDesignSystem() {
         </div>
 
         <h3 className="cs-h3">{t.principlesTitle}</h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
+        <div className="cs-numlist" style={{ marginBottom: 28 }}>
           {t.principles.map(({ n, name, desc }) => (
-            <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+            <div key={n} className="cs-numrow">
+              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-index)', minWidth: 28 }}>{n}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>

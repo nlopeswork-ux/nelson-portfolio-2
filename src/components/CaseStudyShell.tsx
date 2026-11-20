@@ -49,6 +49,8 @@ interface CaseStudyShellProps {
   meta: MetaItem[]
   stats: StatItem[]
   accentColor?: string
+  /** Opt-in editorial treatment: fewer boxes, numbered sections, orange section bar */
+  refined?: boolean
   children: React.ReactNode
 }
 
@@ -114,7 +116,7 @@ function useSectionIndex(mainRef: React.RefObject<HTMLElement | null>, lockRef: 
   return { items, active, setActive }
 }
 
-export default function CaseStudyShell({ title, description, meta, stats, accentColor = '#002FA7', children }: CaseStudyShellProps) {
+export default function CaseStudyShell({ title, description, meta, stats, accentColor = '#002FA7', refined = false, children }: CaseStudyShellProps) {
   const { lang } = useLanguage()
   const { pathname } = useLocation()
   const t = shellCopy[lang]
@@ -198,7 +200,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
 
       {/* CONTENT: 9 columns of content + 3 columns of sticky sidebar */}
       <div className="cs-container cs-layout">
-        <main ref={mainRef} className="cs-main">{children}</main>
+        <main ref={mainRef} className={refined ? 'cs-main cs-refined' : 'cs-main'}>{children}</main>
 
         <aside className="cs-aside">
           {showToc ? (

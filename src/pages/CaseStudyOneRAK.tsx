@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSwipe } from '../components/useSwipe'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
@@ -383,6 +384,8 @@ export default function CaseStudyOneRAK() {
   const [screenIdx, setScreenIdx] = useState(0)
 
   const prototypeScreens = t.prototypeScreens.map((s, i) => ({ ...s, image: screenImages[i] }))
+  const personaSwipe = useSwipe(() => setPersonaIdx(i => (i - 1 + t.personas.length) % t.personas.length), () => setPersonaIdx(i => (i + 1) % t.personas.length))
+  const screenSwipe = useSwipe(() => setScreenIdx(i => (i - 1 + prototypeScreens.length) % prototypeScreens.length), () => setScreenIdx(i => (i + 1) % prototypeScreens.length))
 
   return (
     <CaseStudyShell
@@ -390,6 +393,7 @@ export default function CaseStudyOneRAK() {
       description={t.description}
       meta={t.meta}
       stats={t.stats}
+      refined
     >
       {/* THE HOOK */}
       <div style={S}>
@@ -415,7 +419,7 @@ export default function CaseStudyOneRAK() {
           </div>
         </div>
 
-        <div style={{ padding: '16px 20px', borderLeft: '3px solid #C9D9FF', background: '#F8FAFF', borderRadius: '0 12px 12px 0', marginBottom: 32 }}>
+        <div style={{ padding: '2px 0 2px 20px', borderLeft: '3px solid #C9D9FF', marginBottom: 32 }}>
           <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote1}</p>
           <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{t.quote1Attr}</p>
         </div>
@@ -464,7 +468,7 @@ export default function CaseStudyOneRAK() {
         <div>
           <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track4Title}</div>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{t.track4Body}</p>
-          <div style={{ padding: '16px 20px', borderLeft: '3px solid #C9D9FF', background: '#F8FAFF', borderRadius: '0 12px 12px 0' }}>
+          <div style={{ padding: '2px 0 2px 20px', borderLeft: '3px solid #C9D9FF' }}>
             <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote2}</p>
             <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{t.quote2Attr}</p>
           </div>
@@ -504,7 +508,7 @@ export default function CaseStudyOneRAK() {
         <h2 style={H2}>{t.personasTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.personasIntro}</p>
 
-        <div style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180, marginBottom: 20 }}>
+        <div {...personaSwipe} style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180, marginBottom: 20 }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 6 }}>{t.personas[personaIdx].segment}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: t.personas[personaIdx].note ? '0 0 10px' : 0 }}>{t.personas[personaIdx].desc}</p>
@@ -562,9 +566,9 @@ export default function CaseStudyOneRAK() {
       <div style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.rejectedTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.rejectedIntro}</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+        <div className="cs-numlist">
           {t.rejectedDecisions.map(({ rejected, chosen }, i) => (
-            <div key={i} style={{ padding: 24, borderRadius: 20, background: '#F8FAFF', border: '1px solid #EAF1FF' }}>
+            <div key={i} className="cs-numrow" style={{ display: 'block' }}>
               <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>
                 <strong style={{ color: '#B23A3A' }}>{t.rejectedLabel}</strong>{rejected}
               </p>
@@ -581,7 +585,7 @@ export default function CaseStudyOneRAK() {
         <h2 style={H2}>{t.galleryTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 28px' }}>{t.galleryIntro}</p>
 
-        <div style={{ overflow: 'hidden', marginBottom: 20 }}>
+        <div {...screenSwipe} style={{ overflow: 'hidden', marginBottom: 20 }}>
           <div style={{ display: 'flex', transform: `translateX(-${screenIdx * 100}%)`, transition: 'transform 420ms ease-out' }}>
             {prototypeScreens.map(({ image, title, caption }) => (
               <div key={title} style={{ flex: '0 0 100%', borderRadius: 16, border: '1px solid #EAF1FF', overflow: 'hidden', background: '#FFFFFF' }}>

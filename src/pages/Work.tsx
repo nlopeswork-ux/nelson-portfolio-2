@@ -299,6 +299,7 @@ export default function Work() {
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
+                <span className="idx" aria-hidden="true">{String(studies.indexOf(s) + 1).padStart(2, '0')}</span>
                 <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{s.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
@@ -345,7 +346,7 @@ export default function Work() {
         <h2 style={{ fontSize: 'clamp(22px,3vw,28px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 12px' }}>{p.earlierWorkTitle}</h2>
         <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', maxWidth: 640, margin: '0 0 28px' }}>{p.earlierWorkText}</p>
         <div className="work-grid">
-          {earlierWork.map(w => (
+          {earlierWork.map((w, wi) => (
             <Link key={w.id} to={w.to} className="case-card interactive-card" style={{ display: 'block', textDecoration: 'none', borderRadius: 20, overflow: 'hidden', background: '#FFFFFF', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
               <div style={{ padding: 12 }}>
                 <div style={{ position: 'relative', width: '100%', borderRadius: 14, overflow: 'hidden', background: '#F5F7FC', aspectRatio: '562 / 180' }}>
@@ -363,6 +364,7 @@ export default function Work() {
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
+                <span className="idx" aria-hidden="true">{String(studies.length + wi + 1).padStart(2, '0')}</span>
                 <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{w.tag}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{w.title}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{w.description}</p>

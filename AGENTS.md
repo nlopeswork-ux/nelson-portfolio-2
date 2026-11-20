@@ -39,3 +39,84 @@ This project uses **Tailwind CSS v4** through the `@tailwindcss/vite` plugin con
 - Use double quotes for strings containing apostrophes (`"We're here to help"`), or escape them in single-quoted strings. An unescaped apostrophe in a single-quoted string breaks the build.
 - Ensure JSX tags are closed and braces are balanced.
 - Export components as default exports.
+
+## Design rules
+
+These rules compile what is defined in `src/index.css` (tokens and comments), the design critique in `DESIGN-CRITIQUE.md`, the `public/case-studies/*/README.md` conventions, and the decisions closed during the brand refresh. **Follow them for any UI change.** Where code and this file disagree, ask before changing either.
+
+### Brand brief
+Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, action). **Orange is the human moment** (curiosity, a wink). If a screen has no reason for orange, it has none.
+
+### Colour
+- Blue tokens only: `--color-primary #002FA7` (actions, links, numbers), `--ink-headline #3F4559` (headings), body ink `#12141F`, secondary text `#5A5F73`. Do not introduce new blues or greys; use the existing set.
+- Orange `--color-accent #FF6F00` is **decorative only** (2.8:1 on white): never for text. Use `--color-accent-icon` for icons/arrows and `--color-accent-text` if small orange text is unavoidable.
+- Orange appears **only** in these places, and the list is a ceiling, not a target:
+  1. The section bar (`.section-bar`, 32×3px) that closes a section on About and case studies.
+  2. The bar beside a "Result" line or a pulled brief/note (also the question in a How I Work panel).
+  3. One graphic accent per hero-level card (the Work card circle, the hero dot), and the current step in a stepper.
+  4. Tiny moments of voice: the footer line and the 404 dot.
+- Semantic colours stay semantic: red = rejected/critical, green = shipped/positive.
+- **Index numbers (01, 02…)** use `--color-index` (`#46537F`, a desaturated slate blue, 7.5:1 on white) so they read as labels, never as actions. Use it for every ordinal: section numbers, card numbers, stepper steps, numbered rows. Use the `.idx` class for inline numbers before titles. Cards that are not ordered (Contact) show an icon instead of a number.
+- Pull quotes: one large blue opening glyph centred above the quote, no extra quote marks around the text.
+
+### Typography
+- Large headings (H1, H2, display numbers): **Plus Jakarta Sans** (`--font-display`), weight 800, tracking `-0.025em`. Everything else: **Inter**.
+- Do not use weight 900 on headings; do not override heading tracking per page.
+
+### Containers (three kinds, nothing else)
+1. **No box** (default): text, subtitles, lists sit directly on the page.
+2. **Tinted blue box** (`#F2F6FF`/`#F8FAFF`): only for real data (tables, metric strips, before/after comparisons).
+3. **Dark box** (`DarkBox`, `#12141F`): only for the one insight or principle of a section.
+- Text lists and notes are **hairline rows**, not cards: `.cs-rows` + `.cs-row`, `.cs-numlist` + `.cs-numrow`, `.cs-decisions`. A note or brief is a pulled passage with an orange bar (`.cs-brief`). A user quote has a blue bar and no fill.
+- Do not nest a box inside a box.
+
+### Dividers
+- Hairlines (`rgba(18,20,31,0.12)`) appear **only between rows**: none under the heading, none after the last row (the orange section bar closes the section). The existing classes already do this; do not add borders by hand.
+- One decorative divider across the site: the orange section bar. No glyph dividers.
+
+### Case studies and About
+- Case study pages use `<CaseStudyShell refined>`: numbered sections, orange section bar, hairline rows. Keep the structure Hook, Research, Define, Design, Impact.
+- Section numbers are CSS counters; do not type numbers into headings.
+- About uses eyebrow labels (not numbers) and the same section bar.
+
+### Buttons and links (reuse, never invent)
+- Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).
+- Secondary action: `.secondary-btn` (1.5px blue border, 12px radius).
+- Text link with chevron: `.hs-cta` (blue, 15px/600). It is the only text-link style; set the colour through the class, not `inherit`.
+- No pills for actions, no new button shapes, no 999px radius on interactive elements.
+- A card with two actions uses one stretched link plus one link above it (`z-index`), never nested anchors.
+- Touch targets are at least 44px on `pointer: coarse`.
+
+### Radius and spacing
+- Radius language: 12px buttons and small controls, 16–20px cards, 24–28px hero cards. Do not mix other radii.
+- Vertical rhythm between sections uses `--section-gap`; give a section extra room before the contact block rather than shrinking it.
+
+### Motion (Emil Kowalski principles)
+- Easing: `--ease-out` for anything that enters or responds; `--ease-out-back` only for the orange touches. Never `ease` by default.
+- Durations: UI feedback under 300 ms, reveals 380–420 ms, no `transition: all`; animate `transform` and `opacity`.
+- Pressed state: `:active { transform: scale(0.97) }` on buttons (120 ms).
+- Never animate from `scale(0)`; stagger steps are 30–80 ms.
+- Hover effects live inside `@media (hover: hover) and (pointer: fine)`.
+- Always honour `prefers-reduced-motion`: keep fades, drop movement.
+- Marquees and loops pause on hover and in reduced motion. At most one continuous animation per viewport.
+
+### Carousels and steppers
+- Every carousel supports the **swipe gesture** (touch) and horizontal trackpad scroll, as well as arrows and dots. Use `useSwipe` from `src/components/useSwipe.ts` and spread it on the viewport; it also adds `.swipe-x` (`touch-action: pan-y`).
+- How I Work is a **stepper** (one phase open at a time, swipe/arrow-key navigation), not a row of expandable cards. The steps reuse the Work page filter control (`.work-filter-track` / `.work-filter-tab`); do not restyle it. No ghost numerals or decorative repeated numbers. Do not add auto-rotation.
+
+### Images and video
+- Artwork with transparency (e.g. `hero.webp`) goes straight on the surface: no blend modes, no extra shadow or radius.
+- Thumbnails of case studies must not show a play overlay; a video thumbnail is a clean screenshot. Case pages keep their video poster.
+- Case-study carousel images follow the `README.md` in their folder (exact filenames, 390:844 for phone frames).
+- Do not ship screenshots of the complete UI as an image where editable layers are expected (Figma imports).
+
+### Language and copy
+- EN and PT copy stay in step: every string added to one language is added to the other.
+- Role line: "Lead UX/UI Designer | Product Designer | AI Designer | Design Systems".
+- Tone: calm and precise, with at most one dry wink per page.
+
+### Process
+- Work on a `preview/...` branch. Never push to `main` or merge to production without being asked.
+- `npm run build` writes to `docs/`, which is tracked and served. Build to a temp folder instead (`vite build --outDir <tmp>`) and never commit `docs/` from a feature branch.
+- There are two repositories (`nelson-portfolio` and `nelson-portfolio-2`, the latter with fewer case studies). Design changes are made in both; keep them in sync.
+- Verify in a browser (desktop, tablet 820px, mobile 390px) before calling UI work done, and say what was not checked.

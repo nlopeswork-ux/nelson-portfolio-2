@@ -182,6 +182,7 @@ export default function CaseStudyAgenticUXFlow() {
       description={t.description}
       meta={t.meta}
       stats={t.stats}
+      refined
     >
       {/* THE HOOK */}
       <div style={S}>
@@ -193,10 +194,10 @@ export default function CaseStudyAgenticUXFlow() {
       <div style={S}>
         <h2 style={H2}>{t.howTitle}</h2>
         <Body>{t.howIntro}</Body>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div className="cs-numlist">
           {t.stages.map(({ n, name, desc }) => (
-            <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+            <div key={n} className="cs-numrow">
+              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-index)', minWidth: 28 }}>{n}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
@@ -240,10 +241,10 @@ export default function CaseStudyAgenticUXFlow() {
       {/* DESIGN DECISIONS */}
       <div style={S}>
         <h2 style={H2}>{t.decisionsTitle}</h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 28 }}>
+        <div className="cs-numlist" style={{ marginBottom: 28 }}>
           {t.decisions.map(({ n, name, desc }) => (
-            <div key={n} style={{ display: 'flex', gap: 20, padding: '20px 24px', borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#002FA7', minWidth: 28 }}>{n}</div>
+            <div key={n} className="cs-numrow">
+              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-index)', minWidth: 28 }}>{n}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
@@ -259,9 +260,9 @@ export default function CaseStudyAgenticUXFlow() {
         </DarkBox>
 
         <div style={H3}>{t.checkpointsTitle}</div>
-        <div className="rg-2">
+        <div className="rg-2 cs-rows">
           {t.checkpoints.map(({ name, desc }) => (
-            <div key={name} style={{ padding: 20, borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
+            <div key={name} className="cs-row">
               <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 8 }}>{name}</div>
               <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{desc}</p>
             </div>

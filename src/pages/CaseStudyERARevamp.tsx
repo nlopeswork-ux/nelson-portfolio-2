@@ -59,7 +59,7 @@ export default function CaseStudyERARevamp() {
   const t = copy[lang]
 
   return (
-    <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]}>
+    <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]} refined>
       <div style={S}>
         <VideoBlock src={eraVideo} poster={eraPoster} label={t.videoLabel} />
         <FeatureList title={t.featuresTitle} items={t.features} />

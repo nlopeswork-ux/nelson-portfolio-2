@@ -1,5 +1,6 @@
-import { useCallback, useRef, useState } from 'react'
-import type { KeyboardEvent, TouchEvent } from 'react'
+import { useCallback, useState } from 'react'
+import type { KeyboardEvent } from 'react'
+import { useSwipe } from './useSwipe'
 import ChevronLeft from './ChevronLeft'
 import ChevronRight from './ChevronRight'
 import { useLanguage } from '../i18n/LanguageContext'
@@ -26,15 +27,12 @@ const ASPECT: Record<'mobile' | 'wide', string> = {
   wide: '16 / 10',
 }
 
-const SWIPE_THRESHOLD = 40
-
 export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: PrototypeCarouselProps) {
   const { lang } = useLanguage()
   const c = carouselCopy[lang]
   const [index, setIndex] = useState(0)
   const [failed, setFailed] = useState<Record<number, boolean>>({})
   const [settled, setSettled] = useState(true)
-  const touchStartX = useRef<number | null>(null)
   const isMobileFrame = aspectRatio === 'mobile'
 
   const go = useCallback((delta: number) => {
@@ -47,6 +45,8 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
     setIndex(i)
   }, [])
 
+  const swipe = useSwipe(() => go(-1), () => go(1))
+
   if (images.length === 0) return null
   const current = images[index]
   const single = images.length === 1
@@ -57,16 +57,6 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
     if (e.key === 'ArrowRight') { e.preventDefault(); go(1) }
   }
 
-  const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    touchStartX.current = e.touches[0].clientX
-  }
-  const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
-    if (single || touchStartX.current === null) return
-    const delta = e.changedTouches[0].clientX - touchStartX.current
-    if (Math.abs(delta) > SWIPE_THRESHOLD) go(delta < 0 ? 1 : -1)
-    touchStartX.current = null
-  }
-
   return (
     <div
       role="group"
@@ -74,8 +64,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
       aria-label={c.groupLabel}
       tabIndex={0}
       onKeyDown={onKeyDown}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
+      {...(single ? {} : swipe)}
       style={{ outline: 'none' }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
