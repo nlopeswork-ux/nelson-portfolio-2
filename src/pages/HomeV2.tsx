@@ -3,12 +3,13 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import { useLanguage, type Lang } from '../i18n/LanguageContext'
+import HomeShowcase from '../components/HomeShowcase'
 import HeroShowreel from '../components/HeroShowreel'
 import intelliforgeImg from '../imports/hero.webp'
 
 const copy = {
   en: {
-    role: 'Lead Product Designer, Lisbon',
+    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems, Lisbon',
     title: 'Product systems for high-stakes decisions.',
     subtitle: 'I design the decision layer beneath enterprise products in banking, insurance and government, where clarity has to survive real deadlines.',
     viewWork: 'View work', showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
@@ -28,7 +29,7 @@ const copy = {
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead Product Designer, Lisboa',
+    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems, Lisboa',
     title: 'Sistemas de produto para decisões de alto risco.',
     subtitle: 'Desenho a camada de decisão por trás de produtos empresariais em banca, seguros e setor público, onde a clareza tem de sobreviver a prazos reais.',
     viewWork: 'Ver trabalho', showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',
@@ -59,7 +60,7 @@ export default function HomeV2() {
 
       {/* HERO: asymmetric, left-aligned display type */}
       <section className="hv2-hero">
-        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5 }} />
+        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: '50%', opacity: 0.5 }} />
         <div className="hv2-hero-grid">
           <div className="hv2-hero-copy">
             <div className="hero-reveal hv2-eyebrow" style={{ transitionDelay: '0ms' }}>{t.role}</div>
@@ -76,36 +77,11 @@ export default function HomeV2() {
         </div>
       </section>
 
-      {/* INDEX: three cards on one row, same surface as the Work page cards */}
-      <section className="hv2-index hv1-rows">
-        <ul>
-          {t.index.map(({ to, label, cta, meta, desc }) => (
-            <li key={to}>
-              <Link to={to} className="case-card interactive-card hv1-card">
-                <span className="hv1-card-badge">{meta}</span>
-                <span className="hv1-card-title">{label}</span>
-                <span className="hv1-card-desc">{desc}</span>
-                <span className="hv1-card-link">{cta}<ChevronRight size={15} /></span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* FEATURED: same contained card as v1 */}
-      <div className="hv1-feat-wrap">
-        <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle}, ${t.seeCaseStudy}`}>
-          <div className="hv1-feat-copy">
-            <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#5A5F73', marginBottom: 14 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
-            <h2>{t.featuredTitle}</h2>
-            <p>{t.featuredDesc}</p>
-            <span className="hv1-feat-link">{t.seeCaseStudy}<ChevronRight size={16} /></span>
-          </div>
-          <div className="hv1-feat-media">
-            <img src={intelliforgeImg} alt="IntelliForge SR2R desktop preview" />
-          </div>
-        </Link>
-      </div>
+      {/* WORK / JOURNEY / ABOUT showcase */}
+      <HomeShowcase
+        items={t.index}
+        featured={{ to: '/work/intelliforge', label: t.featuredLabel, title: t.featuredTitle, desc: t.featuredDesc, img: intelliforgeImg, alt: 'IntelliForge SR2R desktop preview' }}
+      />
 
       {/* CONTACT: same centred block as v1 */}
       <div id="contact" style={{ position: 'relative', padding: '0 32px var(--section-gap)', maxWidth: 1200, margin: '0 auto' }}>

@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
 import { useLanguage, type Lang } from '../i18n/LanguageContext'
 import intelliforgeImg from '../imports/hero.webp'
+import HomeShowcase from '../components/HomeShowcase'
 import HeroShowreel from '../components/HeroShowreel'
 
 function useFadeIn() {
@@ -25,13 +26,13 @@ function useFadeIn() {
 
 const copy = {
   en: {
-    role: 'Lead Product Designer · Lisbon, Portugal',
+    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems · Lisbon, Portugal',
     titleLine1: 'Product systems for complex,',
     titleLine2Pre: '',
     titleLine2Highlight: 'high-stakes',
     titleLine2Post: ' decisions.',
     subtitle: 'I design the decision layer beneath enterprise products: banking, insurance, government. Clarity has to survive real deadlines and real stakes.',
-    showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
+    showreelLabel: 'Showreel of product work: banking app with an AI assistant, government licensing flows, a design system, and energy, coaching and real estate products.',
     viewWork: 'View work',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured work',
@@ -49,13 +50,13 @@ const copy = {
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead Product Designer · Lisboa, Portugal',
+    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems · Lisboa, Portugal',
     titleLine1: 'Sistemas de produto para decisões',
     titleLine2Pre: 'complexas e de ',
     titleLine2Highlight: 'alto risco.',
     titleLine2Post: '',
     subtitle: 'Desenho a camada de decisão por trás de produtos empresariais: banca, seguros, setor público. A clareza tem de sobreviver a prazos e riscos reais.',
-    showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',
+    showreelLabel: 'Showreel de trabalho de produto: app bancária com assistente AI, fluxos de licenciamento governamentais, um design system e produtos de energia, coaching e imobiliário.',
     viewWork: 'Ver trabalho',
     getInTouch: 'Entrar em contacto',
     featuredLabel: 'Trabalho em destaque',
@@ -77,7 +78,6 @@ const copy = {
 export default function Portfolio() {
   const { lang } = useLanguage()
   const t = copy[lang as Lang]
-  const preview = useFadeIn()
   const rows = useFadeIn()
   const contact = useFadeIn()
 
@@ -89,11 +89,11 @@ export default function Portfolio() {
       <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px var(--section-gap)' }}>
 
         {/* geometric accents */}
-        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: 4, transform: 'rotate(45deg)', opacity: 0.5 }} />
+        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: '50%', opacity: 0.5 }} />
 
         <div className="hv1-hero-grid">
         <div className="hv1-hero-copy">
-          <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
+          <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 14, fontWeight: 600, letterSpacing: '0.06em', lineHeight: 1.5, textWrap: 'balance', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
           <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: 'balance', fontSize: lang === 'pt' ? 'clamp(32px,3.6vw,50px)' : 'clamp(34px,4vw,56px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
             {t.titleLine1}{' '}{t.titleLine2Pre}<span style={{ whiteSpace: 'nowrap' }}><span className="hero-highlight">{t.titleLine2Highlight}</span></span>{t.titleLine2Post ? <>{' '}<span style={{ whiteSpace: 'nowrap' }}>{t.titleLine2Post.trim()}</span></> : null}
           </h1>
@@ -115,35 +115,12 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* AREA ROWS */}
-      <div ref={rows.ref} className="hv2-index hv1-rows" style={{ paddingTop: 0, paddingBottom: 'var(--section-gap)', ...rows.style }}>
-        <ul style={{ marginTop: 0 }}>
-          {t.rows.map(({ to, label, cta, meta, desc }) => (
-            <li key={to}>
-              <Link to={to} className="case-card interactive-card hv1-card">
-                <span className="hv1-card-badge">{meta}</span>
-                <span className="hv1-card-title">{label}</span>
-                <span className="hv1-card-desc">{desc}</span>
-                <span className="hv1-card-link">{cta}<ChevronRight size={15} /></span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* FEATURED WORK PREVIEW */}
-      <div ref={preview.ref} className="hv1-feat-wrap" style={preview.style}>
-        <Link to="/work/intelliforge" className="hv1-feat" aria-label={`${t.featuredTitle}, ${t.seeCaseStudy}`}>
-          <div className="hv1-feat-copy">
-            <div className="label-with-dot" style={{ fontSize: 14, fontWeight: 500, color: '#5A5F73', marginBottom: 14 }}><span aria-hidden="true" className="label-dot" />{t.featuredLabel}</div>
-            <h2>{t.featuredTitle}</h2>
-            <p>{t.featuredDesc}</p>
-            <span className="hv1-feat-link">{t.seeCaseStudy}<ChevronRight size={16} /></span>
-          </div>
-          <div className="hv1-feat-media">
-            <img src={intelliforgeImg} alt="IntelliForge SR2R desktop preview" />
-          </div>
-        </Link>
+      {/* WORK / JOURNEY / ABOUT showcase */}
+      <div ref={rows.ref} style={rows.style}>
+        <HomeShowcase
+          items={t.rows}
+          featured={{ to: '/work/intelliforge', label: t.featuredLabel, title: t.featuredTitle, desc: t.featuredDesc, img: intelliforgeImg, alt: 'IntelliForge SR2R desktop preview' }}
+        />
       </div>
 
       {/* CONTACT CTA */}

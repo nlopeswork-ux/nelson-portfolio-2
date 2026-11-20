@@ -4,8 +4,8 @@ import ChevronUp from './ChevronUp'
 import AnimatedLogo from './AnimatedLogo'
 
 const copy = {
-  en: { copyright: '© 2026 Nelson Lopes. Designed with care.', backToTop: 'Back to top' },
-  pt: { copyright: '© 2026 Nelson Lopes. Feito com cuidado.', backToTop: 'Voltar ao topo' },
+  en: { copyright: '© 2026 Nelson Lopes. Designed with care, and a little mischief.', backToTop: 'Back to top' },
+  pt: { copyright: '© 2026 Nelson Lopes. Feito com cuidado, e um pouco de brincadeira.', backToTop: 'Voltar ao topo' },
 }
 
 export default function Footer() {

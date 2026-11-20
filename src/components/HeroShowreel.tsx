@@ -5,6 +5,8 @@ import showreelPoster from '../imports/hero-showreel-poster.jpg'
 
 // Muted looping showreel (autoplay needs muted). Plays only while on screen,
 // and stays on the poster frame when the visitor prefers reduced motion.
+// The poster is the video's first frame, so the switch from poster to playback has no jump;
+// preload="auto" because it sits in the hero, above the fold.
 export default function HeroShowreel({ label }: { label: string }) {
   const ref = useRef<HTMLVideoElement>(null)
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function HeroShowreel({ label }: { label: string }) {
     return () => io.disconnect()
   }, [])
   return (
-    <video ref={ref} aria-label={label} poster={showreelPoster} muted loop playsInline preload="metadata" disablePictureInPicture>
+    <video ref={ref} aria-label={label} poster={showreelPoster} muted loop playsInline preload="auto" disablePictureInPicture>
       <source src={showreelWebm} type="video/webm" />
       <source src={showreelMp4} type="video/mp4" />
     </video>
