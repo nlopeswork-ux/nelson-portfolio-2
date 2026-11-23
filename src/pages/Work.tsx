@@ -10,8 +10,8 @@ import onerakImg from '../imports/OneRAK_Portal_Revamp.webp'
 import tamkeenImg from '../imports/National_Workforce_Digital_Platform.webp'
 import dsImg from '../imports/Internal_DS.webp'
 import agenticImg from '../imports/Agentic_UX_Flow.svg'
-import edpAppPoster from '../imports/EDP-planetazero-app-poster.webp'
-import eraPoster from '../imports/era-showcase-poster.webp'
+import edpAppPoster from '../imports/edp-card.webp'
+import eraPoster from '../imports/era-card.webp'
 
 type Category = 'all' | 'financial-services' | 'government' | 'internal-platform'
 
@@ -354,13 +354,8 @@ export default function Work() {
                     src={w.poster}
                     alt={w.alt}
                     onError={e => { e.currentTarget.style.display = 'none' }}
-                    style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }}
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }}
                   />
-                  <div aria-hidden="true" style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'rgba(18,20,31,0.55)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><path d="M6 4l10 6-10 6V4z" fill="#FFFFFF" /></svg>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
