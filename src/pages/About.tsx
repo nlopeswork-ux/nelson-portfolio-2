@@ -591,11 +591,11 @@ export default function About() {
                   <div className="phase-label">{t.phaseQuestionLabel}</div>
                   <p className="phase-panel-q">{phase.question}</p>
                   <div className="phase-label">{t.phaseDeliverablesLabel}</div>
-                  <ol className="phase-panel-list">
-                    {phase.deliverables.map((d, i) => (
-                      <li key={d}><span className="idx">{`0${i + 1}`}</span>{d}</li>
+                  <ul className="phase-panel-list">
+                    {phase.deliverables.map(d => (
+                      <li key={d}>{d}</li>
                     ))}
-                  </ol>
+                  </ul>
                 </div>
               </div>
             )

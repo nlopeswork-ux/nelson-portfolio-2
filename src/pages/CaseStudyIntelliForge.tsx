@@ -441,7 +441,7 @@ export default function CaseStudyIntelliForge() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
           {t.researchTracks.map(({ n, title, body }) => (
             <div key={n}>
-              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{n}. {title}</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{body}</p>
             </div>
           ))}

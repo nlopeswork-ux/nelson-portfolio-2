@@ -1580,10 +1580,10 @@ html { scrollbar-gutter: stable; }
 .phase-panel-lead { font-family: var(--font-display); font-size: clamp(18px, 1.8vw, 20px); line-height: 1.4; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-headline); margin: 0 0 14px; max-width: 40ch; }
 .phase-panel-detail { font-size: 16px; line-height: 1.8; color: #4A4F63; margin: 0 0 24px; max-width: 58ch; }
 .phase-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-index); margin: 0 0 10px; }
-/* The question is a pulled passage (orange bar, ink text), not blue italic: blue reads as clickable */
-.phase-panel-q { font-family: var(--font-display); font-size: 17px; line-height: 1.4; font-weight: 700; color: var(--ink-headline); margin: 0 0 28px; padding: 2px 0 2px 16px; border-left: 3px solid var(--color-accent); }
+/* The question: eyebrow label + display text (same pattern as eyebrow + title elsewhere), no bar */
+.phase-panel-q { font-family: var(--font-display); font-size: 19px; line-height: 1.4; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-headline); margin: 0 0 28px; }
 .phase-panel-list { list-style: none; margin: 0; padding: 0; }
-.phase-panel-list li { display: flex; align-items: baseline; gap: 4px; padding: 12px 0; border-top: 1px solid rgba(18, 20, 31, 0.12); font-size: 15px; font-weight: 500; color: #12141F; }
+.phase-panel-list li { padding: 12px 0; border-top: 1px solid rgba(18, 20, 31, 0.12); font-size: 15px; font-weight: 500; color: #12141F; }
 .phase-panel-list li:first-child { border-top: 0; padding-top: 0; }
 .phase-panel-links { display: flex; flex-wrap: wrap; gap: 8px 32px; }
 .phase-panel-links .hs-cta { margin-top: 0; padding-top: 0; }
@@ -1594,3 +1594,9 @@ html { scrollbar-gutter: stable; }
 
 /* Index number used inline before titles and badges */
 .idx { font-family: var(--font-display); font-size: 13px; font-weight: 800; letter-spacing: 0.06em; color: var(--color-index); margin-right: 10px; vertical-align: 0.06em; }
+
+/* Mobile: hero text starts on the same left line as the cards below (20px page gutter) */
+@media (max-width: 860px) {
+  .hv1-hero-grid { padding-left: 0; padding-right: 0; }
+  .hv2-hero-grid { padding-left: 20px; padding-right: 20px; }
+}

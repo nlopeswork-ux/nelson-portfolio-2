@@ -381,7 +381,7 @@ export default function CaseStudyTamkeen() {
         <div className="rg-3 cs-rows" style={{ marginBottom: 36 }}>
           {t.researchTracks.map(({ n, title, body }) => (
             <div key={n} className="cs-row">
-              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{n}. {title}</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{body}</p>
             </div>
           ))}
@@ -414,7 +414,6 @@ export default function CaseStudyTamkeen() {
         <div className="rg-2" style={{ gap: 20 }}>
           {t.insights.map(({ n, title, body, wide }) => (
             <div key={n} style={{ padding: '26px 28px', borderRadius: 18, background: '#FFFFFF', border: '1px solid #EAF1FF', boxShadow: '0 10px 28px rgba(20,30,60,0.05)', gridColumn: wide ? '1 / -1' : undefined }}>
-              <div style={{ fontSize: 28, fontWeight: 800, color: '#001A5C', marginBottom: 10 }}>{n}</div>
               <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{title}</div>
               <p style={{ fontSize: 14.5, lineHeight: 1.7, color: '#4A4F63', margin: 0 }}>{body}</p>
             </div>

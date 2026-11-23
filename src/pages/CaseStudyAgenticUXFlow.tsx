@@ -197,7 +197,6 @@ export default function CaseStudyAgenticUXFlow() {
         <div className="cs-numlist">
           {t.stages.map(({ n, name, desc }) => (
             <div key={n} className="cs-numrow">
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-index)', minWidth: 28 }}>{n}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
@@ -244,7 +243,6 @@ export default function CaseStudyAgenticUXFlow() {
         <div className="cs-numlist" style={{ marginBottom: 28 }}>
           {t.decisions.map(({ n, name, desc }) => (
             <div key={n} className="cs-numrow">
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-index)', minWidth: 28 }}>{n}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
