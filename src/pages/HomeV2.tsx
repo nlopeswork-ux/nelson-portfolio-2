@@ -9,7 +9,7 @@ import intelliforgeImg from '../imports/hero.webp'
 
 const copy = {
   en: {
-    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems, Lisbon',
+    role: 'Lead UX/UI & Product Designer · Design Systems · Lisbon',
     title: 'Product systems for high-stakes decisions.',
     subtitle: 'I design the decision layer beneath enterprise products in banking, insurance and government, where clarity has to survive real deadlines.',
     viewWork: 'View work', showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
@@ -29,7 +29,7 @@ const copy = {
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems, Lisboa',
+    role: 'Lead UX/UI & Product Designer · Design Systems · Lisboa',
     title: 'Sistemas de produto para decisões de alto risco.',
     subtitle: 'Desenho a camada de decisão por trás de produtos empresariais em banca, seguros e setor público, onde a clareza tem de sobreviver a prazos reais.',
     viewWork: 'Ver trabalho', showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',

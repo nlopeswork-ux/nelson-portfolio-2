@@ -26,7 +26,7 @@ function useFadeIn() {
 
 const copy = {
   en: {
-    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems · Lisbon, Portugal',
+    role: 'Lead UX/UI & Product Designer · Design Systems · Lisbon, Portugal',
     titleLine1: 'Product systems for complex,',
     titleLine2Pre: '',
     titleLine2Highlight: 'high-stakes',
@@ -50,7 +50,7 @@ const copy = {
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead UX/UI Designer | Product Designer | AI Designer | Design Systems · Lisboa, Portugal',
+    role: 'Lead UX/UI & Product Designer · Design Systems · Lisboa, Portugal',
     titleLine1: 'Sistemas de produto para decisões',
     titleLine2Pre: 'complexas e de ',
     titleLine2Highlight: 'alto risco.',

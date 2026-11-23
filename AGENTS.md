@@ -112,7 +112,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 
 ### Language and copy
 - EN and PT copy stay in step: every string added to one language is added to the other.
-- Role line: "Lead UX/UI Designer | Product Designer | AI Designer | Design Systems".
+- Role line (homepage eyebrow): "Lead UX/UI & Product Designer · Design Systems · Lisbon, Portugal" (short on purpose; no pipes).
 - Tone: calm and precise, with at most one dry wink per page.
 
 ### Process
