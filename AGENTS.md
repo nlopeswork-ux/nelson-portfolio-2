@@ -95,6 +95,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - **Home Work card:** the card as a whole opens `/work` ("See the work" is the stretched link). The image and the "Featured: IntelliForge SR2R" link open the featured case, and they answer each other on hover (image zooms, link underlines). Labels stay short enough for one line on a 375px screen in EN and PT ("Featured: …" / "Em destaque: …").
 
 ### Buttons and links (reuse, never invent)
+- **One link behaviour everywhere:** every text link (`.hs-cta`, `.text-link` for inline links, side-menu and breadcrumb links) underlines on hover, on fine pointers only; keyboard focus keeps its outline. When a whole card links somewhere, the link text inside it underlines when the card is hovered. Never set `textDecoration` inline on a link, and never underline links permanently.
 - Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).
 - Secondary action: `.secondary-btn` (1.5px blue border, 12px radius).
 - Text link with chevron: `.hs-cta` (blue, 15px/600). It is the only text-link style; set the colour through the class, not `inherit`.

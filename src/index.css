@@ -1708,3 +1708,10 @@ html { scrollbar-gutter: stable; }
 /* Contact: quiet (non-clickable) info cards that carry the real buttons */
 .ci-card { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border-radius: 20px; background: rgba(0, 47, 167, 0.05); }
 .ci-card .primary-btn, .ci-card .secondary-btn { margin-top: 24px; }
+
+/* One link behaviour across the site: text links underline on hover (fine pointers). Keyboard focus keeps its outline. */
+.text-link { color: #002FA7; font-weight: 600; text-decoration: none; }
+.text-link:focus-visible { outline: 2px solid #002FA7; outline-offset: 3px; border-radius: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .hs-cta:hover, .hs-side:hover .hs-cta, .cs-aside-link:hover, .breadcrumb-link:hover, .breadcrumb-back:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+}

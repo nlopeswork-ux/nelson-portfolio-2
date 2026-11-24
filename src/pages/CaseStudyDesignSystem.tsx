@@ -409,7 +409,7 @@ export default function CaseStudyDesignSystem() {
         <Body>{t.phase2Closing}</Body>
         <Body>
           {t.phase2Link}{' '}
-          <Link to="/work/agentic-ux-flow" style={{ color: '#002FA7', fontWeight: 600, textDecoration: 'none' }}>{t.phase2LinkLabel}</Link>
+          <Link to="/work/agentic-ux-flow" className="text-link">{t.phase2LinkLabel}</Link>
         </Body>
       </div>
 

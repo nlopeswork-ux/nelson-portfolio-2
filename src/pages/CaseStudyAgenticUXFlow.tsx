@@ -297,7 +297,7 @@ export default function CaseStudyAgenticUXFlow() {
         {t.status.map((p, i) => <Body key={i}>{p}</Body>)}
         <Body>
           {t.ctaLead}{' '}
-          <Link to="/contact" style={{ color: '#002FA7', fontWeight: 600, textDecoration: 'none' }}>{t.ctaLink}</Link>
+          <Link to="/contact" className="text-link">{t.ctaLink}</Link>
         </Body>
       </div>
 

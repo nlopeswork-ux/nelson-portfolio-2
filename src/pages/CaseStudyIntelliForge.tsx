@@ -607,7 +607,7 @@ export default function CaseStudyIntelliForge() {
       <div style={S}>
         <h2 style={H2}>{t.methodTitle}</h2>
         <Body>{t.method}</Body>
-        <Link to="/work/agentic-ux-flow" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', textDecoration: 'none' }}>{t.methodLink}<ChevronRight size={15} /></Link>
+        <Link to="/work/agentic-ux-flow" className="hs-cta" style={{ marginTop: 0, paddingTop: 0 }}>{t.methodLink}<ChevronRight size={15} /></Link>
       </div>
 
       {/* WHAT'S NEXT */}
