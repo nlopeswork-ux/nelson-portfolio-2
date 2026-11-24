@@ -116,6 +116,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 ### Carousels and steppers
 - Every carousel supports the **swipe gesture** (touch) and horizontal trackpad scroll, as well as arrows and dots. Use `useSwipe` from `src/components/useSwipe.ts` and spread it on the viewport; it also adds `.swipe-x` (`touch-action: pan-y`).
 - How I Work is a **stepper** (one phase open at a time, swipe/arrow-key navigation), not a row of expandable cards. The steps reuse the Work page filter control (`.work-filter-track` / `.work-filter-tab`); do not restyle it. No ghost numerals or decorative repeated numbers. Do not add auto-rotation.
+  Panel hierarchy is four levels: the question is the panel headline (20px/700, with a caps label), then one body paragraph whose first sentence is 600 and the rest 400, then the deliverables list with its caps label and the proof link. Do not add a second headline.
 
 ### Images and video
 - Artwork with transparency (e.g. `hero.webp`) goes straight on the surface: no blend modes, no extra shadow or radius.

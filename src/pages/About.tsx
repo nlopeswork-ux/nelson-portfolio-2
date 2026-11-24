@@ -578,24 +578,21 @@ export default function About() {
             return (
               <div {...phaseSwipe} id="phase-panel" role="tabpanel" aria-labelledby={`phase-tab-${phase.id}`} className={`${phaseSwipe.className} phase-panel`} key={phase.id}>
                 <div className="phase-panel-main">
-                  <p className="phase-panel-lead">{phase.description}</p>
-                  <p className="phase-panel-detail">{phase.detail}</p>
+                  <div className="phase-label">{t.phaseQuestionLabel}</div>
+                  <p className="phase-panel-q">{phase.question}</p>
+                  <p className="phase-panel-body"><span className="phase-lead">{phase.description}</span> {phase.detail}</p>
+                </div>
+                <div className="phase-panel-side">
+                  <div className="phase-label">{t.phaseDeliverablesLabel}</div>
+                  <ul className="phase-panel-list">
+                    {phase.deliverables.map(d => <li key={d}>{d}</li>)}
+                  </ul>
                   <div className="phase-panel-links">
                     <Link to={phase.proof.to} className="hs-cta">{phase.proof.label}<ChevronRight size={15} /></Link>
                     {phase.id === 'define' && (
                       <Link to="/work/agentic-ux-flow" className="hs-cta">{t.methodLink}<ChevronRight size={15} /></Link>
                     )}
                   </div>
-                </div>
-                <div className="phase-panel-side">
-                  <div className="phase-label">{t.phaseQuestionLabel}</div>
-                  <p className="phase-panel-q">{phase.question}</p>
-                  <div className="phase-label">{t.phaseDeliverablesLabel}</div>
-                  <ul className="phase-panel-list">
-                    {phase.deliverables.map(d => (
-                      <li key={d}>{d}</li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             )
