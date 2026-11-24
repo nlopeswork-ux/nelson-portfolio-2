@@ -31,3 +31,24 @@ export function relatedCases(slug: string, count = 3): RelatedCase[] {
   const rest = others.filter(c => !siblings.includes(c) && c.group === 'featured')
   return [...siblings, ...rest].slice(0, count)
 }
+
+const LAST_KEY = 'closing-block-last'
+
+/**
+ * Cases for the closing block of case studies and Contact: random, never the current case, and never
+ * the same pair the visitor just saw in the previous closing block (so no single case is always promoted).
+ */
+export function randomCases(slug: string, count = 2): RelatedCase[] {
+  const pool = cases.filter(c => c.slug !== slug)
+  let last: string[] = []
+  try { last = JSON.parse(sessionStorage.getItem(LAST_KEY) ?? '[]') } catch { /* storage unavailable */ }
+  const fresh = pool.filter(c => !last.includes(c.slug))
+  const source = [...(fresh.length >= count ? fresh : pool)]
+  for (let i = source.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[source[i], source[j]] = [source[j], source[i]]
+  }
+  const pick = source.slice(0, count)
+  try { sessionStorage.setItem(LAST_KEY, JSON.stringify(pick.map(c => c.slug))) } catch { /* storage unavailable */ }
+  return pick
+}

@@ -88,8 +88,9 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - A second action on the same page is a `.secondary-btn` or a text link, never a second primary. Do not repeat the same destination twice as buttons.
 - **One toggle**: `.engagement-toggle` (pill, `#F2F6FF`, 6/14px, chevron). `.cs-details-toggle` matches it. No inline-styled toggles.
 - One button size (padding 16/32, 15px/600). Never set padding, colour or radius inline on `.primary-btn` / `.secondary-btn`; a smaller variant must be added to the CSS, not to a page.
+- The footer wordmark stays small (150px wide): it must not compete with the closing block above it.
 - Round controls keep a 44px hit area (invisible padding) even when drawn at 36px.
-- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two `.related-card`s (the same `.related-card` used in the sidebar of the ERA and EDP pages). It replaces "next case" and "back to work" text links.
+- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two `.related-card`s (the same `.related-card` used in the sidebar of the ERA and EDP pages). It replaces "next case" and "back to work" text links. The two cases are **random** (`randomCases`): never the current case and never the pair shown in the previous closing block, so no case is always promoted. Do not hard-code which cases appear.
 
 ### Buttons and links (reuse, never invent)
 - Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).

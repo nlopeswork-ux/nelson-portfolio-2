@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import ChevronRight from './ChevronRight'
 import { useLanguage } from '../i18n/LanguageContext'
-import { relatedCases } from './relatedCases'
+import { useMemo } from 'react'
+import { randomCases } from './relatedCases'
 
 const copy = {
   en: {
@@ -30,7 +31,8 @@ const copy = {
 export default function CaseEndBlock({ slug = '', withCta = true }: { slug?: string; withCta?: boolean }) {
   const { lang } = useLanguage()
   const t = copy[lang]
-  const cases = relatedCases(slug, 2)
+  // random but stable for this page view; not the pair shown in the previous closing block
+  const cases = useMemo(() => randomCases(slug, 2), [slug])
   return (
     <section className="ceb">
       <span className="ceb-circle" aria-hidden="true" />
