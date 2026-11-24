@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { useLanguage } from '../i18n/LanguageContext'
+import CaseEndBlock from '../components/CaseEndBlock'
 
 const copy = {
   en: {
@@ -10,6 +11,8 @@ const copy = {
     subtitle: 'No forms, no gatekeeping — just pick your favourite way to reach me.',
     emailLabel: 'Email',
     emailNote: 'Best for project briefs and questions.',
+    emailCta: 'Send an email',
+    linkedinCta: 'Open LinkedIn',
     linkedinLabel: 'LinkedIn',
     linkedinNote: 'Best for networking and introductions.',
     footerNote: "Based in Lisbon, happy to work with anyone, anywhere.",
@@ -20,6 +23,8 @@ const copy = {
     subtitle: 'Sem formulários, sem barreiras — escolhe a forma que preferires para falares comigo.',
     emailLabel: 'Email',
     emailNote: 'Ideal para briefings de projeto e perguntas.',
+    emailCta: 'Enviar email',
+    linkedinCta: 'Abrir LinkedIn',
     linkedinLabel: 'LinkedIn',
     linkedinNote: 'Ideal para networking e apresentações.',
     footerNote: 'Vivo em Lisboa, disponível para trabalhar com qualquer pessoa, em qualquer lugar.',
@@ -59,20 +64,24 @@ export default function Contact() {
         </div>
 
         <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', maxWidth: 920, margin: '0 auto' }}>
-          <a href="mailto:nlopes.nl@gmail.com" className="hs-side interactive-card" style={{ flex: 1, minWidth: 280 }}>
+          <div className="ci-card">
             <div className="hs-top"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span className="hs-meta">{t.emailLabel}</span></div>
             <span className="hs-title" style={{ fontSize: 'clamp(18px, 2vw, 22px)', wordBreak: 'break-all' }}>nlopes.nl@gmail.com</span>
             <span className="hs-desc">{t.emailNote}</span>
-          </a>
+            <a href="mailto:nlopes.nl@gmail.com" className="primary-btn">{t.emailCta}</a>
+          </div>
 
-          <a href="https://www.linkedin.com/in/nelsonnlopes" target="_blank" rel="noopener noreferrer" className="hs-side interactive-card" style={{ flex: 1, minWidth: 280 }}>
+          <div className="ci-card">
             <div className="hs-top"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#002FA7" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg><span className="hs-meta">{t.linkedinLabel}</span></div>
             <span className="hs-title" style={{ fontSize: 'clamp(18px, 2vw, 22px)', wordBreak: 'break-word' }}>linkedin.com/in/nelsonnlopes</span>
             <span className="hs-desc">{t.linkedinNote}</span>
-          </a>
+            <a href="https://www.linkedin.com/in/nelsonnlopes" target="_blank" rel="noopener noreferrer" className="secondary-btn">{t.linkedinCta}</a>
+          </div>
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: 56, fontSize: 14, color: '#5A5F73' }}>{t.footerNote}</div>
+        <div style={{ maxWidth: 920, margin: '64px auto 0' }}><CaseEndBlock withCta={false} /></div>
+
+        <div style={{ textAlign: 'center', marginTop: 40, fontSize: 14, color: '#5A5F73' }}>{t.footerNote}</div>
       </div>
 
       <Footer />

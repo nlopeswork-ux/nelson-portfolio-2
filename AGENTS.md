@@ -53,7 +53,8 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - Orange appears **only** in these places, and the list is a ceiling, not a target:
   1. The section bar (`.section-bar`, 32×3px) that closes a section on About and case studies.
   2. The bar beside a "Result" line or a pulled brief/note.
-  3. One graphic accent per hero-level card (the Work card circle, the hero dot), and the current step in a stepper.
+  3. One graphic accent per hero-level card (the Work card circle, the closing-block circle, the hero dot) and one dot on the key metric of each case header.
+  Legacy small dots still in use and not to be multiplied: eyebrow/label dots (`.label-dot`) and the philosophy list dots on About.
   4. Tiny moments of voice: the footer line and the 404 dot.
 - Semantic colours stay semantic: red = rejected/critical, green = shipped/positive.
 - **Index numbers (01, 02…)** use `--color-index` (`#46537F`, a desaturated slate blue, 7.5:1 on white) so they read as labels, never as actions. Numbers appear at **one level only**: the section (case-study sections, listing cards, stepper steps). Never number items inside a numbered section (rows, decisions, modules, deliverables): two levels of 01, 02 read as a sequence and confuse. Outputs/deliverables are never numbered. Use the `.idx` class for inline numbers before titles. Cards that are not ordered (Contact) show an icon instead of a number.
@@ -80,16 +81,26 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - Section numbers are CSS counters; do not type numbers into headings.
 - About uses eyebrow labels (not numbers) and the same section bar.
 
+### Action shapes and hierarchy
+- **Shape = role.** Rectangle with 12px radius: navigate or commit (`.primary-btn`, `.secondary-btn`). Pill (full radius): a clickable state or selection (filters, stepper steps, toggles, active nav). Circle: icon-only control (carousel arrows, back to top). Text link with chevron: lightweight navigation (`.hs-cta`).
+- **A pill always clicks.** Things that do not click (tags, severity, "+N") use an 8px radius and a quiet fill, never a pill.
+- **One primary per page**, in the place where the visitor decides. Home: "View work". Case studies: "Get in touch" in the closing block. Contact: "Send an email". 404: "View work". Pages with no decision (Work, Journey, About) have none; do not add one for symmetry.
+- A second action on the same page is a `.secondary-btn` or a text link, never a second primary. Do not repeat the same destination twice as buttons.
+- **One toggle**: `.engagement-toggle` (pill, `#F2F6FF`, 6/14px, chevron). `.cs-details-toggle` matches it. No inline-styled toggles.
+- One button size (padding 16/32, 15px/600). Never set padding, colour or radius inline on `.primary-btn` / `.secondary-btn`; a smaller variant must be added to the CSS, not to a page.
+- Round controls keep a 44px hit area (invisible padding) even when drawn at 36px.
+- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two mini case cards (white bordered = they link). It replaces "next case" and "back to work" text links.
+
 ### Buttons and links (reuse, never invent)
 - Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).
 - Secondary action: `.secondary-btn` (1.5px blue border, 12px radius).
 - Text link with chevron: `.hs-cta` (blue, 15px/600). It is the only text-link style; set the colour through the class, not `inherit`.
-- No pills for actions, no new button shapes, no 999px radius on interactive elements.
+- No pill-shaped *actions* (buttons that navigate or commit) and no new button shapes. Full-radius pills exist only for selection state: filters, stepper steps, toggles, active nav (see "Action shapes and hierarchy").
 - A card with two actions uses one stretched link plus one link above it (`z-index`), never nested anchors.
 - Touch targets are at least 44px on `pointer: coarse`.
 
 ### Radius and spacing
-- Radius language: 12px buttons and small controls, 16–20px cards, 24–28px hero cards. Do not mix other radii.
+- Radius language: 8px labels (tags, severity), 12px buttons and small controls, 16–20px cards, 24–28px hero and closing blocks, 10–14px for media inside a card, full radius only for selection pills and round icon controls. Do not mix other radii.
 - Vertical rhythm between sections uses `--section-gap`; give a section extra room before the contact block rather than shrinking it.
 
 ### Motion (Emil Kowalski principles)
@@ -97,7 +108,8 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - Durations: UI feedback under 300 ms, reveals 380–420 ms, no `transition: all`; animate `transform` and `opacity`.
 - Pressed state: `:active { transform: scale(0.97) }` on buttons (120 ms).
 - Never animate from `scale(0)`; stagger steps are 30–80 ms.
-- Hover effects live inside `@media (hover: hover) and (pointer: fine)`.
+- Hover effects (anything that moves, shadows or recolours) live inside `@media (hover: hover) and (pointer: fine)`. Rules that also style `:focus-visible` stay outside so keyboard users keep the feedback; keep the hover half of those in the media query.
+- No heading weight above 800 (no 900) anywhere, CSS or inline.
 - Always honour `prefers-reduced-motion`: keep fades, drop movement.
 - Marquees and loops pause on hover and in reduced motion. At most one continuous animation per viewport.
 

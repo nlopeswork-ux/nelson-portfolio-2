@@ -14,7 +14,7 @@ export default function NotFound() {
       <div aria-hidden="true" style={{ width: 14, height: 14, borderRadius: '50%', background: 'var(--color-accent)', marginBottom: 24 }} />
       <h1 style={{ fontSize: 'clamp(34px,5vw,56px)', lineHeight: 1.1, color: 'var(--ink-headline)', margin: '0 0 16px' }}>{t.title}</h1>
       <p style={{ fontSize: 20, color: '#5A5F73', margin: '0 0 32px' }}>{t.body}</p>
-      <Link to="/work" className="primary-btn" style={{ display: 'inline-flex', padding: '14px 28px', borderRadius: 12 }}>{t.cta}</Link>
+      <Link to="/work" className="primary-btn">{t.cta}</Link>
     </main>
   )
 }

@@ -438,7 +438,7 @@ export default function CaseStudyOneRAK() {
         <div style={{ marginBottom: 24 }}>
           <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track3Title}</div>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.track3Body}</p>
-          <button onClick={() => setHeuristicsOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
+          <button onClick={() => setHeuristicsOpen(o => !o)} className="engagement-toggle" style={{ gap: 4, marginBottom: 16 }}>
             {heuristicsOpen ? <>{t.hideHeuristics}<ChevronUp size={14} /></> : <>{t.showHeuristics}<ChevronDown size={14} /></>}
           </button>
           {heuristicsOpen && (
@@ -487,7 +487,7 @@ export default function CaseStudyOneRAK() {
             ))}
           </div>
 
-          <button onClick={() => setBenchOpen(o => !o)} style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}>
+          <button onClick={() => setBenchOpen(o => !o)} className="engagement-toggle" style={{ gap: 4, marginBottom: 16 }}>
             {benchOpen ? <>{t.hideBench}<ChevronUp size={14} /></> : <>{t.showBench}<ChevronDown size={14} /></>}
           </button>
           {benchOpen && (

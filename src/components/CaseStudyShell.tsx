@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { relatedCases } from './relatedCases'
+import CaseEndBlock from './CaseEndBlock'
 import { tocLabel } from './tocLabels'
 import { Link, useLocation } from 'react-router-dom'
 import Nav from './Nav'
@@ -237,11 +238,9 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
         </aside>
       </div>
 
-      {/* BACK LINK */}
-      <div className="cs-container" style={{ paddingTop: 16, paddingBottom: 80 }}>
-        <Link to="/work" style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', textDecoration: 'none' }}>
-          <ChevronLeft size={15} className="" />{t.backToWork}
-        </Link>
+      {/* CLOSING BLOCK: the one primary action of a case study + two more cases */}
+      <div className="cs-container" style={{ paddingTop: 16, paddingBottom: 64 }}>
+        <CaseEndBlock slug={pathname.split('/').filter(Boolean)[1] ?? ''} />
       </div>
 
       <div className="cs-container" style={{ paddingBottom: 40, textAlign: 'center' }}>
@@ -260,7 +259,7 @@ export function Body({ children }: { children: React.ReactNode }) {
 export function SeverityChip({ children, tone = 'critical' }: { children: React.ReactNode; tone?: 'critical' | 'neutral' }) {
   const colors = tone === 'critical' ? { color: '#B23A3A', background: 'rgba(178,58,58,0.1)' } : { color: '#5A5F73', background: '#F2F6FF' }
   return (
-    <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, letterSpacing: '0.02em', textTransform: 'uppercase', padding: '3px 10px', borderRadius: 999, ...colors }}>
+    <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 700, letterSpacing: '0.02em', textTransform: 'uppercase', padding: '3px 10px', borderRadius: 8, ...colors }}>
       {children}
     </span>
   )

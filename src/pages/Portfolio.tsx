@@ -101,10 +101,10 @@ export default function Portfolio() {
             {t.subtitle}
           </p>
           <div className="hero-reveal hv1-hero-actions" style={{ transitionDelay: '180ms' }}>
-            <Link to="/work" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', background: '#002FA7', borderRadius: 12, color: '#FFFFFF', fontSize: 15, fontWeight: 600, transition: 'transform 200ms ease-out, box-shadow 200ms ease-out' }}>
+            <Link to="/work" className="primary-btn">
               {t.viewWork}<ChevronRight />
             </Link>
-            <Link to="/contact" className="secondary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', color: '#002FA7', fontSize: 15, fontWeight: 600 }}>
+            <Link to="/contact" className="secondary-btn">
               {t.getInTouch}
             </Link>
           </div>
@@ -131,9 +131,7 @@ export default function Portfolio() {
               {t.contactTitleLine1}<br />{t.contactTitleLine2}
             </h2>
             <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>
-            <a href="mailto:nlopes.nl@gmail.com" className="secondary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', color: '#002FA7', fontSize: 15, fontWeight: 600 }}>
-              {t.emailMe}
-            </a>
+            <a href="mailto:nlopes.nl@gmail.com" className="hs-cta" style={{ marginTop: 0, paddingTop: 0 }}>{t.emailMe}<ChevronRight size={15} /></a>
           </div>
         </div>
       </div>

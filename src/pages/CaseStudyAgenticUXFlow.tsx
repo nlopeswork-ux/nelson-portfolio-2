@@ -225,7 +225,7 @@ export default function CaseStudyAgenticUXFlow() {
                 <p style={{ fontSize: 14, lineHeight: 1.6, color: dark ? '#C7D4FF' : '#5A5F73', margin: '0 0 16px' }}>{path.when}</p>
                 <ol style={{ listStyle: 'none', margin: '0 0 16px', padding: 0, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                   {path.steps.map(step => (
-                    <li key={step} style={{ fontSize: 12, fontWeight: 600, padding: '5px 12px', borderRadius: 999, color: dark ? '#F2F6FF' : '#002FA7', background: dark ? 'rgba(143,174,255,0.16)' : 'rgba(0,47,167,0.09)' }}>{step}</li>
+                    <li key={step} style={{ fontSize: 12, fontWeight: 600, padding: '5px 12px', borderRadius: 8, color: dark ? '#F2F6FF' : '#002FA7', background: dark ? 'rgba(143,174,255,0.16)' : 'rgba(0,47,167,0.09)' }}>{step}</li>
                   ))}
                 </ol>
                 <p style={{ fontSize: 14, lineHeight: 1.7, color: dark ? '#C7D4FF' : '#5A5F73', margin: 0 }}>{path.note}</p>
@@ -281,7 +281,7 @@ export default function CaseStudyAgenticUXFlow() {
                 </div>
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 11, marginBottom: 10 }}>{category}</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{category}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{name}</h3>
                 <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{desc}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{t.usedCta}<ChevronRight size={15} /></div>

@@ -67,8 +67,8 @@ export default function HomeV2() {
             <h1 className={`hero-reveal hv2-title${lang === 'pt' ? ' hv2-title-pt' : ''}`} style={{ transitionDelay: '60ms' }}>{t.title}</h1>
             <p className="hero-reveal hv2-subtitle" style={{ transitionDelay: '120ms' }}>{t.subtitle}</p>
             <div className="hero-reveal hv2-actions" style={{ transitionDelay: '180ms' }}>
-              <Link to="/work" className="primary-btn hv2-btn-primary">{t.viewWork}<ChevronRight /></Link>
-              <Link to="/contact" className="hv2-btn-quiet">{t.getInTouch}</Link>
+              <Link to="/work" className="primary-btn">{t.viewWork}<ChevronRight /></Link>
+              <Link to="/contact" className="secondary-btn">{t.getInTouch}</Link>
             </div>
           </div>
           <div className="hero-reveal hv1-hero-media" style={{ transitionDelay: '240ms' }}>
@@ -91,9 +91,7 @@ export default function HomeV2() {
               {t.contactTitleLine1}<br />{t.contactTitleLine2}
             </h2>
             <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>
-            <a href="mailto:nlopes.nl@gmail.com" className="secondary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '16px 32px', color: '#002FA7', fontSize: 15, fontWeight: 600 }}>
-              {t.emailMe}
-            </a>
+            <a href="mailto:nlopes.nl@gmail.com" className="hs-cta" style={{ marginTop: 0, paddingTop: 0 }}>{t.emailMe}<ChevronRight size={15} /></a>
           </div>
         </div>
       </div>

@@ -288,7 +288,7 @@ export default function CaseStudyDesignSystem() {
 
           <button
             onClick={() => setMethodologyOpen(o => !o)}
-            style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7', background: 'rgba(0,47,167,0.09)', padding: '6px 14px', borderRadius: 999, border: 'none', fontFamily: "'Inter', sans-serif", marginBottom: 16 }}
+            className="engagement-toggle" style={{ gap: 4, marginBottom: 16 }}
           >
             {methodologyOpen ? <>{t.hideMethodology}<ChevronUp size={14} /></> : <>{t.showMethodology}<ChevronDown size={14} /></>}
           </button>
