@@ -68,9 +68,9 @@ const copy = {
     ],
     researchTitle: 'Outlining the Research',
     researchIntro: 'Before redesigning a single screen, the team needed a factual account of where the current portals actually break — not assumptions about what "modern government UX" should look like. The Discover phase ran five parallel tracks.',
-    track1Title: '1. Document & Stakeholder Review',
+    track1Title: 'Document & Stakeholder Review',
     track1Body: "The team reviewed 50+ existing documents (RFP, process maps, prior audits) and ran 45+ stakeholder interview sessions across the authority's divisions, alongside 3 design vision sessions, 3 full portal walkthroughs, and 4 dedicated agent focus interviews — building a shared, factual picture of business goals, technical constraints, and internal pain points before any design work started.",
-    track2Title: '2. Usability Testing — Customer Portals',
+    track2Title: 'Usability Testing — Customer Portals',
     track2Body: [
       'Six users were run through core Customer Portal tasks. Landing on the homepage worked for everyone (6/6); things degraded from there. Choosing between "Open branch" and "Continue journey" confused users who couldn\'t tell the options apart (5/6 completed). Document upload was worst — only 2 of 6 users completed it, because the spinner gave no filename, no message, and no visible confirmation that anything had happened.',
       'On the secondary government portal, the same pattern repeated at a larger scale across 10 tasks with 6 participants: 83.3% of users found labels hard to read, said there were too many required steps, and said the process simply took too long; only 2 of 6 could tell whether their application had actually gone through.',
@@ -78,7 +78,7 @@ const copy = {
     quote1: '"The upload process lacked visible confirmation — spinners stayed indefinitely with no filename or message."',
     quote1Attr: '— Usability testing observation, Customer Portal',
     researchStats: [['63.3%', 'baseline task success rate'], ['22', 'internal stakeholders interviewed'], ['3', 'portals unified into one']],
-    track3Title: '3. Heuristic Accessibility Assessment',
+    track3Title: 'Heuristic Accessibility Assessment',
     track3Body: 'The team scored the secondary government portal against 10 Nielsen usability heuristics (0 = excellent to 4 = catastrophic). The most severe single finding — a Major (3) — was aesthetic/minimalist design: form-heavy screens packed multiple long fields together with no grouping or spacing.',
     showHeuristics: 'Show heuristic scores',
     hideHeuristics: 'Hide heuristic scores',
@@ -93,11 +93,11 @@ const copy = {
       { h: 'Aesthetic & minimalist design', score: '3 – Major', finding: 'Stakeholder screen crowds long fields with no grouping', major: true },
       { h: 'Help & documentation', score: '1 – Cosmetic', finding: "No tooltips, and existing helper text isn't reachable by keyboard/tab" },
     ],
-    track4Title: '4. Agent Focus Interviews',
+    track4Title: 'Agent Focus Interviews',
     track4Body: 'Four focus interviews with field agents surfaced a different flavour of the same root problem: the portal treats agents as data-entry clerks rather than account managers. Agents described too much manual data entry, no way to track or retrieve what they had already submitted, and pre-approval delays with no explanation.',
     quote2: '"You submit, but there\'s no confirmation … we don\'t know what happens next."',
     quote2Attr: '— field agent, usability interview',
-    track5Title: '5. Competitive & Global Benchmarking',
+    track5Title: 'Competitive & Global Benchmarking',
     track5Intro: 'A structured scan of UX, UI and technology trends across two local UAE platforms and five international ones, separating best-in-class patterns from features that just looked impressive. Every finding was tied to a "why it matters" note, so it fed requirements, not just inspiration.',
     trendTitle: 'Trend Scan',
     trendColumns: ['Theme', 'Reference pattern', 'Why it matters for OneRAK'],
@@ -233,9 +233,9 @@ const copy = {
     ],
     researchTitle: 'Delinear a Investigação',
     researchIntro: 'Antes de redesenhar um único ecrã, a equipa precisava de um retrato factual de onde os portais atuais realmente falhavam — não de suposições sobre o que "UX governamental moderna" deveria parecer. A fase de Discover decorreu em cinco pistas paralelas.',
-    track1Title: '1. Revisão de Documentos e Stakeholders',
+    track1Title: 'Revisão de Documentos e Stakeholders',
     track1Body: 'A equipa reviu mais de 50 documentos existentes (RFP, mapas de processo, auditorias anteriores) e realizou mais de 45 sessões de entrevista a stakeholders em todas as divisões da autoridade, além de 3 sessões de visão de design, 3 percursos completos pelos portais e 4 entrevistas de foco dedicadas a agentes — construindo uma imagem factual e partilhada dos objetivos de negócio, restrições técnicas e pontos de dor internos antes de qualquer trabalho de design começar.',
-    track2Title: '2. Testes de Usabilidade — Portais de Cliente',
+    track2Title: 'Testes de Usabilidade — Portais de Cliente',
     track2Body: [
       'Seis utilizadores realizaram as tarefas principais do Portal de Clientes. Chegar à homepage funcionou para todos (6/6); a partir daí, as coisas degradaram-se. Escolher entre "Open branch" e "Continue journey" confundiu utilizadores que não conseguiam distinguir as opções (5/6 concluíram). O upload de documentos foi o pior — apenas 2 em 6 utilizadores concluíram, porque o spinner não dava nome de ficheiro, mensagem, nem qualquer confirmação visível de que algo tinha acontecido.',
       'No portal governamental secundário, o mesmo padrão repetiu-se a maior escala, em 10 tarefas com 6 participantes: 83,3% dos utilizadores acharam os labels difíceis de ler, disseram que havia demasiados passos obrigatórios, e disseram que o processo demorava simplesmente demasiado tempo; apenas 2 em 6 conseguiam perceber se a sua candidatura tinha de facto sido submetida.',
@@ -243,7 +243,7 @@ const copy = {
     quote1: '"O processo de upload não tinha confirmação visível — os spinners ficavam indefinidamente, sem nome de ficheiro nem mensagem."',
     quote1Attr: '— Observação de testes de usabilidade, Portal de Clientes',
     researchStats: [['63,3%', 'taxa de sucesso de referência nas tarefas'], ['22', 'stakeholders internos entrevistados'], ['3', 'portais unificados num só']],
-    track3Title: '3. Avaliação Heurística de Acessibilidade',
+    track3Title: 'Avaliação Heurística de Acessibilidade',
     track3Body: 'A equipa avaliou o portal governamental secundário em 10 heurísticas de usabilidade de Nielsen (0 = excelente a 4 = catastrófico). A descoberta isolada mais severa — um Major (3) — foi design estético/minimalista: ecrãs cheios de formulários juntavam vários campos longos sem agrupamento nem espaçamento.',
     showHeuristics: 'Mostrar pontuações heurísticas',
     hideHeuristics: 'Ocultar pontuações heurísticas',
@@ -258,11 +258,11 @@ const copy = {
       { h: 'Design estético e minimalista', score: '3 – Major', finding: 'O ecrã de acionistas amontoa campos longos sem agrupamento', major: true },
       { h: 'Ajuda e documentação', score: '1 – Cosmético', finding: 'Sem tooltips, e o texto de ajuda existente não é acessível por teclado/tab' },
     ],
-    track4Title: '4. Entrevistas de Foco com Agentes',
+    track4Title: 'Entrevistas de Foco com Agentes',
     track4Body: 'Quatro entrevistas de foco com agentes de campo revelaram uma variante diferente do mesmo problema de raiz: o portal trata os agentes como funcionários de introdução de dados, não como gestores de conta. Os agentes descreveram demasiada introdução manual de dados, nenhuma forma de acompanhar ou recuperar o que já tinham submetido, e atrasos de pré-aprovação sem explicação.',
     quote2: '"Submetemos, mas não há confirmação … não sabemos o que acontece a seguir."',
     quote2Attr: '— agente de campo, entrevista de usabilidade',
-    track5Title: '5. Benchmarking Competitivo e Global',
+    track5Title: 'Benchmarking Competitivo e Global',
     track5Intro: 'Uma análise estruturada de tendências de UX, UI e tecnologia em duas plataformas locais dos EAU e cinco internacionais, para separar padrões best-in-class de funcionalidades que só pareciam impressionantes. Cada descoberta ficou ligada a uma nota de "porque importa", alimentando requisitos e não só inspiração.',
     trendTitle: 'Análise de Tendências',
     trendColumns: ['Tema', 'Padrão de referência', 'Porque importa para o OneRAK'],
@@ -478,7 +478,7 @@ export default function CaseStudyOneRAK() {
           <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track5Title}</div>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.track5Intro}</p>
 
-          <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.localTitle}</div>
+          <h3 className="cs-h3" style={{ marginBottom: 12 }}>{t.localTitle}</h3>
           <div style={{ marginBottom: 20 }}>
             {t.localItems.map(([label, text]) => (
               <p key={label} style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 8px' }}>
@@ -492,9 +492,9 @@ export default function CaseStudyOneRAK() {
           </button>
           {benchOpen && (
             <div style={{ marginBottom: 20 }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.trendTitle}</div>
+              <h3 className="cs-h3" style={{ marginBottom: 12 }}>{t.trendTitle}</h3>
               <div style={{ marginBottom: 24 }}><DataTable columns={t.trendColumns} rows={t.trendRows} /></div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#001A5C', marginBottom: 12 }}>{t.worldTitle}</div>
+              <h3 className="cs-h3" style={{ marginBottom: 12 }}>{t.worldTitle}</h3>
               <DataTable columns={t.worldColumns} rows={t.worldRows} />
             </div>
           )}
@@ -509,10 +509,10 @@ export default function CaseStudyOneRAK() {
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.personasIntro}</p>
 
         <div {...personaSwipe} style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180, marginBottom: 20 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 6 }}>{t.personas[personaIdx].segment}</div>
+          <div className="cs-label" style={{ marginBottom: 6 }}>{t.personas[personaIdx].segment}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: t.personas[personaIdx].note ? '0 0 10px' : 0 }}>{t.personas[personaIdx].desc}</p>
-          {t.personas[personaIdx].note && <p style={{ fontSize: 14, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].note}</p>}
+          {t.personas[personaIdx].note && <p style={{ fontSize: 15, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].note}</p>}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginBottom: 32 }}>
@@ -569,10 +569,10 @@ export default function CaseStudyOneRAK() {
         <div className="cs-numlist">
           {t.rejectedDecisions.map(({ rejected, chosen }, i) => (
             <div key={i} className="cs-numrow" style={{ display: 'block' }}>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>
                 <strong style={{ color: '#B23A3A' }}>{t.rejectedLabel}</strong>{rejected}
               </p>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>
                 <strong style={{ color: '#1F7A4D' }}>{t.chosenLabel}</strong>{chosen}
               </p>
             </div>
@@ -592,7 +592,7 @@ export default function CaseStudyOneRAK() {
                 <img src={image} alt={title} style={{ width: '100%', height: 'auto', display: 'block' }} />
                 <div style={{ padding: '20px 24px' }}>
                   <div style={{ fontSize: 14, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{title}</div>
-                  <p style={{ fontSize: 14, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{caption}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{caption}</p>
                 </div>
               </div>
             ))}

@@ -62,7 +62,7 @@ const copy = {
     hook3: 'IntelliForge SR2R is an ontology-driven Decision Twin — a governed control layer sitting on top of Business Central — that ingests submissions, maps accounts with confidence scoring, scores close readiness, predicts risk, estimates the cost of inaction, generates intervention plans, automates governed journal entries, and maintains a complete, reproducible audit trail. Eight decision capabilities. One system. Near-zero marginal cost of scale.',
     researchTitle: 'Outlining the Research',
     researchIntro: 'Discovery ran five parallel tracks across the first three weeks — starting with an independent audit of the system IntelliForge would sit on top of.',
-    auditTitle: '0. Baseline UX Audit — The Legacy Business Central Portal',
+    auditTitle: 'Baseline UX Audit — The Legacy Business Central Portal',
     auditBody: 'An independent UX audit of the existing Microsoft Dynamics 365 Business Central portal, deliberately conducted by someone with no day-to-day operational familiarity — unfamiliarity treated as a methodological asset, since experienced users stop perceiving friction that has become routine.',
     auditStats: [['26', 'usability findings logged'], ['13', 'rated critical severity'], ['5', 'structural root causes identified']],
     auditColumns: ['Finding', 'Severity', 'Operational Impact'],
@@ -226,7 +226,7 @@ const copy = {
     hook3: 'A IntelliForge SR2R é um Decision Twin orientado por ontologia — uma camada de controlo governada, assente sobre o Business Central — que processa submissões, mapeia contas com pontuação de confiança, pontua a prontidão do fecho, prevê risco, estima o custo da inação, gera planos de intervenção, automatiza lançamentos contabilísticos governados, e mantém um registo de auditoria completo e reproduzível. Oito capacidades de decisão. Um sistema. Custo marginal de escala quase zero.',
     researchTitle: 'Delinear a Investigação',
     researchIntro: 'O Discovery decorreu em cinco pistas paralelas ao longo das primeiras três semanas — começando com uma auditoria independente ao sistema sobre o qual a IntelliForge assentaria.',
-    auditTitle: '0. Auditoria UX de Referência — O Portal Legado do Business Central',
+    auditTitle: 'Auditoria UX de Referência — O Portal Legado do Business Central',
     auditBody: 'Uma auditoria UX independente ao portal existente do Microsoft Dynamics 365 Business Central, conduzida deliberadamente por alguém sem familiaridade operacional do dia a dia — a falta de familiaridade tratada como um ativo metodológico, já que utilizadores experientes deixam de perceber fricção que se tornou rotina.',
     auditStats: [['26', 'descobertas de usabilidade registadas'], ['13', 'classificadas como severidade crítica'], ['5', 'causas-raiz estruturais identificadas']],
     auditColumns: ['Descoberta', 'Severidade', 'Impacto Operacional'],
@@ -463,10 +463,10 @@ export default function CaseStudyIntelliForge() {
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 24px' }}>{t.personasIntro}</p>
 
         <div {...personaSwipe} style={{ padding: 28, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.4)', minHeight: 180 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 6 }}>{t.personaLabel} {t.personas[personaIdx].n}</div>
+          <div className="cs-label" style={{ marginBottom: 6 }}>{t.personaLabel} {t.personas[personaIdx].n}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>{t.personas[personaIdx].desc}</p>
-          <p style={{ fontSize: 14, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].implication}</p>
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].implication}</p>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginTop: 20 }}>

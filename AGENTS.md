@@ -81,7 +81,9 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - **One heading system per case page.** Every section is an `<h2>` (numbered automatically by CSS counters, one sequence 01 to N). Never type numbers into titles, never use an uppercase eyebrow as a section title, and never nest sections (no "Solution" parent with numbered children): flatten into one list.
 - Two heading levels only: `h2` for sections and `h3` (`.cs-h3`, 19px/700, no caps) for sub-blocks. Uppercase `.cs-label` (13px, `--color-index`) is a micro-label for key/value pairs, never a heading. A standfirst under an h2 is `.cs-lead` (18px/600).
 - Section template: h2, optional standfirst, the evidence (rows, table, diagram), at most one dark block for the insight.
-- Body text is at least 15px; tables 14px; micro-labels 13px. Nothing important in smaller type.
+- Body text is at least 15px (rows, descriptions, paragraphs); tables, quote attributions and stat captions 14px; micro-labels 13px. Nothing important in smaller type.
+- Titles never carry typed numbers (no "1. Document review", no "0. Baseline"): ordinals exist only at section level (the automatic h2 numbers), in both EN and PT.
+- Sub-block titles inside a section are `h3` (`.cs-h3`), in ink colour. Blue bold text is reserved for links.
 - Not clickable means not blue-filled: flow steps and similar chips use `.flow-step` (quiet tint). No shadowed cards in case studies: insights, principles and challenges are hairline rows.
 - Impact is one dark block (`DarkBox`) with three columns divided by hairlines (`.cs-impact-cols`), not three coloured panels.
 - Visual rhythm: no more than about 2000px of text without a visual (diagram, timeline, image, big number). Move the strongest diagram up rather than adding decoration.

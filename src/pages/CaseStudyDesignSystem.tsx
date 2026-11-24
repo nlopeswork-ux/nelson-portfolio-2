@@ -270,7 +270,7 @@ export default function CaseStudyDesignSystem() {
 
           <div style={{ display: 'flex', gap: 20, alignItems: 'baseline', flexWrap: 'wrap', padding: '16px 20px', borderRadius: 14, background: '#12141F', color: '#F2F6FF', marginBottom: 16 }}>
             <div style={{ fontSize: 26, fontWeight: 800, color: '#8FAEFF', lineHeight: 1.1 }}>{t.inflationHeadline}</div>
-            <div style={{ fontSize: 14, lineHeight: 1.6, color: '#C7D4FF' }}>{t.inflationNote}</div>
+            <div style={{ fontSize: 15, lineHeight: 1.6, color: '#C7D4FF' }}>{t.inflationNote}</div>
           </div>
 
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 16px' }}>{t.auditIntro}</p>
@@ -295,12 +295,12 @@ export default function CaseStudyDesignSystem() {
 
           {methodologyOpen && (
             <div style={{ background: 'rgba(0,47,167,0.03)', borderRadius: 14, padding: 20 }}>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 20px' }}>{t.methodologyIntro}</p>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 20px' }}>{t.methodologyIntro}</p>
               <div className="rg-3">
                 {t.auditDimensions.map(({ label, desc }) => (
                   <div key={label} style={{ padding: 16, borderRadius: 12, background: '#FFFFFF' }}>
                     <div style={{ fontSize: 12, fontWeight: 600, color: '#001A5C', marginBottom: 6 }}>{label}</div>
-                    <p style={{ fontSize: 14, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{desc}</p>
+                    <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{desc}</p>
                   </div>
                 ))}
               </div>
@@ -336,13 +336,13 @@ export default function CaseStudyDesignSystem() {
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 20px' }}>{t.agnosticIntro}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 28 }}>
           <div style={{ padding: 24, borderRadius: 20, background: '#12141F', color: '#F2F6FF' }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#8FAEFF', marginBottom: 10 }}>{t.coreLabel}</div>
+            <div className="cs-label" style={{ color: '#8FAEFF', marginBottom: 10 }}>{t.coreLabel}</div>
             {t.coreLines.map((line, i) => (
               <p key={i} style={{ fontSize: 16, lineHeight: 1.7, margin: i === t.coreLines.length - 1 ? 0 : '0 0 6px' }}>{line}</p>
             ))}
           </div>
           <div style={{ padding: 24, borderRadius: 20, background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(20,30,60,0.1)' }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 10 }}>{t.projectLabel}</div>
+            <div className="cs-label" style={{ marginBottom: 10 }}>{t.projectLabel}</div>
             {t.projectLines.map((line, i) => (
               <p key={i} style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: i === t.projectLines.length - 1 ? 0 : '0 0 6px' }}>{line}</p>
             ))}
@@ -356,7 +356,7 @@ export default function CaseStudyDesignSystem() {
             <div key={n} className="cs-numrow">
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
-                <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
+                <div style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
               </div>
             </div>
           ))}
@@ -368,7 +368,7 @@ export default function CaseStudyDesignSystem() {
             <div key={n} className="cs-numrow">
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 6 }}>{name}</div>
-                <div style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
+                <div style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73' }}>{desc}</div>
               </div>
             </div>
           ))}
@@ -398,12 +398,12 @@ export default function CaseStudyDesignSystem() {
 
         <div className="rg-2" style={{ marginBottom: 20 }}>
           <div style={{ padding: 20, borderRadius: 16, border: '1px solid #EAF1FF', background: '#FAFBFF' }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#001A5C', marginBottom: 10 }}>{t.beforeLabel}</div>
-            <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.beforeText}</p>
+            <div className="cs-label" style={{ marginBottom: 10 }}>{t.beforeLabel}</div>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.beforeText}</p>
           </div>
           <div style={{ padding: 20, borderRadius: 16, background: '#12141F', color: '#F2F6FF' }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#8FAEFF', marginBottom: 10 }}>{t.afterLabel}</div>
-            <p style={{ fontSize: 14, lineHeight: 1.8, color: '#C7D4FF', margin: 0, fontFamily: 'monospace' }}>{t.afterText}</p>
+            <div className="cs-label" style={{ color: '#8FAEFF', marginBottom: 10 }}>{t.afterLabel}</div>
+            <p style={{ fontSize: 15, lineHeight: 1.8, color: '#C7D4FF', margin: 0, fontFamily: 'monospace' }}>{t.afterText}</p>
           </div>
         </div>
         <Body>{t.phase2Closing}</Body>
