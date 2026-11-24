@@ -9,9 +9,9 @@ import intelliforgeImg from '../imports/hero.webp'
 
 const copy = {
   en: {
-    role: 'Lead UX/UI & Product Designer · Design Systems · Lisbon',
+    role: 'Lead UX/UI & Product Designer · Lisbon',
     title: 'Product systems for high-stakes decisions.',
-    subtitle: 'I design the decision layer beneath enterprise products in banking, insurance and government, where clarity has to survive real deadlines.',
+    subtitle: 'I design the decision layer of enterprise products in banking, insurance and government.',
     viewWork: 'View work', showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured work',
@@ -29,11 +29,11 @@ const copy = {
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead UX/UI & Product Designer · Design Systems · Lisboa',
+    role: 'Lead UX/UI & Product Designer · Lisboa',
     title: 'Sistemas de produto para decisões de alto risco.',
-    subtitle: 'Desenho a camada de decisão por trás de produtos empresariais em banca, seguros e setor público, onde a clareza tem de sobreviver a prazos reais.',
+    subtitle: 'Desenho a camada de decisão de produtos empresariais em banca, seguros e setor público.',
     viewWork: 'Ver trabalho', showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',
-    getInTouch: 'Entrar em contacto',
+    getInTouch: 'Contactar',
     featuredLabel: 'Trabalho em destaque',
     featuredTitle: 'IntelliForge SR2R',
     featuredDesc: 'Uma camada de controlo para uma proposta 10×.',

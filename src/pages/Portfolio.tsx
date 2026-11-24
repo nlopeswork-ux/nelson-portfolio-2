@@ -26,12 +26,12 @@ function useFadeIn() {
 
 const copy = {
   en: {
-    role: 'Lead UX/UI & Product Designer · Design Systems · Lisbon, Portugal',
-    titleLine1: 'Product systems for complex,',
+    role: 'Lead UX/UI & Product Designer · Lisbon',
+    titleLine1: 'Product systems for',
     titleLine2Pre: '',
     titleLine2Highlight: 'high-stakes',
     titleLine2Post: ' decisions.',
-    subtitle: 'I design the decision layer beneath enterprise products: banking, insurance, government. Clarity has to survive real deadlines and real stakes.',
+    subtitle: 'I design the decision layer of enterprise products in banking, insurance and government.',
     showreelLabel: 'Showreel of product work: banking app with an AI assistant, government licensing flows, a design system, and energy, coaching and real estate products.',
     viewWork: 'View work',
     getInTouch: 'Get in touch',
@@ -50,15 +50,15 @@ const copy = {
     emailMe: 'Email me directly',
   },
   pt: {
-    role: 'Lead UX/UI & Product Designer · Design Systems · Lisboa, Portugal',
-    titleLine1: 'Sistemas de produto para decisões',
-    titleLine2Pre: 'complexas e de ',
+    role: 'Lead UX/UI & Product Designer · Lisboa',
+    titleLine1: 'Sistemas de produto para decisões de',
+    titleLine2Pre: '',
     titleLine2Highlight: 'alto risco.',
     titleLine2Post: '',
-    subtitle: 'Desenho a camada de decisão por trás de produtos empresariais: banca, seguros, setor público. A clareza tem de sobreviver a prazos e riscos reais.',
+    subtitle: 'Desenho a camada de decisão de produtos empresariais em banca, seguros e setor público.',
     showreelLabel: 'Showreel de trabalho de produto: app bancária com assistente AI, fluxos de licenciamento governamentais, um design system e produtos de energia, coaching e imobiliário.',
     viewWork: 'Ver trabalho',
-    getInTouch: 'Entrar em contacto',
+    getInTouch: 'Contactar',
     featuredLabel: 'Trabalho em destaque',
     featuredTitle: 'IntelliForge SR2R',
     featuredDesc: 'Uma camada de controlo para uma proposta 10×.',
@@ -93,11 +93,11 @@ export default function Portfolio() {
 
         <div className="hv1-hero-grid">
         <div className="hv1-hero-copy">
-          <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 14, fontWeight: 600, letterSpacing: '0.06em', lineHeight: 1.5, textWrap: 'balance', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
-          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: 'balance', fontSize: lang === 'pt' ? 'clamp(32px,3.6vw,50px)' : 'clamp(34px,4vw,56px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
+          <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', lineHeight: 1.5, textWrap: 'balance', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
+          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: 'balance', fontSize: lang === 'pt' ? 'clamp(30px,3.6vw,50px)' : 'clamp(30px,4vw,56px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
             {t.titleLine1}{' '}{t.titleLine2Pre}<span style={{ whiteSpace: 'nowrap' }}><span className="hero-highlight">{t.titleLine2Highlight}</span></span>{t.titleLine2Post ? <>{' '}<span style={{ whiteSpace: 'nowrap' }}>{t.titleLine2Post.trim()}</span></> : null}
           </h1>
-          <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 20, lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 520, margin: '0 0 44px' }}>
+          <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 'clamp(16px, 2vw, 20px)', lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 520, margin: '0 0 36px' }}>
             {t.subtitle}
           </p>
           <div className="hero-reveal hv1-hero-actions" style={{ transitionDelay: '180ms' }}>

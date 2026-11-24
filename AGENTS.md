@@ -69,6 +69,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 3. **Dark box** (`DarkBox`, `#12141F`): only for the one insight or principle of a section.
 - Text lists and notes are **hairline rows**, not cards: `.cs-rows` + `.cs-row`, `.cs-numlist` + `.cs-numrow`, `.cs-decisions`. A note or brief is a pulled passage with an orange bar (`.cs-brief`). A user quote has a blue bar and no fill.
 - Do not nest a box inside a box.
+- Cards that are **not clickable** (methodologies, education, certifications) use the quiet tint `rgba(0,47,167,0.05)`, no border, no shadow, no hover lift. White cards with a border and shadow are reserved for things that link somewhere.
 
 ### Dividers
 - Hairlines (`rgba(18,20,31,0.12)`) appear **only between rows**: none under the heading, none after the last row (the orange section bar closes the section). The existing classes already do this; do not add borders by hand.
@@ -112,7 +113,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 
 ### Language and copy
 - EN and PT copy stay in step: every string added to one language is added to the other.
-- Role line (homepage eyebrow): "Lead UX/UI & Product Designer · Design Systems · Lisbon, Portugal" (short on purpose; no pipes).
+- Hero copy stays at three short levels: eyebrow "Lead UX/UI & Product Designer · Lisbon", H1 "Product systems for high-stakes decisions.", one-sentence subtitle (about 14 words). No pipes, no second sentence in the subtitle. Buttons: "View work" / "Get in touch" ("Ver trabalho" / "Contactar").
 - Tone: calm and precise, with at most one dry wink per page.
 
 ### Process

@@ -500,10 +500,10 @@ input::placeholder { color: #A0A4B8; }
   display: flex;
   align-items: center;
   gap: 14px;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 22px;
-  background: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(20, 30, 60, 0.04);
+  /* not clickable: same quiet tint as the methodology cards, no border or shadow */
+  background: rgba(0, 47, 167, 0.05);
 }
 @keyframes cert-marquee-scroll {
   from { transform: translateX(0); }
@@ -1321,14 +1321,14 @@ html { scrollbar-gutter: stable; }
 
 /* ── Homepage v2 ── */
 .hv2-page { position: relative; overflow: hidden; background: #FFFFFF; min-height: 100vh; }
-.hv2-eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-wrap: balance; line-height: 1.5; text-transform: uppercase; color: #001A5C; }
+.hv2-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-wrap: balance; line-height: 1.5; text-transform: uppercase; color: #001A5C; }
 
 .hv2-hero { position: relative; padding: clamp(120px, 14vw, 180px) 0 var(--section-gap); }
 .hv2-halo { position: absolute; top: -200px; right: -180px; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(168,191,255,0.35), rgba(220,232,255,0.1) 60%, transparent 75%); pointer-events: none; }
 .hv2-hero-grid { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 4vw, 56px); align-items: center; }
-.hv2-title { font-size: clamp(34px, 4vw, 56px); line-height: 1.06; font-weight: 900; letter-spacing: -0.04em; color: var(--ink-headline); margin: 24px 0 28px; max-width: 18ch; text-wrap: balance; }
-.hv2-title-pt { font-size: clamp(32px, 3.6vw, 50px); max-width: 20ch; }
-.hv2-subtitle { font-size: 20px; line-height: 1.6; color: #5A5F73; max-width: 52ch; margin: 0 0 44px; }
+.hv2-title { font-size: clamp(30px, 4vw, 56px); line-height: 1.06; font-weight: 900; letter-spacing: -0.04em; color: var(--ink-headline); margin: 24px 0 28px; max-width: 18ch; text-wrap: balance; }
+.hv2-title-pt { font-size: clamp(30px, 3.6vw, 50px); max-width: 20ch; }
+.hv2-subtitle { font-size: clamp(16px, 2vw, 20px); line-height: 1.6; color: #5A5F73; max-width: 52ch; margin: 0 0 36px; }
 .hv2-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
 .hv2-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #002FA7; border-radius: 12px; color: #FFFFFF; font-size: 15px; font-weight: 600; transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out); }
 .hv2-btn-quiet { font-size: 15px; font-weight: 600; color: #002FA7; padding: 8px 0; background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 250ms var(--ease-out); }
@@ -1595,8 +1595,9 @@ html { scrollbar-gutter: stable; }
 /* Index number used inline before titles and badges */
 .idx { font-family: var(--font-display); font-size: 13px; font-weight: 800; letter-spacing: 0.06em; color: var(--color-index); margin-right: 10px; vertical-align: 0.06em; }
 
-/* Mobile: hero text starts on the same left line as the cards below (20px page gutter) */
+/* Mobile: a 24px gutter for the hero and the Work/Journey/About cards, so they share one left line (wrapper adds 20px on v1) */
 @media (max-width: 860px) {
-  .hv1-hero-grid { padding-left: 0; padding-right: 0; }
-  .hv2-hero-grid { padding-left: 20px; padding-right: 20px; }
+  .hv1-hero-grid { padding-left: 4px; padding-right: 4px; }
+  .hv2-hero-grid { padding-left: 24px; padding-right: 24px; }
+  .hs { padding-left: 24px; padding-right: 24px; }
 }

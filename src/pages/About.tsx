@@ -13,7 +13,7 @@ import iadeLogo from '../imports/logos/iade.png'
 import ecvLogo from '../imports/logos/ecv.png'
 import ixdfLogo from '../imports/logos/ixdf.png'
 
-const thumb = { width: 48, height: 48, borderRadius: 8, flexShrink: 0, background: '#F7FAFF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' } as const
+const thumb = { width: 48, height: 48, borderRadius: 8, flexShrink: 0, background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' } as const
 const thumbImg = { width: '70%', height: '70%', objectFit: 'contain' } as const
 
 const eyebrow = { fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#001A5C' } as const
@@ -610,7 +610,7 @@ export default function About() {
         <div style={eyebrowStandalone}>{t.educationEyebrow}</div>
         <div className="rg-edu" style={{ marginBottom: 60 }}>
           {education.map(({ degreeKey, school, logo }) => (
-            <div key={degreeKey} style={{ display: 'flex', alignItems: 'center', gap: 14, border: '1px solid #EAF1FF', borderRadius: 12, padding: 22, background: '#FFFFFF', boxShadow: '0 4px 12px rgba(20,30,60,0.04)' }}>
+            <div key={degreeKey} style={{ display: 'flex', alignItems: 'center', gap: 14, borderRadius: 16, padding: 22, background: 'rgba(0, 47, 167, 0.05)' }}>
               <div style={thumb}><img src={logo} alt="" style={thumbImg} /></div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{t.degree[degreeKey as keyof typeof t.degree]}</div>
