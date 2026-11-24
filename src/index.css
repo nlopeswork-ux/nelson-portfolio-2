@@ -1715,3 +1715,22 @@ html { scrollbar-gutter: stable; }
 @media (hover: hover) and (pointer: fine) {
   .hs-cta:hover, .hs-side:hover .hs-cta, .cs-aside-link:hover, .breadcrumb-link:hover, .breadcrumb-back:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
+
+/* ── Case study building blocks (Tamkeen pilot, rule for all cases) ── */
+/* Micro-label: key/value labels inside a section. Section titles are always h2, never this. */
+.cs-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-index); line-height: 1.3; }
+/* Standfirst: one line under an h2 */
+.cs-lead { font-size: 18px; line-height: 1.45; font-weight: 600; color: var(--ink-headline); margin: 0 0 16px; max-width: 60ch; }
+/* Flow steps are not clickable: quiet tint, never solid blue */
+.flow-step { display: inline-block; padding: 8px 12px; border-radius: 8px; background: rgba(0, 47, 167, 0.06); color: var(--ink-headline); font-size: 14px; font-weight: 600; line-height: 1.3; }
+.flow-step.is-last { background: rgba(0, 47, 167, 0.12); }
+/* Impact: three columns inside the one dark block, separated by hairlines */
+.cs-impact-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+.cs-impact-cols > div { padding: 0 24px; border-left: 1px solid rgba(255, 255, 255, 0.16); }
+.cs-impact-cols > div:first-child { padding-left: 0; border-left: 0; }
+.cs-impact-cols > div:last-child { padding-right: 0; }
+@media (max-width: 760px) {
+  .cs-impact-cols { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .cs-impact-cols > div { padding: 24px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.16); }
+  .cs-impact-cols > div:first-child { padding-top: 0; border-top: 0; }
+}

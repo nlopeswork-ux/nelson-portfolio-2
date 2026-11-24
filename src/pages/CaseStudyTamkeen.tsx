@@ -20,7 +20,7 @@ const copy = {
       { value: '15', label: 'internal user roles' },
       { value: '4', label: 'annual delivery phases' },
     ],
-    contextLabel: '02 Context',
+    contextLabel: 'Context',
     context1: 'The Fund is a national labour fund, funding skills, employment and enterprise-growth programmes for eligible individuals and private-sector companies. Before 2023, none of that ran through a portal — applications, documents, approvals, payment claims and status updates were handled entirely through email correspondence and in-person visits. There was no self-service channel and no shared case record between an applicant and the Fund.',
     context2: 'A national Digital Government Strategy and a parallel digital-economy sector strategy set a "digital-first" mandate to rebuild public and semi-governmental services around digital delivery. This platform is the Fund\'s answer to that mandate: not a single portal, but a scalable digital product built and grown across four annual phases.',
     contextCards: [
@@ -30,7 +30,7 @@ const copy = {
       { title: 'Constraints', body: 'Built on OutSystems (low-code); bilingual English/Arabic with RTL layout, light/dark mode; three distinct support types (P&S, Training and Wages), each with its own eligibility, claim and amendment rules.' },
       { title: 'Risks', body: "Compliance and financial-data handling across banking integrations; fraud — the platform's IA includes a dedicated Violations and Frauds flow for this reason." },
     ],
-    challengeLabel: '03 The Challenge',
+    challengeLabel: 'The Challenge',
     challenge1: 'There was no existing portal to learn from or migrate off — the challenge was designing a self-service digital case lifecycle to replace a process that had only ever existed as email threads and in-person conversations, without losing the flexibility a human caseworker had offered informally.',
     challenge2: 'The scale of what had to be built from scratch: one External Platform spanning 7 top-level sections and 5 distinct applicant/partner personas, feeding into one Internal Platform of 15 named roles spread across 5 functional groups.',
     challengeCards: [
@@ -39,7 +39,7 @@ const copy = {
       { text: 'Internal review wasn\'t a single approval chain: five functional groups each needed a different working view of the same case (eligibility for Assessment, disbursement for Disbursement, ongoing compliance for Monitoring and Data Monitoring, applicant queries for Customer Service).', bold: 'five functional groups' },
       { text: 'Many users held multiple identities at once — a single person could apply as an Individual while also managing funding applications for one or more companies.', bold: 'multiple identities at once' },
     ],
-    discoveryLabel: '04 Discovery & Research',
+    discoveryLabel: 'Discovery & Research',
     discoveryIntro: 'Before designing a single interface, the goal was to understand how funding programmes actually operated end to end — across applicants, internal teams and partner organisations — since no digital version of that process existed to audit.',
     researchTracks: [
       { n: '1', title: 'Year 1 (2023) Foundational Discovery', body: 'Mapping the email-and-in-person lifecycle end to end, then defining personas by profile type (external) and case-handling responsibility (internal) rather than by department.' },
@@ -53,13 +53,13 @@ const copy = {
       { finding: '"Unclear error messages" / "system doesn\'t direct the customer back to the specific incomplete field" (2024)', decision: 'Design principle: define clear, specific validation messages on Application forms instead of generic ones.' },
       { finding: 'No digital channel existed at all pre-2023', decision: 'Core IA decision to unify Application, Payment & Claims, Approved Support and Processes under a single Application Detail (360) record shared by applicant and reviewer.' },
     ],
-    insightsLabel: '05 Key Insights',
+    insightsLabel: 'Key Insights',
     insights: [
       { n: '01', title: 'Visibility mattered more than speed', body: "Applicants didn't primarily need a faster process; they needed to stop being in the dark. The single highest-voted Guidance pain point in 2024 (6/7 votes) was that customers couldn't tell what stage their application would go through next. This is why the status tracker and first-login guided tutorial became core design principles, not optional polish." },
       { n: '02', title: 'Assigning work needs to be explicit', body: 'The single highest-voted pain point across the entire 2024 review (7/7 votes) was that applications had no direct assignment option to a specific internal user. This is the clearest evidence in the whole engagement that operational efficiency and customer experience are the same problem: an unassigned application is a delayed applicant.' },
       { n: '03', title: "Internal review isn't one queue, it's five different lenses on the same case", body: "Assessment, Disbursement, Customer Service, Monitoring and Data Monitoring each needed a different working view of an identical Application Detail (360) record. That's the direct reason the internal model ended up as 5 functional groups and 15 named roles instead of one generic 'back office' team.", wide: true },
     ],
-    workshopLabel: '06 Workshop & Prioritisation',
+    workshopLabel: 'Workshop & Prioritisation',
     workshopTitle: 'Aligning teams around the highest-impact opportunities',
     workshop1: 'Following the discovery phase, we facilitated client retrospective workshops with Product Owners, BA leads, QA leads and UX/UI leads to translate research into a prioritised action plan — one workshop per flow, run across Customer Application, Assessment & Approval, and E-Bill Payments, with roughly 20 cross-functional participants per session.',
     workshop2: 'Rather than redesigning the experience immediately, the objective was to build shared understanding, align priorities across teams, and identify improvements capable of delivering measurable value in the shortest time.',
@@ -80,7 +80,7 @@ const copy = {
     myRoleLabel: 'My Role — Senior UX/UI Designer & Design Lead (from 2024)',
     myRoleBody: "Planned and facilitated the workshops, synthesised pain points into prioritised categories, guided the voting-based prioritisation, and translated the output into the following year's roadmap.",
     pullQuote: 'Research uncovered the problems. The workshop created alignment. Prioritisation transformed insights into an actionable roadmap that guided both immediate improvements and the long-term evolution of the product.',
-    principlesLabel: '07 Design Principles',
+    principlesLabel: 'Design Principles',
     designPrinciples: [
       ['Guide instead of instruct', 'surface eligibility rules inside the form itself, not in a separate document.'],
       ['Design for transparency', 'one always-visible status tracker per application, replacing silence with a specific stage.'],
@@ -91,7 +91,7 @@ const copy = {
       ['Internal roles grouped by function', 'rather than by a single generic approval hierarchy.'],
       ['Design one ecosystem', 'every persona has a distinct workflow, but the product should feel like a single coherent platform.'],
     ],
-    solutionLabel: '08 Solution',
+    solutionLabel: 'Solution',
     solutionTitle: 'Product Strategy — Four Annual Phases',
     solutionIntro: 'The platform evolved through four strategic phases, each a separately scoped annual project.',
     phases: [
@@ -137,7 +137,7 @@ const copy = {
       'Vendor Portal', 'Banking Portal', 'Job Centre Portal',
       'Internal Operations Platform', 'AI-Assisted Operational Services (2026, current)',
     ],
-    validationLabel: '09 Validation & Continuous Product Iteration',
+    validationLabel: 'Validation & Continuous Product Iteration',
     validationIntro: 'Validation ran as a continuous activity, not a single usability-testing pass. Every year has included a recurring cycle of client retrospective workshops, run specifically to identify and implement quick wins. One full cycle is documented in a dated internal deliverable ("UX Monitoring," the Fund, 20 May 2024) reviewing three flows: Customer Application, Assessment & Approval, and E-Bill Payments.',
     validationColumns: ['Flow', 'Category', 'Quick win'],
     validationRows: [
@@ -152,13 +152,13 @@ const copy = {
       { flow: 'E-Bill Payments', category: 'Multiple vendors payment', win: 'Pay multiple vendors within a single transaction' },
     ],
     validationClosing: 'Beyond this documented cycle: across the 3.5-year engagement, most of these nine quick wins shipped, along with a larger set of further quick wins from other workshop cycles.',
-    impactLabel: '10 Impact',
+    impactLabel: 'Impact',
     impactGroups: [
       { label: 'Business Impact', bg: '#12141F', items: ['Created a unified national digital platform for workforce development, replacing a fully manual, email-and-in-person process.', 'Established a scalable product architecture that absorbed 3 major expansions (Job Centre, AI services, BI dashboards) without a ground-up rebuild.', 'Reduced dependency on manual operational processes across Assessment, Disbursement and Monitoring.'] },
       { label: 'User Impact', bg: '#3A5A99', items: ['Simplified funding journeys for 5 external personas through one shared Application Detail (360) record.', 'Improved transparency at every application stage via the status-tracker design principle.', 'Reduced administrative effort through integrated, unified reimbursement workflows.'] },
       { label: 'Team Impact', bg: '#2A4CB8', items: ['A shared design system reduced implementation effort and kept 5 external and 15 internal experiences visually and behaviourally consistent across 4 annual releases.', 'A repeatable annual delivery model let the team plan a year at a time instead of one continuous, undifferentiated backlog.'] },
     ],
-    reflectionLabel: '11 Reflection',
+    reflectionLabel: 'Reflection',
     reflectionWorkedLabel: 'What worked:',
     reflectionWorked: 'treating funding programmes as connected service ecosystems, not isolated forms, meant every design decision considered the applicant, the internal reviewer, and the partner organisations sharing the same journey.',
     reflectionImproveLabel: "What I'd improve:",
@@ -180,7 +180,7 @@ const copy = {
       { value: '15', label: 'papéis de utilizador internos' },
       { value: '4', label: 'fases anuais de entrega' },
     ],
-    contextLabel: '02 Contexto',
+    contextLabel: 'Contexto',
     context1: 'O Fundo é um fundo laboral nacional, que financia programas de competências, emprego e crescimento empresarial para indivíduos e empresas privadas elegíveis. Antes de 2023, nada disso passava por um portal — candidaturas, documentos, aprovações, pedidos de pagamento e atualizações de estado eram tratados inteiramente por correspondência de email e visitas presenciais. Não existia canal de self-service nem um registo de caso partilhado entre um candidato e o Fundo.',
     context2: 'Uma Estratégia Digital Governamental nacional, e uma estratégia paralela para o setor da economia digital, estabeleceram um mandato "digital-first" para reconstruir serviços públicos e semipúblicos em torno da entrega digital. Esta plataforma é a resposta do Fundo a esse mandato: não um único portal, mas um produto digital escalável, construído e expandido ao longo de quatro fases anuais.',
     contextCards: [
@@ -190,7 +190,7 @@ const copy = {
       { title: 'Restrições', body: 'Construído em OutSystems (low-code); bilingue Inglês/Árabe com layout RTL, modo claro/escuro; três tipos de apoio distintos (P&S, Formação e Salários), cada um com as suas próprias regras de elegibilidade, reclamação e alteração.' },
       { title: 'Riscos', body: 'Conformidade e tratamento de dados financeiros em integrações bancárias; fraude — por isso a IA da plataforma inclui um fluxo dedicado de Violations and Frauds.' },
     ],
-    challengeLabel: '03 O Desafio',
+    challengeLabel: 'O Desafio',
     challenge1: 'Não havia nenhum portal existente para aprender ou migrar — o desafio era desenhar um ciclo de vida de caso digital em self-service para substituir um processo que só alguma vez tinha existido como threads de email e conversas presenciais, sem perder a flexibilidade que um gestor de caso humano oferecia informalmente.',
     challenge2: 'A escala do que tinha de ser construído do zero: uma Plataforma Externa com 7 secções de topo e 5 personas distintas de candidato/parceiro, a alimentar uma Plataforma Interna de 15 papéis nomeados distribuídos por 5 grupos funcionais.',
     challengeCards: [
@@ -199,7 +199,7 @@ const copy = {
       { text: 'A revisão interna não era uma única cadeia de aprovação: cinco grupos funcionais precisavam cada um de uma vista de trabalho diferente do mesmo caso (elegibilidade para Assessment, desembolso para Disbursement, conformidade contínua para Monitoring e Data Monitoring, questões de candidatos para Customer Service).', bold: 'cinco grupos funcionais' },
       { text: 'Muitos utilizadores tinham várias identidades ao mesmo tempo — uma única pessoa podia candidatar-se como Individual e, ao mesmo tempo, gerir candidaturas de financiamento para uma ou mais empresas.', bold: 'várias identidades ao mesmo tempo' },
     ],
-    discoveryLabel: '04 Discovery e Investigação',
+    discoveryLabel: 'Discovery e Investigação',
     discoveryIntro: 'Antes de desenhar uma única interface, o objetivo era compreender como os programas de financiamento funcionavam de facto de ponta a ponta — entre candidatos, equipas internas e organizações parceiras — já que não existia nenhuma versão digital desse processo para auditar.',
     researchTracks: [
       { n: '1', title: 'Ano 1 (2023) Discovery Fundacional', body: 'Mapeamento do ciclo de vida por email e presencial de ponta a ponta, definindo depois personas por tipo de perfil (externo) e responsabilidade de gestão de caso (interno) em vez de por departamento.' },
@@ -213,13 +213,13 @@ const copy = {
       { finding: '"Mensagens de erro pouco claras" / "o sistema não reencaminha o cliente para o campo específico por preencher" (2024)', decision: 'Princípio de design: definir mensagens de validação claras e específicas nos formulários de candidatura, em vez de genéricas.' },
       { finding: 'Não existia qualquer canal digital antes de 2023', decision: 'Decisão central de arquitetura de informação: unificar Application, Payment & Claims, Approved Support e Processes num único registo de Application Detail (360) partilhado por candidato e revisor.' },
     ],
-    insightsLabel: '05 Principais Descobertas',
+    insightsLabel: 'Principais Descobertas',
     insights: [
       { n: '01', title: 'A visibilidade importava mais do que a velocidade', body: 'Os candidatos não precisavam sobretudo de um processo mais rápido; precisavam de deixar de estar às escuras. O ponto de dor de Guidance mais votado em 2024 (6/7 votos) foi o facto de os clientes não conseguirem saber por que fase a sua candidatura passaria a seguir. É por isso que o indicador de estado e o tutorial guiado no primeiro login se tornaram princípios de design centrais, não um acabamento opcional.' },
       { n: '02', title: 'Atribuir trabalho precisa de ser explícito', body: 'O ponto de dor mais votado em toda a revisão de 2024 (7/7 votos) foi o facto de as candidaturas não terem opção de atribuição direta a um utilizador interno específico. É a evidência mais clara em toda a colaboração de que eficiência operacional e experiência do cliente são o mesmo problema: uma candidatura não atribuída é um candidato atrasado.' },
       { n: '03', title: 'A revisão interna não é uma única fila, são cinco lentes diferentes sobre o mesmo caso', body: 'Assessment, Disbursement, Customer Service, Monitoring e Data Monitoring precisavam cada um de uma vista de trabalho diferente de um mesmo registo de Application Detail (360). É a razão direta pela qual o modelo interno acabou em 5 grupos funcionais e 15 papéis nomeados, em vez de uma equipa genérica de "back office".', wide: true },
     ],
-    workshopLabel: '06 Workshop e Priorização',
+    workshopLabel: 'Workshop e Priorização',
     workshopTitle: 'Alinhar equipas à volta das oportunidades de maior impacto',
     workshop1: 'Depois da fase de discovery, facilitámos workshops de retrospetiva com o cliente, com Product Owners, leads de BA, leads de QA e leads de UX/UI, para traduzir a investigação num plano de ação priorizado — um workshop por fluxo, realizado em Customer Application, Assessment & Approval e E-Bill Payments, com cerca de 20 participantes multidisciplinares por sessão.',
     workshop2: 'Em vez de redesenhar a experiência de imediato, o objetivo era construir entendimento partilhado, alinhar prioridades entre equipas, e identificar melhorias capazes de entregar valor mensurável no menor tempo possível.',
@@ -240,7 +240,7 @@ const copy = {
     myRoleLabel: 'A Minha Função — Senior UX/UI Designer & Design Lead (desde 2024)',
     myRoleBody: 'Planeei e facilitei os workshops, sintetizei pontos de dor em categorias priorizadas, orientei a priorização por votação, e traduzi o resultado no roadmap do ano seguinte.',
     pullQuote: 'A investigação revelou os problemas. O workshop criou alinhamento. A priorização transformou as descobertas num roadmap acionável que orientou tanto as melhorias imediatas como a evolução de longo prazo do produto.',
-    principlesLabel: '07 Princípios de Design',
+    principlesLabel: 'Princípios de Design',
     designPrinciples: [
       ['Guiar em vez de instruir', 'expor as regras de elegibilidade dentro do próprio formulário, não num documento separado.'],
       ['Desenhar para transparência', 'um indicador de estado sempre visível por candidatura, substituindo o silêncio por uma fase específica.'],
@@ -251,7 +251,7 @@ const copy = {
       ['Papéis internos agrupados por função', 'em vez de uma única hierarquia de aprovação genérica.'],
       ['Desenhar um só ecossistema', 'cada persona tem um workflow distinto, mas o produto deve parecer uma única plataforma coerente.'],
     ],
-    solutionLabel: '08 Solução',
+    solutionLabel: 'Solução',
     solutionTitle: 'Estratégia de Produto — Quatro Fases Anuais',
     solutionIntro: 'A plataforma evoluiu através de quatro fases estratégicas, cada uma um projeto anual delimitado em separado.',
     phases: [
@@ -297,7 +297,7 @@ const copy = {
       'Portal Fornecedor', 'Portal Bancário', 'Portal Job Centre',
       'Plataforma de Operações Internas', 'Serviços Operacionais Assistidos por IA (2026, atual)',
     ],
-    validationLabel: '09 Validação e Iteração Contínua do Produto',
+    validationLabel: 'Validação e Iteração Contínua do Produto',
     validationIntro: 'A validação decorreu como uma atividade contínua, não uma única ronda de testes de usabilidade. Todos os anos incluíram um ciclo recorrente de workshops de retrospetiva com o cliente, realizados especificamente para identificar e implementar quick wins. Um ciclo completo está documentado num entregável interno datado ("UX Monitoring", o Fundo, 20 de maio de 2024), revendo três fluxos: Customer Application, Assessment & Approval e E-Bill Payments.',
     validationColumns: ['Fluxo', 'Categoria', 'Quick win'],
     validationRows: [
@@ -312,13 +312,13 @@ const copy = {
       { flow: 'E-Bill Payments', category: 'Pagamento a vários fornecedores', win: 'Pagar vários fornecedores numa única transação' },
     ],
     validationClosing: 'Para além deste ciclo documentado: ao longo dos 3,5 anos de colaboração, a maioria destes nove quick wins foi entregue, juntamente com um conjunto maior de outros quick wins de outros ciclos de workshop.',
-    impactLabel: '10 Impacto',
+    impactLabel: 'Impacto',
     impactGroups: [
       { label: 'Impacto no Negócio', bg: '#12141F', items: ['Criou uma plataforma digital nacional unificada para desenvolvimento da força de trabalho, substituindo um processo totalmente manual, por email e presencial.', 'Estabeleceu uma arquitetura de produto escalável que absorveu 3 grandes expansões (Job Centre, serviços de IA, dashboards de BI) sem uma reconstrução do zero.', 'Reduziu a dependência de processos operacionais manuais em Assessment, Disbursement e Monitoring.'] },
       { label: 'Impacto no Utilizador', bg: '#3A5A99', items: ['Simplificou as jornadas de financiamento para 5 personas externas através de um único registo partilhado de Application Detail (360).', 'Melhorou a transparência em cada fase da candidatura através do princípio de design do indicador de estado.', 'Reduziu o esforço administrativo através de workflows de reembolso integrados e unificados.'] },
       { label: 'Impacto na Equipa', bg: '#2A4CB8', items: ['Um design system partilhado reduziu o esforço de implementação e manteve 5 experiências externas e 15 internas visual e comportamentalmente consistentes ao longo de 4 lançamentos anuais.', 'Um modelo de entrega anual repetível permitiu à equipa planear um ano de cada vez, em vez de um backlog contínuo e indiferenciado.'] },
     ],
-    reflectionLabel: '11 Reflexão',
+    reflectionLabel: 'Reflexão',
     reflectionWorkedLabel: 'O que funcionou:',
     reflectionWorked: 'tratar os programas de financiamento como ecossistemas de serviço ligados entre si, não como formulários isolados, significou que cada decisão de design considerava o candidato, o revisor interno, e as organizações parceiras que partilhavam a mesma jornada.',
     reflectionImproveLabel: 'O que melhoraria:',
@@ -340,42 +340,64 @@ export default function CaseStudyTamkeen() {
       stats={t.stats}
       refined
     >
-      {/* 02 CONTEXT */}
+      {/* CONTEXT */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.contextLabel}</div>
+        <h2 style={H2}>{t.contextLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.context1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.context2}</p>
 
         <div className="rg-2 cs-rows">
           {t.contextCards.map(({ title, body }, i) => (
-            <div
-              key={title}
-              className="cs-row" style={{ gridColumn: i === 4 ? '1 / -1' : undefined }}
-            >
-              <div style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.05em', color: '#12141F', marginBottom: 10 }}>{title}</div>
+            <div key={title} className="cs-row" style={{ gridColumn: i === 4 ? '1 / -1' : undefined }}>
+              <div className="cs-label">{title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{body}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 03 THE CHALLENGE */}
+      {/* PRODUCT STRATEGY: the timeline is the first visual of the page, right after the context */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.challengeLabel}</div>
+        <h2 style={H2}>{t.solutionTitle}</h2>
+        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 48px' }}>{t.solutionIntro}</p>
+
+        <div style={{ position: 'relative' }}>
+          <div className="cs-timeline-line" />
+          <div className="cs-timeline-line-v" />
+          <div className="cs-timeline">
+            {t.phases.map(({ year, label, body }, phaseIndex) => (
+              <div key={year} style={{ display: 'flex', gap: 20 }}>
+                <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ width: 24, height: 24, borderRadius: '50%', background: phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C', border: '4px solid #FFFFFF', boxShadow: '0 0 0 1px rgba(0,26,92,0.2)' }} />
+                </div>
+                <div style={{ paddingBottom: 32 }}>
+                  <div style={{ fontSize: 26, fontWeight: 800, color: '#12141F', marginBottom: 4 }}>{year}</div>
+                  <div className="cs-label" style={{ marginBottom: 14 }}>{label}</div>
+                  <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CHALLENGE */}
+      <div style={SW}>
+        <h2 style={H2}>{t.challengeLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.challenge1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.challenge2}</p>
         <div className="rg-2 cs-rows">
           {t.challengeCards.map(({ text, bold }, i) => (
             <div key={i} className="cs-row">
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#3A3F4C', margin: 0 }} dangerouslySetInnerHTML={{ __html: text.replace(bold, `<strong style="color:#12141F">${bold}</strong>`) }} />
+              <p style={{ fontSize: 15, lineHeight: 1.65, color: '#3A3F4C', margin: 0 }} dangerouslySetInnerHTML={{ __html: text.replace(bold, `<strong style="color:#12141F">${bold}</strong>`) }} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* 04 DISCOVERY */}
+      {/* DISCOVERY */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.discoveryLabel}</div>
+        <h2 style={H2}>{t.discoveryLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.discoveryIntro}</p>
 
         <div className="rg-3 cs-rows" style={{ marginBottom: 36 }}>
@@ -408,40 +430,40 @@ export default function CaseStudyTamkeen() {
         </div>
       </div>
 
-      {/* 05 KEY INSIGHTS */}
+      {/* KEY INSIGHTS: rows, not shadowed cards */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 24 }}>{t.insightsLabel}</div>
-        <div className="rg-2" style={{ gap: 20 }}>
+        <h2 style={H2}>{t.insightsLabel}</h2>
+        <div className="rg-2 cs-rows">
           {t.insights.map(({ n, title, body, wide }) => (
-            <div key={n} style={{ padding: '26px 28px', borderRadius: 18, background: '#FFFFFF', border: '1px solid #EAF1FF', boxShadow: '0 10px 28px rgba(20,30,60,0.05)', gridColumn: wide ? '1 / -1' : undefined }}>
-              <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{title}</div>
-              <p style={{ fontSize: 14.5, lineHeight: 1.7, color: '#4A4F63', margin: 0 }}>{body}</p>
+            <div key={n} className="cs-row" style={{ gridColumn: wide ? '1 / -1' : undefined }}>
+              <div style={{ fontSize: 17, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{title}</div>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: '#4A4F63', margin: 0 }}>{body}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 06 WORKSHOP */}
+      {/* WORKSHOP */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.workshopLabel}</div>
-        <h2 style={H2}>{t.workshopTitle}</h2>
+        <h2 style={H2}>{t.workshopLabel}</h2>
+        <p className="cs-lead">{t.workshopTitle}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.workshop1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.workshop2}</p>
 
         <div className="cs-brief" style={{ marginBottom: 32 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.04em', color: '#001A5C', marginBottom: 8 }}>{t.processLabel}</div>
+          <div className="cs-label" style={{ marginBottom: 8 }}>{t.processLabel}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#3A3F4C', margin: 0 }}>{t.processBody}</p>
         </div>
 
         <h3 className="cs-h3">{t.quickWinsTitle}</h3>
         <div className="rg-3 cs-rows" style={{ marginBottom: 36 }}>
           {t.quickWins.map((win, i) => (
-            <div key={i} className="cs-row" style={{ fontSize: 14.5, lineHeight: 1.55, color: '#3A3F4C' }}>{win}</div>
+            <div key={i} className="cs-row" style={{ fontSize: 15, lineHeight: 1.55, color: '#3A3F4C' }}>{win}</div>
           ))}
         </div>
 
         <div style={{ marginBottom: 32 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.04em', color: '#001A5C', marginBottom: 6 }}>{t.myRoleLabel}</div>
+          <div className="cs-label" style={{ marginBottom: 6 }}>{t.myRoleLabel}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.myRoleBody}</p>
         </div>
 
@@ -451,43 +473,17 @@ export default function CaseStudyTamkeen() {
         </div>
       </div>
 
-      {/* 07 DESIGN PRINCIPLES */}
+      {/* DESIGN PRINCIPLES */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.principlesLabel}</div>
+        <h2 style={H2}>{t.principlesLabel}</h2>
         <div className="rg-2 cs-rows">
           {t.designPrinciples.map(([label, text]) => (
             <div key={label} className="cs-row">
-              <p style={{ fontSize: 14, lineHeight: 1.65, color: '#3A3F4C', margin: 0 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.65, color: '#3A3F4C', margin: 0 }}>
                 <strong style={{ color: '#12141F' }}>{label}</strong> — {text}
               </p>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* 08 SOLUTION */}
-      <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.solutionLabel}</div>
-        <h2 style={H2}>{t.solutionTitle}</h2>
-        <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 48px' }}>{t.solutionIntro}</p>
-
-        <div style={{ position: 'relative' }}>
-          <div className="cs-timeline-line" />
-          <div className="cs-timeline-line-v" />
-          <div className="cs-timeline">
-            {t.phases.map(({ year, label, body }, phaseIndex) => (
-              <div key={year} style={{ display: 'flex', gap: 20 }}>
-                <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <div style={{ width: 24, height: 24, borderRadius: '50%', background: phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C', border: '4px solid #FFFFFF', boxShadow: `0 0 0 2px ${phaseIndex === t.phases.length - 1 ? 'var(--color-accent)' : year >= '2025' ? '#3D63E0' : '#001A5C'}`, flexShrink: 0 }} />
-                </div>
-                <div style={{ paddingBottom: 32 }}>
-                  <div style={{ fontSize: 26, fontWeight: 800, color: '#12141F', marginBottom: 4 }}>{year}</div>
-                  <div style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase' as const, letterSpacing: '0.05em', color: '#001A5C', marginBottom: 14 }}>{label}</div>
-                  <p style={{ fontSize: 14, lineHeight: 1.65, color: '#5A5F73', margin: 0 }}>{body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -519,7 +515,7 @@ export default function CaseStudyTamkeen() {
         <div className="cs-numlist">
           {t.personaGroups.map(({ label, title, body }) => (
             <div key={label} className="cs-numrow" style={{ display: 'block' }}>
-              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 6 }}>{label}</div>
+              <div className="cs-label" style={{ marginBottom: 6 }}>{label}</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{title}</div>
               <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{body}</p>
             </div>
@@ -535,12 +531,12 @@ export default function CaseStudyTamkeen() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' as const, marginBottom: 14 }}>
                 {steps.map((step, i) => (
                   <span key={step} style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                    <div style={{ padding: '11px 16px', borderRadius: 10, background: i === steps.length - 1 ? '#3E5C8A' : '#5C7AAE', color: '#FFFFFF', fontSize: 14, fontWeight: 600 }}>{step}</div>
-                    {i < steps.length - 1 && <span style={{ color: '#3D63E0', fontSize: 16 }}>→</span>}
+                    <span className={`flow-step${i === steps.length - 1 ? ' is-last' : ''}`}>{step}</span>
+                    {i < steps.length - 1 && <span aria-hidden="true" style={{ color: 'var(--color-index)', fontSize: 16 }}>→</span>}
                   </span>
                 ))}
               </div>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{note}</p>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{note}</p>
             </div>
           ))}
         </div>
@@ -563,14 +559,14 @@ export default function CaseStudyTamkeen() {
         <h2 style={H2}>{t.ecosystemTitle}</h2>
         <div className="rg-3 cs-rows">
           {t.ecosystem.map(name => (
-            <div key={name} className="cs-row" style={{ fontSize: 14.5, fontWeight: 600, color: '#12141F' }}>{name}</div>
+            <div key={name} className="cs-row" style={{ fontSize: 15, fontWeight: 600, color: '#12141F' }}>{name}</div>
           ))}
         </div>
       </div>
 
-      {/* 09 VALIDATION */}
+      {/* VALIDATION */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.validationLabel}</div>
+        <h2 style={H2}>{t.validationLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.validationIntro}</p>
 
         <div className="table-scroll" style={{ marginBottom: 24 }}>
@@ -596,25 +592,26 @@ export default function CaseStudyTamkeen() {
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: 0 }}>{t.validationClosing}</p>
       </div>
 
-      {/* 10 IMPACT */}
+      {/* IMPACT: one dark block, three columns */}
       <div style={SW}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.impactLabel}</div>
-
-        <div className="rg-impact" style={{ marginBottom: 40 }}>
-          {t.impactGroups.map(({ label, bg, items }) => (
-            <div key={label} style={{ padding: 28, background: bg }}>
-              <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' as const, color: '#8FAEFF', marginBottom: 14 }}>{label}</div>
-              {items.map((item, i) => (
-                <p key={i} style={{ fontSize: 14.5, lineHeight: 1.6, color: '#F4F1EA', margin: i < items.length - 1 ? '0 0 10px' : 0 }}>{item}</p>
-              ))}
-            </div>
-          ))}
-        </div>
+        <h2 style={H2}>{t.impactLabel}</h2>
+        <DarkBox>
+          <div className="cs-impact-cols">
+            {t.impactGroups.map(({ label, items }) => (
+              <div key={label}>
+                <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#8FAEFF', marginBottom: 14 }}>{label}</div>
+                {items.map((item, i) => (
+                  <p key={i} style={{ fontSize: 15, lineHeight: 1.6, color: '#F2F6FF', margin: i < items.length - 1 ? '0 0 10px' : 0 }}>{item}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+        </DarkBox>
       </div>
 
-      {/* 11 REFLECTION */}
+      {/* REFLECTION */}
       <div style={S}>
-        <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#001A5C', marginBottom: 16 }}>{t.reflectionLabel}</div>
+        <h2 style={H2}>{t.reflectionLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 16px' }}><strong style={{ color: '#12141F' }}>{t.reflectionWorkedLabel}</strong> {t.reflectionWorked}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 16px' }}><strong style={{ color: '#12141F' }}>{t.reflectionImproveLabel}</strong> {t.reflectionImprove}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: 0 }}><strong style={{ color: '#12141F' }}>{t.reflectionLearnedLabel}</strong> {t.reflectionLearned}</p>
