@@ -299,7 +299,7 @@ export default function CaseStudyDesignSystem() {
               <div className="rg-3">
                 {t.auditDimensions.map(({ label, desc }) => (
                   <div key={label} style={{ padding: 16, borderRadius: 12, background: '#FFFFFF' }}>
-                    <div style={{ fontSize: 12, fontWeight: 600, color: '#001A5C', marginBottom: 6 }}>{label}</div>
+                    <div className="cs-label" style={{ marginBottom: 6 }}>{label}</div>
                     <p style={{ fontSize: 15, lineHeight: 1.6, color: '#5A5F73', margin: 0 }}>{desc}</p>
                   </div>
                 ))}

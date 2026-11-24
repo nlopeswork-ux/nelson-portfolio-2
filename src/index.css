@@ -299,7 +299,7 @@ button:focus-visible,
 
 img { display: block; max-width: 100%; }
 
-input::placeholder { color: #A0A4B8; }
+input::placeholder { color: #6B7086; }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -1292,7 +1292,7 @@ html { scrollbar-gutter: stable; }
 .cs-meta-item--abbr { outline: none; }
 .cs-meta-more { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 8px; background: #EAF1FF; color: #002FA7; font-size: 12px; font-weight: 700; line-height: 1.6; vertical-align: 1px; }
 .cs-meta-tail { white-space: nowrap; }
-.cs-meta-ellipsis { margin-left: 1px; color: #8A8FA3; }
+.cs-meta-ellipsis { margin-left: 1px; color: #6B7086; }
 /* Expanded: every value shows in full, in place. */
 .cs-herocard[data-details="true"] .cs-meta-short { display: none; }
 .cs-herocard[data-details="true"] .cs-meta-item--abbr .cs-meta-full { position: static; width: auto; min-width: 0; margin: 0; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; font: inherit; opacity: 1; transform: none; pointer-events: auto; }
@@ -1607,7 +1607,7 @@ html { scrollbar-gutter: stable; }
 .cs-decision { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 8px 32px; padding: 24px 0; border-top: 1px solid rgba(18, 20, 31, 0.12); }
 .cs-decision:first-child { border-top: 0; padding-top: 0; }
 .cs-decision-title { font-size: 16px; font-weight: 700; color: #12141F; }
-.cs-decision-body p { font-size: 14px; line-height: 1.7; color: #5A5F73; margin: 0 0 10px; }
+.cs-decision-body p { font-size: 15px; line-height: 1.7; color: #5A5F73; margin: 0 0 10px; }
 .cs-decision-body p:last-child { margin-bottom: 0; }
 .cs-decision-body .cs-decision-result { color: #12141F; font-weight: 600; padding-left: 12px; border-left: 3px solid var(--color-accent); }
 /* The brief: a pulled passage with an orange bar, not a tinted box */
@@ -1671,10 +1671,9 @@ html { scrollbar-gutter: stable; }
 .ceb-title { font-family: var(--font-display); font-size: clamp(24px, 2.8vw, 34px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; color: var(--ink-headline); margin: 0 0 10px; }
 .ceb-sub { font-size: 16px; line-height: 1.55; color: #5A5F73; margin: 0 0 24px; max-width: 38ch; }
 .ceb-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
-.ceb-cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.ceb-cases { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
 .ceb-cases li { flex: none; }
 @media (max-width: 860px) { .ceb { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 560px) { .ceb-cases { grid-template-columns: minmax(0, 1fr); } }
 
 /* Contact: outline cards that carry the real buttons (the buttons are the click targets, the card is not a link) */
 .ci-card { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(20, 30, 60, 0.1); }

@@ -300,16 +300,16 @@ export default function Work() {
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
                 <span className="idx" aria-hidden="true">{String(studies.indexOf(s) + 1).padStart(2, '0')}</span>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{s.title}</h3>
-                <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
                 {s.quote && (
                   <div style={{ padding: '14px 16px', borderRadius: 12, background: 'rgba(20,30,60,0.03)', marginBottom: 14 }}>
-                    <p style={{ fontSize: 13.5, fontStyle: 'italic', lineHeight: 1.55, color: '#3A3F4C', margin: '0 0 6px' }}>"{s.quote}"</p>
-                    <div style={{ fontSize: 12, fontWeight: 600, color: '#001A5C' }}>— {s.quoteAttribution}</div>
+                    <p style={{ fontSize: 14, fontStyle: 'italic', lineHeight: 1.55, color: '#3A3F4C', margin: '0 0 6px' }}>"{s.quote}"</p>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C' }}>— {s.quoteAttribution}</div>
                   </div>
                 )}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
               </div>
             </Link>
           ))}
@@ -332,10 +332,10 @@ export default function Work() {
             <img src={agenticImg} alt="" style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover', objectPosition: 'center' }} />
           </div>
           <div style={{ flex: '1 1 320px', padding: '8px 12px 12px' }}>
-            <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{p.methodTag}</div>
+            <div style={{ fontSize: 12, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{p.methodTag}</div>
             <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{p.methodCardTitle}</h3>
-            <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 14px' }}>{p.methodCardSummary}</p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
+            <p style={{ fontSize: 15, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 14px' }}>{p.methodCardSummary}</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
           </div>
         </Link>
         </div>
@@ -360,10 +360,10 @@ export default function Work() {
               </div>
               <div style={{ padding: '8px 24px 24px' }}>
                 <span className="idx" aria-hidden="true">{String(studies.length + wi + 1).padStart(2, '0')}</span>
-                <div style={{ fontSize: 11, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{w.tag}</div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: '#4A4F63', background: '#F2F6FF', display: 'inline-block', padding: '4px 11px', borderRadius: 8, marginBottom: 10 }}>{w.tag}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{w.title}</h3>
-                <p style={{ fontSize: 14, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{w.description}</p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 14, fontWeight: 600, color: '#002FA7' }}>{w.cta}<ChevronRight size={15} /></div>
+                <p style={{ fontSize: 15, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{w.description}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#002FA7' }}>{w.cta}<ChevronRight size={15} /></div>
               </div>
             </Link>
           ))}
@@ -372,7 +372,7 @@ export default function Work() {
 
       {/* PLACEHOLDER */}
       <div style={{ padding: '0 32px 120px', maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
-        <span style={{ fontSize: 13, color: '#A0A4B8' }}>{p.moreInProgress}</span>
+        <span style={{ fontSize: 13, color: '#6B7086' }}>{p.moreInProgress}</span>
       </div>
 
       <Footer />

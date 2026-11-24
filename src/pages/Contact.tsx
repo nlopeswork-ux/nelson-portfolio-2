@@ -79,7 +79,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div style={{ maxWidth: 920, margin: '64px auto 0' }}><CaseEndBlock withCta={false} /></div>
+        <div style={{ margin: '64px auto 0' }}><CaseEndBlock withCta={false} /></div>
 
         <div style={{ textAlign: 'center', marginTop: 40, fontSize: 14, color: '#5A5F73' }}>{t.footerNote}</div>
       </div>

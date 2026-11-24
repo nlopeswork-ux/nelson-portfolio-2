@@ -411,7 +411,7 @@ export default function CaseStudyIntelliForge() {
             {t.auditStats.map(([v, l]) => (
               <div key={l} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: 24, fontWeight: 800, color: '#12141F' }}>{v}</div>
-                <div style={{ fontSize: 12, color: '#5A5F73' }}>{l}</div>
+                <div style={{ fontSize: 14, color: '#5A5F73' }}>{l}</div>
               </div>
             ))}
           </div>
@@ -466,7 +466,7 @@ export default function CaseStudyIntelliForge() {
           <div className="cs-label" style={{ marginBottom: 6 }}>{t.personaLabel} {t.personas[personaIdx].n}</div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{t.personas[personaIdx].name}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: '0 0 10px' }}>{t.personas[personaIdx].desc}</p>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: '#7A7F94', margin: 0 }}>{t.personas[personaIdx].implication}</p>
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: '#6B7086', margin: 0 }}>{t.personas[personaIdx].implication}</p>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginTop: 20 }}>

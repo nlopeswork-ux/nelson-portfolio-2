@@ -92,7 +92,7 @@ export default function PrototypeCarousel({ images, aspectRatio = 'mobile' }: Pr
             />
           ) : (
             <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, padding: 16, textAlign: 'center', background: 'repeating-linear-gradient(135deg, #EEF1F8, #EEF1F8 10px, #E4E8F4 10px, #E4E8F4 20px)' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#8A8FA3', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{c.imagePending}</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: '#6B7086', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{c.imagePending}</div>
               <div style={{ fontSize: 12, fontWeight: 600, color: '#5A5F73', wordBreak: 'break-all' }}>{current.src.split('/').pop()}</div>
             </div>
           )}

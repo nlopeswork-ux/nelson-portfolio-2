@@ -244,7 +244,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
       </div>
 
       <div className="cs-container" style={{ paddingBottom: 40, textAlign: 'center' }}>
-        <p style={{ fontSize: 12, lineHeight: 1.6, color: '#A0A4B8', margin: 0 }}>{t.confidentiality}</p>
+        <p style={{ fontSize: 12, lineHeight: 1.6, color: '#6B7086', margin: 0 }}>{t.confidentiality}</p>
       </div>
 
       <Footer />

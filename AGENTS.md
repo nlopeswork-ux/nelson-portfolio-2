@@ -56,6 +56,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
   3. One graphic accent per hero-level card (the Work card circle, the closing-block circle, the hero dot) and one dot on the key metric of each case header.
   Legacy small dots still in use and not to be multiplied: eyebrow/label dots (`.label-dot`) and the philosophy list dots on About.
   4. Tiny moments of voice: the footer line and the 404 dot.
+- **Text contrast (WCAG AA, 4.5:1):** the lightest grey allowed for text is `#6B7086` (4.9:1 on white). Never use `#7A7F94`, `#8A8FA3` or `#A0A4B8` for text. Checked pairs: `#4A4F63`, `#5A5F73` on white, `#F2F6FF` and the quiet tint; `--color-index` on white and tints (6.9 to 7.5); `#8FAEFF` and `#C7D4FF` on `#12141F`; white on `#002FA7`.
 - Semantic colours stay semantic: red = rejected/critical, green = shipped/positive.
 - **Index numbers (01, 02…)** use `--color-index` (`#46537F`, a desaturated slate blue, 7.5:1 on white) so they read as labels, never as actions. Numbers appear at **one level only**: the section (case-study sections, listing cards, stepper steps). Never number items inside a numbered section (rows, decisions, modules, deliverables): two levels of 01, 02 read as a sequence and confuse. Outputs/deliverables are never numbered. Use the `.idx` class for inline numbers before titles. Cards that are not ordered (Contact) show an icon instead of a number.
 - Pull quotes: one large blue opening glyph centred above the quote, no extra quote marks around the text.
@@ -100,7 +101,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - One button size (padding 16/32, 15px/600). Never set padding, colour or radius inline on `.primary-btn` / `.secondary-btn`; a smaller variant must be added to the CSS, not to a page.
 - The footer wordmark stays small (150px wide): it must not compete with the closing block above it.
 - Round controls keep a 44px hit area (invisible padding) even when drawn at 36px.
-- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two `.related-card`s (the same `.related-card` used in the sidebar of the ERA and EDP pages). It replaces "next case" and "back to work" text links. The two cases are **random** (`randomCases`): never the current case and never the pair shown in the previous closing block, so no case is always promoted. Do not hard-code which cases appear.
+- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two `.related-card`s stacked one above the other (the Contact page uses the full page width for this block) (the same `.related-card` used in the sidebar of the ERA and EDP pages). It replaces "next case" and "back to work" text links. The two cases are **random** (`randomCases`): never the current case and never the pair shown in the previous closing block, so no case is always promoted. Do not hard-code which cases appear.
 
 - **Home Work card:** the card as a whole opens `/work` ("See the work" is the stretched link). The image and the "Featured: IntelliForge SR2R" link open the featured case, and they answer each other on hover (image zooms, link underlines). Labels stay short enough for one line on a 375px screen in EN and PT ("Featured: …" / "Em destaque: …").
 
