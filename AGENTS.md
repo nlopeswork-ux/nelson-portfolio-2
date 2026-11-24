@@ -70,7 +70,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 3. **Dark box** (`DarkBox`, `#12141F`): only for the one insight or principle of a section.
 - Text lists and notes are **hairline rows**, not cards: `.cs-rows` + `.cs-row`, `.cs-numlist` + `.cs-numrow`, `.cs-decisions`. A note or brief is a pulled passage with an orange bar (`.cs-brief`). A user quote has a blue bar and no fill.
 - Do not nest a box inside a box.
-- Cards that are **not clickable** (methodologies, education, certifications) use the quiet tint `rgba(0,47,167,0.05)`, no border, no shadow, no hover lift. White cards with a border and shadow are reserved for things that link somewhere.
+- Cards that are **not clickable** (methodologies, education, certifications) use the quiet tint `rgba(0,47,167,0.05)`, no border, no shadow, no hover lift. White outline cards are for things that link somewhere, with one exception: the Contact info cards, which are outline cards that hold their own primary and secondary buttons (only the buttons click).
 
 ### Dividers
 - Hairlines (`rgba(18,20,31,0.12)`) appear **only between rows**: none under the heading, none after the last row (the orange section bar closes the section). The existing classes already do this; do not add borders by hand.
@@ -89,7 +89,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - **One toggle**: `.engagement-toggle` (pill, `#F2F6FF`, 6/14px, chevron). `.cs-details-toggle` matches it. No inline-styled toggles.
 - One button size (padding 16/32, 15px/600). Never set padding, colour or radius inline on `.primary-btn` / `.secondary-btn`; a smaller variant must be added to the CSS, not to a page.
 - Round controls keep a 44px hit area (invisible padding) even when drawn at 36px.
-- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two mini case cards (white bordered = they link). It replaces "next case" and "back to work" text links.
+- Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two `.related-card`s (the same `.related-card` used in the sidebar of the ERA and EDP pages). It replaces "next case" and "back to work" text links.
 
 ### Buttons and links (reuse, never invent)
 - Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).

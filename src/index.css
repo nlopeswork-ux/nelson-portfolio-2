@@ -150,6 +150,11 @@ button:focus-visible,
 /* Button base, defined once (no per-page inline copies). One size: 16/32, 15px/600, 12px radius */
 .primary-btn, .secondary-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; }
 .primary-btn { background: var(--color-primary); color: #FFFFFF; border: 1.5px solid var(--color-primary); }
+.secondary-btn { background: transparent; color: var(--color-primary); }
+
+/* Button base, defined once (no per-page inline copies). One size: 16/32, 15px/600, 12px radius */
+.primary-btn, .secondary-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.primary-btn { background: var(--color-primary); color: #FFFFFF; border: 1.5px solid var(--color-primary); }
 .secondary-btn { background: transparent; color: var(--color-primary); }@media (hover: hover) and (pointer: fine) {
 
 
@@ -1652,6 +1657,26 @@ html { scrollbar-gutter: stable; }
   .hv2-hero-grid { padding-left: 24px; padding-right: 24px; }
   .hs { padding-left: 24px; padding-right: 24px; }
 }
+
+/* 44px touch target for round icon controls without changing their drawn size */
+.carousel-arrow, .footer-top-btn { position: relative; }
+.carousel-arrow::after, .footer-top-btn::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; }
+
+/* ── Closing block (case studies, Contact): the homepage Work card treatment, fully horizontal ── */
+.ceb { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 32px clamp(24px, 4vw, 56px); align-items: center; padding: clamp(28px, 4vw, 48px); border-radius: 28px; background: #F2F6FF; }
+.ceb-circle { --c: clamp(260px, 26vw, 380px); position: absolute; left: 4%; bottom: calc(var(--c) * -0.9); width: var(--c); height: var(--c); border-radius: 50%; background: var(--color-accent); opacity: 0.85; pointer-events: none; }
+.ceb-copy, .ceb-cases { position: relative; z-index: 1; }
+.ceb-title { font-family: var(--font-display); font-size: clamp(24px, 2.8vw, 34px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.12; color: var(--ink-headline); margin: 0 0 10px; }
+.ceb-sub { font-size: 16px; line-height: 1.55; color: #5A5F73; margin: 0 0 24px; max-width: 38ch; }
+.ceb-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.ceb-cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.ceb-cases li { flex: none; }
+@media (max-width: 860px) { .ceb { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .ceb-cases { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contact: outline cards that carry the real buttons (the buttons are the click targets, the card is not a link) */
+.ci-card { flex: 1; min-width: 280px; display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(20, 30, 60, 0.1); }
+.ci-card .primary-btn, .ci-card .secondary-btn { margin-top: 24px; }
 
 /* 44px touch target for round icon controls without changing their drawn size */
 .carousel-arrow, .footer-top-btn { position: relative; }
