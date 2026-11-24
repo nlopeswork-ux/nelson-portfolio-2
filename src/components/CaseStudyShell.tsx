@@ -239,7 +239,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
       </div>
 
       {/* CLOSING BLOCK: the one primary action of a case study + two more cases */}
-      <div className="cs-container" style={{ paddingTop: 16, paddingBottom: 64 }}>
+      <div className="cs-container" style={{ paddingTop: 'var(--section-gap)', paddingBottom: 64 }}>
         <CaseEndBlock slug={pathname.split('/').filter(Boolean)[1] ?? ''} />
       </div>
 

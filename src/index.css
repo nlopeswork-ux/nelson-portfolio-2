@@ -1576,7 +1576,9 @@ html { scrollbar-gutter: stable; }
 .hs-cta-main:focus-visible svg, .hs-side:focus-visible .hs-cta svg { transform: translateX(3px); }
 @media (hover: hover) and (pointer: fine) {
   .hs-work:hover { transform: translateY(-3px); box-shadow: 0 24px 48px rgba(0, 47, 167, 0.12); }
-  .hs-work:hover .hs-work-media img { transform: scale(1.02); }
+  /* the image belongs to the featured case, not to the card: it reacts only with its own link, and the two answer each other */
+  .hs-work-media:hover img, .hs-work:has(.hs-featured-link:hover) .hs-work-media img { transform: scale(1.03); }
+  .hs-work:has(.hs-work-media:hover) .hs-featured-link { text-decoration: underline; text-underline-offset: 3px; }
   .hs-side:hover { transform: translateY(-3px); border-color: rgba(0, 47, 167, 0.3); box-shadow: 0 16px 36px rgba(20, 30, 60, 0.08); }
   .hs a:hover .hs-cta svg { transform: translateX(3px); }
   .hs-work:hover .hs-blob { transform: translateY(-8px); }

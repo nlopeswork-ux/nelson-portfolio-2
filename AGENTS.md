@@ -92,6 +92,8 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - Round controls keep a 44px hit area (invisible padding) even when drawn at 36px.
 - Case studies and the Contact page end with `CaseEndBlock`: the homepage Work card treatment, horizontal, with two `.related-card`s (the same `.related-card` used in the sidebar of the ERA and EDP pages). It replaces "next case" and "back to work" text links. The two cases are **random** (`randomCases`): never the current case and never the pair shown in the previous closing block, so no case is always promoted. Do not hard-code which cases appear.
 
+- **Home Work card:** the card as a whole opens `/work` ("See the work" is the stretched link). The image and the "Featured: IntelliForge SR2R" link open the featured case, and they answer each other on hover (image zooms, link underlines). Labels stay short enough for one line on a 375px screen in EN and PT ("Featured: …" / "Em destaque: …").
+
 ### Buttons and links (reuse, never invent)
 - Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).
 - Secondary action: `.secondary-btn` (1.5px blue border, 12px radius).
