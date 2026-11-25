@@ -341,7 +341,7 @@ export default function CaseStudyTamkeen() {
       refined
     >
       {/* CONTEXT */}
-      <div style={SW}>
+      <div data-level="summary" style={SW}>
         <h2 style={H2}>{t.contextLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.context1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.context2}</p>
@@ -357,7 +357,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* PRODUCT STRATEGY: the timeline is the first visual of the page, right after the context */}
-      <div style={SW}>
+      <div data-level="mid" style={SW}>
         <h2 style={H2}>{t.solutionTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 48px' }}>{t.solutionIntro}</p>
 
@@ -382,7 +382,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* CHALLENGE */}
-      <div style={SW}>
+      <div data-level="summary" style={SW}>
         <h2 style={H2}>{t.challengeLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.challenge1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.challenge2}</p>
@@ -396,7 +396,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* DISCOVERY */}
-      <div style={SW}>
+      <div data-level="mid" style={SW}>
         <h2 style={H2}>{t.discoveryLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.discoveryIntro}</p>
 
@@ -431,7 +431,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* KEY INSIGHTS: rows, not shadowed cards */}
-      <div style={SW}>
+      <div data-level="summary" style={SW}>
         <h2 style={H2}>{t.insightsLabel}</h2>
         <div className="rg-2 cs-rows">
           {t.insights.map(({ n, title, body, wide }) => (
@@ -444,7 +444,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* WORKSHOP */}
-      <div style={SW}>
+      <div data-level="full" style={SW}>
         <h2 style={H2}>{t.workshopLabel}</h2>
         <p className="cs-lead">{t.workshopTitle}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.workshop1}</p>
@@ -474,7 +474,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* DESIGN PRINCIPLES */}
-      <div style={SW}>
+      <div data-level="mid" style={SW}>
         <h2 style={H2}>{t.principlesLabel}</h2>
         <div className="rg-2 cs-rows">
           {t.designPrinciples.map(([label, text]) => (
@@ -487,7 +487,7 @@ export default function CaseStudyTamkeen() {
         </div>
       </div>
 
-      <div style={{ ...SW, paddingTop: 0 }}>
+      <div data-level="full" style={{ ...SW, paddingTop: 0 }}>
         <h2 style={H2}>{t.iaTitle}</h2>
         <div className="table-scroll">
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
@@ -510,7 +510,7 @@ export default function CaseStudyTamkeen() {
         </div>
       </div>
 
-      <div style={{ ...SW, paddingTop: 0 }}>
+      <div data-level="full" style={{ ...SW, paddingTop: 0 }}>
         <h2 style={H2}>{t.personasTitle}</h2>
         <div className="cs-numlist">
           {t.personaGroups.map(({ label, title, body }) => (
@@ -523,7 +523,7 @@ export default function CaseStudyTamkeen() {
         </div>
       </div>
 
-      <div style={{ ...SW, paddingTop: 0 }}>
+      <div data-level="full" style={{ ...SW, paddingTop: 0 }}>
         <h2 style={H2}>{t.flowsTitle}</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
           {t.userFlows.map(({ steps, note }) => (
@@ -543,7 +543,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* DESIGN SYSTEM AS INFRASTRUCTURE */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <h2 style={H2}>{t.dsTitle}</h2>
         <Body>{t.dsBody}</Body>
 
@@ -555,7 +555,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* FINAL ECOSYSTEM */}
-      <div style={SW}>
+      <div data-level="summary" style={SW}>
         <h2 style={H2}>{t.ecosystemTitle}</h2>
         <div className="rg-3 cs-rows">
           {t.ecosystem.map(name => (
@@ -565,7 +565,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* VALIDATION */}
-      <div style={SW}>
+      <div data-level="mid" style={SW}>
         <h2 style={H2}>{t.validationLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.validationIntro}</p>
 
@@ -593,7 +593,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* IMPACT: one dark block, three columns */}
-      <div style={SW}>
+      <div data-level="summary" style={SW}>
         <h2 style={H2}>{t.impactLabel}</h2>
         <DarkBox>
           <div className="cs-impact-cols">
@@ -610,7 +610,7 @@ export default function CaseStudyTamkeen() {
       </div>
 
       {/* REFLECTION */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.reflectionLabel}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 16px' }}><strong style={{ color: '#12141F' }}>{t.reflectionWorkedLabel}</strong> {t.reflectionWorked}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 16px' }}><strong style={{ color: '#12141F' }}>{t.reflectionImproveLabel}</strong> {t.reflectionImprove}</p>

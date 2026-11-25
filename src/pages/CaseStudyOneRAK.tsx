@@ -396,13 +396,13 @@ export default function CaseStudyOneRAK() {
       refined
     >
       {/* THE HOOK */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         {t.hook.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>
 
       {/* RESEARCH */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.researchTitle}</h2>
         <Body>{t.researchIntro}</Body>
 
@@ -504,7 +504,7 @@ export default function CaseStudyOneRAK() {
       </div>
 
       {/* PERSONAS */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <h2 style={H2}>{t.personasTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.personasIntro}</p>
 
@@ -542,7 +542,7 @@ export default function CaseStudyOneRAK() {
       </div>
 
       {/* WHAT WE LEARNED */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <DarkBox label={t.learnedLabel}>
           {t.learnedBox.map((p, i) => (
             <p key={i} style={{ fontSize: 16, lineHeight: 1.75, margin: i === t.learnedBox.length - 1 ? 0 : '0 0 16px' }}>{p}</p>
@@ -551,7 +551,7 @@ export default function CaseStudyOneRAK() {
       </div>
 
       {/* DESIGN SYSTEM FIRST */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.dsFirstTitle}</h2>
         {t.dsFirst.map((p, i) => <Body key={i}>{p}</Body>)}
 
@@ -563,7 +563,7 @@ export default function CaseStudyOneRAK() {
       </div>
 
       {/* KEY DECISIONS */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.rejectedTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.rejectedIntro}</p>
         <div className="cs-numlist">
@@ -581,7 +581,7 @@ export default function CaseStudyOneRAK() {
       </div>
 
       {/* PROTOTYPE GALLERY */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.galleryTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 28px' }}>{t.galleryIntro}</p>
 
@@ -611,7 +611,7 @@ export default function CaseStudyOneRAK() {
       </div>
 
       {/* OUTCOMES */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.outcomesTitle}</h2>
         <div className="rg-2" style={{ marginBottom: 24 }}>
           {t.outcomes.map(({ value, label }) => (

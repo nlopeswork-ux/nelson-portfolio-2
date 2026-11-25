@@ -1733,3 +1733,22 @@ html { scrollbar-gutter: stable; }
   .cs-impact-cols > div { padding: 24px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.16); }
   .cs-impact-cols > div:first-child { padding-top: 0; border-top: 0; }
 }
+
+/* Reading depth (case studies with `leveled`): sections marked data-level are hidden above the chosen depth.
+   Hidden sections drop out of the CSS counters, so the 01..N numbering stays continuous. */
+.cs-main[data-depth="summary"] > [data-level="mid"],
+.cs-main[data-depth="summary"] > [data-level="full"],
+.cs-main[data-depth="mid"] > [data-level="full"] { display: none; }
+/* Selector sits above the title on small screens and in the top-right corner of the hero card on desktop.
+   On the tinted hero card the track is white instead of grey. */
+.work-filter-track--white { background: #FFFFFF; box-shadow: inset 0 0 0 1px #DCE8FF; }
+.cs-depth { margin: 0 0 20px; }
+.cs-depth .work-filter-tab { padding: 8px 14px; }
+@media (min-width: 1024px) {
+  .cs-herocard--leveled .cs-depth { position: absolute; top: 20px; right: 20px; margin: 0; z-index: 2; }
+  .cs-herocard--leveled h1 { max-width: min(900px, calc(100% - 400px)) !important; }
+}
+@media (min-width: 768px) and (max-width: 1023px) { .cs-herocard--leveled h1 { max-width: 900px !important; } }
+.cs-main[data-depth] > [data-level] { animation: cs-depth-in 280ms var(--ease-out); }
+@keyframes cs-depth-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .cs-main[data-depth] > [data-level] { animation: none; } }

@@ -385,7 +385,7 @@ export default function CaseStudyIntelliForge() {
       refined
     >
       {/* THE HOOK */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         <Body>{t.hook1}</Body>
         <p style={{ fontSize: 20, fontWeight: 700, color: '#12141F', margin: '0 0 20px' }}>{t.hookEmphasis}</p>
@@ -394,12 +394,12 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* PROTOTYPE SHOWCASE */}
-      <div style={{ ...S, paddingBottom: 32 }}>
+      <div data-level="summary" style={{ ...S, paddingBottom: 32 }}>
         <ShowcaseVideo src={showcaseVideo} label={t.showcaseLabel} />
       </div>
 
       {/* RESEARCH */}
-      <div style={{ position: 'relative', ...S }}>
+      <div data-level="mid" style={{ position: 'relative', ...S }}>
         <div style={{ position: 'absolute', top: 0, right: -180, width: 460, height: 460, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.22), transparent 70%)', filter: 'blur(70px)', zIndex: -1 }} />
         <h2 style={H2}>{t.researchTitle}</h2>
         <Body>{t.researchIntro}</Body>
@@ -449,7 +449,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* WHAT WE LEARNED */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <DarkBox label={t.learnedLabel}>
           {t.learnedBox.map((p, i) => (
             <p key={i} style={{ fontSize: 16, lineHeight: 1.75, margin: i === t.learnedBox.length - 1 ? 0 : '0 0 16px' }}>{p}</p>
@@ -458,7 +458,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* PERSONAS */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <h2 style={H2}>{t.personasTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 24px' }}>{t.personasIntro}</p>
 
@@ -481,7 +481,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* IA */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <h2 style={H2}>{t.iaTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 24px' }}>{t.iaIntro}</p>
         <div className="table-scroll" style={{ padding: 24, borderRadius: 24, border: '1px solid #EAF1FF', background: '#F8FAFF' }}>
@@ -507,7 +507,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* KEY FEATURE DECISIONS */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.keyDecisionsTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.keyDecisionsIntro}</p>
         <div className="cs-decisions">
@@ -531,7 +531,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* ARCHITECTURE PRINCIPLE */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <DarkBox label={t.archPrincipleLabel}>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#F2F6FF', marginBottom: 14 }}>{t.archPrincipleTitle}</div>
           <p style={{ fontSize: 16, lineHeight: 1.75, margin: 0 }}>{t.archPrincipleBody}</p>
@@ -539,7 +539,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* TESTING CAROUSEL */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.testingTitle}</h2>
 
         <div {...testingSwipe} style={{ overflow: 'hidden', borderRadius: 20, border: '1px solid #EAF1FF', background: '#F8FAFF', padding: 28 }}>
@@ -574,7 +574,7 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* CONCLUDING WITH IMPACT */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.impactTitle}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 32px' }}>{t.impactIntro}</p>
         <div className="table-scroll" style={{ marginBottom: 32 }}>
@@ -604,14 +604,14 @@ export default function CaseStudyIntelliForge() {
       </div>
 
       {/* METHOD */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <h2 style={H2}>{t.methodTitle}</h2>
         <Body>{t.method}</Body>
         <Link to="/work/agentic-ux-flow" className="hs-cta" style={{ marginTop: 0, paddingTop: 0 }}>{t.methodLink}<ChevronRight size={15} /></Link>
       </div>
 
       {/* WHAT'S NEXT */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.nextTitle}</h2>
         {t.next.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>

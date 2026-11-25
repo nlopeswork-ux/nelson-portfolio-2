@@ -185,13 +185,13 @@ export default function CaseStudyAgenticUXFlow() {
       refined
     >
       {/* THE HOOK */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         {t.hook.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>
 
       {/* HOW IT WORKS */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.howTitle}</h2>
         <Body>{t.howIntro}</Body>
         <div className="cs-numlist">
@@ -207,7 +207,7 @@ export default function CaseStudyAgenticUXFlow() {
       </div>
 
       {/* TWO PATHS */}
-      <div style={S}>
+      <div data-level="full" style={S}>
         <h2 style={H2}>{t.pathsTitle}</h2>
         <Body>{t.pathsIntro}</Body>
         {/* ds-allow-hardcode:start - same dark and glass panel treatment as the Agnostic Project Design block in the Design System case study */}
@@ -238,7 +238,7 @@ export default function CaseStudyAgenticUXFlow() {
       </div>
 
       {/* DESIGN DECISIONS */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 style={H2}>{t.decisionsTitle}</h2>
         <div className="cs-numlist" style={{ marginBottom: 28 }}>
           {t.decisions.map(({ n, name, desc }) => (
@@ -269,7 +269,7 @@ export default function CaseStudyAgenticUXFlow() {
       </div>
 
       {/* USED IN */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.usedTitle}</h2>
         <Body>{t.usedIntro}</Body>
         <div className="work-grid">
@@ -292,7 +292,7 @@ export default function CaseStudyAgenticUXFlow() {
       </div>
 
       {/* STATUS */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.statusTitle}</h2>
         {t.status.map((p, i) => <Body key={i}>{p}</Body>)}
         <Body>
@@ -302,7 +302,7 @@ export default function CaseStudyAgenticUXFlow() {
       </div>
 
       {/* RESULTS */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 style={H2}>{t.resultsTitle}</h2>
         <div className="rg-2">
           {t.results.map(({ value, label }) => (

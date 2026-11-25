@@ -255,13 +255,13 @@ export default function CaseStudyDesignSystem() {
       refined
     >
       {/* THE HOOK */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 className="cs-h2-mark" style={H2}>{t.hookTitle}</h2>
         {t.hook.map((p, i) => <Body key={i}>{p}</Body>)}
       </div>
 
       {/* PHASE 1 */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.phase1Title}</h2>
         <Body>{t.phase1Intro}</Body>
 
@@ -385,14 +385,14 @@ export default function CaseStudyDesignSystem() {
       </div>
 
       {/* WHAT WE LEARNED */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <DarkBox label={t.learnedLabel}>
           <p style={{ fontSize: 16, lineHeight: 1.75, margin: 0 }}>{t.learnedBox}</p>
         </DarkBox>
       </div>
 
       {/* PHASE 2 */}
-      <div style={S}>
+      <div data-level="mid" style={S}>
         <h2 style={H2}>{t.phase2Title}</h2>
         {t.phase2.map((p, i) => <Body key={i}>{p}</Body>)}
 
@@ -414,7 +414,7 @@ export default function CaseStudyDesignSystem() {
       </div>
 
       {/* RESULTS */}
-      <div style={S}>
+      <div data-level="summary" style={S}>
         <h2 style={H2}>{t.resultsTitle}</h2>
         <div className="rg-2">
           {t.results.map(({ value, label }) => (

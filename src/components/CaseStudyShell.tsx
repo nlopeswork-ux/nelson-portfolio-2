@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { relatedCases } from './relatedCases'
 import CaseEndBlock from './CaseEndBlock'
 import { tocLabel } from './tocLabels'
@@ -20,6 +20,8 @@ const shellCopy = {
     showDetails: 'Show full details',
     hideDetails: 'Hide full details',
     relatedTitle: 'Also worth a look',
+    depthLabel: 'Reading depth',
+    depth: { summary: 'Summary', mid: 'Intermediate', full: 'Full' },
   },
   pt: {
     backToWork: 'Voltar a todo o trabalho',
@@ -28,8 +30,13 @@ const shellCopy = {
     showDetails: 'Ver todos os detalhes',
     hideDetails: 'Ocultar detalhes',
     relatedTitle: 'Vale também a pena ver',
+    depthLabel: 'Profundidade de leitura',
+    depth: { summary: 'Resumo', mid: 'Intermédio', full: 'Completo' },
   },
 }
+
+export type Depth = 'summary' | 'mid' | 'full'
+const DEPTHS: Depth[] = ['summary', 'mid', 'full']
 
 interface MetaItem {
   label: string
@@ -73,7 +80,7 @@ function useSectionIndex(mainRef: React.RefObject<HTMLElement | null>, lockRef: 
   useEffect(() => {
     const main = mainRef.current
     if (!main) return
-    const heads = Array.from(main.querySelectorAll('h2'))
+    const heads = Array.from(main.querySelectorAll('h2')).filter(h => h.getClientRects().length > 0)
     const used = new Set<string>()
     const next = heads.map((h, i) => {
       let id = h.id || slugify(h.textContent || '') || `section-${i}`
@@ -125,8 +132,25 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
   const [tocOpen, setTocOpen] = useState(false)
   const [detailsOpen, setDetailsOpen] = useState(false)
   const lockRef = useRef(0)
-  const { items, active, setActive } = useSectionIndex(mainRef, lockRef, [lang, pathname])
+  // Every case opens on the shortest version; the choice is not remembered between cases or visits.
+  const [depth, setDepth] = useState<Depth>('summary')
+  useEffect(() => { setDepth('summary') }, [pathname])
+  // Reading depth: sections carry data-level="summary" | "mid" | "full" (unmarked ones always show).
+  // The selector exists only when the case has at least two distinct levels, and offers only those.
+  const [levels, setLevels] = useState<Depth[]>([])
+  useLayoutEffect(() => {
+    const found = new Set<string>()
+    mainRef.current?.querySelectorAll(':scope > [data-level]').forEach(el => found.add(el.getAttribute('data-level') ?? ''))
+    setLevels(DEPTHS.filter(d => found.has(d)))
+  }, [lang, pathname])
+  const leveled = levels.length >= 2
+  const rank = (d: Depth) => DEPTHS.indexOf(d)
+  // Nearest available level to the saved preference (ties go to the shorter version).
+  const current: Depth = leveled ? levels.reduce((best, l) => (Math.abs(rank(l) - rank(depth)) < Math.abs(rank(best) - rank(depth)) ? l : best), levels[0]) : depth
+  const levelName = (d: Depth) => (levels.length === 2 && d === levels[1] ? t.depth.full : t.depth[d])
+  const { items, active, setActive } = useSectionIndex(mainRef, lockRef, [lang, pathname, leveled ? current : ''])
   const showToc = items.length >= 2
+  const expanded = leveled ? current === levels[levels.length - 1] : detailsOpen
   const hasAbbr = meta.some(m => !!m.short && m.short !== m.value)
 
   const goTo = (id: string) => {
@@ -144,7 +168,16 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
       <div className="cs-container cs-hero cs-hero--card">
         <div style={{ position: 'absolute', top: -160, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.32), transparent 70%)', filter: 'blur(70px)', animation: 'driftA 24s var(--ease-in-out) infinite', zIndex: -1 }} />
 
-        <div className={stats.length > 0 ? 'cs-herocard cs-herocard--stats' : 'cs-herocard'} data-details={detailsOpen} data-abbr={hasAbbr}>
+        <div className={`${stats.length > 0 ? 'cs-herocard cs-herocard--stats' : 'cs-herocard'}${leveled ? ' cs-herocard--leveled' : ''}`} data-details={expanded} data-abbr={hasAbbr && !leveled}>
+          {leveled && (
+            <div className="cs-depth">
+              <div className="work-filter-track work-filter-track--white" role="radiogroup" aria-label={t.depthLabel}>
+                {levels.map(d => (
+                  <button key={d} type="button" role="radio" aria-checked={current === d} className={`work-filter-tab${current === d ? ' is-active' : ''}`} onClick={() => setDepth(d)}>{levelName(d)}</button>
+                ))}
+              </div>
+            </div>
+          )}
           <h1 style={{ fontSize: 'clamp(28px,5.5vw,56px)', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--ink-headline)', margin: '0 0 24px', lineHeight: 1.1, maxWidth: 900 }}>{title}</h1>
           <p style={{ fontSize: 'clamp(16px,2vw,19px)', lineHeight: 1.7, color: '#5A5F73', maxWidth: 720, margin: '0 0 8px' }}>{description}</p>
 
@@ -174,7 +207,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
             })}
           </div>
 
-          {(hasAbbr || meta.length > 3) && (
+          {!leveled && (hasAbbr || meta.length > 3) && (
             <button type="button" className="cs-details-toggle" aria-expanded={detailsOpen} onClick={() => setDetailsOpen(o => !o)}>
               {detailsOpen ? t.hideDetails : t.showDetails}
               {detailsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -201,7 +234,7 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
 
       {/* CONTENT: 9 columns of content + 3 columns of sticky sidebar */}
       <div className="cs-container cs-layout">
-        <main ref={mainRef} className={refined ? 'cs-main cs-refined' : 'cs-main'}>{children}</main>
+        <main ref={mainRef} data-depth={leveled ? current : undefined} className={refined ? 'cs-main cs-refined' : 'cs-main'}>{children}</main>
 
         <aside className="cs-aside">
           {showToc ? (
