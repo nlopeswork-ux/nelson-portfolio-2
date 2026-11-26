@@ -307,13 +307,15 @@ export function DarkBox({ label, children }: { label?: string; children: React.R
   )
 }
 
-export function VideoBlock({ src, poster, label }: { src: string; poster?: string; label?: string }) {
+/** `captions`: WebVTT URL shown by default (used for English subtitles on videos narrated in Portuguese). */
+export function VideoBlock({ src, poster, label, captions }: { src: string; poster?: string; label?: string; captions?: string }) {
   return (
     <div style={{ marginBottom: 24 }}>
       {label && <div style={{ fontSize: 15, fontWeight: 700, color: '#12141F', marginBottom: 10 }}>{label}</div>}
       <div className="cs-bleed" style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(20,30,60,0.08)', boxShadow: '0 12px 32px rgba(120,150,255,0.08)', background: '#12141F' }}>
-        <video controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline poster={poster} style={{ width: '100%', height: 'auto', display: 'block' }}>
+        <video key={captions ? 'cc' : 'plain'} controls controlsList="nodownload" onContextMenu={e => e.preventDefault()} preload="metadata" playsInline poster={poster} style={{ width: '100%', height: 'auto', display: 'block' }}>
           <source src={src} type="video/mp4" />
+          {captions && <track kind="subtitles" srcLang="en" label="English" src={captions} default />}
         </video>
       </div>
     </div>

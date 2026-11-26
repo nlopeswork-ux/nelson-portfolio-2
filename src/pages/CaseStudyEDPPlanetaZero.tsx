@@ -1,8 +1,10 @@
 import CaseStudyShell, { VideoBlock, FeatureList } from '../components/CaseStudyShell'
 import { useLanguage } from '../i18n/LanguageContext'
 import appVideo from '../imports/EDP-planetazero-app.mp4'
+import appCaptions from '../imports/edp-planetazero-app-en.vtt?url'
 import appPoster from '../imports/EDP-planetazero-app-poster.webp'
 import websiteVideo from '../imports/EDP-planetazero-web.mp4'
+import websiteCaptions from '../imports/edp-planetazero-web-en.vtt?url'
 import websitePoster from '../imports/EDP-planetazero-web-poster.webp'
 
 const S = { padding: '0 0 48px' } as const
@@ -21,8 +23,8 @@ const copy = {
     appLabel: 'App',
     appFeaturesTitle: 'Features — App',
     appFeatures: [
-      'User level (Explorador, Entusiasta, among 4 levels) with a progress ring, accumulated Zs and what is left for the next level',
-      'Four tabs: Início, O seu nível, Ganhar Zs and Vantagens Zs',
+      'User level (Explorador (Explorer), Entusiasta (Enthusiast), among 4 levels) with a progress ring, accumulated Zs and what is left for the next level',
+      'Four tabs: Início (Home), O seu nível (Your level), Ganhar Zs (Earn Zs) and Vantagens Zs (Zs perks)',
       'Ways to earn Zs: complete the profile, energy efficiency, sustainable tips by notification, individual and global challenges',
       'Rewards exchanged for Zs: prize draws, support for socio-environmental projects with voting, EDP and partner offers, exclusive experiences',
       'Locked rewards until the next level',
@@ -31,13 +33,13 @@ const copy = {
     websiteLabel: 'Website',
     websiteFeaturesTitle: 'Features — Website',
     websiteFeatures: [
-      'Own navigation under the EDP global bar: O Planeta, Missão, Explorar, O Movimento',
-      'Landing page with video, "Quer fazer a sua parte?" and latest news',
-      'O Planeta: what Planeta Zero is, the rewards programme (prize draws, experiences, offers) and partners',
-      'Missão: planet direction, energy transition and a CO₂ footprint simulator with Zs reward',
-      'Explorar: collections filterable by icons, open content and content exclusive after login, linking through to rewards',
+      'Own navigation under the EDP global bar: O Planeta (The Planet), Missão (Mission), Explorar (Explore), O Movimento (The Movement)',
+      'Landing page with video, "Quer fazer a sua parte?" (Want to do your part?) and latest news',
+      'O Planeta (The Planet): what Planeta Zero is, the rewards programme (prize draws, experiences, offers) and partners',
+      'Missão (Mission): planet direction, energy transition and a CO₂ footprint simulator with Zs reward',
+      'Explorar (Explore): collections filterable by icons, open content and content exclusive after login, linking through to rewards',
       'Mobile article reading with progress bar',
-      'O Movimento: planet in numbers, initiatives timeline, actions with customers and community testimonials',
+      'O Movimento (The Movement): planet in numbers, initiatives timeline, actions with customers and community testimonials',
       'Calls to join the programme throughout the site',
     ],
   },
@@ -83,12 +85,12 @@ export default function CaseStudyEDPPlanetaZero() {
   return (
     <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]} refined>
       <div style={S}>
-        <VideoBlock src={appVideo} poster={appPoster} label={t.appLabel} />
+        <VideoBlock src={appVideo} poster={appPoster} label={t.appLabel} captions={lang === 'en' ? appCaptions : undefined} />
         <FeatureList title={t.appFeaturesTitle} items={t.appFeatures} />
       </div>
 
       <div style={S}>
-        <VideoBlock src={websiteVideo} poster={websitePoster} label={t.websiteLabel} />
+        <VideoBlock src={websiteVideo} poster={websitePoster} label={t.websiteLabel} captions={lang === 'en' ? websiteCaptions : undefined} />
         <FeatureList title={t.websiteFeaturesTitle} items={t.websiteFeatures} />
       </div>
     </CaseStudyShell>

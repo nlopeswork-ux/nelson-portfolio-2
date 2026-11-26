@@ -1,6 +1,7 @@
 import CaseStudyShell, { VideoBlock, FeatureList } from '../components/CaseStudyShell'
 import { useLanguage } from '../i18n/LanguageContext'
 import eraVideo from '../imports/era-showcase.mp4'
+import eraCaptions from '../imports/era-showcase-en.vtt?url'
 import eraPoster from '../imports/era-showcase-poster.webp'
 
 const S = { padding: '0 0 48px' } as const
@@ -19,12 +20,12 @@ const copy = {
     videoLabel: 'Product film',
     featuresTitle: 'Features',
     features: [
-      'Search with Comprar, Arrendar and Trespasse tabs, removable filter chips and "As minhas pesquisas"',
+      'Search with Comprar (Buy), Arrendar (Rent) and Trespasse (Business transfer) tabs, removable filter chips and "As minhas pesquisas" (My searches)',
       'Mobile location with history, current location, area drawing on a map and several locations at once',
       'Property listing with price, characteristics, gallery, contact, favourite and exclude',
       'Favourites with sorting and personal notes on each property',
       'ERA advantages on the home page (ERA Guarantee, energy certification, financing up to 100%)',
-      'Free valuation "Quanto vale a minha casa?" in 4 steps',
+      'Free valuation "Quanto vale a minha casa?" (How much is my home worth?) in 4 steps',
       'Free listing creation, with exact or approximate location on the map',
       'Consistent experience on desktop and mobile',
     ],
@@ -61,7 +62,7 @@ export default function CaseStudyERARevamp() {
   return (
     <CaseStudyShell title={t.title} description={t.description} meta={t.meta} stats={[]} refined>
       <div style={S}>
-        <VideoBlock src={eraVideo} poster={eraPoster} label={t.videoLabel} />
+        <VideoBlock src={eraVideo} poster={eraPoster} label={t.videoLabel} captions={lang === 'en' ? eraCaptions : undefined} />
         <FeatureList title={t.featuresTitle} items={t.features} />
       </div>
     </CaseStudyShell>
