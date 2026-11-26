@@ -52,7 +52,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - Orange `--color-accent #FF6F00` is **decorative only** (2.8:1 on white): never for text. Use `--color-accent-icon` for icons/arrows and `--color-accent-text` if small orange text is unavoidable.
 - Orange appears **only** in these places, and the list is a ceiling, not a target:
   1. The section bar (`.section-bar`, 32×3px) that closes a section on About and case studies.
-  2. The bar beside a "Result" line or a pulled brief/note.
+  2. The short dash (24×3px) that opens a callout (brief, process note), the same gesture as the section bar.
   3. One graphic accent per hero-level card (the Work card circle, the closing-block circle, the hero dot) and one dot on the key metric of each case header.
   Legacy small dots still in use and not to be multiplied: eyebrow/label dots (`.label-dot`) and the philosophy list dots on About.
   4. Tiny moments of voice: the footer line and the 404 dot.
@@ -69,7 +69,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 1. **No box** (default): text, subtitles, lists sit directly on the page.
 2. **Tinted blue box** (`#F2F6FF`/`#F8FAFF`): only for real data (tables, metric strips, before/after comparisons).
 3. **Dark box** (`DarkBox`, `#12141F`): only for the one insight or principle of a section.
-- Text lists and notes are **hairline rows**, not cards: `.cs-rows` + `.cs-row`, `.cs-numlist` + `.cs-numrow`, `.cs-decisions`. A note or brief is a pulled passage with an orange bar (`.cs-brief`). A user quote has a blue bar and no fill.
+- Text lists and notes are **hairline rows**, not cards: `.cs-rows` + `.cs-row`, `.cs-numlist` + `.cs-numrow`, `.cs-decisions`. **Callout and quote, no bars and no boxes.** A brief or process note is a `.callout` (orange dash on top, optional `.cs-label`, body text). Anyone's words are a `Quote` (`src/components/Quote.tsx`: large quote mark in the index colour, serif italic, attribution in grey 14px; `small` inside cards). A result line is bold ink with no marker. Page-level pull quotes (About, Tamkeen) use the same glyph colour at display size. Never a vertical bar, never a tinted or outlined box around text.
 - Do not nest a box inside a box.
 - Cards that are **not clickable** (methodologies, education, certifications) use the quiet tint `rgba(0,47,167,0.05)`, no border, no shadow, no hover lift. White outline cards are for things that link somewhere, with one exception: the Contact info cards, which are outline cards that hold their own primary and secondary buttons (only the buttons click).
 

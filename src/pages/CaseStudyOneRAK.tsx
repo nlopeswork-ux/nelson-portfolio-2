@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSwipe } from '../components/useSwipe'
+import Quote from '../components/Quote'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronDown from '../components/ChevronDown'
 import ChevronUp from '../components/ChevronUp'
@@ -419,10 +420,7 @@ export default function CaseStudyOneRAK() {
           </div>
         </div>
 
-        <div style={{ padding: '2px 0 2px 20px', borderLeft: '3px solid #C9D9FF', marginBottom: 32 }}>
-          <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote1}</p>
-          <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{t.quote1Attr}</p>
-        </div>
+        <Quote text={t.quote1} by={t.quote1Attr} />
 
         <div style={{ padding: 24, borderRadius: 20, background: '#F2F6FF', border: '1px solid #EAF1FF', marginBottom: 32 }}>
           <div className="rg-3">
@@ -468,10 +466,7 @@ export default function CaseStudyOneRAK() {
         <div>
           <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{t.track4Title}</div>
           <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{t.track4Body}</p>
-          <div style={{ padding: '2px 0 2px 20px', borderLeft: '3px solid #C9D9FF' }}>
-            <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{t.quote2}</p>
-            <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{t.quote2Attr}</p>
-          </div>
+          <Quote text={t.quote2} by={t.quote2Attr} />
         </div>
 
         <div style={{ marginTop: 24 }}>
@@ -621,10 +616,7 @@ export default function CaseStudyOneRAK() {
             </div>
           ))}
         </div>
-        <div style={{ padding: '24px 28px', borderRadius: 20, border: '1px solid rgba(61,99,224,0.2)', background: 'rgba(0,47,167,0.03)' }}>
-          <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.7, color: '#3A3F4C', margin: '0 0 8px' }}>{t.quote3}</p>
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C' }}>{t.quote3Attr}</div>
-        </div>
+        <Quote text={t.quote3} by={t.quote3Attr} />
       </div>
     </CaseStudyShell>
   )

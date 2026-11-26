@@ -1604,9 +1604,7 @@ html { scrollbar-gutter: stable; }
 .cs-decision-title { font-size: 16px; font-weight: 700; color: #12141F; }
 .cs-decision-body p { font-size: 15px; line-height: 1.7; color: #5A5F73; margin: 0 0 10px; }
 .cs-decision-body p:last-child { margin-bottom: 0; }
-.cs-decision-body .cs-decision-result { color: #12141F; font-weight: 600; padding-left: 12px; border-left: 3px solid var(--color-accent); }
-/* The brief: a pulled passage with an orange bar, not a tinted box */
-.cs-brief { padding: 2px 0 2px 20px; border-left: 3px solid var(--color-accent); }
+.cs-decision-body .cs-decision-result { color: #12141F; font-weight: 600; }
 /* Module list: two columns of hairline rows */
 /* Hairlines only BETWEEN rows: none under the heading, none after the last row (the orange section bar closes the section) */
 .cs-rows { gap: 0 40px !important; margin-top: -2px; clip-path: inset(2px 0 0 0); }
@@ -1718,3 +1716,19 @@ html { scrollbar-gutter: stable; }
 .cs-main[data-depth] > [data-level] { animation: cs-depth-in 280ms var(--ease-out); }
 @keyframes cs-depth-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .cs-main[data-depth] > [data-level] { animation: none; } }
+
+/* ── Callout and quote: the two highlighted-text patterns, no bars and no boxes ──
+   Callout = an insight the page wants you to stop on (brief, process note). A short orange dash opens it, like the section bar.
+   Quote = someone else's words: serif italic, large quote mark in the index colour, quiet attribution. */
+.callout { margin: 32px 0; max-width: 64ch; }
+.callout::before { content: ''; display: block; width: 24px; height: 3px; border-radius: 2px; background: var(--color-accent); margin-bottom: 14px; }
+.callout > .cs-label { margin: 0 0 8px; }
+.callout > p:last-child { margin-bottom: 0 !important; }
+.quote { margin: 0 0 32px; max-width: 62ch; }
+.quote::before { content: '\201C'; display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1; height: 26px; color: var(--color-index); opacity: 0.5; }
+.quote blockquote { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 19px; line-height: 1.5; color: #2A2F3A; }
+.quote figcaption { margin-top: 10px; font-size: 14px; line-height: 1.4; color: #5A5F73; }
+.quote--sm { margin: 0 0 14px; }
+.quote--sm::before { font-size: 34px; height: 20px; }
+.quote--sm blockquote { font-size: 16px; }
+.quote--sm figcaption { font-size: 13px; margin-top: 6px; }

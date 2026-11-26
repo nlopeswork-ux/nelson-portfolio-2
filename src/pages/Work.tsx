@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import Quote from '../components/Quote'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import ChevronRight from '../components/ChevronRight'
@@ -302,12 +303,7 @@ export default function Work() {
                 <div className="hs-meta" style={{ marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{s.title}</h3>
                 <p style={{ fontSize: 15, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
-                {s.quote && (
-                  <div style={{ padding: '14px 16px', borderRadius: 12, background: 'rgba(20,30,60,0.03)', marginBottom: 14 }}>
-                    <p style={{ fontSize: 14, fontStyle: 'italic', lineHeight: 1.55, color: '#3A3F4C', margin: '0 0 6px' }}>"{s.quote}"</p>
-                    <div style={{ fontSize: 13, fontWeight: 600, color: '#001A5C' }}>— {s.quoteAttribution}</div>
-                  </div>
-                )}
+                {s.quote && <Quote text={s.quote} by={s.quoteAttribution} small />}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
               </div>
             </Link>

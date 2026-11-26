@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSwipe } from '../components/useSwipe'
+import Quote from '../components/Quote'
 import CaseStudyShell, { Body, DarkBox, SeverityChip } from '../components/CaseStudyShell'
 import ChevronLeft from '../components/ChevronLeft'
 import ChevronRight from '../components/ChevronRight'
@@ -549,12 +550,7 @@ export default function CaseStudyIntelliForge() {
                 <div key={title} style={{ flex: '0 0 100%', paddingRight: 4 }}>
                   <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 8 }}>{title}</div>
                   <p style={{ fontSize: 16, lineHeight: 1.75, color: '#5A5F73', margin: '0 0 12px' }}>{body}</p>
-                  {quote && (
-                    <div style={{ padding: '16px 20px', borderLeft: '3px solid #C9D9FF', background: '#F2F6FF', borderRadius: '0 10px 10px 0', marginBottom: 12 }}>
-                      <p style={{ fontSize: 16, fontStyle: 'italic', color: '#12141F', lineHeight: 1.6, margin: '0 0 6px' }}>{quote}</p>
-                      <p style={{ fontSize: 14, color: '#5A5F73', margin: 0 }}>{quoteAttrib}</p>
-                    </div>
-                  )}
+                  {quote && <Quote text={quote} by={quoteAttrib} small />}
                   <p style={{ fontSize: 16, fontWeight: 600, color: '#12141F', margin: 0 }}>{t.resultLabel}{result}</p>
                 </div>
               ))}
@@ -597,10 +593,7 @@ export default function CaseStudyIntelliForge() {
             </tbody>
           </table>
         </div>
-        <div style={{ padding: '24px 28px', borderRadius: 20, border: '1px solid rgba(61,99,224,0.2)', background: 'rgba(0,47,167,0.03)' }}>
-          <p style={{ fontSize: 16, fontStyle: 'italic', lineHeight: 1.7, color: '#3A3F4C', margin: '0 0 8px' }}>"{t.quote}"</p>
-          <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C' }}>{t.quoteAttrib}</div>
-        </div>
+        <Quote text={t.quote} by={t.quoteAttrib} />
       </div>
 
       {/* METHOD */}

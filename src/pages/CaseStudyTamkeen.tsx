@@ -450,7 +450,7 @@ export default function CaseStudyTamkeen() {
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 20px' }}>{t.workshop1}</p>
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.workshop2}</p>
 
-        <div className="cs-brief" style={{ marginBottom: 32 }}>
+        <div className="callout">
           <div className="cs-label" style={{ marginBottom: 8 }}>{t.processLabel}</div>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#3A3F4C', margin: 0 }}>{t.processBody}</p>
         </div>
@@ -468,7 +468,7 @@ export default function CaseStudyTamkeen() {
         </div>
 
         <div style={{ textAlign: 'center', padding: '24px 0' }}>
-          <div style={{ fontFamily: "Georgia,'Times New Roman',serif", fontSize: 44, lineHeight: 1, color: '#001A5C', opacity: 0.35, marginBottom: 8 }}>"</div>
+          <div style={{ fontFamily: "Georgia,'Times New Roman',serif", fontSize: 44, lineHeight: 1, color: 'var(--color-index)', opacity: 0.5, marginBottom: 8 }}>"</div>
           <p style={{ fontFamily: "Georgia,'Times New Roman',serif", fontStyle: 'italic', fontSize: 24, lineHeight: 1.45, color: '#2A2F3A', margin: 0 }}>{t.pullQuote}</p>
         </div>
       </div>
