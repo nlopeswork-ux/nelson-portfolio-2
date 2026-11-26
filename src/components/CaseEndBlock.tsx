@@ -25,7 +25,8 @@ const copy = {
 
 /**
  * Closing block for case studies and the Contact page: same treatment as the homepage Work card
- * (tinted surface, orange circle peeking from the bottom edge), laid out horizontally with two mini case cards.
+ * (tinted surface, orange circle peeking from the bottom edge), laid out horizontally with two `.related-card`s,
+ * the same cards used in the sidebar of the ERA and EDP case pages.
  * `withCta` = the page's single primary action (case studies). The Contact page already has its own primary.
  */
 export default function CaseEndBlock({ slug = '', withCta = true }: { slug?: string; withCta?: boolean }) {
@@ -44,12 +45,13 @@ export default function CaseEndBlock({ slug = '', withCta = true }: { slug?: str
           <Link to="/work" className="hs-cta" style={{ marginTop: 0, paddingTop: 0 }}>{t.allWork}<ChevronRight size={15} /></Link>
         </div>
       </div>
-      <ul className="ceb-cases">
+      <ul className="related-list ceb-cases">
         {cases.map(c => (
           <li key={c.slug}>
-            <Link to={`/work/${c.slug}`} className="ceb-mini interactive-card">
-              <img src={c.image} alt="" />
-              <span className="ceb-mini-title">{c.title}<ChevronRight size={14} /></span>
+            <Link to={`/work/${c.slug}`} className="related-card">
+              <img src={c.image} alt="" className="related-thumb" />
+              <span className="related-title">{c.title}</span>
+              <ChevronRight size={14} />
             </Link>
           </li>
         ))}
