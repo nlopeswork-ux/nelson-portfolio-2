@@ -58,7 +58,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
   4. Tiny moments of voice: the footer line and the 404 dot.
 - **Text contrast (WCAG AA, 4.5:1):** the lightest grey allowed for text is `#6B7086` (4.9:1 on white). Never use `#7A7F94`, `#8A8FA3` or `#A0A4B8` for text. Checked pairs: `#4A4F63`, `#5A5F73` on white, `#F2F6FF` and the quiet tint; `--color-index` on white and tints (6.9 to 7.5); `#8FAEFF` and `#C7D4FF` on `#12141F`; white on `#002FA7`.
 - Semantic colours stay semantic: red = rejected/critical, green = shipped/positive.
-- **Index numbers (01, 02…)** use `--color-index` (`#46537F`, a desaturated slate blue, 7.5:1 on white) so they read as labels, never as actions. Numbers appear at **one level only**: the section (case-study sections, listing cards, stepper steps). Never number items inside a numbered section (rows, decisions, modules, deliverables): two levels of 01, 02 read as a sequence and confuse. Outputs/deliverables are never numbered. Use the `.idx` class for inline numbers before titles. Cards that are not ordered (Contact) show an icon instead of a number.
+- **Index numbers (01, 02…)** use `--color-index` (`#46537F`, a desaturated slate blue, 7.5:1 on white) so they read as labels, never as actions. Numbers appear at **one level only**: the section (case-study sections and stepper steps). Never number items inside a numbered section (rows, decisions, modules, deliverables): two levels of 01, 02 read as a sequence and confuse. Outputs/deliverables are never numbered. Use the `.idx` class for inline numbers before titles. Cards that are not ordered (Contact) show an icon instead of a number.
 - Pull quotes: one large blue opening glyph centred above the quote, no extra quote marks around the text.
 
 ### Typography
@@ -94,6 +94,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 
 ### Action shapes and hierarchy
 - **Shape = role.** Rectangle with 12px radius: navigate or commit (`.primary-btn`, `.secondary-btn`). Pill (full radius): a clickable state or selection (filters, stepper steps, toggles, active nav). Circle: icon-only control (carousel arrows, back to top). Text link with chevron: lightweight navigation (`.hs-cta`).
+- **No badges on cards.** A card's category or meta line ("9 case studies", "Financial Services", "Energy") is plain text in the `.hs-meta` style (display font, 13px/800, `--color-index`), never a pill or a tinted tag. Cards on the homepage and the Work listing carry no number either.
 - **A pill always clicks.** Things that do not click (tags, severity, "+N") use an 8px radius and a quiet fill, never a pill.
 - **One primary per page**, in the place where the visitor decides. Home: "View work". Case studies: "Get in touch" in the closing block. Contact: "Send an email". 404: "View work". Pages with no decision (Work, Journey, About) have none; do not add one for symmetry.
 - A second action on the same page is a `.secondary-btn` or a text link, never a second primary. Do not repeat the same destination twice as buttons.
