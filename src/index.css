@@ -1717,13 +1717,14 @@ html { scrollbar-gutter: stable; }
 @keyframes cs-depth-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .cs-main[data-depth] > [data-level] { animation: none; } }
 
-/* ── Callout and quote: the two highlighted-text patterns, no bars and no boxes ──
-   Callout = an insight the page wants you to stop on (brief, process note). A short orange dash opens it, like the section bar.
+/* ── Callout and quote: the two highlighted-text patterns, no bars, no boxes and no orange (orange dash = section divider only) ──
+   Callout = an insight the page wants you to stop on (brief, process note): micro-label, then the first paragraph set larger and heavier.
    Quote = someone else's words: serif italic, large quote mark in the index colour, quiet attribution. */
-.callout { margin: 32px 0; max-width: 64ch; }
-.callout::before { content: ''; display: block; width: 24px; height: 3px; border-radius: 2px; background: var(--color-accent); margin-bottom: 14px; }
-.callout > .cs-label { margin: 0 0 8px; }
-.callout > p:last-child { margin-bottom: 0 !important; }
+.callout { margin: 36px 0; max-width: 62ch; }
+.callout > .cs-label { margin: 0 0 10px; }
+.callout > p { font-size: 16px; line-height: 1.75; font-weight: 400; color: #4A4F63; margin: 0 0 14px; }
+.callout > p:first-of-type { font-size: 19px; line-height: 1.55; font-weight: 500; color: var(--ink-headline); }
+.callout > p:last-child { margin-bottom: 0; }
 .quote { margin: 0 0 32px; max-width: 62ch; }
 .quote::before { content: '\201C'; display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1; height: 26px; color: var(--color-index); opacity: 0.5; }
 .quote blockquote { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 19px; line-height: 1.5; color: #2A2F3A; }

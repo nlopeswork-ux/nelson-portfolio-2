@@ -451,8 +451,8 @@ export default function CaseStudyTamkeen() {
         <p style={{ fontSize: 16, lineHeight: 1.8, color: '#4A4F63', margin: '0 0 32px' }}>{t.workshop2}</p>
 
         <div className="callout">
-          <div className="cs-label" style={{ marginBottom: 8 }}>{t.processLabel}</div>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#3A3F4C', margin: 0 }}>{t.processBody}</p>
+          <div className="cs-label">{t.processLabel}</div>
+          <p>{t.processBody}</p>
         </div>
 
         <h3 className="cs-h3">{t.quickWinsTitle}</h3>

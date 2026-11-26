@@ -265,7 +265,7 @@ export default function CaseStudyDesignSystem() {
         <h2 style={H2}>{t.phase1Title}</h2>
         <Body>{t.phase1Intro}</Body>
 
-        <div className="callout">
+        <div style={{ marginBottom: 28 }}>
           <h3 className="cs-h3">{t.auditingTitle}</h3>
 
           <div style={{ display: 'flex', gap: 20, alignItems: 'baseline', flexWrap: 'wrap', padding: '16px 20px', borderRadius: 14, background: '#12141F', color: '#F2F6FF', marginBottom: 16 }}>
