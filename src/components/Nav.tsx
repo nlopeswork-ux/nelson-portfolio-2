@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useLanguage, type Lang } from '../i18n/LanguageContext'
-import ChevronDown from './ChevronDown'
 
 const linksByLang: Record<Lang, { to: string; label: string }[]> = {
   en: [
@@ -18,36 +17,29 @@ const linksByLang: Record<Lang, { to: string; label: string }[]> = {
   ],
 }
 
-const LANG_LABEL: Record<Lang, string> = { pt: 'PT', en: 'EN' }
+const LANGS: { code: Lang; label: string; name: string }[] = [
+  { code: 'pt', label: 'PT', name: 'Português' },
+  { code: 'en', label: 'EN', name: 'English' },
+]
 
+// Two languages only, so both are always visible: a segmented toggle (pill = selection state).
 function LanguageSwitch() {
   const { lang, setLang } = useLanguage()
-  const [open, setOpen] = useState(false)
-  const other: Lang = lang === 'pt' ? 'en' : 'pt'
-
   return (
-    <div style={{ position: 'relative' }}>
-      <button
-        type="button"
-        onClick={() => setOpen(o => !o)}
-        aria-expanded={open}
-        aria-label={lang === 'pt' ? 'Selecionar idioma' : 'Select language'}
-        style={{ display: 'inline-flex', alignItems: 'center', gap: 4, background: 'none', border: 'none', cursor: 'pointer', padding: '6px 4px', fontSize: 13, fontWeight: 600, color: '#4A4F63', fontFamily: "'Inter', sans-serif" }}
-      >
-        {LANG_LABEL[lang]}
-        <span style={{ display: 'inline-flex', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 200ms var(--ease-out)' }}>
-          <ChevronDown size={12} className="" />
-        </span>
-      </button>
-      <div className={`lang-switch-panel${open ? ' open' : ''}`}>
+    <div className="lang-toggle" role="group" aria-label={lang === 'pt' ? 'Idioma' : 'Language'}>
+      {LANGS.map(l => (
         <button
+          key={l.code}
           type="button"
-          onClick={() => { setLang(other); setOpen(false) }}
-          style={{ display: 'block', width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 10px', fontSize: 13, fontWeight: 600, color: '#4A4F63', fontFamily: "'Inter', sans-serif", whiteSpace: 'nowrap' }}
+          lang={l.code}
+          className={`lang-toggle-btn${lang === l.code ? ' active' : ''}`}
+          aria-pressed={lang === l.code}
+          aria-label={l.name}
+          onClick={() => setLang(l.code)}
         >
-          {LANG_LABEL[other]}
+          {l.label}
         </button>
-      </div>
+      ))}
     </div>
   )
 }

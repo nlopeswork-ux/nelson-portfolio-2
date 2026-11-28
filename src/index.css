@@ -1001,25 +1001,17 @@ input::placeholder { color: #6B7086; }
   opacity: 0.5;
 }
 
-/* ── Language switch (accordion, not a boxed dropdown) ── */
-.lang-switch-panel {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  min-width: 100%;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background: rgba(255,255,255,0.98);
-  border-radius: 10px;
-  transition: max-height 200ms var(--ease-out), opacity 150ms var(--ease-out);
+/* ── Language toggle (two languages: both always visible) ── */
+.lang-toggle { display: inline-flex; padding: 3px; border-radius: 999px; background: #F2F6FF; }
+.lang-toggle-btn { position: relative; border: 0; background: transparent; cursor: pointer; padding: 5px 11px; border-radius: 999px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: #4A4F63; transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 120ms var(--ease-out); }
+.lang-toggle-btn.active { background: #002FA7; color: #FFFFFF; }
+.lang-toggle-btn:active { transform: scale(0.97); }
+.lang-toggle-btn:focus-visible { outline: 2px solid #002FA7; outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) {
+  .lang-toggle-btn:not(.active):hover { color: #002FA7; }
 }
-.lang-switch-panel.open {
-  max-height: 60px;
-  opacity: 1;
-  pointer-events: auto;
-}
+@media (pointer: coarse) { .lang-toggle-btn::after { content: ''; position: absolute; inset: -6px -2px; } }
+@media (prefers-reduced-motion: reduce) { .lang-toggle-btn { transition: none; } }
 
 .nav-links { display: flex; gap: 4px; font-size: 14px; font-weight: 500; }
 .nav-link {
