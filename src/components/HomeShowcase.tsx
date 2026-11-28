@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ChevronRight from './ChevronRight'
 
@@ -8,9 +9,30 @@ type Featured = { to: string; label: string; title: string; desc: string; img: s
 // bleeding off its edge) and two lighter cards beside it. Order of `items`: Work, Journey, About.
 export default function HomeShowcase({ items, featured }: { items: Item[]; featured: Featured }) {
   const [work, ...rest] = items
+  const card = useRef<HTMLDivElement>(null)
+
+  // Playful touch: the orange circle rises from the bottom edge as the card scrolls into view,
+  // and stops at its resting height. Respects reduced motion (circle simply sits at rest).
+  useEffect(() => {
+    const el = card.current
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const vh = window.innerHeight
+      const p = Math.min(1, Math.max(0, (vh * 0.95 - el.getBoundingClientRect().top) / (vh * 0.65)))
+      el.style.setProperty('--orb-p', p.toFixed(3))
+    }
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); if (raf) cancelAnimationFrame(raf) }
+  }, [])
+
   return (
     <section className="hs">
-      <div className="hs-work interactive-card">
+      <div className="hs-work interactive-card" ref={card}>
         <span className="hs-blob" aria-hidden="true" />
         <div className="hs-work-copy">
           <div className="hs-top"><span className="hs-meta">{work.meta}</span></div>

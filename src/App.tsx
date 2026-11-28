@@ -6,7 +6,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { LanguageProvider } from './i18n/LanguageContext'
 import Portfolio from './pages/Portfolio'
 import HomeV2 from './pages/HomeV2'
-import HomeV3 from './pages/HomeV3'
 const NotFound = lazy(() => import('./pages/NotFound'))
 const Work = lazy(() => import('./pages/Work'))
 const Journey = lazy(() => import('./pages/Journey'))
@@ -30,7 +29,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="/v2" element={<HomeV2 />} />
-          <Route path="/v3" element={<HomeV3 />} />
           <Route path="/work" element={<Work />} />
           <Route path="/work/intelliforge" element={<CaseStudyIntelliForge />} />
           <Route path="/work/onerak" element={<CaseStudyOneRAK />} />

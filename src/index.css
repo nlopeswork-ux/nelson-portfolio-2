@@ -1559,7 +1559,7 @@ html { scrollbar-gutter: stable; }
 .hs-featured-link { position: relative; z-index: 2; }
 /* One big graphic orange circle cropped by the card corner (replaces the small repeated dots) */
 /* A true circle rising from the bottom edge behind the artwork: only its top cap shows (graphic accent) */
-.hs-blob { --blob: clamp(300px, 42vw, 460px); position: absolute; left: 50%; bottom: calc(var(--blob) * -0.76); width: var(--blob); height: var(--blob); margin-left: calc(var(--blob) / -2); border-radius: 50%; background: var(--color-accent); opacity: 0.85; pointer-events: none; transition: transform 400ms var(--ease-out); }
+.hs-blob { --blob: clamp(300px, 42vw, 460px); position: absolute; left: 50%; bottom: calc(var(--blob) * -0.76); width: var(--blob); height: var(--blob); margin-left: calc(var(--blob) / -2); border-radius: 50%; background: var(--color-accent); opacity: 0.85; pointer-events: none; transform: translateY(calc((1 - var(--orb-p, 1)) * var(--blob) * 0.3)); transition: transform 140ms var(--ease-out); }
 .hs-side { position: relative; display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border-radius: 20px; background: #FFFFFF; border: 1px solid rgba(20, 30, 60, 0.1); transition: transform 240ms var(--ease-out), border-color 240ms var(--ease-out), box-shadow 240ms var(--ease-out); }
 .hs-top { display: flex; align-items: center; gap: 12px; }
 .hs-top > svg { flex-shrink: 0; }
@@ -1580,7 +1580,7 @@ html { scrollbar-gutter: stable; }
   .hs-work:has(.hs-work-media:hover) .hs-featured-link { text-decoration: underline; text-underline-offset: 3px; }
   .hs-side:hover { transform: translateY(-3px); border-color: rgba(0, 47, 167, 0.3); box-shadow: 0 16px 36px rgba(20, 30, 60, 0.08); }
   .hs a:hover .hs-cta svg { transform: translateX(3px); }
-  .hs-work:hover .hs-blob { transform: translateY(-8px); }
+  .hs-work:hover .hs-blob { transform: translateY(calc(-8px + (1 - var(--orb-p, 1)) * var(--blob) * 0.3)); }
 }
 .hs-side:active, .hs-work:active { transform: scale(0.99); transition-duration: 120ms; }
 @media (max-width: 860px) {
@@ -1747,27 +1747,3 @@ html { scrollbar-gutter: stable; }
 .work-grid .case-card > div:last-child { flex: 1; display: flex; flex-direction: column; }
 .work-grid .case-card > div:last-child > div:last-child { margin-top: auto; padding-top: 12px; }
 
-/* ── Homepage v3: stacked cascade of large cards (Work, Journey, About), driven by scroll ── */
-.stack { position: relative; max-width: 1200px; margin: 0 auto var(--section-gap); padding: 0 32px; }
-.stack-sticky { position: relative; }
-.stack-stage { position: relative; display: flex; flex-direction: column; gap: 20px; }
-.stack-card { position: relative; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(28px, 4vw, 56px); border-radius: 28px; border: 1px solid rgba(20, 30, 60, 0.08); background: #F2F6FF; box-shadow: 0 24px 60px rgba(0, 47, 167, 0.08); }
-.stack-card--journey { background: #FFFFFF; }
-.stack-copy { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; }
-.stack-title { font-family: var(--font-display); font-size: clamp(48px, 7vw, 104px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--ink-headline); margin: 20px 0 16px; }
-.stack-desc { font-size: clamp(16px, 1.6vw, 20px); line-height: 1.55; color: #5A5F73; max-width: 36ch; margin: 0; }
-.stack .hs-actions { margin-top: 28px; }
-.stack-visual { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; min-width: 0; }
-.stack-visual img { display: block; width: 100%; max-width: 560px; height: auto; }
-.stack-photo { border-radius: 20px; max-height: 420px; object-fit: cover; }
-.stack-timeline { width: 100%; max-width: 460px; height: auto; }
-.stack .hs-cta { margin-top: 0; padding-top: 0; }
-/* live mode: the stage is pinned and the cards are layered */
-.stack.is-live .stack-sticky { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; padding-top: 72px; }
-.stack.is-live .stack-stage { display: block; width: 100%; height: min(600px, calc(100vh - 190px)); }
-.stack.is-live .stack-card { position: absolute; inset: 0; will-change: transform, opacity; transform-origin: 50% 100%; }
-@media (max-width: 860px) {
-  .stack { padding: 0 24px; }
-  .stack-card { grid-template-columns: minmax(0, 1fr); }
-  .stack-title { font-size: clamp(44px, 14vw, 72px); }
-}
