@@ -107,6 +107,8 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 
 - **Home Work card:** the card as a whole opens `/work` ("See the work" is the stretched link). The image and the "Featured: IntelliForge SR2R" link open the featured case, and they answer each other on hover (image zooms, link underlines). Labels stay short enough for one line on a 375px screen in EN and PT ("Featured: …" / "Em destaque: …").
 
+- **Homepage v3 (`/#/v3`)** shows Work, Journey and About as three large cards in a scroll-driven cascade (`HomeStack`): the first card in front, the others layered behind, the front card leaving upward as you scroll. It is a single live-mode layout for desktop with motion allowed; below 860px or with reduced motion the cards are a plain column. Same links, copy and meta as the other homepages, only the presentation differs.
+
 ### Buttons and links (reuse, never invent)
 - **One link behaviour everywhere:** every text link (`.hs-cta`, `.text-link` for inline links, side-menu and breadcrumb links) underlines on hover, on fine pointers only; keyboard focus keeps its outline. When a whole card links somewhere, the link text inside it underlines when the card is hovered. Never set `textDecoration` inline on a link, and never underline links permanently.
 - Primary action: `.primary-btn` (blue fill, 12px radius, padding 16/32, 15px/600).

@@ -1,0 +1,139 @@
+import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
+import ChevronRight from '../components/ChevronRight'
+import { useLanguage, type Lang } from '../i18n/LanguageContext'
+import intelliforgeImg from '../imports/hero.webp'
+import HomeStack from '../components/HomeStack'
+import HeroShowreel from '../components/HeroShowreel'
+
+function useFadeIn() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect() } },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+  return { ref, visible, style: { opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(16px)', transition: 'opacity 600ms ease-out, transform 600ms ease-out' } }
+}
+
+const copy = {
+  en: {
+    role: 'Lead UX/UI & Product Designer · Lisbon',
+    titleLine1: 'Product systems for',
+    titleLine2Pre: '',
+    titleLine2Highlight: 'high-stakes',
+    titleLine2Post: ' decisions.',
+    subtitle: 'I design the decision layer of enterprise products in banking, insurance and government.',
+    showreelLabel: 'Showreel of product work: banking app with an AI assistant, government licensing flows, a design system, energy, coaching and real estate products, and a map of my 18 self-assessed competencies.',
+    viewWork: 'View work',
+    getInTouch: 'Get in touch',
+    featuredLabel: 'Featured',
+    featuredTitle: 'IntelliForge SR2R',
+    featuredDesc: 'A control layer for a 10× bid.',
+    seeCaseStudy: 'See case study',
+    rows: [
+      { to: '/work', label: 'Work', cta: 'See the work', meta: '7 case studies', desc: 'Enterprise systems where the interface is only as good as the decisions underneath it.' },
+      { to: '/journey', label: 'Journey', cta: 'See the journey', meta: '11 years, 4 studios', desc: 'From graphic design to leading product strategy. One throughline.' },
+      { to: '/about', label: 'About', cta: 'Get to know me', meta: 'Philosophy and curiosity', desc: 'How I think, what I believe about design, and what keeps me curious beyond the screen.' },
+    ],
+    contactTitleLine1: "Let's build something",
+    contactTitleLine2: 'thoughtful together.',
+    contactSubtitle: 'Based in Lisbon, open to select global opportunities.',
+    emailMe: 'Email me directly',
+  },
+  pt: {
+    role: 'Lead UX/UI & Product Designer · Lisboa',
+    titleLine1: 'Sistemas de produto para decisões de',
+    titleLine2Pre: '',
+    titleLine2Highlight: 'alto risco.',
+    titleLine2Post: '',
+    subtitle: 'Desenho a camada de decisão de produtos empresariais em banca, seguros e setor público.',
+    showreelLabel: 'Showreel de trabalho de produto: app bancária com assistente AI, fluxos de licenciamento governamentais, um design system produtos de energia, coaching e imobiliário, e um mapa das minhas 18 competências autoavaliadas.',
+    viewWork: 'Ver trabalho',
+    getInTouch: 'Contactar',
+    featuredLabel: 'Em destaque',
+    featuredTitle: 'IntelliForge SR2R',
+    featuredDesc: 'Uma camada de controlo para uma proposta 10×.',
+    seeCaseStudy: 'Ver case study',
+    rows: [
+      { to: '/work', label: 'Trabalho', cta: 'Ver o trabalho', meta: '7 case studies', desc: 'Sistemas empresariais onde a interface só é tão boa quanto as decisões por trás dela.' },
+      { to: '/journey', label: 'Percurso', cta: 'Ver o percurso', meta: '11 anos, 4 estúdios', desc: 'Do design gráfico à liderança de estratégia de produto. Um só fio condutor.' },
+      { to: '/about', label: 'Sobre', cta: 'Conhecer-me', meta: 'Filosofia e curiosidade', desc: 'Como penso, no que acredito em design, e o que me mantém curioso para além do ecrã.' },
+    ],
+    contactTitleLine1: 'Vamos construir algo',
+    contactTitleLine2: 'cuidado, juntos.',
+    contactSubtitle: 'Vivo em Lisboa, disponível para oportunidades globais selecionadas.',
+    emailMe: 'Enviar email diretamente',
+  },
+}
+
+export default function HomeV3() {
+  const { lang } = useLanguage()
+  const t = copy[lang as Lang]
+  const contact = useFadeIn()
+
+  return (
+    <div style={{ position: 'relative', overflow: 'clip', background: '#FFFFFF', minHeight: '100vh' }}>
+      <Nav />
+
+      {/* HERO */}
+      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px var(--section-gap)' }}>
+
+        {/* geometric accents */}
+        <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: '50%', opacity: 0.5 }} />
+
+        <div className="hv1-hero-grid">
+        <div className="hv1-hero-copy">
+          <div className="hero-reveal" style={{ transitionDelay: '0ms', fontSize: 13, fontWeight: 600, letterSpacing: '0.06em', lineHeight: 1.5, textWrap: 'balance', textTransform: 'uppercase', color: '#001A5C', marginBottom: 24 }}>{t.role}</div>
+          <h1 className="hero-reveal" style={{ transitionDelay: '60ms', textWrap: 'balance', fontSize: lang === 'pt' ? 'clamp(30px,3.6vw,50px)' : 'clamp(30px,4vw,56px)', lineHeight: 1.06, fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--ink-headline)', margin: '0 0 28px' }}>
+            {t.titleLine1}{' '}{t.titleLine2Pre}<span style={{ whiteSpace: 'nowrap' }}><span className="hero-highlight">{t.titleLine2Highlight}</span></span>{t.titleLine2Post ? <>{' '}<span style={{ whiteSpace: 'nowrap' }}>{t.titleLine2Post.trim()}</span></> : null}
+          </h1>
+          <p className="hero-reveal" style={{ transitionDelay: '120ms', fontSize: 'clamp(16px, 2vw, 20px)', lineHeight: 1.6, fontWeight: 400, color: '#5A5F73', maxWidth: 520, margin: '0 0 36px' }}>
+            {t.subtitle}
+          </p>
+          <div className="hero-reveal hv1-hero-actions" style={{ transitionDelay: '180ms' }}>
+            <Link to="/work" className="primary-btn">
+              {t.viewWork}<ChevronRight />
+            </Link>
+            <Link to="/contact" className="secondary-btn">
+              {t.getInTouch}
+            </Link>
+          </div>
+        </div>
+        <div className="hero-reveal hv1-hero-media" style={{ transitionDelay: '240ms' }}>
+          <HeroShowreel label={t.showreelLabel} />
+        </div>
+        </div>
+      </div>
+
+      {/* WORK / JOURNEY / ABOUT: stacked cascade, driven by scroll */}
+      <HomeStack
+        items={t.rows}
+        featured={{ to: '/work/intelliforge', label: t.featuredLabel, title: t.featuredTitle, desc: t.featuredDesc, img: intelliforgeImg, alt: 'IntelliForge SR2R desktop preview' }}
+      />
+
+      {/* CONTACT CTA */}
+      <div id="contact" ref={contact.ref} style={{ position: 'relative', padding: '0 32px var(--section-gap)', maxWidth: 1200, margin: '0 auto', ...contact.style }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', padding: '0 24px' }}>
+            <h2 style={{ fontSize: 'clamp(26px,3.2vw,36px)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 20px', lineHeight: 1.2 }}>
+              {t.contactTitleLine1}<br />{t.contactTitleLine2}
+            </h2>
+            <p style={{ fontSize: 17, color: '#5A5F73', margin: '0 0 36px' }}>{t.contactSubtitle}</p>
+            <a href="mailto:nlopes.nl@gmail.com" className="hs-cta" style={{ marginTop: 0, paddingTop: 0 }}>{t.emailMe}<ChevronRight size={15} /></a>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  )
+}
