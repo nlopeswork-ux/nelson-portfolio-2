@@ -303,7 +303,7 @@ export default function Work() {
                 <div className="hs-meta" style={{ marginBottom: 10 }}>{categoryLabel[lang][s.category]}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-headline)', margin: '0 0 6px' }}>{s.title}</h3>
                 <p style={{ fontSize: 15, lineHeight: 1.5, color: '#5A5F73', margin: '0 0 12px' }}>{s.summary}</p>
-                {s.quote && <Quote text={s.quote} by={s.quoteAttribution} small />}
+                {s.quote && <Quote text={s.quote} by={s.quoteAttribution} card />}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 15, fontWeight: 600, color: '#002FA7' }}>{p.readFull}<ChevronRight size={15} /></div>
               </div>
             </Link>

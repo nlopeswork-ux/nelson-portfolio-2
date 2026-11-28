@@ -1518,7 +1518,7 @@ html { scrollbar-gutter: stable; }
 /* About portrait: tall card on desktop, wide face-centred crop on mobile (less vertical scroll) */
 .about-photo-wrap { position: relative; flex: 0 0 auto; width: min(320px, 100%); animation: floatSlow 9s ease-in-out infinite; }
 .about-photo { width: 100%; height: 480px; }
-.about-brush { position: absolute; right: -40px; bottom: -26px; width: 200px; height: auto; transform: rotate(-6deg); pointer-events: none; z-index: 2; filter: drop-shadow(0 6px 14px rgba(61, 99, 224, 0.18)); }
+.about-brush { position: absolute; right: -40px; bottom: -26px; width: 200px; height: auto; transform: rotate(-6deg); pointer-events: none; z-index: 2; opacity: 0.85; }
 .about-photo img { object-position: center top; }
 @media (max-width: 760px) {
   .about-photo-wrap { width: 100%; animation: none; }
@@ -1733,7 +1733,16 @@ html { scrollbar-gutter: stable; }
 .quote::before { content: '\201C'; display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 44px; line-height: 1; height: 26px; color: var(--color-index); opacity: 0.5; }
 .quote blockquote { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 19px; line-height: 1.5; color: #2A2F3A; }
 .quote figcaption { margin-top: 10px; font-size: 14px; line-height: 1.4; color: #5A5F73; }
+.quote--card { margin: 0 0 14px; padding: 14px 16px; border-radius: 12px; background: rgba(0, 47, 167, 0.05); }
+.quote--card::before { font-size: 30px; height: 18px; }
+.quote--card blockquote { font-size: 16px; }
+.quote--card figcaption { font-size: 13px; margin-top: 6px; }
 .quote--sm { margin: 0 0 14px; }
 .quote--sm::before { font-size: 34px; height: 20px; }
 .quote--sm blockquote { font-size: 16px; }
 .quote--sm figcaption { font-size: 13px; margin-top: 6px; }
+
+/* Work listing: cards in a row share one height and their links sit on the same baseline (the lowest card decides) */
+.work-grid .case-card { display: flex !important; flex-direction: column; }
+.work-grid .case-card > div:last-child { flex: 1; display: flex; flex-direction: column; }
+.work-grid .case-card > div:last-child > div:last-child { margin-top: auto; padding-top: 12px; }
