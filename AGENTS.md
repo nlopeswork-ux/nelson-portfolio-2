@@ -94,7 +94,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 
 ### Action shapes and hierarchy
 - **Shape = role.** Rectangle with 12px radius: navigate or commit (`.primary-btn`, `.secondary-btn`). Pill (full radius): a clickable state or selection (filters, stepper steps, toggles, active nav). Circle: icon-only control (carousel arrows, back to top). Text link with chevron: lightweight navigation (`.hs-cta`).
-- **No badges on cards.** A card's category or meta line ("9 case studies", "Financial Services", "Energy") is plain text in the `.hs-meta` style (display font, 13px/800, `--color-index`), never a pill or a tinted tag. Cards on the homepage and the Work listing carry no number either.
+- **No badges on cards.** A card's category or meta line ("9 case studies", "Financial Services", "Energy") is plain text in the `.hs-meta` style (Inter 15px/500, `#5A5F73`, the same as the company line in the Journey blocks), never a pill or a tinted tag; heavy display-font labels next to a heading are too loud. Cards on the homepage and the Work listing carry no number either.
 - **A pill always clicks.** Things that do not click (tags, severity, "+N") use an 8px radius and a quiet fill, never a pill.
 - **One primary per page**, in the place where the visitor decides. Home: "View work". Case studies: "Get in touch" in the closing block. Contact: "Send an email". 404: "View work". Pages with no decision (Work, Journey, About) have none; do not add one for symmetry.
 - A second action on the same page is a `.secondary-btn` or a text link, never a second primary. Do not repeat the same destination twice as buttons.

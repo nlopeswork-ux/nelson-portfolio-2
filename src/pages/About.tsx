@@ -410,8 +410,17 @@ export default function About() {
             ))}
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.bioNote}</p>
           </div>
-          <div className="about-photo" style={{ flex: '0 0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 50px rgba(120,150,255,0.18)', background: '#F2F6FF' }}>
-            <img src={profileImg} alt="Nelson Lopes" width={1317} height={988} decoding="async" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          <div className="about-photo-wrap">
+            <div className="about-photo" style={{ borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 50px rgba(120,150,255,0.18)', background: '#F2F6FF' }}>
+              <img src={profileImg} alt="Nelson Lopes" width={1317} height={988} decoding="async" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            </div>
+            {/* soft light-blue brush stroke floating over the bottom-right corner of the photo (decoration only) */}
+            <svg className="about-brush" viewBox="0 0 220 120" aria-hidden="true" focusable="false">
+              <path d="M6 76C12 40 60 18 112 24C160 29 205 22 214 54C220 76 188 99 140 103C98 106 70 113 38 105C16 99 2 94 6 76Z" fill="#CFE0FF" opacity="0.78" />
+              <path d="M30 84C46 60 92 50 138 54C172 57 194 66 190 80C186 94 150 96 118 94C84 92 52 98 36 92C28 89 26 87 30 84Z" fill="#B7CCFF" opacity="0.55" />
+              <path d="M18 68C60 62 110 66 168 60" stroke="#FFFFFF" strokeOpacity="0.5" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <path d="M44 96C84 92 124 96 176 88" stroke="#FFFFFF" strokeOpacity="0.4" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+            </svg>
           </div>
         </div>
 
