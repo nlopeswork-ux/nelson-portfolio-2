@@ -519,13 +519,14 @@ input::placeholder { color: #6B7086; }
   flex-shrink: 0;
   width: 320px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   border-radius: 16px;
   padding: 22px;
   /* not clickable: same quiet tint as the methodology cards, no border or shadow */
   background: rgba(0, 47, 167, 0.05);
 }
+.cert-title { font-size: 16px; font-weight: 700; line-height: 1.35; color: #12141F; min-height: 2.7em; margin-bottom: 4px; }  /* two lines reserved: every card has the same height and the entity line sits on the same baseline */
 @keyframes cert-marquee-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

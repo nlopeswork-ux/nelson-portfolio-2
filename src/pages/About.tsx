@@ -557,6 +557,8 @@ export default function About() {
 
       <p style={{ textAlign: 'center', fontSize: 16, fontStyle: 'italic', color: '#5A5F73', maxWidth: 1200, margin: '0 auto 56px', padding: '0 20px' }}>{t.processNote}</p>
 
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 20px 56px' }}><div className="section-bar" aria-hidden="true" style={{ margin: 0 }} /></div>
+
       {/* ── HOW I WORK ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
         <div style={eyebrowWithTitle}>{t.howIWorkEyebrow}</div>
@@ -606,7 +608,7 @@ export default function About() {
         </div>
       </div>
 
-      <div aria-hidden="true" style={{ height: 48 }} />
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 20px 56px' }}><div className="section-bar" aria-hidden="true" style={{ margin: 0 }} /></div>
 
       {/* ── EDUCATION ── */}
       <div style={{ position: 'relative', padding: '0 20px 80px', maxWidth: 1200, margin: '0 auto' }}>
@@ -632,7 +634,7 @@ export default function About() {
                 {certifications.map(({ title, org }) => (
                   <div key={title} className="cert-card">
                     <div>
-                      <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{title}</div>
+                      <div className="cert-title">{title}</div>
                       <div style={{ fontSize: 14, color: '#5A5F73' }}>{org}</div>
                     </div>
                   </div>
