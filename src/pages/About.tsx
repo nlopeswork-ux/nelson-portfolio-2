@@ -472,7 +472,7 @@ export default function About() {
                 >
                   <span aria-hidden="true" className="philosophy-dot" />
                   <div style={{ fontSize: 14, fontWeight: 600, color: '#001A5C', minWidth: 24, flexShrink: 0 }}>{n}</div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: '#12141F' }}>{text}</div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: '#12141F', minWidth: 0 }}>{text}</div>
                 </div>
               )
             })}

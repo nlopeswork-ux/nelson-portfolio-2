@@ -555,8 +555,7 @@ input::placeholder { color: #6B7086; }
   display: flex;
   flex-direction: column;
   gap: 16px;
-  flex: 0 1 auto;
-  width: fit-content;
+  flex: 1 1 0;
   max-width: 100%;
   min-width: 0;
 }
@@ -567,13 +566,11 @@ input::placeholder { color: #6B7086; }
   padding: 20px 24px;
   border-radius: 14px;
   cursor: default;
-  white-space: nowrap;
   transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 @media (max-width: 768px) {
   .philosophy-layout { flex-direction: column; }
   .philosophy-list { width: 100%; }
-  .philosophy-row { white-space: normal; }
 }
 
 /* ── Responsive grids ── */
