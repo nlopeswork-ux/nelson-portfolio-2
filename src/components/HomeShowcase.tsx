@@ -11,7 +11,7 @@ export default function HomeShowcase({ items, featured }: { items: Item[]; featu
   const [work, ...rest] = items
   const card = useRef<HTMLDivElement>(null)
 
-  // Playful touch: the orange circle rises from the bottom edge as the card scrolls into view,
+  // Playful touch: the orange circle rises from the bottom edge once the card's bottom edge appears on screen,
   // and stops at its resting height. Respects reduced motion (circle simply sits at rest).
   useEffect(() => {
     const el = card.current
@@ -20,7 +20,8 @@ export default function HomeShowcase({ items, featured }: { items: Item[]; featu
     const update = () => {
       raf = 0
       const vh = window.innerHeight
-      const p = Math.min(1, Math.max(0, (vh * 0.95 - el.getBoundingClientRect().top) / (vh * 0.65)))
+      // starts when the card's bottom edge enters the viewport (that is where the circle lives), done after 40% of the screen
+      const p = Math.min(1, Math.max(0, (vh - el.getBoundingClientRect().bottom) / (vh * 0.4)))
       el.style.setProperty('--orb-p', p.toFixed(3))
     }
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
