@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from 'react'
+import { useEffect, useRef, useState, type ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
@@ -185,7 +185,7 @@ const copy = {
       'Today, I design enterprise products that transform complex systems into experiences that feel intuitive and efficient. Looking back, my career has never been about changing disciplines — it has been about broadening my perspective: from visual execution to strategic thinking, from designing screens to designing products that create value for both people and businesses.',
       "I believe the best design isn't the one people notice. It's the one that quietly helps them achieve what they came to do.",
     ],
-    bioNote: 'That work has also taken me across borders — international client engagements across financial services and government, among others.',
+    bioNote: 'That work has also taken me across borders — international client engagements across utilities, retail, financial services and government, among others.',
     howIThinkTitle: 'How I Think',
     howIThink: [
       'Curiosity has always shaped the way I approach both design and life.',
@@ -285,7 +285,7 @@ const copy = {
       'Hoje, desenho produtos empresariais que transformam sistemas complexos em experiências intuitivas e eficientes. Olhando para trás, a minha carreira nunca foi sobre mudar de disciplina — foi sobre alargar a perspetiva: da execução visual ao pensamento estratégico, de desenhar ecrãs a desenhar produtos que criam valor tanto para as pessoas como para os negócios.',
       'Acredito que o melhor design não é aquele que as pessoas notam. É aquele que, discretamente, as ajuda a alcançar aquilo que vieram fazer.',
     ],
-    bioNote: 'Esse trabalho também me levou além-fronteiras — colaborações internacionais com clientes em serviços financeiros e setor público, entre outros.',
+    bioNote: 'Esse trabalho também me levou além-fronteiras — colaborações internacionais com clientes em energia e utilities, retalho, serviços financeiros e setor público, entre outros.',
     howIThinkTitle: 'Como Penso',
     howIThink: [
       'A curiosidade sempre moldou a forma como encaro o design e a vida.',
@@ -384,6 +384,28 @@ export default function About() {
   const t = copy[lang]
   const [activePhase, setActivePhase] = useState(0)
   const [philosophyHover, setPhilosophyHover] = useState<number | null>(null)
+  const photoRef = useRef<HTMLDivElement>(null)
+
+  // Scroll-linked brush: --brush-p (0 to 1) is set straight on the element, no re-render.
+  // It draws in as the photo's bottom edge rises through the lower half of the viewport.
+  useEffect(() => {
+    const el = photoRef.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { el.style.setProperty('--brush-p', '1'); return }
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const r = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const p = Math.min(1, Math.max(0, (vh - r.bottom) / (vh * 0.4)))
+      el.style.setProperty('--brush-p', p.toFixed(3))
+    }
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); if (raf) cancelAnimationFrame(raf) }
+  }, [])
 
   const phaseCount = t.workPhases.length
   const phaseSwipe = useSwipe(() => setActivePhase(i => (i - 1 + phaseCount) % phaseCount), () => setActivePhase(i => (i + 1) % phaseCount))
@@ -410,13 +432,13 @@ export default function About() {
             ))}
             <p style={{ fontSize: 16, lineHeight: 1.7, color: '#5A5F73', margin: 0 }}>{t.bioNote}</p>
           </div>
-          <div className="about-photo-wrap">
+          <div className="about-photo-wrap" ref={photoRef}>
             <div className="about-photo" style={{ borderRadius: 20, overflow: 'hidden', boxShadow: '0 20px 50px rgba(120,150,255,0.18)', background: '#F2F6FF' }}>
               <img src={profileImg} alt="Nelson Lopes" width={1317} height={988} decoding="async" fetchPriority="high" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
             {/* one brush stroke in the hero video's style (thick, round-capped, #E8ECFA) floating over the photo's bottom-right corner */}
             <svg className="about-brush" viewBox="0 0 220 140" aria-hidden="true" focusable="false">
-              <path d="M26 104C58 46 116 34 154 66C176 84 192 74 204 48" fill="none" stroke="#E8ECFA" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M26 104C58 46 116 34 154 66C176 84 192 74 204 48" pathLength="1" fill="none" stroke="#E8ECFA" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
         </div>

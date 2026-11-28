@@ -27,10 +27,10 @@ const copy = {
     hideEngagements: 'Hide engagements',
     roles: [
       { period: '2023 — Present', title: 'Lead UX/UI Designer', company: 'KPMG Portugal', body: 'Took ownership of enterprise product design across multiple industries and regions, leading end-to-end digital products from discovery to delivery while shaping product strategy, design systems and scalable user experiences.' },
-      { period: '2018 — 2023', title: 'Digital Designer', company: 'Deloitte Digital', body: 'Grew from delivering individual screens to owning end-to-end digital experiences for aviation, energy, automotive and insurance clients.' },
+      { period: '2018 — 2023', title: 'Digital Designer', company: 'Deloitte Digital', body: 'Grew from delivering individual screens to owning end-to-end digital experiences for clients across Products, Services, Utilities and Resources: aviation, energy, automotive, insurance and real estate.' },
       { period: '2017 — 2018', title: 'Digital Designer', company: 'Wingman', body: 'First exposure to product thinking — designing for early-stage products where every decision had to earn its place.' },
       { period: 'Jan–Feb 2016', title: 'Trainee Motion Designer', company: 'Ogilvy', body: 'Short international placement focused on motion design fundamentals.' },
-      { period: '2015 — 2016', title: 'Creative Designer', company: 'Biocol Labs', body: 'Where it started — brand, packaging and editorial work that built the visual instincts everything since has drawn on.' },
+      { period: '2015 — 2016', title: 'Creative Designer', company: 'Biocol Labs', body: 'Where it started: digital communication, packaging and digital creative strategy, plus the online store for a range of over-the-counter pharmacy products.' },
     ],
     kpmgEngagements: [
       { client: 'Global energy company', industry: 'Financial Services', period: '2026–Present', scope: 'IntelliForge SR2R — ontology-driven financial close system, 200 franchise dealers', link: { to: '/work/intelliforge', label: 'View case study' } },
@@ -60,10 +60,10 @@ const copy = {
     hideEngagements: 'Ocultar colaborações',
     roles: [
       { period: '2023 — Presente', title: 'Lead UX/UI Designer', company: 'KPMG Portugal', body: 'Assumi a responsabilidade pelo design de produto empresarial em várias indústrias e regiões, liderando produtos digitais de ponta a ponta — da descoberta à entrega — enquanto moldava estratégia de produto, design systems e experiências escaláveis.' },
-      { period: '2018 — 2023', title: 'Digital Designer', company: 'Deloitte Digital', body: 'Evoluí de entregar ecrãs individuais para ser responsável por experiências digitais completas para clientes de aviação, energia, automóvel e seguros.' },
+      { period: '2018 — 2023', title: 'Digital Designer', company: 'Deloitte Digital', body: 'Evoluí de entregar ecrãs individuais para ser responsável por experiências digitais completas para clientes de Products, Services, Utilities and Resources: aviação, energia, automóvel, seguros e imobiliário.' },
       { period: '2017 — 2018', title: 'Digital Designer', company: 'Wingman', body: 'Primeiro contacto com pensamento de produto — a desenhar para produtos em fase inicial, onde cada decisão tinha de justificar o seu lugar.' },
       { period: 'Jan–Fev 2016', title: 'Trainee Motion Designer', company: 'Ogilvy', body: 'Estágio internacional de curta duração focado em fundamentos de motion design.' },
-      { period: '2015 — 2016', title: 'Creative Designer', company: 'Biocol Labs', body: 'Onde tudo começou — trabalho de marca, packaging e editorial que construiu os instintos visuais em que tudo o resto se apoiou.' },
+      { period: '2015 — 2016', title: 'Creative Designer', company: 'Biocol Labs', body: 'Onde tudo começou: comunicação digital, packaging e estratégia criativa digital, e ainda a loja online de uma gama de produtos farmacêuticos sem receita médica.' },
     ],
     kpmgEngagements: [
       { client: 'Empresa global de energia', industry: 'Serviços Financeiros', period: '2026–Presente', scope: 'IntelliForge SR2R — sistema de fecho financeiro orientado por ontologia, 200 concessionários', link: { to: '/work/intelliforge', label: 'Ver case study' } },

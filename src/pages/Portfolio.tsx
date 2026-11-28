@@ -31,8 +31,8 @@ const copy = {
     titleLine2Pre: '',
     titleLine2Highlight: 'high-stakes',
     titleLine2Post: ' decisions.',
-    subtitle: 'I design the decision layer of enterprise products in banking, insurance and government.',
-    showreelLabel: 'Showreel of product work: banking app with an AI assistant, government licensing flows, a design system, energy, coaching and real estate products, and a map of my 18 self-assessed competencies.',
+    subtitle: 'I design the decision layer of digital products across industries, from utilities to e‑commerce.',
+    showreelLabel: 'Showreel of product work across industries: an app with an AI assistant, licensing flows, a design system, energy, coaching and real estate products, and a map of my 18 self-assessed competencies.',
     viewWork: 'View work',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured',
@@ -55,8 +55,8 @@ const copy = {
     titleLine2Pre: '',
     titleLine2Highlight: 'alto risco.',
     titleLine2Post: '',
-    subtitle: 'Desenho a camada de decisão de produtos empresariais em banca, seguros e setor público.',
-    showreelLabel: 'Showreel de trabalho de produto: app bancária com assistente AI, fluxos de licenciamento governamentais, um design system produtos de energia, coaching e imobiliário, e um mapa das minhas 18 competências autoavaliadas.',
+    subtitle: 'Desenho a camada de decisão de produtos digitais em vários setores, da energia ao e‑commerce.',
+    showreelLabel: 'Showreel de trabalho de produto em vários setores: uma app com assistente AI, fluxos de licenciamento, um design system, produtos de energia, coaching e imobiliário, e um mapa das minhas 18 competências autoavaliadas.',
     viewWork: 'Ver trabalho',
     getInTouch: 'Contactar',
     featuredLabel: 'Em destaque',
@@ -86,7 +86,7 @@ export default function Portfolio() {
       <Nav />
 
       {/* HERO */}
-      <div style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px var(--section-gap)' }}>
+      <div className="hv1-hero" style={{ position: 'relative', padding: 'clamp(100px,15vw,150px) 20px var(--section-gap)' }}>
 
         {/* geometric accents */}
         <div className="hero-accent hero-dot-halo" style={{ top: 140, right: '7%', width: 14, height: 14, background: 'var(--color-accent)', borderRadius: '50%', opacity: 0.5 }} />

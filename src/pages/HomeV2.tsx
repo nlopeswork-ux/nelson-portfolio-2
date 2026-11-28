@@ -11,8 +11,8 @@ const copy = {
   en: {
     role: 'Lead UX/UI & Product Designer · Lisbon',
     title: 'Product systems for high-stakes decisions.',
-    subtitle: 'I design the decision layer of enterprise products in banking, insurance and government.',
-    viewWork: 'View work', showreelLabel: 'Showreel of product work: banking app login and AI assistant, delivery console, government platforms.',
+    subtitle: 'I design the decision layer of digital products across industries, from utilities to e‑commerce.',
+    viewWork: 'View work', showreelLabel: 'Showreel of product work across industries: app login and AI assistant, delivery console, licensing platforms.',
     getInTouch: 'Get in touch',
     featuredLabel: 'Featured',
     featuredTitle: 'IntelliForge SR2R',
@@ -31,8 +31,8 @@ const copy = {
   pt: {
     role: 'Lead UX/UI & Product Designer · Lisboa',
     title: 'Sistemas de produto para decisões de alto risco.',
-    subtitle: 'Desenho a camada de decisão de produtos empresariais em banca, seguros e setor público.',
-    viewWork: 'Ver trabalho', showreelLabel: 'Showreel de trabalho de produto: login e assistente AI de uma app bancária, consola de operações, plataformas governamentais.',
+    subtitle: 'Desenho a camada de decisão de produtos digitais em vários setores, da energia ao e‑commerce.',
+    viewWork: 'Ver trabalho', showreelLabel: 'Showreel de trabalho de produto em vários setores: login e assistente AI de uma app, consola de operações, plataformas de licenciamento.',
     getInTouch: 'Contactar',
     featuredLabel: 'Em destaque',
     featuredTitle: 'IntelliForge SR2R',
