@@ -90,6 +90,7 @@ Sober, with a few relaxed touches. **Blue is the voice** (rigor, structure, acti
 - Impact is one dark block (`DarkBox`) with three columns divided by hairlines (`.cs-impact-cols`), not three coloured panels.
 - Visual rhythm: no more than about 2000px of text without a visual (diagram, timeline, image, big number). Move the strongest diagram up rather than adding decoration.
 - The "On this page" menu is built from the h2s, so every section must be an h2 or it will be missing from the menu.
+- **Hero card controls share one slot.** The depth tabs (Summary / Intermediate / Full) and the "Show full details" toggle sit in the same place: below the meta list inside the hero card under 1024px, top-right corner of the card from 1024px up. Never above the title (the title leads on small screens).
 - Section numbers are CSS counters; do not type numbers into headings.
 - About uses eyebrow labels (not numbers) and the same section bar. **About dividers:** the bar sits between major sections (bio, How I Think, Beyond Design, Skills, How I Work, Education and certifications) and never between the sub-blocks of one section (Skills, Tools and Methodologies share the Skills section).
 - Certification cards reserve two title lines so every card has the same height and the entity line aligns across the row.

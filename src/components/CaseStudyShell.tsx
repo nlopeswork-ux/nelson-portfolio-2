@@ -169,15 +169,6 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
         <div style={{ position: 'absolute', top: -160, left: -200, width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(183,204,255,0.32), transparent 70%)', filter: 'blur(70px)', animation: 'driftA 24s var(--ease-in-out) infinite', zIndex: -1 }} />
 
         <div className={`${stats.length > 0 ? 'cs-herocard cs-herocard--stats' : 'cs-herocard'}${leveled ? ' cs-herocard--leveled' : ''}`} data-details={expanded} data-abbr={hasAbbr && !leveled}>
-          {leveled && (
-            <div className="cs-depth">
-              <div className="work-filter-track work-filter-track--white" role="radiogroup" aria-label={t.depthLabel}>
-                {levels.map(d => (
-                  <button key={d} type="button" role="radio" aria-checked={current === d} className={`work-filter-tab${current === d ? ' is-active' : ''}`} onClick={() => setDepth(d)}>{levelName(d)}</button>
-                ))}
-              </div>
-            </div>
-          )}
           <h1 style={{ fontSize: 'clamp(28px,5.5vw,56px)', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--ink-headline)', margin: '0 0 24px', lineHeight: 1.1, maxWidth: 900 }}>{title}</h1>
           <p style={{ fontSize: 'clamp(16px,2vw,19px)', lineHeight: 1.7, color: '#5A5F73', maxWidth: 720, margin: '0 0 8px' }}>{description}</p>
 
@@ -206,6 +197,16 @@ export default function CaseStudyShell({ title, description, meta, stats, accent
               )
             })}
           </div>
+
+          {leveled && (
+            <div className="cs-depth">
+              <div className="work-filter-track work-filter-track--white" role="radiogroup" aria-label={t.depthLabel}>
+                {levels.map(d => (
+                  <button key={d} type="button" role="radio" aria-checked={current === d} className={`work-filter-tab${current === d ? ' is-active' : ''}`} onClick={() => setDepth(d)}>{levelName(d)}</button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {!leveled && (hasAbbr || meta.length > 3) && (
             <button type="button" className="cs-details-toggle" aria-expanded={detailsOpen} onClick={() => setDetailsOpen(o => !o)}>
