@@ -629,9 +629,8 @@ export default function About() {
           <div className="cert-marquee-track">
             {[0, 1].map(dup => (
               <div className="cert-marquee-group" key={dup} aria-hidden={dup === 1}>
-                {certifications.map(({ title, org, logo }) => (
+                {certifications.map(({ title, org }) => (
                   <div key={title} className="cert-card">
-                    <div style={thumb}><img src={logo} alt="" style={thumbImg} /></div>
                     <div>
                       <div style={{ fontSize: 16, fontWeight: 700, color: '#12141F', marginBottom: 4 }}>{title}</div>
                       <div style={{ fontSize: 14, color: '#5A5F73' }}>{org}</div>
