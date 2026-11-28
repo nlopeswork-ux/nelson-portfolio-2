@@ -363,12 +363,21 @@ input::placeholder { color: #6B7086; }
 .hero-float-caption { display: block; font-size: 12px; color: #5A5F73; margin-top: 1px; white-space: nowrap; }
 .hero-accent { position: absolute; z-index: 1; pointer-events: none; }
 .hero-highlight {
-  background: rgba(61,99,224,0.12);
+  /* a rounded marker stroke under the words, not a filled box (so it never reads as a button) */
+  position: relative;
+  z-index: 0;
   color: inherit;
-  padding: 2px 10px;
-  border-radius: 10px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+}
+.hero-highlight::after {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  bottom: 0.02em;
+  height: 0.4em;
+  border-radius: 999px;
+  background: rgba(61,99,224,0.2);
+  z-index: -1;
 }
 @media (max-width: 900px) {
   .hero-float-enter, .hero-accent, .hero-bulb-halo { display: none; }
@@ -1550,7 +1559,7 @@ html { scrollbar-gutter: stable; }
 
 
 /* ── Homepage showcase: hero Work card + two lighter side cards ── */
-.hs { max-width: 1200px; margin: 0 auto; padding: 16px 32px calc(var(--section-gap) + 40px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: 1fr 1fr; gap: 24px; }
+.hs { max-width: 1200px; margin: 0 auto; padding: 16px 32px calc(var(--section-gap) + 40px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: 1fr 1fr; gap: 40px; }
 .hs a { color: inherit; text-decoration: none; }
 /* `.hs a` outranks `.hs-cta`: restore the site's link blue for the text links inside the Work card */
 .hs a.hs-cta { color: #002FA7; }
@@ -1593,7 +1602,7 @@ html { scrollbar-gutter: stable; }
 }
 .hs-side:active, .hs-work:active { transform: scale(0.99); transition-duration: 120ms; }
 @media (max-width: 860px) {
-  .hs { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; padding: 8px 20px calc(var(--section-gap) + 24px); gap: 16px; }
+  .hs { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; padding: 8px 20px calc(var(--section-gap) + 24px); gap: 28px; }
   .hs-work { grid-row: auto; min-height: 0; border-radius: 24px; }
   .hs-side { padding: 24px; }
 }
